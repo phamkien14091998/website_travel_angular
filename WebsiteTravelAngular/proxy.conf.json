@@ -1,0 +1,11 @@
+{
+    "/api/*":{
+        "target": "http://local_websitetravel.test/api",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}
