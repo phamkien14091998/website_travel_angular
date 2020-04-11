@@ -3,7 +3,8 @@ import { AuthenticationService, TokenPayload, UserDetails } from "../authenticat
 import { Router } from "@angular/router";
 
 @Component({
-    templateUrl: './register.component.html'
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
     credentials: TokenPayload = {
@@ -12,9 +13,9 @@ export class RegisterComponent {
         email: '',
         password: '',
         full_name: '',
-        avatar: '',
+        avatar: 'assets/img/img_user.PNG',
         date_of_birth: null,
-        gender: 1,
+        gender: 0,
         hometown: '',
         hobbies: '',
 
@@ -26,7 +27,7 @@ export class RegisterComponent {
     register() {
         this.auth.register(this.credentials).subscribe(
             () => {
-                this.router.navigateByUrl('/login')
+                this.router.navigateByUrl('/profile')
             },
             err => {
                 console.error(err)

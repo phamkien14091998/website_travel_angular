@@ -3,7 +3,8 @@ import { AuthenticationService, TokenPayload } from "../authentication.service";
 import { Router } from "@angular/router";
 
 @Component({
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
     credentials: TokenPayload = {
@@ -27,7 +28,7 @@ export class LoginComponent {
         this.auth.login(this.credentials).subscribe(
             () => {
                 // this.router.navigateByUrl('/profile')
-                this.router.navigateByUrl('/home')
+                this.router.navigateByUrl('/')
 
             },
             err => {

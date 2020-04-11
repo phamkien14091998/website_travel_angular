@@ -1,0 +1,17 @@
+.css-login-body {
+    border: 2px solid darkslategrey;
+    padding-top: 20px;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    background-color: paleturquoise;
+    height: 400px;
+}
+
+.css-login {
+    background-image: url('../../assets/img/img_login.PNG');
+    background-size: 100%;
+    width: none;
+    height: 750px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
