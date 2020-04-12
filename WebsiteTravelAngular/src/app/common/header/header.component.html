@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbar1">
+    <ul class="navbar-nav">
+      <li *ngIf="user?.role!=1 " class="nav-item">
+        <a routerLink="/" class="nav-link">Home</a>
+      </li>
+      <li *ngIf="!auth.haveLogin()" class="nav-item">
+        <a routerLink="/login" class="nav-link">Login</a>
+      </li>
+      <li *ngIf="!auth.haveLogin()" class="nav-item">
+        <a routerLink="/register" class="nav-link">Register</a>
+      </li>
+      <!-- <li *ngIf="user?.role==1" class="nav-item">
+        <a routerLink="/profile" class="nav-link">Profile</a>
+      </li> -->
+
+      <!-- quản lý -->
+      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
+        <a routerLink="/manager" class="nav-link">Quản Lý Sản Phẩm</a>
+      </li>
+      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
+        <a routerLink="/qlbaiviet" class="nav-link">Quản Lý Bài Viết</a>
+      </li>
+      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
+        <a routerLink="/qldiadiem" class="nav-link">Quản Lý Đại Điểm</a>
+      </li>
+      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
+        <a routerLink="/qlthongke" class="nav-link">Thống Kê</a>
+      </li>
+
+      <li *ngIf="auth.haveLogin()" class="nav-item">
+        <a routerLink="/profile" class="nav-link">{{user?.user_name}} </a>
+      </li>
+      <li *ngIf="auth.haveLogin()" class="nav-item">
+        <a routerLink="/logout" (click)="auth.logout()" class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
