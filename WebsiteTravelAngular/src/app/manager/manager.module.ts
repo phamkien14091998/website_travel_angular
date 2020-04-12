@@ -5,20 +5,45 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
 import { ManagerComponent } from './manager.component';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { ListProductComponent } from './list-product/list-product.component';
 
 
 
 const routes: Routes = [
-    //   { path: '', component: HomeComponent },
-    //   { path: 'login', component: LoginComponent },
-    //   { path: 'register', component: RegisterComponent },
-    //   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+    {
+        path: 'manager', component: ManagerComponent,
+        children: [
+            {
+                path: '', component: ListProductComponent
+            },
+            {
+                path: 'new', component: CreateProductComponent
+            },
+            // {
+            //     // path: ':id', component: FilmDetailComponent
+            // },
+            // {
+            //     // path: ':tenPhim/homes', component: FilmSearchComponent
+            // },
+            // {
+            //     // path: 'ves/:id', component: FilmDetailBookingIdComponent
+            // },
+            // {
+            //     // path: ':id/edit', component: FilmUpdateComponent
+            // }
+
+        ]
+    }
+
 
 ]
 
 @NgModule({
     declarations: [
         ManagerComponent,
+        CreateProductComponent,
+        ListProductComponent,
 
     ],
     imports: [
@@ -27,7 +52,7 @@ const routes: Routes = [
         ReactiveFormsModule,
         RouterModule,
         HttpClientModule,
-        // RouterModule.forRoot(routes),
+        RouterModule.forChild(routes),
     ],
     providers: [
 

@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse justify-content-md-center" id="navbar1">
     <ul class="navbar-nav">
-      <li *ngIf="user?.role!=1 " class="nav-item">
+      <li *ngIf="user?.role!=1" class="nav-item">
         <a routerLink="/" class="nav-link">Home</a>
       </li>
       <li *ngIf="!auth.haveLogin()" class="nav-item">
@@ -15,9 +15,6 @@
       <li *ngIf="!auth.haveLogin()" class="nav-item">
         <a routerLink="/register" class="nav-link">Register</a>
       </li>
-      <!-- <li *ngIf="user?.role==1" class="nav-item">
-        <a routerLink="/profile" class="nav-link">Profile</a>
-      </li> -->
 
       <!-- quản lý -->
       <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
