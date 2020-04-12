@@ -1,42 +1,57 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { AuthenticationService, TokenPayload } from "../authentication.service";
-import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    credentials: TokenPayload = {
-        user_id: '',
-        user_name: '',
-        email: '',
-        password: '',
-        full_name: '',
-        avatar: '',
-        date_of_birth: null,
-        gender: 0,
-        hometown: '',
-        hobbies: '',
+    data: any = {};
+    loginForm: FormGroup;
+    errors: any[] = [];
+    notifyMessage: string = '';
+    user_name: string = '';
 
+    constructor(
+        private auth: AuthenticationService,
+        private fb: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute,
+        private toastr: ToastrService
+    ) { }
+    ngOnInit() {
+        this.initForm();
 
+        this.route.params.subscribe((params) => {
+            if (params['registered'] === 'success') {
+                this.notifyMessage = 'Bạn đã đăng ký thành công, bạn có thể đăng nhập bây giờ!'
+            }
+        })
     }
-    constructor(private auth: AuthenticationService, private router: Router) {
-
+    // form
+    initForm() {
+        this.loginForm = this.fb.group({
+            email: ['', [Validators.required,
+            Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
+            password: ['', [Validators.required,
+            Validators.pattern('[a-zA-Z0-9]{5,50}')]]
+        });
+    }
+    // kiểm tra dữ liệu nhập hợp lệ
+    isInvalidForm(fieldName): boolean {
+        return this.loginForm.controls[fieldName].invalid &&
+            (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched)
+    }
+    //kiểm tra bắt buộc nhập
+    isRequired(fieldName): boolean {
+        return this.loginForm.controls[fieldName].errors.required;
     }
     login() {
-        this.auth.login(this.credentials).subscribe(
-            () => {
-                // this.router.navigateByUrl('/profile')
-                this.router.navigateByUrl('/')
-
-            },
-            err => {
-                console.error(err)
-            }
-        )
+        this.auth.login(this.loginForm.value)
     }
-
 
 }
 

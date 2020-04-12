@@ -1,55 +1,87 @@
 <div class="container">
     <div class="css-register row">
         <div class="css-register-body col-md-6 mt-5 mx-auto">
-            <form (submit)="register()">
-                <h1 class="h3 mb-3 fpnt-weight-normal">Đăng Ký</h1>
+            <div *ngIf="notifyMessage" class="alert alert-success">
+                {{notifyMessage}}
+            </div>
+            <h1 class="h3 mb-3 fpnt-weight-normal">Đăng Ký</h1>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="form-group">
                     <label class="col-md-3" for="user_name">Tên</label>
                     <input type="text" class="col-md-9" name="user_name" placeholder="nhập tên"
-                        [(ngModel)]="credentials.user_name" />
+                        formControlName="user_name" />
+                    <div *ngIf="isInvalidForm('user_name')" class="alert alert-danger">
+                        <div *ngIf="isRequired('user_name')">
+                            Yêu cầu nhập tên .
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="email">Email</label>
                     <input type="email" class="col-md-9" name="email" placeholder="nhập email"
-                        [(ngModel)]="credentials.email" />
+                        formControlName="email" />
+                    <div *ngIf="isInvalidForm('email')" class="alert alert-danger">
+                        <div *ngIf="isRequired('email')">
+                            Yêu cầu nhập Email .
+                        </div>
+                        <div *ngIf="registerForm.controls['email'].errors.pattern">
+                            Yêu cầu nhập Email theo định dạng abc@gmail.com
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="password">Mật Khẩu</label>
-                    <input type="text" class="col-md-9" name="password" placeholder="nhập mật khẩu"
-                        [(ngModel)]="credentials.password" />
+                    <input type="password" class="col-md-9" name="password" placeholder="nhập mật khẩu"
+                        formControlName="password" />
+                    <div *ngIf="isInvalidForm('password')" class="alert alert-danger">
+                        <div *ngIf="isRequired('password')">
+                            Yêu cầu nhập password .
+                        </div>
+                        <div *ngIf="registerForm.controls['password'].errors.pattern">
+                            Yêu cầu nhập mật khẩu ít nhất 5 ký tự
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="full_name">Họ Tên</label>
                     <input type="text" class="col-md-9" name="full_name" placeholder="nhập họ và tên"
-                        [(ngModel)]="credentials.full_name" />
+                        formControlName="full_name" />
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="avatar">Hình Ảnh</label>
                     <input type="text" class="col-md-9" name="avatar" value="assets/img/img_user.PNG" disabled
-                        [(ngModel)]="credentials.avatar" />
+                        formControlName="avatar" />
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="date_of_birth">Ngày Sinh</label>
                     <input type="date" class="col-md-9" name="date_of_birth" placeholder="enter date_of_birth"
-                        [(ngModel)]="credentials.date_of_birth" />
-
+                        formControlName="date_of_birth" />
+                    <div *ngIf="isInvalidForm('date_of_birth')" class="alert alert-danger">
+                        <div *ngIf="isRequired('date_of_birth')">
+                            Yêu cầu nhập ngày sinh .
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="gender">Giới Tính</label>
                     <input type="number" class="col-md-9" name="gender" placeholder="nhập giới tính"
-                        [(ngModel)]="credentials.gender" />
+                        formControlName="gender" />
                     <span style="margin-left: 140px;">1- Nam | 0- Nữ</span>
+                    <div *ngIf="isInvalidForm('gender')" class="alert alert-danger">
+                        <div *ngIf="isRequired('gender')">
+                            Yêu cầu chọn nhập giới tính (nữ : 0 , nam: 1) .
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="hometown">Quê</label>
                     <input type="text" class="col-md-9" name="hometown" placeholder="nhập quê hương"
-                        [(ngModel)]="credentials.hometown" />
-
+                        formControlName="hometown" />
                 </div>
                 <div class="form-group">
                     <label class="col-md-3" for="hobbies">Sở Thích</label>
-                    <input type="text" class="col-md-9" name="hobbies" placeholder="enter hobbies"
-                        [(ngModel)]="credentials.hobbies" />
+                    <input type="text" class="col-md-9" name="hobbies" placeholder="nhập sở thích"
+                        formControlName="hobbies" />
                 </div>
 
                 <button type="submit" class="btn btn-lg btn-primary btn-block">
@@ -57,9 +89,14 @@
                 </button>
                 <br>
                 <div class="form-group">
-                    <H5>ĐĂNG KÝ ĐỂ TRẢI NGHIỆM CÁC ĐỊA ĐIỂM DU LỊCH</H5>
+                    <H5 style="color: teal;">ĐĂNG KÝ ĐỂ TRẢI NGHIỆM CÁC ĐỊA ĐIỂM DU LỊCH</H5>
                 </div>
             </form>
+            <div *ngIf="errors.length > 0" class="alert alert-danger">
+                <p *ngFor="let error of errors">
+                    {{error.detail}}
+                </p>
+            </div>
         </div>
     </div>
 </div>

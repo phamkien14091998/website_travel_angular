@@ -1,8 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { Observable, of, BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { ToastrService } from 'ngx-toastr';
+
 
 export interface UserDetails {
     user_id: string,
@@ -15,6 +18,7 @@ export interface UserDetails {
     gender: number,
     hometown: string,
     hobbies: string,
+    role: number,
     exp: number,
     iat: number
 }
@@ -38,9 +42,16 @@ export interface TokenPayload {
 
 @Injectable()
 export class AuthenticationService {
+    private readonly jwt = new JwtHelperService();
     private token: string
+    user$: BehaviorSubject<any> = new BehaviorSubject(null); // kiểu Observble
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(
+        private http: HttpClient,
+        private router: Router,
+        private toastr: ToastrService
+
+    ) {
 
     }
     private saveToken(token: string): void {
@@ -64,39 +75,68 @@ export class AuthenticationService {
             return null
         }
     }
+    // let token = this.getToken();
+    // let user = this.jwt.decodeToken(token);
+    // this.user$.next(user)
+    // return user;
+
+    // kiểm tra có đăng nhập hay chưa 
+    public haveLogin() {
+        let user = this.getUserDetails()
+        if (user) {
+            return user.exp > Date.now() / 1000
+        } else {
+            return false;
+        }
+
+    }
     public isLoggedIn(): boolean {
-        const users = this.getUserDetails()
-        if (users) {
-            return users.exp > Date.now() / 1000
+        // const users = this.getUserDetails()
+        let token = this.getToken();
+
+        if (token) {
+            let user = this.jwt.decodeToken(token);
+            this.user$.next(user)
+            return this.jwt.isTokenExpired(token)
         } else {
             return false
         }
     }
+
     public register(users: TokenPayload): Observable<any> {
-        console.log(users);
+        // console.log(users);
         return this.http.post(`/api/register`, users, {
             headers: { 'Content-Type': 'application/json' }
         })
     }
-    public login(users: TokenPayload): Observable<any> {
-        const base = this.http.post(
+    public login(users: TokenPayload) {
+        const base = this.http.post<any>(
             `/api/login`,
             { email: users.email, password: users.password },
             {
                 headers: { 'Content-Type': 'application/json' }
             }
         )
-        console.log(users);
-
-        const request = base.pipe(
-            map((data: TokenResponse) => {
-                if (data.token) {
-                    this.saveToken(data.token)
+        // console.log(users);
+        base.subscribe(
+            res => {
+                let token = res.token;
+                // luwu token laij
+                this.saveToken(token)
+                let user = this.jwt.decodeToken(token); // jwt.decode (lấy ra những giá trị như user_name  role đã gửi lên kèm token)
+                this.user$.next(user)  // đưa user này tới component khác
+                if (user.role == 0) {
+                    this.toastr.success('Thành Công', 'Đăng Nhập');
+                    this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg 
+                } else {
+                    this.toastr.success('Thành Công', 'Đăng Nhập');
+                    this.router.navigateByUrl('/manager');
                 }
-                return data
-            })
+            },
+            err => {
+                this.toastr.error('Thất Bại', 'Đăng Nhập')
+            }
         )
-        return request
     }
     public profile(): Observable<any> {
         return this.http.get(`/api/profile`, {
