@@ -19,6 +19,7 @@ import { AuthGuardService } from "./auth-guard.service";
 import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductComponent } from './product/product.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
+  { path: 'product', component: ProductComponent },
 
 ]
 
@@ -39,6 +41,7 @@ const routes: Routes = [
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    ProductComponent,
 
   ],
   imports: [
