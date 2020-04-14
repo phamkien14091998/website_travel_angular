@@ -1,0 +1,30 @@
+.css-float-left {
+    float: left;
+}
+
+.css-navbar {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.nav-link {
+    padding-top: 12px;
+    font-size: 18px;
+}
+
+.css-hea {
+    background-color: #28a28987;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.css-span {
+    font-size: larger;
+    color: #1f0ace;
+}
+
+.pd-t-15 {
+    padding-top: 15px;
+}

@@ -2,17 +2,18 @@
 
 #search-banner {
     width: 100%;
-    height: 435px;
-    /* background-image: url('../../assets/img/search-banner.png'); */
+    height: 340px;
+    background-image: url('../../assets/img/search-banner.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 #banner-title {
-    padding-top: 40px;
+    padding-top: 35px;
     text-align: center;
-    color: white;
+    color: darkgreen;
+    font-size: xx-large;
 }
 
 #search-form {
@@ -25,7 +26,7 @@
 .search-input-text {
     padding-left: 20px;
     margin-right: 30px;
-    width: 750px;
+    width: 100%;
     float: left;
     margin-left: 10px;
 }
@@ -58,9 +59,8 @@
 
 #slogan {
     width: 100%;
-    height: 230px;
+    height: 280px;
     text-align: center;
-    border-bottom: 3px solid #43ac49;
 }
 
 .slogan-icon {
@@ -117,13 +117,14 @@
 }
 
 #post-review-header h6 {
-    margin-bottom: 55px;
+    margin-bottom: 0px;
 }
 
 #post-review {
     width: 100%;
     height: 1330px;
     word-wrap: break-word;
+    margin-left: 1px;
     /* wrap content */
 }
 
@@ -147,8 +148,9 @@
 }
 
 .post-review-image {
-    width: 333px;
+    width: 100%;
     height: 165px;
+    padding-right: 15px;
     margin-top: 10px;
 }
 
@@ -305,4 +307,8 @@
 .css-a {
     text-decoration: none;
     color: black;
+}
+
+.css-border {
+    border-top: 3px solid #43ac49;
 }
