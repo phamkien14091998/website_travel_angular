@@ -20,6 +20,7 @@ import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './product/product.component';
+import { CardComponent } from './card/card.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     ProductComponent,
+    CardComponent,
 
   ],
   imports: [
