@@ -28,3 +28,113 @@
 .pd-t-15 {
     padding-top: 15px;
 }
+
+/* start navbar  */
+
+#navbar-right {
+    /* margin-left: 70px; */
+}
+
+#navbar-center {
+    /* margin-left: 50px; */
+}
+
+#navbar-left {
+    /* margin-left: 50px; */
+}
+
+.navbar-brand {
+    font-size: 30px;
+    color: #43ac49;
+}
+
+.navbar-cart {
+    /* width: 100px; */
+    height: 40px;
+    color: black;
+    /* font-weight: 600; */
+    border: 0px;
+    background-color: white;
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+.navbar-cart:hover {
+    background-color: #43ac49;
+    color: white;
+    border-radius: 8px;
+}
+
+.navbar-right-button {
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 110px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.navbar-right-button a {
+    color: black !important;
+    font-weight: 600;
+}
+
+.navbar-right-button:hover {
+    background-color: #43ac49;
+    border: none;
+}
+
+.navbar-right-button a:hover {
+    color: white !important;
+}
+
+/* end navbar */
+
+.css-a-w {
+    width: 90px;
+    height: 45px;
+    margin-left: 5px;
+}
+
+.css-b {
+    margin-left: 5px;
+    width: 100px;
+}
+
+.navbar-expand-lg {
+    border: 1px solid #ff4200;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.css-a {
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    width: 120px;
+}
+
+.css-info {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 5px;
+    width: 120px;
+}
+
+#css-log {
+    padding-left: 100px;
+}
+
+.css-a-dk {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 5px;
+    width: 120px;
+    margin-bottom: 5px;
+}
+
+.p-r {
+    padding-right: 100px;
+}

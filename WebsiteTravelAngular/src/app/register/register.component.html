@@ -4,7 +4,11 @@
             <div *ngIf="notifyMessage" class="alert alert-success">
                 {{notifyMessage}}
             </div>
-            <h1 class="h3 mb-3 fpnt-weight-normal">Đăng Ký</h1>
+            <h1 class="h3 mb-3 fpnt-weight-normal">
+                Đăng Ký &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <a routerLink="/" class="btn btn-secondary "> Trang Chủ</a>
+            </h1>
             <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="form-group">
                     <label class="col-md-3" for="user_name">Tên</label>
