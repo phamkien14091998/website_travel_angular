@@ -1,1 +1,16 @@
+<div class=" navbar-expand-lg" id="navbar-right">
+    <!-- *ngIf="user?.role==1 && auth.haveLogin()" -->
+    <button style="width: 180px;" routerLink="/manager" class="btn btn-outline-success css-b" type="button">
+        Quản Lý Sản Phẩm
+    </button>
+    <button style="width: 180px;" routerLink="/qlbaiviet" class="btn btn-outline-success css-b" type="button">
+        Quản Lý Bài Viết
+    </button>
+    <button style="width: 180px;" routerLink="/qldiadiem" class="btn btn-outline-success css-b" type="button">
+        Quản Lý Địa Điểm
+    </button>
+    <button style="width: 150px;" routerLink="/qlthongke" class="btn btn-outline-success css-b" type="button">
+        Thống Kê
+    </button>
+</div>
 <router-outlet></router-outlet>

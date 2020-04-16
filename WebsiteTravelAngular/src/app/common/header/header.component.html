@@ -1,14 +1,14 @@
 <div class="row col-md-12 css-hea">
   <div class="col-md-2">
-    <a routerLink="/" class=" nav-link">
-      <img style="width: 390px; height: 80px;" src="../../../assets//img//logo_web.PNG" />
+    <a class=" nav-link">
+      <img style="width: 280px; height: 90px;" src="../../../assets//img//logo_web.PNG" />
     </a>
   </div>
 
-  <div class="col-md-9 pd-t-15">
+  <div class="col-md-7 pd-t-15 p-r">
     <a class="bpt-hotline pull-right">
       <span class="fa fa-phone  css-span">
-        0968692487
+        0968692487 &nbsp;
       </span>
       <span class="fa fa-phone  css-span">
         0968692487
@@ -20,46 +20,24 @@
     </a>
   </div>
 
-</div>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded css-navbar">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-md-center" id="navbar1">
+  <div class="col-md-3" id="css-l">
     <ul class="navbar-nav">
-      <li *ngIf="user?.role!=1" class="nav-item">
-        <a routerLink="/" class="nav-link">Home</a>
+      <li *ngIf="!auth.haveLogin()" class="nav-item">
+        <a routerLink="/login" class="nav-link btn btn-success css-a">Đăng Nhập</a>
       </li>
       <li *ngIf="!auth.haveLogin()" class="nav-item">
-        <a routerLink="/login" class="nav-link">Login</a>
-      </li>
-      <li *ngIf="!auth.haveLogin()" class="nav-item">
-        <a routerLink="/register" class="nav-link">Register</a>
-      </li>
-
-      <!-- quản lý -->
-      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
-        <a routerLink="/manager" class="nav-link">Quản Lý Sản Phẩm</a>
-      </li>
-      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
-        <a routerLink="/qlbaiviet" class="nav-link">Quản Lý Bài Viết</a>
-      </li>
-      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
-        <a routerLink="/qldiadiem" class="nav-link">Quản Lý Đại Điểm</a>
-      </li>
-      <li *ngIf="user?.role==1 && auth.haveLogin()" class="nav-item">
-        <a routerLink="/qlthongke" class="nav-link">Thống Kê</a>
+        <a routerLink="/register" class="nav-link btn btn-success css-a-dk">Đăng Ký</a>
       </li>
 
       <li *ngIf="auth.haveLogin()" class="nav-item">
-        <a routerLink="/profile" class="nav-link">{{user?.user_name}} </a>
+        <a class="nav-link btn btn btn-info btn-outline-info css-info">{{user?.user_name}} </a>
       </li>
       <li *ngIf="auth.haveLogin()" class="nav-item">
-        <a routerLink="/logout" (click)="auth.logout()" class="nav-link">Logout</a>
+        <a routerLink="/logout" (click)="auth.logout()" class="nav-link btn btn-outline-danger css-a">Đăng Xuất</a>
       </li>
     </ul>
   </div>
-</nav>
+
+</div>
+
+<router-outlet></router-outlet>

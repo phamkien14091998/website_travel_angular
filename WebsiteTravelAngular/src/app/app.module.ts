@@ -21,6 +21,7 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './product/product.component';
 import { CardComponent } from './card/card.component';
+import { ProductHeaderComponent } from './product/product-header/product-header.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
     FooterComponent,
     ProductComponent,
     CardComponent,
+    ProductHeaderComponent,
 
   ],
   imports: [

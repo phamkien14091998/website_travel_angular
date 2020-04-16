@@ -1,0 +1,18 @@
+.css-a-w {
+    width: 90px;
+    height: 45px;
+    margin-left: 5px;
+}
+
+.css-b {
+    margin-left: 5px;
+    width: 100px;
+}
+
+.navbar-expand-lg {
+    background-color: currentColor;
+    padding-top: 25px;
+    height: 100px;
+    margin-bottom: 55px;
+    text-align: center;
+}

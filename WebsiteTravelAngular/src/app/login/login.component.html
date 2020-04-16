@@ -4,7 +4,10 @@
             <div *ngIf="notifyMessage" class="alert alert-success">
                 {{notifyMessage}}
             </div>
-            <h1 class="h3 mb-3 fpnt-weight-normal">Vui Lòng Đăng Nhập</h1>
+            <h1 class="h3 mb-3 fpnt-weight-normal">
+                Vui Lòng Đăng Nhập &nbsp; &nbsp; &nbsp; &nbsp;
+                <a routerLink="/" class="btn btn-secondary "> Trang Chủ</a>
+            </h1>
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="form-group">
                     <label for="email">Email</label>
