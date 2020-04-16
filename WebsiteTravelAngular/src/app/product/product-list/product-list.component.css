@@ -1,0 +1,19 @@
+a {
+    text-decoration: none;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.product-list-menu-title {
+    background-color: #28a745;
+}
+
+.list-group-item a {
+    color: gray;
+}
+
+.list-group-item a:hover {
+    color: green;
+}

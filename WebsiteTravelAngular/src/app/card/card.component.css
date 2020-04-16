@@ -1,0 +1,28 @@
+.media img {
+    margin-top: 13px;
+}
+
+.media a {
+    font-size: 15px;
+}
+
+.media a:hover {
+    text-decoration: none;
+}
+
+.media-body {
+    margin-left: 15px;
+}
+
+.btn-continue-shopping {
+    width: 230px;
+    border: 1px solid grey;
+}
+
+.btn-checkout {
+    width: 115px;
+}
+
+.cart-so-luong {
+    width: 80px;
+}
