@@ -130,7 +130,7 @@ export class AuthenticationService {
                     this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg 
                 } else {
                     this.toastr.success('Thành Công', 'Đăng Nhập');
-                    this.router.navigateByUrl('/manager');
+                    this.router.navigateByUrl('/manager/product');
                 }
             },
             err => {

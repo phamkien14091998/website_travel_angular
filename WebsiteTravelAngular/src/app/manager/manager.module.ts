@@ -4,31 +4,34 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
+import { AuthGuardService } from "./../auth-guard.service";
+
 import { ManagerComponent } from './manager.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ListProductComponent } from './list-product/list-product.component';
-
-
+import { DetailProductComponent } from './detail-product/detail-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
     {
         path: 'manager', component: ManagerComponent,
         children: [
             {
-                path: '', component: ListProductComponent
+                path: 'product', component: ListProductComponent, canActivate: [AuthGuardService],
             },
             {
-                path: 'new', component: CreateProductComponent
+                path: 'product/new', component: CreateProductComponent
             },
-            // {
-            //     // path: ':id', component: FilmDetailComponent
-            // },
-            // {
-            //     // path: ':tenPhim/homes', component: FilmSearchComponent
-            // },
-            // {
-            //     // path: 'ves/:id', component: FilmDetailBookingIdComponent
-            // },
+            {
+                path: 'product/detail', component: DetailProductComponent
+            },
+            {
+                path: 'product/update', component: UpdateProductComponent
+            },
+            {
+                path: 'posts', component: PostsComponent
+            },
             // {
             //     // path: ':id/edit', component: FilmUpdateComponent
             // }
@@ -44,20 +47,21 @@ const routes: Routes = [
         ManagerComponent,
         CreateProductComponent,
         ListProductComponent,
+        DetailProductComponent,
+        UpdateProductComponent,
+        PostsComponent,
 
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule,
         HttpClientModule,
         RouterModule.forChild(routes),
     ],
     providers: [
+        AuthGuardService
 
-
-    ],
-    bootstrap: [ManagerComponent]
+    ]
 })
 export class ManagerModule { }

@@ -19,9 +19,8 @@ import { AuthGuardService } from "./auth-guard.service";
 import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductComponent } from './product/product.component';
-import { CardComponent } from './card/card.component';
-import { ProductHeaderComponent } from './product/product-header/product-header.component';
+import { ProductModule } from "./product/product.module";
+import { ProductComponent } from "./product/product.component";
 
 
 const routes: Routes = [
@@ -29,8 +28,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
-  { path: 'product', component: ProductComponent },
+  // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
+  // { path: 'product', component: ProductComponent },
+
 
 ]
 
@@ -43,9 +43,6 @@ const routes: Routes = [
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ProductComponent,
-    CardComponent,
-    ProductHeaderComponent,
 
   ],
   imports: [
@@ -54,13 +51,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    ProductModule,
     ManagerModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-top-right',
       preventDuplicates: false
     }),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
+
 
   ],
   providers: [

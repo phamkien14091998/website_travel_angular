@@ -33,7 +33,7 @@
         <a class="nav-link btn btn btn-info btn-outline-info css-info">{{user?.user_name}} </a>
       </li>
       <li *ngIf="auth.haveLogin()" class="nav-item">
-        <a routerLink="/logout" (click)="auth.logout()" class="nav-link btn btn-outline-danger css-a">Đăng Xuất</a>
+        <a routerLink="/logout" (click)="auth.logout()" class="nav-link btn btn-danger css-a">Đăng Xuất</a>
       </li>
     </ul>
   </div>

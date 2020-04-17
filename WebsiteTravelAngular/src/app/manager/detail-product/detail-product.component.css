@@ -10,8 +10,10 @@ fieldset.css-fieldset {
 .css_inp {
     border-radius: 4px;
     border: 1px solid darkgray;
-    width: 250px;
+    width: 163px;
     height: 36px;
+    padding-left: 5px;
+    margin-bottom: 5px;
 }
 
 .css-h {
@@ -22,36 +24,4 @@ fieldset.css-fieldset {
 .css-b {
     width: 80px;
     margin-right: 5px;
-}
-
-.pd-t {
-    margin-top: 20px;
-}
-
-.css-n {
-    margin-left: 24px;
-}
-
-.css-ha {
-    margin-left: 31px;
-}
-
-.css-de {
-    margin-top: 20px;
-    margin-left: 45px;
-}
-
-.css-mo {
-    padding-bottom: 40px;
-}
-
-.css-bu {
-    margin-top: 30px;
-    
-}
-.css-g{
-    margin-left: 42px;
-}
-.css-t{
-    margin-left: 8px;
 }
