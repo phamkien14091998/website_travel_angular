@@ -4,6 +4,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthenticationService } from "../authentication.service";
+import { AuthGuardService } from "./../auth-guard.service";
+
 import { ProductComponent } from "./product.component";
 import { ProductHeaderComponent } from "./product-header/product-header.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
@@ -57,8 +62,14 @@ const routes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        ToastrModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+
     ],
     providers: [
+        AuthenticationService,
+        AuthGuardService
 
     ],
 })

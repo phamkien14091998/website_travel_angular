@@ -10,7 +10,7 @@ fieldset.css-fieldset {
 .css_inp {
     border-radius: 4px;
     border: 1px solid darkgray;
-    width: 250px;
+    width: 750px;
     height: 36px;
 }
 
@@ -47,11 +47,12 @@ fieldset.css-fieldset {
 
 .css-bu {
     margin-top: 30px;
-    
 }
-.css-g{
+
+.css-g {
     margin-left: 42px;
 }
-.css-t{
-    margin-left: 8px;
+
+.css-t {
+    margin-left: 38px;
 }

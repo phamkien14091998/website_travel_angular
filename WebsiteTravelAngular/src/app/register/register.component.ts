@@ -63,7 +63,7 @@ export class RegisterComponent {
         this.auth.register(this.registerForm.value).subscribe(
             () => {
                 this.toastr.success('Thành Công - Mời Bạn Đăng Nhập', 'Đăng Ký');
-                this.router.navigateByUrl('/login')
+                this.router.navigateByUrl('/login');
             },
             err => {
                 this.toastr.error('Thất Bại (Email của bạn đã được sử dụng)', 'Đăng Ký');

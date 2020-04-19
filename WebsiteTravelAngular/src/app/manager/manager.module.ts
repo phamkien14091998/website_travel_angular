@@ -4,6 +4,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthenticationService } from "../authentication.service";
 import { AuthGuardService } from "./../auth-guard.service";
 
 import { ManagerComponent } from './manager.component';
@@ -12,6 +15,7 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { PostsComponent } from './posts/posts.component';
+import { ManagerProductService } from "./share/manager_product.service";
 
 const routes: Routes = [
     {
@@ -58,9 +62,13 @@ const routes: Routes = [
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule.forChild(routes),
+        BrowserAnimationsModule,
+        ToastrModule,
     ],
     providers: [
-        AuthGuardService
+        AuthGuardService,
+        AuthenticationService,
+        ManagerProductService
 
     ]
 })
