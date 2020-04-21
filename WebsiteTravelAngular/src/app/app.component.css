@@ -1,5 +1,6 @@
 .border-body-app {
-    background-color: #e4eef7;
+    /* background-color: #e4eef7; */
+    /* background-color: #dadee0; */
     height: auto;
     width: auto;
     margin-left: 20px;
@@ -16,7 +17,7 @@
     text-align: center;
     height: 480px;
     /* background-color: #93a9a6; */
-    background-color: #28a28987 ;
+    background-color: #28a28987;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -26,10 +27,11 @@
     margin-right: 5px;
     margin-bottom: 10px;
 }
-.header{
+
+.header {
     /* text-align: center; */
     height: auto;
-    background-color: #e4eef7;
+    background-color: #eaf2f5;
     width: 100%;
     padding-top: 10px;
     padding-left: 10px;

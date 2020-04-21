@@ -29,6 +29,10 @@ export class ManagerProductService {
         return this.http.post(`/api/product/new`, product_data);
     }
 
+    public getListProduct(): Observable<any> {
+        return this.http.get(`/api/product/list-product`);
+    }
+
     //   public getPhimById(filmId: string): Observable<any> {
     //     return this.http.get(environment.API_URL+'/api/v1/films/'+ filmId); 
 

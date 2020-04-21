@@ -42,14 +42,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
+
+                            <tr *ngFor="let data of data_listProduct ; let i = index" [attr.data-index]="i">
+                                <td>{{i+1}}</td>
+                                <td>
+                                    <img width="120px" height="80px"
+                                        src="http://local_websitetravel.test/{{data.images[0]}}" />
+                                </td>
+                                <td>{{data.product_name}}</td>
+                                <td>{{data.price}}</td>
+                                <td>{{data.portfolio_name}}</td>
+                                <td>
+                                    <div *ngIf="data.flag==1 && data.quantity!=0; else templateName">
+                                        Còn Hàng
+                                    </div>
+                                </td>
+                                <ng-template #templateName>
+                                    Hết Hàng
+                                </ng-template>
+
+                                <td>{{data.quantity}}</td>
                                 <td class="text-center">
                                     <button type="submit" routerLink="/manager/product/detail"
                                         class="css-b btn btn-info">Chi Tiết</button>
@@ -58,6 +70,7 @@
                                     <button type="submit" class="css-b btn btn-danger">Xóa</button>
                                 </td>
                             </tr>
+
                         </tbody>
                     </table>
                 </div>

@@ -16,10 +16,6 @@ export class CreateProductComponent implements OnInit {
 
   data_portfolio: any = {};
   createProductForm: FormGroup;
-  // files: any;
-  // image_1: any;
-  // image_2: any;
-  // image_3: any;
 
   myFiles: string[] = [];
 
@@ -70,7 +66,7 @@ export class CreateProductComponent implements OnInit {
     formData.append('portfolio_id', this.createProductForm.controls['portfolio_id'].value);
 
     this.options = { content: formData };
-    
+
     formData.forEach((value, key) => {
       console.log(key + ' ' + value);
     });
