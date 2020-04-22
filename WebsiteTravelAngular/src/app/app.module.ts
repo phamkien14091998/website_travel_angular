@@ -23,15 +23,18 @@ import { ProductModule } from "./product/product.module";
 import { ProductComponent } from "./product/product.component";
 
 
+import { PostDetailComponent } from "./manager/post-detail/post-detail.component";
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
-  // { path: 'product', component: ProductComponent },
+  //{ path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
+  //{ path: 'product', component: ProductComponent },
 
-
+  { path: 'post-detail', component: PostDetailComponent },
 ]
 
 @NgModule({
@@ -59,8 +62,6 @@ const routes: Routes = [
       preventDuplicates: false
     }),
     BrowserAnimationsModule
-
-
   ],
   providers: [
     AuthGuardService,

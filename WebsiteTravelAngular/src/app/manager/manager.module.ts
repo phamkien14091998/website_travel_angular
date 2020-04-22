@@ -16,6 +16,7 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { PostsComponent } from './posts/posts.component';
 import { ManagerProductService } from "./share/manager_product.service";
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const routes: Routes = [
     {
@@ -54,6 +55,7 @@ const routes: Routes = [
         DetailProductComponent,
         UpdateProductComponent,
         PostsComponent,
+        PostDetailComponent,
 
     ],
     imports: [
