@@ -53,7 +53,7 @@
                                 <td>{{data.price}}</td>
                                 <td>{{data.portfolio_name}}</td>
                                 <td>
-                                    <div *ngIf="data.flag==1 && data.quantity!=0; else templateName">
+                                    <div *ngIf="data.quantity!=0; else templateName">
                                         Còn Hàng
                                     </div>
                                 </td>

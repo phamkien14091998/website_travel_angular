@@ -36,10 +36,10 @@ export class CreateProductComponent implements OnInit {
   }
   initForm() {
     this.createProductForm = this.fb.group({
-      product_name: ['1', Validators.required],
-      price: ['1', Validators.required],
-      description: ['1', Validators.required],
-      quantity: ['1', Validators.required],
+      product_name: ['', Validators.required],
+      price: ['', Validators.required],
+      description: ['', Validators.required],
+      quantity: ['', Validators.required],
       portfolio_id: ['', Validators.required],
       profile: ['']
     });

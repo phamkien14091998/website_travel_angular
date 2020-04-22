@@ -53,7 +53,7 @@
                             </select>
                             <div *ngIf="isInvalidForm('portfolio_id')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('portfolio_id')">
-                                    Yêu cầu nhập thể loại sản phẩm .
+                                    Yêu cầu chọn thể loại sản phẩm .
                                 </div>
                             </div>
                         </div>
@@ -63,11 +63,11 @@
                             <textarea class=" col-md-9 " type="text" rows="8" placeholder="nhập mô tả" id=""
                                 name="description" formControlName="description">
                             </textarea>
-                            <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">
+                            <!-- <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('description')">
                                     Yêu cầu nhập mô tả sản phẩm .
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row col-md-12 css-bu">

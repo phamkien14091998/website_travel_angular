@@ -16,6 +16,7 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { PostsComponent } from './posts/posts.component';
 import { ManagerProductService } from "./share/manager_product.service";
+import { PostsDetailComponent } from './manager-posts/posts-detail/posts-detail.component';
 
 const routes: Routes = [
     {
@@ -36,8 +37,11 @@ const routes: Routes = [
             {
                 path: 'posts', component: PostsComponent
             },
+            {
+                path: 'posts/detail', component: PostsComponent
+            },
             // {
-            //     // path: ':id/edit', component: FilmUpdateComponent
+            //     path: ':id/edit', component: FilmUpdateComponent
             // }
 
         ]
@@ -54,6 +58,7 @@ const routes: Routes = [
         DetailProductComponent,
         UpdateProductComponent,
         PostsComponent,
+        PostsDetailComponent,
 
     ],
     imports: [
