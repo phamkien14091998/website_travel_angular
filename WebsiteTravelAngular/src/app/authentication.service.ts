@@ -103,7 +103,7 @@ export class AuthenticationService {
         }
     }
 
-    public register(users: TokenPayload): Observable<any> {
+    public register(users: TokenPayload): Observable<any> {   
         // console.log(users);
         return this.http.post(`/api/register`, users, {
             headers: { 'Content-Type': 'application/json' }

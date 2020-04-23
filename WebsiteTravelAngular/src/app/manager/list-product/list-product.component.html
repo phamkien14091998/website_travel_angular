@@ -4,26 +4,30 @@
             <fieldset class="css-fieldset">
                 <legend class="col-md-12">QUẢN LÝ SẢN PHẨM</legend>
                 <div class="css-h row col-md-12">
-                    <div class="col-md-2">
+                    <div class="col-md-1">
 
                     </div>
-                    <div class="col-md-2">
-                        <input class="css_inp" type="text" placeholder="tìm kiếm sản phẩm" id="" name="product_name" />
-                    </div>
-                    <div class="col-md-2">
-                        <select class="css_inp" id="idDM">
-                            <option value="tenDM">Danh Mục</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
-                    </div>
+                    <form class="row col-md-9" [formGroup]="searchProductForm" (ngSubmit)="searchProduct()">
+
+                        <div class=" col-md-3">
+                            <input class="css_inp" type="text" placeholder="tìm kiếm sản phẩm" id="" name="product_name"
+                                formControlName="product_name" />
+                        </div>
+                        <div class="col-md-4">
+                            <select class="css_inp-select col-md-9 " id="portfolio_id" formControlName="portfolio_id">
+                                <option name=""></option>
+                                <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
+                                    {{data.portfolio_name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+                        </div>
+                    </form>
                     <div class="col-md-2">
                         <button type="submit" routerLink="/manager/product/new" class="btn btn-primary">Thêm
                             Mới</button>
-                    </div>
-                    <div class="col-md-2">
-
                     </div>
                 </div>
 
@@ -35,10 +39,10 @@
                                 <th>Hình Ảnh</th>
                                 <th>Tên Sản Phẩm</th>
                                 <th>Giá</th>
-                                <th>Danh Mục</th>
+                                <!-- <th>Danh Mục</th> -->
                                 <th>Trạng Thái</th>
-                                <th>Số Lượng</th>
-                                <th class="text-center">Thao Tác</th>
+                                <!-- <th>Số Lượng</th> -->
+                                <th class="text-center">Hành Động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,24 +50,24 @@
                             <tr *ngFor="let data of data_listProduct ; let i = index" [attr.data-index]="i">
                                 <td>{{i+1}}</td>
                                 <td>
-                                    <img width="120px" height="80px"
-                                        src="http://local_websitetravel.test/{{data.images[0]}}" />
+                                    <img *ngIf="data.images[0]" width="120px" height="80px"
+                                        src="{{domain}}/{{data.images[0]}}" />
                                 </td>
                                 <td>{{data.product_name}}</td>
                                 <td>{{data.price}}</td>
-                                <td>{{data.portfolio_name}}</td>
+                                <!-- <td>{{data.portfolio_name}}</td> -->
                                 <td>
                                     <div *ngIf="data.quantity!=0; else templateName">
                                         Còn Hàng
                                     </div>
                                 </td>
                                 <ng-template #templateName>
-                                    Hết Hàng
+                                    <span style="color: red;">Hết Hàng</span>
                                 </ng-template>
 
-                                <td>{{data.quantity}}</td>
+                                <!-- <td>{{data.quantity}}</td> -->
                                 <td class="text-center">
-                                    <button type="submit" routerLink="/manager/product/detail"
+                                    <button type="submit" routerLink="/manager/product/detail/{{data.product_id}}"
                                         class="css-b btn btn-info">Chi Tiết</button>
                                     <button type="submit" routerLink="/manager/product/update"
                                         class="css-b btn btn-primary">Sửa</button>

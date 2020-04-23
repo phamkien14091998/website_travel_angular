@@ -11,7 +11,9 @@
                     <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                         <thead>
                             <tr>
-                                <th>Hình Ảnh</th>
+                                <th>Hình Ảnh 1</th>
+                                <th>Hình Ảnh 2</th>
+                                <th>Hình Ảnh 3</th>
                                 <th>Tên Sản Phẩm</th>
                                 <th>Giá</th>
                                 <th>Danh Mục</th>
@@ -20,15 +22,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngIf="data_detailProduct && data_detailProduct.images">
                                 <td>
-                                    <img width="250px" height="300" src="../../../assets//img/img_trangchu.PNG" />
+                                    <img width="180px" height="140px"
+                                        src="{{domain}}/{{data_detailProduct.images[0]}}" />
                                 </td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
-                                <td>田中</td>
+                                <td>
+                                    <img width="180px" height="140px"
+                                        src="{{domain}}/{{data_detailProduct.images[1]}}" />
+                                </td>
+                                <td>
+                                    <img width="180px" height="140px"
+                                        src="{{domain}}/{{data_detailProduct.images[2]}}" />
+                                </td>
+                                <td>{{data_detailProduct.product_name}}</td>
+                                <td>{{data_detailProduct.price}}</td>
+                                <td>{{data_detailProduct.portfolio_name}}</td>
+                                <td>
+                                    <div *ngIf="data_detailProduct.quantity!=0; else templateName">
+                                        Còn Hàng
+                                    </div>
+                                </td>
+                                <ng-template #templateName>
+                                    <span style="color: red;">Hết Hàng</span>
+                                </ng-template>
+                                <td>{{data_detailProduct.quantity}}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -21,16 +21,32 @@ export class ManagerProductService {
 
     }
 
+    // lấy ra danh sách thể loại
     public getProductPortfolio(): Observable<any> {
         return this.http.get(`/api/product/list-portfolio`);
     }
-
+    // thêm sản phẩm mới
     public createProduct(product_data: any): Observable<any> {
         return this.http.post(`/api/product/new`, product_data);
     }
-
+    // lấy ra tất cả danh sách sản phẩm
     public getListProduct(): Observable<any> {
+        // console.log(product_search);
+
         return this.http.get(`/api/product/list-product`);
+    }
+    // tìm kiếm sản phẩm theo tên sản phẩm
+    public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
+        return this.http.post(`/api/product/search-product`, product);
+    }
+    // // tìm kiếm sản phẩm theo id thể loại
+    // public searchProductbyPortfolioId(product_name: any): Observable<any> {
+    //     return this.http.post(`/api/product/search-product-portfolio`, product_name);
+    // }
+    // chi tiết sản phẩm theo id
+    public getDetailProductById(product_id: string): Observable<any> {
+
+        return this.http.get('/api/product/detail-product/' + product_id);
     }
 
     //   public getPhimById(filmId: string): Observable<any> {

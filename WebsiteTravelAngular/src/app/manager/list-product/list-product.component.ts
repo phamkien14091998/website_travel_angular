@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from "../../../environments/environment";
+import { Router, ActivatedRoute } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { ManagerProductService } from "../share/manager_product.service";
 @Component({
@@ -8,24 +11,66 @@ import { ManagerProductService } from "../share/manager_product.service";
 })
 export class ListProductComponent implements OnInit {
   data_listProduct: any = [];
-  constructor(private product_service: ManagerProductService) { }
+  data_portfolio: any = [];
+  domain = environment.API_URL;
+  searchProductForm: FormGroup;
+
+  constructor(
+    private product_service: ManagerProductService,
+    private fb: FormBuilder,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.initForm();
     this.getListProduct();
+    this.getProductPortfolio();
+
+  }
+  initForm() {
+    this.searchProductForm = this.fb.group({
+      product_name: [''],
+      portfolio_id: [''],
+    });
   }
 
+  // get all product
   getListProduct() {
     this.product_service.getListProduct().subscribe(
       (data) => {
+
+        this.data_listProduct = data.map(p => {
+          p.images = p.images.split("|")
+          return p;
+        })
+
+      }, err => { console.log(err) }
+    );
+  }
+  getProductPortfolio() {
+    this.product_service.getProductPortfolio().subscribe(
+      (data) => {
+        this.data_portfolio = data;
+      }
+    );
+  }
+  // search product theo product_name hoạc theo portfolio_id hoac k search thì lấy hết danh sách product
+  searchProduct() {
+    this.product_service.searchProductbyNameOrPortfolioId(
+      this.searchProductForm.value
+
+    ).subscribe(
+      (data) => {
+
         this.data_listProduct = data.map(p => {
           p.images = p.images.split("|")
           return p;
         })
         // console.log(this.data_listProduct);
         // this.data_listProduct = $data;
-      },err=>{console.log(err)}
+      }, err => { console.log(err) }
     );
-
   }
+
 
 }

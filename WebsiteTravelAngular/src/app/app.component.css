@@ -1,3 +1,18 @@
+.header {
+    /* text-align: center; */
+    /* height: auto; */
+    background-color: #eaf2f5;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
 .border-body-app {
     /* background-color: #e4eef7; */
     /* background-color: #dadee0; */
@@ -18,21 +33,6 @@
     height: 480px;
     /* background-color: #93a9a6; */
     background-color: #28a28987;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-
-.header {
-    /* text-align: center; */
-    height: auto;
-    background-color: #eaf2f5;
-    width: 100%;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;

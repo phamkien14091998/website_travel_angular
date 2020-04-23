@@ -62,7 +62,7 @@ export class RegisterComponent {
     register() {
         this.auth.register(this.registerForm.value).subscribe(
             () => {
-                this.toastr.success('Thành Công - Mời Bạn Đăng Nhập', 'Đăng Ký');
+                this.toastr.success('Thành Công - Mời Bạn Đăng Nhập', 'Đăng Ký');    
                 this.router.navigateByUrl('/login');
             },
             err => {
@@ -72,5 +72,5 @@ export class RegisterComponent {
     }
 
 
-}
+}    
 

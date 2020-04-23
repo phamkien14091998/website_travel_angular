@@ -67,7 +67,7 @@ export class CreateProductComponent implements OnInit {
 
     this.options = { content: formData };
 
-    formData.forEach((value, key) => {
+    formData.forEach((value, key) => {  
       console.log(key + ' ' + value);
     });
 

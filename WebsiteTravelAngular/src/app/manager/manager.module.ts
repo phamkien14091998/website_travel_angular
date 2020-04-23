@@ -29,7 +29,7 @@ const routes: Routes = [
                 path: 'product/new', component: CreateProductComponent
             },
             {
-                path: 'product/detail', component: DetailProductComponent
+                path: 'product/detail/:product_id', component: DetailProductComponent
             },
             {
                 path: 'product/update', component: UpdateProductComponent
@@ -38,7 +38,7 @@ const routes: Routes = [
                 path: 'posts', component: PostsComponent
             },
             {
-                path: 'posts/detail', component: PostsComponent
+                path: 'posts/detail', component: PostsDetailComponent
             },
             // {
             //     path: ':id/edit', component: FilmUpdateComponent
