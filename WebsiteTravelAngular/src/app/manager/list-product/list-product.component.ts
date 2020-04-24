@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ToastrService } from 'ngx-toastr';
 
 import { ManagerProductService } from "../share/manager_product.service";
+
 @Component({
   selector: 'app-list-product',
   templateUrl: './list-product.component.html',
@@ -15,10 +17,14 @@ export class ListProductComponent implements OnInit {
   domain = environment.API_URL;
   searchProductForm: FormGroup;
 
+  //delete
+  productDeleteIndex: number;
+
   constructor(
     private product_service: ManagerProductService,
     private fb: FormBuilder,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -66,10 +72,22 @@ export class ListProductComponent implements OnInit {
           p.images = p.images.split("|")
           return p;
         })
-        // console.log(this.data_listProduct);
-        // this.data_listProduct = $data;
       }, err => { console.log(err) }
     );
+  }
+
+  //delete product
+  deleteProduct(product_id: string) {
+    this.product_service.deleteProduct(product_id).subscribe(
+      () => {
+        this.data_listProduct.splice(this.productDeleteIndex, 1);
+        this.productDeleteIndex = undefined;
+        this.toastr.success('thành công', 'Xóa sản phẩm');
+
+      }, () => {
+        this.toastr.error('thất bại', 'Xóa sản phẩm');
+      }
+    )
   }
 
 

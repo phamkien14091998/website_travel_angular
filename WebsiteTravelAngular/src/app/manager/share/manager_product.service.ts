@@ -31,7 +31,7 @@ export class ManagerProductService {
     }
     // lấy ra tất cả danh sách sản phẩm
     public getListProduct(): Observable<any> {
-        // console.log(product_search);
+        // console.log(product_search);   
 
         return this.http.get(`/api/product/list-product`);
     }
@@ -39,14 +39,18 @@ export class ManagerProductService {
     public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
         return this.http.post(`/api/product/search-product`, product);
     }
-    // // tìm kiếm sản phẩm theo id thể loại
-    // public searchProductbyPortfolioId(product_name: any): Observable<any> {
-    //     return this.http.post(`/api/product/search-product-portfolio`, product_name);
-    // }
     // chi tiết sản phẩm theo id
     public getDetailProductById(product_id: string): Observable<any> {
 
         return this.http.get('/api/product/detail-product/' + product_id);
+    }
+    //xóa sản phẩm theo product_id
+    public deleteProduct(product_id: string): Observable<any> {
+        return this.http.delete(`/api/product/delete/` + product_id);
+    }
+    //update product by product_id
+    public updateProduct(product_id: string, productData: any): Observable<any> {
+        return this.http.patch(`/api/product/delete/` + product_id, productData);
     }
 
     //   public getPhimById(filmId: string): Observable<any> {
@@ -67,10 +71,6 @@ export class ManagerProductService {
 
     //   public getFilmManager(): Observable<any>{
     //     return this.http.get(environment.API_URL+'/api/v1/films/manage');
-    //   }
-
-    //   public deleteFilm(filmId: string): Observable<any>{
-    //     return this.http.delete(environment.API_URL+`/api/v1/films/${filmId}`);
     //   }
 
     //   public updateFilm(filmId: string,filmData: any): Observable<any>{

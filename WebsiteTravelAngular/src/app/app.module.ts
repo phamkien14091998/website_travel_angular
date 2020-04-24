@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { Routes, RouterModule } from "@angular/router"; 
+import { Routes, RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from "./profile/profile.component";
@@ -20,8 +20,7 @@ import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from "./product/product.module";
-import { ProductComponent } from "./product/product.component";
-
+import { MemberPostModule } from "./member-post/member-post.module";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -58,7 +57,8 @@ const routes: Routes = [
       positionClass: 'toast-top-right',
       preventDuplicates: false
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MemberPostModule
 
 
   ],
