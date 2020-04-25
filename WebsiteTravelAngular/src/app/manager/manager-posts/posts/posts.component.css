@@ -1,0 +1,61 @@
+fieldset.css-fieldset {
+    border: 2px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+    height: 800px;
+}
+
+.css_inp {
+    border-radius: 4px;
+    border: 1px solid darkgray;
+    width: 163px;
+    height: 36px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.css-h {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.css-b {
+    width: 80px;
+    margin-right: 5px;
+}
+
+
+/* start table */
+
+.manager-post-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.manager-post-table td,
+.manager-post-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.manager-post-table thead td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.manager-post-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.manager-post-table tr:hover {
+    background-color: #ddd;
+}
+
+
+/* end table */
