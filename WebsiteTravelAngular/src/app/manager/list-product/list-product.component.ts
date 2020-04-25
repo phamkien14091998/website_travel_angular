@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
 import { ManagerProductService } from "../share/manager_product.service";
+
 
 @Component({
   selector: 'app-list-product',
@@ -32,7 +33,9 @@ export class ListProductComponent implements OnInit {
     this.getListProduct();
     this.getProductPortfolio();
 
+
   }
+
   initForm() {
     this.searchProductForm = this.fb.group({
       product_name: [''],
@@ -44,7 +47,6 @@ export class ListProductComponent implements OnInit {
   getListProduct() {
     this.product_service.getListProduct().subscribe(
       (data) => {
-
         this.data_listProduct = data.map(p => {
           p.images = p.images.split("|")
           return p;
@@ -92,3 +94,4 @@ export class ListProductComponent implements OnInit {
 
 
 }
+

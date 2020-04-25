@@ -14,9 +14,13 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ListProductComponent } from './list-product/list-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './manager-posts/posts/posts.component';
 import { ManagerProductService } from "./share/manager_product.service";
 import { PostsDetailComponent } from './manager-posts/posts-detail/posts-detail.component';
+import { ListPlacesComponent } from './manager-places/list-places/list-places.component';
+import { CreatePlacesComponent } from './manager-places/create-places/create-places.component';
+import { DetailPlacesComponent } from './manager-places/detail-places/detail-places.component';
+import { UpdatePlacesComponent } from './manager-places/update-places/update-places.component';
 
 const routes: Routes = [
     {
@@ -34,15 +38,27 @@ const routes: Routes = [
             {
                 path: 'product/update/:product_id', component: UpdateProductComponent
             },
+            // router post
             {
-                path: 'posts', component: PostsComponent
+                path: 'posts', component: PostsComponent, canActivate: [AuthGuardService],
             },
             {
                 path: 'posts/detail', component: PostsDetailComponent
             },
-            // {
-            //     path: ':id/edit', component: FilmUpdateComponent
-            // }
+            // router famous places
+            {
+                path: 'places', component: ListPlacesComponent, canActivate: [AuthGuardService],
+            },
+            {
+                path: 'places/new', component: CreatePlacesComponent
+            },
+            {
+                path: 'places/detail/:place_id', component: DetailPlacesComponent
+            },
+            {
+                path: 'places/update/:place_id', component: UpdatePlacesComponent
+            },
+
 
         ]
     }
@@ -59,6 +75,11 @@ const routes: Routes = [
         UpdateProductComponent,
         PostsComponent,
         PostsDetailComponent,
+        ListPlacesComponent,
+        CreatePlacesComponent,
+        DetailPlacesComponent,
+        UpdatePlacesComponent,
+
 
     ],
     imports: [
