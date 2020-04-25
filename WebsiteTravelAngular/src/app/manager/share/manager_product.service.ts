@@ -50,7 +50,7 @@ export class ManagerProductService {
     }
     //update product by product_id
     public updateProduct(product_id: string, productData: any): Observable<any> {
-        return this.http.patch(`/api/product/delete/` + product_id, productData);
+        return this.http.post(`/api/product/update/` + product_id, productData);
     }
 
     //   public getPhimById(filmId: string): Observable<any> {

@@ -14,11 +14,9 @@ import { ManagerProductService } from "../share/manager_product.service";
 export class CreateProductComponent implements OnInit {
   options: { content: FormData };
 
-  data_portfolio: any = {};
+  data_portfolio: any = [];
   createProductForm: FormGroup;
-
   myFiles: string[] = [];
-
   file: string;
 
   constructor(
@@ -38,7 +36,7 @@ export class CreateProductComponent implements OnInit {
     this.createProductForm = this.fb.group({
       product_name: ['', Validators.required],
       price: ['', Validators.required],
-      description: ['', Validators.required],
+      description: [''],
       quantity: ['', Validators.required],
       portfolio_id: ['', Validators.required],
       profile: ['']
@@ -67,7 +65,7 @@ export class CreateProductComponent implements OnInit {
 
     this.options = { content: formData };
 
-    formData.forEach((value, key) => {  
+    formData.forEach((value, key) => {
       console.log(key + ' ' + value);
     });
 

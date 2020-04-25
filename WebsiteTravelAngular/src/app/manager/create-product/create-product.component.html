@@ -46,7 +46,8 @@
 
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thể Loại </span>
-                            <select class="css_inp col-md-9 " id="portfolio_id" formControlName="portfolio_id">
+                            <select class="css_inp col-md-9 " id="portfolio_id" title="--- Chọn Thể Loại Sản Phẩm ---"
+                                formControlName="portfolio_id">
                                 <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
                                     {{data.portfolio_name}}
                                 </option>

@@ -2,63 +2,80 @@
     <div class="row">
         <div class=" col-md-12">
             <fieldset class="css-fieldset">
-                <legend class="col-md-12">QUẢN LÝ SẢN PHẨM</legend>
+                <legend class="col-md-12">Sửa SẢN PHẨM</legend>
                 <div class="css-h row col-md-12">
-
-                    <div class="row col-md-12 pd-t">
-                        <div class="col-md-6 ">
-                            <span class="col-md-3 text-right">Tên Sản Phẩm </span>
+                    <form [formGroup]="updateProductForm" (ngSubmit)="updateProduct()">
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3 text-center">Tên Sản Phẩm </span>
                             <input class="css_inp col-md-9 " type="text" placeholder="nhập tên sản phẩm" id=""
-                                name="product_name" />
+                                name="product_name" value="{{data_detailProduct.product_name}}"
+                                formControlName="product_name" />
+                            <!-- <div *ngIf="isInvalidForm('product_name')" class="alert alert-danger col-md-12">
+                                <div *ngIf="isRequired('product_name')">
+                                    Yêu cầu nhập tên sản phẩm .
+                                </div>
+                            </div> -->
+
                         </div>
-                        <div class="col-md-6">
-                            <span class="col-md-3 text-right">Giá </span>
-                            <input class="css_inp col-md-9 css-g" type="text" placeholder="nhập giá sản phẩm" id=""
-                                name="price" />
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3 text-center">Giá </span>
+                            <input class="css_inp col-md-9 " type="text" placeholder="nhập giá sản phẩm" id=""
+                                name="price" value="{{data_detailProduct.price}}" formControlName="price" />
+                            <!-- <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
+                                <div *ngIf="isRequired('price')">
+                                    Yêu cầu nhập giá sản phẩm .
+                                </div>
+                            </div> -->
                         </div>
-                    </div>
-                    <div class="row col-md-12 pd-t">
-                        <div class="col-md-6">
-                            <span class="col-md-3">Trạng Thái </span>
-                            <input class="css_inp col-md-9 css-n" type="text" placeholder="nhập trạng thái" id=""
-                                name="status" />
-                        </div>
-                        <div class="col-md-6">
-                            <span class="col-md-3">Số Lượng </span>
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3  text-center">Số Lượng </span>
                             <input class="css_inp col-md-9" type="text" placeholder="nhập số lượng " id=""
-                                name="quantity" />
+                                name="quantity" value="{{data_detailProduct.quantity}}" formControlName="quantity" />
+                            <!-- <div *ngIf="isInvalidForm('quantity')" class="alert alert-danger col-md-12">
+                                <div *ngIf="isRequired('quantity')">
+                                    Yêu cầu nhập số lượng sản phẩm .
+                                </div>
+                            </div> -->
                         </div>
-                    </div>
-                    <div class="row col-md-12 pd-t">
-                        <div class="col-md-6">
-                            <span class="col-md-3">Hình Ảnh </span>
-                            <input class="css_inp col-md-9 css-ha" type="file" placeholder="" id=""
-                                name="products_image" />
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3  text-center">Hình Ảnh </span>
+                            <input class="css_inp col-md-9 " type="file" placeholder="" id=""
+                                (change)="onFileSelect($event)" name="profile" multiple />
+
+                            <span style="margin-top: 5px; margin-left: 290px; color: red;" class="col-md-12 ">
+                                Nếu sửa : chọn ít nhất 1 hình và nhiều nhất 3 hình ảnh
+                            </span>
                         </div>
-                        <div class="col-md-6">
-                            <span class="col-md-3">Thể Loại </span>
-                            <select class="css_inp col-md-9 css-t" id="portfolio_id">
-                                <option value="tenDM">Chọn thể loại</option>
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3  text-center">Thể Loại </span>
+                            <select class="css_inp col-md-9 " id="portfolio_id" title="--chọn thể loại--"
+                                value="{{data_detailProduct.portfolio_id}}" formControlName="portfolio_id">
+
+                                <!-- <ng-container *ngFor="let data of data_portfolio"> -->
+                                <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
+                                    {{data.portfolio_name}}
+                                </option>
+                                <!-- </ng-container> -->
                             </select>
                         </div>
-                    </div>
-                    <div class="row col-md-12 pd-t">
-                        <div class="col-md-12">
-                            <span class="col-md-3 css-mo">Mô Tả </span>
-                            <textarea class=" col-md-9 css-de" type="text" rows="8" placeholder="nhập mô tả" id=""
-                                name="description"></textarea>
+
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3  text-center">Mô Tả </span>
+                            <textarea class=" col-md-9 " type="text" rows="8" placeholder="nhập mô tả" id=""
+                                value="{{data_detailProduct.description}}" formControlName="description">
+
+                            </textarea>
                         </div>
-                    </div>
-                    <div class="row col-md-12 css-bu">
-                        <div class="col-md-5">
+                        <!-- [(ngModel)]="data_detailProduct.description" -->
 
+                        <div class="row col-md-12 css-bu">
+                            <div class="col-md-5">
+                            </div>
+                            <button type="submit" class="btn btn-success col-md-2">Cập Nhật</button>
+                            <div class="col-md-5">
+                            </div>
                         </div>
-                        <button  class="btn btn-success col-md-2">Thêm</button>
-                        <div class="col-md-5">
-
-                        </div>   
-                    </div>
-
+                    </form>
                 </div>
             </fieldset>
         </div>

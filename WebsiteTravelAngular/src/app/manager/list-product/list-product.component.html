@@ -14,8 +14,8 @@
                                 formControlName="product_name" />
                         </div>
                         <div class="col-md-4">
-                            <select class="css_inp-select col-md-9 " id="portfolio_id" placeholder="Chọn thể loại"
-                                formControlName="portfolio_id">
+                            <select class="css_inp-select col-md-9 " id="portfolio_id" title="--Chọn Thể Loại--"
+                                placeholder="Chọn thể loại" formControlName="portfolio_id">
                                 <option name=""></option>
                                 <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
                                     {{data.portfolio_name}}
