@@ -40,4 +40,32 @@
 
 </div>
 
+
+<!-- menu nếu đăng nhập = menber hoạc không đăng nhập thì hiện -->
+<nav *ngIf="user?.role==0 || !auth.haveLogin()" class="navbar navbar-expand-lg">
+  <div class="col-md-4" id="navbar-left">
+    <a style="font-size: 40px;" class="navbar-brand" routerLink="/">HOME TRAVEL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+      aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+  <div class="col-md-4" id="navbar-center">
+    <i class="fa fa-shopping-basket" style="font-size:24px;"></i><button class="navbar-cart" routerLink="/product"
+      type="button">Cửa
+      hàng</button>
+  </div>
+
+  <div class="col-md-4" id="navbar-right">
+    <ul class="navbar-nav">
+      <li *ngIf="user?.role==0 && auth.haveLogin()" class="nav-item navbar-right-button">
+        <a routerLink="/member/post/list" style="background-color: #55d65d;" class="nav-link">Chức năng người dùng</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- phần nội dung chính của trang web -->
 <router-outlet></router-outlet>

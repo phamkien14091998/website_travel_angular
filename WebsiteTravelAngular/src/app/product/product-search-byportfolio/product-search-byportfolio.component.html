@@ -1,0 +1,173 @@
+<!-- start nav -->
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="shop-nav-left-container">
+                    <div class="shop-nav-left-title">
+                        <h3>
+                            <span>DANH MỤC SẢN PHẨM</span>
+                        </h3>
+                        <i class="fa fa-reorder"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-11 col-md-9 col-sm-6">
+                <div class="shop-nav-right-menu">
+                    <ul>
+                        <!-- <li *ngFor="let data of data_portfolio">
+                            <a style="width: 70px;" href="#">{{data.portfolio_name}}</a>
+                        </li> -->
+                        <li><a href="#">a</a></li>
+                        <li><a href="#">a</a></li>
+                        <li><a href="#">a</a></li>
+                        <li><a href="#">a</a></li>
+                        <li><a href="#">a</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- end nav -->
+
+<!-- start slider -->
+<div class="shop-slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="shop-nav-left-category">
+                    <ul nav nav-tabs>
+                        <li *ngFor="let item of data_portfolio" class="list-group-item"
+                            [ngClass]="{'active': selectedItem == item}" (click)="listClick($event, item)"
+                            routerLink="/product/search/{{item.portfolio_id}}">
+
+                            {{item.portfolio_name}}   
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12 col-lg-9">
+                <div class="shop-slider-banner">
+                    <p>Dễ dàng mua sắm</p>
+                    <p>Cung cấp mọi thứ cho chuyến đi của bạn</p>
+                    <p>Thanh toán đơn giản</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end slider -->
+
+<!-- start shop-service area -->
+<div class="shop-service-area">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-3 col-sm-6 col-xs-12">
+                <div class="shop-service-wrapper">
+                    <div class="shop-service-text">
+                        <div class="shop-icon-wrapper">
+                            <i class="fa fa-paper-plane shop-service-icon"></i>
+                        </div>
+                        <div class="shop-service-wrapper">
+                            <h3>Giao hàng nhanh</h3>
+                            <p>Miễn phí phạm vi 10km</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-3 col-sm-6 col-xs-12">
+                <div class="shop-service-wrapper">
+                    <div class="shop-service-text">
+                        <div class="shop-icon-wrapper">
+                            <i class="fa fa-refresh shop-service-icon"></i>
+                        </div>
+                        <div class="shop-service-wrapper">
+                            <h3>Giao dịch an toàn</h3>
+                            <p>Credit/Banking/Debit Card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-3 col-sm-6 col-xs-12">
+                <div class="shop-service-wrapper">
+                    <div class="shop-service-text">
+                        <div class="shop-icon-wrapper">
+                            <i class="fa fa-umbrella shop-service-icon"></i>
+                        </div>
+                        <div class="shop-service-wrapper">
+                            <h3>Tổng đài tư vấn</h3>
+                            <p>(+123) 123456789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-3 col-sm-6 col-xs-12">
+                <div class="shop-service-wrapper">
+                    <div class="shop-service-text">
+                        <div class="shop-icon-wrapper">
+                            <i class="fa fa-thumbs-up shop-service-icon"></i>
+                        </div>
+                        <div class="shop-service-wrapper">
+                            <h3>Đảm bảo chất lượng</h3>
+                            <p>Cam kết hàng chính hãng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- start shop-service arae -->
+
+<!-- start list product -->
+<div class="shop-product-clothes">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><b>TẤT CẢ SẢN PHẨM CỦA THỂ LOẠI :{{portfolio_name}}</b></h2>
+                <div id="clothesCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                    <!-- Carousel indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#clothesCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#clothesCarousel" data-slide-to="1"></li>
+                        <li data-target="#clothesCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="item carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-3" *ngFor="let data of dataProduct">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{{domain}}/{{data.images[0]}}" class="img-responsive img-fluid"
+                                                alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>{{data.product_name}}</h4>
+                                            <p class="item-price"><span>{{data.price}} Đ</span></p>
+                                            <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- Carousel controls -->
+                    <a class="carousel-control left carousel-control-prev" href="#clothesCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control right carousel-control-next" href="#clothesCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end list product -->

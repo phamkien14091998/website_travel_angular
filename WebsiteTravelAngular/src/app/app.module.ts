@@ -20,7 +20,7 @@ import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from "./product/product.module";
-import { MemberPostModule } from "./member-post/member-post.module";
+import { MemberManagerModule } from "./member-manager/member-manager.module";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -58,7 +58,7 @@ const routes: Routes = [
       preventDuplicates: false
     }),
     BrowserAnimationsModule,
-    MemberPostModule
+    MemberManagerModule,
 
 
   ],

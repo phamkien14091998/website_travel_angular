@@ -22,7 +22,7 @@ export class DetailProductComponent implements OnInit {
         this.getDetailProduct(params['product_id']);
       })
 
-  }
+  }  
 
   getDetailProduct(product_id: string) {
 

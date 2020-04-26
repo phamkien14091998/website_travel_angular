@@ -2,12 +2,13 @@
     <div class="row">
         <div class="col-md-12">
             <fieldset class="css-fieldset">
-                <legend class="col-md-12">QUẢN LÝ SẢN PHẨM</legend>
+                <legend class="col-md-12">QUẢN LÝ BÀI VIẾT</legend>
                 <div class="css-h row col-md-12">
                     <div class="col-md-1">
 
                     </div>
-                    <form class="row col-md-9" [formGroup]="searchProductForm" (ngSubmit)="searchProduct()">
+                    <!-- [formGroup]="searchProductForm" (ngSubmit)="searchProduct()" -->
+                    <form class="row col-md-9">
 
                         <div class=" col-md-3">
                             <input class="css_inp" type="text" placeholder="tìm kiếm theo tên" id="" name="product_name"
@@ -17,9 +18,9 @@
                             <select class="css_inp-select col-md-9 " id="portfolio_id" title="--Chọn Thể Loại--"
                                 placeholder="Chọn thể loại" formControlName="portfolio_id">
                                 <option name=""></option>
-                                <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
+                                <!-- <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
                                     {{data.portfolio_name}}
-                                </option>
+                                </option> -->
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -28,7 +29,7 @@
                     </form>
                     <div class="col-md-2">
                         <button type="submit" routerLink="/manager/product/new" class="btn btn-primary">Thêm
-                            Mới</button>
+                            bài viết</button>
                     </div>
                 </div>
 
@@ -48,7 +49,7 @@
                         </thead>
                         <tbody>
 
-                            <tr *ngFor="let data of data_listProduct ; let i = index" [attr.data-index]="i">
+                            <!-- <tr *ngFor="let data of data_listProduct ; let i = index" [attr.data-index]="i">
                                 <td>{{i+1}}</td>
                                 <td>
                                     <img *ngIf="data.images[0]" width="120px" height="80px"
@@ -56,7 +57,6 @@
                                 </td>
                                 <td>{{data.product_name}}</td>
                                 <td>{{data.price}}</td>
-                                <!-- <td>{{data.portfolio_name}}</td> -->
                                 <td>
                                     <div *ngIf="data.quantity!=0; else templateName">
                                         Còn Hàng
@@ -66,7 +66,6 @@
                                     <span style="color: red;">Hết Hàng</span>
                                 </ng-template>
 
-                                <!-- <td>{{data.quantity}}</td> -->
                                 <td class="text-center">
                                     <button type="submit" routerLink="/manager/product/detail/{{data.product_id}}"
                                         class="css-b btn btn-info">Chi Tiết</button>
@@ -85,7 +84,7 @@
                                             class="btn btn-danger">Không</button>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
 
                         </tbody>
                     </table>

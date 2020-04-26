@@ -7,8 +7,15 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./manager.component.css']
 })
 export class ManagerComponent {
+  selectedItem: any;
+
   constructor(private auth: AuthenticationService) {
 
+  }
+
+  listClick(event, newValue) {
+    console.log(newValue);
+    this.selectedItem = newValue;
   }
 
 

@@ -8,6 +8,7 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationService } from "../authentication.service";
 import { AuthGuardService } from "./../auth-guard.service";
+import { ProductService } from "./shared/product.service";
 
 import { ProductComponent } from "./product.component";
 import { ProductHeaderComponent } from "./product-header/product-header.component";
@@ -16,6 +17,8 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "../card/card.component";
 import { ProductSellComponent } from './product-sell/product-sell.component';
+import { ProductSearchByportfolioComponent } from './product-search-byportfolio/product-search-byportfolio.component';
+
 
 
 const routes: Routes = [
@@ -31,9 +34,9 @@ const routes: Routes = [
             {
                 path: 'card', component: CardComponent
             },
-            // {
-            //     // path: ':tenPhim/homes', component: FilmSearchComponent
-            // },
+            {
+                path: 'search/:portfolio_id', component: ProductSearchByportfolioComponent
+            },
             // {
             //     // path: 'ves/:id', component: FilmDetailBookingIdComponent
             // },
@@ -54,7 +57,8 @@ const routes: Routes = [
         ProductDetailComponent,
         ProductListComponent,
         CardComponent,
-        ProductSellComponent
+        ProductSellComponent,
+        ProductSearchByportfolioComponent
     ],
     imports: [
         CommonModule,
@@ -69,7 +73,8 @@ const routes: Routes = [
     ],
     providers: [
         AuthenticationService,
-        AuthGuardService
+        AuthGuardService,
+        ProductService
 
     ],
 })

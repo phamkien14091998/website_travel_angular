@@ -24,10 +24,10 @@ import { UpdatePlacesComponent } from './manager-places/update-places/update-pla
 
 const routes: Routes = [
     {
-        path: 'manager', component: ManagerComponent,
+        path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService],
         children: [
             {
-                path: 'product', component: ListProductComponent, canActivate: [AuthGuardService],
+                path: 'product', component: ListProductComponent,
             },
             {
                 path: 'product/new', component: CreateProductComponent
@@ -40,14 +40,14 @@ const routes: Routes = [
             },
             // router post
             {
-                path: 'posts', component: PostsComponent, canActivate: [AuthGuardService],
+                path: 'posts', component: PostsComponent,// canActivate: [AuthGuardService],
             },
             {
                 path: 'posts/detail', component: PostsDetailComponent
             },
             // router famous places
             {
-                path: 'places', component: ListPlacesComponent, canActivate: [AuthGuardService],
+                path: 'places', component: ListPlacesComponent, //canActivate: [AuthGuardService],
             },
             {
                 path: 'places/new', component: CreatePlacesComponent

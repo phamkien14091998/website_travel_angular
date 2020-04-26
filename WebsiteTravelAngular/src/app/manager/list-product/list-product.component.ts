@@ -14,7 +14,7 @@ import { ManagerProductService } from "../share/manager_product.service";
 })
 export class ListProductComponent implements OnInit {
   data_listProduct: any = [];
-  data_portfolio: any = [];
+  data_portfolio: any = [];    
   domain = environment.API_URL;
   searchProductForm: FormGroup;
 
@@ -31,7 +31,7 @@ export class ListProductComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.getListProduct();
-    this.getProductPortfolio();
+    this.getProductPortfolio();  
 
 
   }
