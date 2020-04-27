@@ -2,4 +2,7 @@
 lệnh khi tải về và phải chạy: npm install @angular/cli
 
 /////////////////////////
-link hướng dẫn gửi mail trong laravel : https://techmaster.vn/posts/35512/laravel-gui-mail
+link hướng dẫn gửi mail trong laravel :  
+- https://techmaster.vn/posts/35512/laravel-gui-mail
+- https://viblo.asia/p/huong-dan-su-dung-queues-de-gui-mail-trong-laravel-Eb85oybBZ2G
+- https://viblo.asia/p/thuc-hien-chuc-nang-gui-mail-trong-project-laravel-oOVlYLqoZ8W
