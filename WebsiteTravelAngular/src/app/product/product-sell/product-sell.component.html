@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="shop-nav-left-category">
-                    <ul>
+                    <ul>  
                         <li *ngFor="let item of data_portfolio" class="list-group-item"
                             [ngClass]="{'active': selectedItem == item}" (click)="listClick($event, item)"
                             routerLink="/product/search/{{item.portfolio_id}}">

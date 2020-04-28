@@ -1,1 +1,85 @@
-<p>list-places works!</p>
+<div class="body-product">
+    <div class="row">
+        <div class="col-md-12">
+            <fieldset class="css-fieldset">
+                <legend class="col-md-12">QUẢN LÝ ĐỊA ĐIỂM</legend>
+                <div class="css-h row col-md-12">
+                    <div class="col-md-1">
+
+                    </div>
+                    <form class="row col-md-9" [formGroup]="searchPlaceForm" (ngSubmit)="searchPlace()">
+                        <div class=" col-md-3">
+                            <input class="css_inp" type="text" placeholder="tìm kiếm theo tên" id="" name="title"
+                                formControlName="title" />
+                        </div>
+                        <div class="col-md-4">
+                            <select class="css_inp-select col-md-9 " id="province_id" title="--Chọn Tỉnh--"
+                                placeholder="Chọn tên tỉnh" formControlName="province_id">
+                                <option name=""></option>
+                                <option *ngFor="let dataPro of dataProvince" value="{{dataPro.province_id}}">
+                                    {{dataPro.province_name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+                        </div>
+                    </form>
+                    <div class="col-md-2">
+                        <button type="submit" routerLink="/manager/places/new" class="btn btn-primary">Thêm
+                            Mới</button>
+                    </div>
+                </div>
+
+                <div class="col-md-12 table-responsive css-overflow">
+                    <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+                        <thead>
+                            <tr style="background-color: #21ca48;">
+                                <th>STT</th>
+                                <th>Tên Địa Điểm</th>
+                                <th>Thời Gian Mở</th>
+                                <th>Thời Gian Đóng</th>
+                                <th>Tên Tỉnh</th>
+                                <th class="text-center">Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let data of dataListPlace ; let i = index" [attr.data-index]="i">
+                                <td>{{i+1}}</td>
+                                <td>{{data.title}}</td>
+                                <td>{{data.date_start}}</td>
+                                <td>{{data.date_end}}</td>
+                                <td>{{data.province_name}}</td>
+                                <td class="text-center">
+                                    <button type="submit" routerLink="/manager/places/detail/{{data.famous_place_id}}"
+                                        class="css-b btn btn-info">Chi Tiết</button>
+                                    <button type="submit" routerLink="/manager/places/update/{{data.famous_place_id}}"
+                                        class="css-b btn btn-primary">Sửa</button>
+                                    <button type="button" class="css-b btn btn-danger" (click)="placeDeleteIndex = i"
+                                        *ngIf="placeDeleteIndex !== i">Xóa
+                                    </button>
+                                    <br><br>
+                                    <div *ngIf="placeDeleteIndex === i">
+                                        <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+                                        <button (click)="deletePlace(data.famous_place_id)"
+                                            style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
+                                        </button>
+                                        <button style="width: 80px; " (click)="placeDeleteIndex = undefined"
+                                            class="btn btn-danger">Không</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </fieldset>
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

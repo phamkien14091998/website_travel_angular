@@ -14,7 +14,6 @@ export class ManagerComponent {
   }
 
   listClick(event, newValue) {
-    console.log(newValue);
     this.selectedItem = newValue;
   }
 

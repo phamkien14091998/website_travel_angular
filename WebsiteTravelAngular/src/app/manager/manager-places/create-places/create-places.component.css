@@ -1,0 +1,58 @@
+fieldset.css-fieldset {
+    border: 2px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+    height: auto;
+}
+
+.css_inp {
+    border-radius: 4px;
+    border: 1px solid darkgray;
+    width: 750px;
+    height: 36px;
+}
+
+.css-h {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.css-b {
+    width: 80px;
+    margin-right: 5px;
+}
+
+.pd-t {
+    margin-top: 20px;
+}
+
+.css-n {
+    margin-left: 24px;
+}
+
+.css-ha {
+    margin-left: 31px;
+}
+
+.css-de {
+    margin-top: 20px;
+    margin-left: 45px;
+}
+
+.css-mo {
+    padding-bottom: 40px;
+}
+
+.css-bu {
+    margin-top: 30px;
+}
+
+.css-g {
+    margin-left: 42px;
+}
+
+.css-t {
+    margin-left: 38px;
+}

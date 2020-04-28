@@ -1,1 +1,52 @@
-<p>detail-places works!</p>
+<div class="body-product">
+    <div class="row">
+        <div class=" col-md-12">
+            <fieldset class="css-fieldset">
+                <legend class="col-md-12">CHI TIẾT ĐỊA ĐIỂM</legend>
+                <div class="css-h row col-md-12">
+
+                </div>
+
+                <div class="col-md-12 table-responsive">
+                    <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+                        <thead>
+                            <tr>
+                                <th>Hình Ảnh 1</th>
+                                <th>Hình Ảnh 2</th>
+                                <th>Hình Ảnh 3</th>
+                                <th>Tên Địa Điểm</th>
+                                <th>Thời Gian Mở</th>
+                                <th>Thời Gian Đóng</th>
+                                <th>Tên Tỉnh</th>
+                                <th>Mô tả</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="dataDetailPlace">
+                                <td *ngIf="dataDetailPlace.images">
+                                    <img width="180px" height="140px" src="{{domain}}/{{dataDetailPlace.images[0]}}" />
+                                </td>
+                                <td *ngIf="dataDetailPlace.images">
+                                    <img width="180px" height="140px" src="{{domain}}/{{dataDetailPlace.images[1]}}" />
+                                </td>
+                                <td *ngIf="dataDetailPlace.images">
+                                    <img width="180px" height="140px" src="{{domain}}/{{dataDetailPlace.images[2]}}" />
+                                </td>
+                                <td>{{dataDetailPlace.title}}</td>
+                                <td>{{dataDetailPlace.date_start}}</td>
+                                <td>{{dataDetailPlace.date_end}}</td>
+                                <td>{{dataDetailPlace.province_name}}</td>
+                                <td>{{dataDetailPlace.description}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </fieldset>
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

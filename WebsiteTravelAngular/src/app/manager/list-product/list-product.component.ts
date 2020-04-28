@@ -48,7 +48,7 @@ export class ListProductComponent implements OnInit {
     this.product_service.getListProduct().subscribe(
       (data) => {
         this.data_listProduct = data.map(p => {
-          p.images = p.images.split("|")
+          p.images = p.images.split("|")       
           return p;
         })
 

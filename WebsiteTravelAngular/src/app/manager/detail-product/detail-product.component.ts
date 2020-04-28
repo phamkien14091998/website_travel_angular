@@ -15,7 +15,7 @@ export class DetailProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private product_service: ManagerProductService) { }
-
+    
   ngOnInit(): void {
     this.route.params.subscribe(
       (params) => {

@@ -53,28 +53,4 @@ export class ManagerProductService {
         return this.http.post(`/api/product/update/` + product_id, productData);
     }
 
-    //   public getPhimById(filmId: string): Observable<any> {
-    //     return this.http.get(environment.API_URL+'/api/v1/films/'+ filmId); 
-
-    //   }
-
-    //   public getFilms(): Observable<any> {
-    //     return this.http.get(environment.API_URL+'/api/v1/films'); 
-
-    //   }
-
-    //   public getFilmsByTenPhim(tenPhim: string): Observable<any> {
-    //     return this.http.get(environment.API_URL+`/api/v1/films?tenPhim=${tenPhim}`);
-
-    //   }
-
-
-    //   public getFilmManager(): Observable<any>{
-    //     return this.http.get(environment.API_URL+'/api/v1/films/manage');
-    //   }
-
-    //   public updateFilm(filmId: string,filmData: any): Observable<any>{
-    //     return this.http.patch(environment.API_URL+`/api/v1/films/${filmId}`,filmData);
-    //   }
-
 }

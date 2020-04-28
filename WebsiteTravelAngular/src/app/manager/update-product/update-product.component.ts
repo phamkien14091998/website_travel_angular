@@ -118,7 +118,7 @@ export class UpdateProductComponent implements OnInit {
       formData.append('description', this.data_detailProduct.description);
     }
 
-    formData.append('product_id', this.data_detailProduct.product_id);
+    formData.append('product_id', this.data_detailProduct.product_id);    
 
     // formData.append('product_name', this.updateProductForm.controls['product_name'].value);
     // formData.append('price', this.updateProductForm.controls['price'].value);

@@ -1,100 +1,77 @@
-<div class="body-product">
-    <div class="row">
-        <div class="col-md-12">
-            <fieldset class="css-fieldset">
-                <legend class="col-md-12">QUẢN LÝ BÀI VIẾT</legend>
-                <div class="css-h row col-md-12">
-                    <div class="col-md-1">
-
+<div class="member-list-post">
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-12">
+                <fieldset class="css-fieldset">
+                    <legend class="col-md-12">DANH SÁCH BÀI ĐĂNG</legend>
+                    <div class="css-h row col-md-12 table-responsive">
+                        <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+                            <thead>
+                                <tr style="background-color: #21ca48;">
+                                    <th width="10%">STT</th>
+                                    <th width="75%">Tiêu đề bài viết</th>
+                                    <th width="15%">Xem chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td><button type="button " routerLink="/member/posts/detail"
+                                            class="btn btn-info ">Xem
+                                            chi
+                                            tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <!-- [formGroup]="searchProductForm" (ngSubmit)="searchProduct()" -->
-                    <form class="row col-md-9">
-
-                        <div class=" col-md-3">
-                            <input class="css_inp" type="text" placeholder="tìm kiếm theo tên" id="" name="product_name"
-                                formControlName="product_name" />
-                        </div>
-                        <div class="col-md-4">
-                            <select class="css_inp-select col-md-9 " id="portfolio_id" title="--Chọn Thể Loại--"
-                                placeholder="Chọn thể loại" formControlName="portfolio_id">
-                                <option name=""></option>
-                                <!-- <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
-                                    {{data.portfolio_name}}
-                                </option> -->
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
-                        </div>
-                    </form>
-                    <div class="col-md-2">
-                        <button type="submit" routerLink="/manager/product/new" class="btn btn-primary">Thêm
-                            bài viết</button>
-                    </div>
-                </div>
-
-                <div class="col-md-12 table-responsive">
-                    <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
-                        <thead>
-                            <tr style="background-color: #21ca48;">
-                                <th>STT</th>
-                                <th>Hình Ảnh</th>
-                                <th>Tên Sản Phẩm</th>
-                                <th>Giá</th>
-                                <!-- <th>Danh Mục</th> -->
-                                <th>Trạng Thái</th>
-                                <!-- <th>Số Lượng</th> -->
-                                <th class="text-center">Hành Động</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <!-- <tr *ngFor="let data of data_listProduct ; let i = index" [attr.data-index]="i">
-                                <td>{{i+1}}</td>
-                                <td>
-                                    <img *ngIf="data.images[0]" width="120px" height="80px"
-                                        src="{{domain}}/{{data.images[0]}}" />
-                                </td>
-                                <td>{{data.product_name}}</td>
-                                <td>{{data.price}}</td>
-                                <td>
-                                    <div *ngIf="data.quantity!=0; else templateName">
-                                        Còn Hàng
-                                    </div>
-                                </td>
-                                <ng-template #templateName>
-                                    <span style="color: red;">Hết Hàng</span>
-                                </ng-template>
-
-                                <td class="text-center">
-                                    <button type="submit" routerLink="/manager/product/detail/{{data.product_id}}"
-                                        class="css-b btn btn-info">Chi Tiết</button>
-                                    <button type="submit" routerLink="/manager/product/update/{{data.product_id}}"
-                                        class="css-b btn btn-primary">Sửa</button>
-                                    <button type="button" class="css-b btn btn-danger" (click)="productDeleteIndex = i"
-                                        *ngIf="productDeleteIndex !== i">Xóa
-                                    </button>
-                                    <br><br>
-                                    <div *ngIf="productDeleteIndex === i">
-                                        <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
-                                        <button (click)="deleteProduct(data.product_id)"
-                                            style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
-                                        </button>
-                                        <button style="width: 80px; " (click)="productDeleteIndex = undefined"
-                                            class="btn btn-danger">Không</button>
-                                    </div>
-                                </td>
-                            </tr> -->
-
-                        </tbody>
-                    </table>
-                </div>
-
-            </fieldset>
-            <div>
-
+                </fieldset>
             </div>
         </div>
     </div>
-
 </div>
