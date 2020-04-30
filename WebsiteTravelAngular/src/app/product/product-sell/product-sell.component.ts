@@ -14,6 +14,15 @@ export class ProductSellComponent implements OnInit {
   domain = environment.API_URL;
   selectedItem: any;
 
+  dataProductPage1: any = [];
+  dataProductPage2: any = [];
+  dataProductPage3: any = [];
+  dataProductPage4: any = [];
+
+  dataProductPage1Array: any = [];
+  dataProductPage2Array: any = [];
+  dataProductPage3Array: any = [];
+  dataProductPage4Array: any = [];
 
   constructor(
     private productService: ProductService
@@ -29,11 +38,29 @@ export class ProductSellComponent implements OnInit {
   getListProductNew() {
     this.productService.getListProductNew().subscribe(
       (data) => {
-
         this.dataProduct = data.map(p => {
           p.images = p.images.split("|")
           return p;
         })
+
+        // for tất cả array
+        for (let i = 0; i < this.dataProduct.length; i++) {
+          if (i < 4) { // kiểm tra xem nếu i<4 thì lấy ra 4 tk đó , sau đó thêm nó vô mảng mới
+            this.dataProductPage1 = this.dataProduct[i];
+            this.dataProductPage1Array.push(this.dataProductPage1);
+          } else if (i >= 4 && i < 8) {
+            this.dataProductPage2 = this.dataProduct[i];
+            this.dataProductPage2Array.push(this.dataProductPage2);
+          }
+          else if (i >= 8 && i < 12) {
+            this.dataProductPage3 = this.dataProduct[i];
+            this.dataProductPage3Array.push(this.dataProductPage3);
+          }
+          else if (i >= 12 && i < 16) {
+            this.dataProductPage4 = this.dataProduct[i];
+            this.dataProductPage4Array.push(this.dataProductPage4);
+          }
+        }
 
       }, err => { console.log(err) }
     );

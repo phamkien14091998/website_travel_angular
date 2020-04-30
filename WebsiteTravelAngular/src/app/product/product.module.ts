@@ -37,9 +37,9 @@ const routes: Routes = [
             {
                 path: 'search/:portfolio_id', component: ProductSearchByportfolioComponent
             },
-            // {
-            //     // path: 'ves/:id', component: FilmDetailBookingIdComponent
-            // },
+            {
+                path: 'detail/:product_id', component: ProductDetailComponent
+            },
             // {
             //     // path: ':id/edit', component: FilmUpdateComponent
             // }

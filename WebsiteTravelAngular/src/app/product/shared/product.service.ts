@@ -22,6 +22,12 @@ export class ProductService {
     public searchByPortfolio_id(portfolio_id: string): Observable<any> {
         return this.http.get('/api/product/search-by-portfolio_id/' + portfolio_id);
     }
+    // chi tiết sản phẩm theo id
+    public getDetailProductById(product_id: string): Observable<any> {
+
+        return this.http.get('/api/product/detail-product/' + product_id);
+    }
+
 
     // // lấy ra tất cả danh sách sản phẩm
     // public getListProduct(): Observable<any> {
@@ -32,11 +38,6 @@ export class ProductService {
     // // tìm kiếm sản phẩm theo tên sản phẩm
     // public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
     //     return this.http.post(`/api/product/search-product`, product);
-    // }
-    // // chi tiết sản phẩm theo id
-    // public getDetailProductById(product_id: string): Observable<any> {
-
-    //     return this.http.get('/api/product/detail-product/' + product_id);
     // }
 
 

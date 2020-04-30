@@ -124,6 +124,9 @@
     width: 100%;
     height: 1330px;
     word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
     margin-left: 1px;
     /* wrap content */
 }

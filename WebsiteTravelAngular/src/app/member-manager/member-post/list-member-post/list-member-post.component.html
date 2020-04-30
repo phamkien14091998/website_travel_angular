@@ -3,7 +3,28 @@
         <div class="row">
             <div class=" col-md-12">
                 <fieldset class="css-fieldset">
-                    <legend class="col-md-12">DANH SÁCH BÀI ĐĂNG</legend>
+                    <legend class="col-md-12">QUẢN LÝ BÀI VIẾT</legend>
+                    <div style="margin-top: 30px; margin-bottom: 30px;" class="row col-md-12">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+                            <label><input type="checkbox" name="bai_duyet">Bài đã duyệt</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label><input type="checkbox" name="bai_cho">Bài chờ duyệt</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label><input type="checkbox" name="bai_huy">Bài bị hủy</label>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" routerLink="/member/post/new" class="btn btn-primary">Thêm Bài
+                                Viết</button>
+                        </div>
+                    </div>
                     <div class="css-h row col-md-12 table-responsive">
                         <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                             <thead>
@@ -17,55 +38,13 @@
                                 <tr>
                                     <td>1</td>
                                     <td>1</td>
-                                    <td><button type="button " routerLink="/member/posts/detail"
+                                    <td>
+                                        <button type="button " routerLink="/member/post/detail"
                                             class="btn btn-info ">Xem
                                             chi
-                                            tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
+                                            tiết
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

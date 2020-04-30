@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 export class MemberService {
     constructor(private http: HttpClient) {
 
-    }
+    }         
 
     // lấy ra danh sách thể loại
     // public getProductPortfolio(): Observable<any> {

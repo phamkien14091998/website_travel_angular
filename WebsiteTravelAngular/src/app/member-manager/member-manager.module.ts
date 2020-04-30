@@ -19,6 +19,9 @@ import { UpdateMemberPostComponent } from "./member-post/update-member-post/upda
 import { ListCollectionComponent } from './member-collection/list-collection/list-collection.component';
 import { CreateCollectionComponent } from './member-collection/create-collection/create-collection.component';
 
+import { CreateScheduleComponent } from './member-schedule/create-schedule/create-schedule.component';
+import { DetailScheduleComponent } from './member-schedule/detail-schedule/detail-schedule.component';
+
 
 
 
@@ -34,17 +37,19 @@ const routes: Routes = [
             },
             {
                 path: 'post/update', component: UpdateMemberPostComponent
+                // path: 'post/update/:post_id', component: UpdateMemberPostComponent
             },
             {
-                path: 'post/detail/:post_id', component: DetailMemberPostComponent
+                path: 'post/detail', component: DetailMemberPostComponent
+                // path: 'post/detail/:post_id', component: DetailMemberPostComponent
             },
 
-            // {
-            //     path: 'posts', component: PostsComponent
-            // },
-            // {
-            //     path: 'posts/detail', component: PostsDetailComponent
-            // },
+            {
+                path: 'schedule/new', component: CreateScheduleComponent
+            },
+            {
+                path: 'schedule/detail', component: DetailScheduleComponent
+            },
             // {
             //     path: ':id/edit', component: FilmUpdateComponent
             // }
@@ -64,6 +69,8 @@ const routes: Routes = [
         ListCollectionComponent,
         CreateCollectionComponent,
         DetailMemberPostComponent,
+        CreateScheduleComponent,
+        DetailScheduleComponent,
 
     ],
     imports: [

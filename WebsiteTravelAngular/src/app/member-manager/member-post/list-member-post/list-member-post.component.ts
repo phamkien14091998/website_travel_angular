@@ -12,4 +12,4 @@ export class ListMemberPostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+}   
