@@ -1,0 +1,43 @@
+.create-trip-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.create-trip-header p {
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.create-trip-header span {
+    font-style: italic;
+}
+
+#create-trip-body {
+    padding-top: 25px;
+    width: 60%;
+    margin: 0px auto;
+}
+
+#create-trip-body label {
+    font-weight: 500;
+}
+
+.create-trip-button {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.create-trip-button button {
+    width: 180px;
+    background-color: #28a745;
+    color: white;
+    border: 0px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    #create-trip-body {
+        width: 100%;
+    }
+}
