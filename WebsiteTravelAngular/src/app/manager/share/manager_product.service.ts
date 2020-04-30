@@ -22,7 +22,7 @@ export class ManagerProductService {
     }
 
     // lấy ra danh sách thể loại
-    public getProductPortfolio(): Observable<any> {
+    public getProductPortfolio(): Observable<any> {  
         return this.http.get(`/api/product/list-portfolio`);
     }
     // thêm sản phẩm mới
@@ -37,7 +37,7 @@ export class ManagerProductService {
     }
     // tìm kiếm sản phẩm theo tên sản phẩm
     public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
-        return this.http.post(`/api/product/search-product`, product);
+        return this.http.post(`/api/product/search-product`, product);     
     }
     // chi tiết sản phẩm theo id
     public getDetailProductById(product_id: string): Observable<any> {

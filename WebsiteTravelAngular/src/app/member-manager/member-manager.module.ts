@@ -8,7 +8,9 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationService } from "../authentication.service";
 import { AuthGuardService } from "./../auth-guard.service";
-import { MemberService } from "./share/member_service.service";
+import { MemberPostService } from "./share/member_post_service.service";
+import { MemberScheduleService } from "./share/member_schedule_service.service";
+import { MemberCollectionService } from "./share/member_collection_service.service";
 
 import { MemberManagerComponent } from "./member-manager.component";
 import { ListMemberPostComponent } from "./member-post/list-member-post/list-member-post.component";
@@ -82,11 +84,14 @@ const routes: Routes = [
         BrowserAnimationsModule,
         ToastrModule,
 
+
     ],
     providers: [
         AuthGuardService,
         AuthenticationService,
-        MemberService,
+        MemberPostService,
+        MemberScheduleService,
+        MemberCollectionService
 
     ]
 })

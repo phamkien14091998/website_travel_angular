@@ -15,7 +15,7 @@ export class ManagerPlaceService {
     }
     // Lấy ra tất cả tỉnh 
     public getProvince(): Observable<any> {
-        return this.http.get(`/api/place/province`);
+        return this.http.get(`/api/place/province`);  
     }
     // chi tiết địa điểm theo id
     public getDetailPlaceById(famous_place_id: string): Observable<any> {

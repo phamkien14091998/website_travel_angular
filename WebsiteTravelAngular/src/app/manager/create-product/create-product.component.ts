@@ -32,7 +32,7 @@ export class CreateProductComponent implements OnInit {
     this.initForm();
     this.getListProductPortfolio();
   }
-  initForm() {     
+  initForm() {
     this.createProductForm = this.fb.group({
       product_name: ['', Validators.required],
       price: ['', Validators.required],

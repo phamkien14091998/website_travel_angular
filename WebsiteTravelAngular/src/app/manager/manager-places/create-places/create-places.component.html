@@ -34,7 +34,7 @@
                             <select class="css_inp col-md-9 " id="date_end" title="--- Chọn giờ đóng ---"
                                 formControlName="date_end">
                                 <option *ngFor="let date_st of date_array" value="{{date_st}}">
-                                    {{date_st}}
+                                    {{date_st}}  
                                 </option>
                             </select>
                             <div *ngIf="isInvalidForm('date_end')" class="alert alert-danger col-md-12">
@@ -42,7 +42,7 @@
                                     Yêu cầu chọn thời gian đóng cửa .
                                 </div>
                             </div>
-                        </div>
+                        </div>   
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Hình Ảnh Địa Điểm</span>
                             <input class="css_inp col-md-9 " type="file" placeholder="" id="" name="profile" multiple

@@ -28,7 +28,7 @@ export class CreatePlacesComponent implements OnInit {
 
   constructor(
     private placeService: ManagerPlaceService,
-    private fb: FormBuilder,
+    private fb: FormBuilder,   
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService
@@ -62,7 +62,7 @@ export class CreatePlacesComponent implements OnInit {
   // lấy ra danh sách các thể loại sản phẩm
   getListProvince() {
     this.placeService.getProvince().subscribe(
-      (data) => {
+      (data) => {   
         this.dataProvince = data;
       }
     );

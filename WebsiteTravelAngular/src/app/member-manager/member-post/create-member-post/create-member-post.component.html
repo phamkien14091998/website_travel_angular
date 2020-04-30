@@ -1,79 +1,142 @@
 <div class="member-create-new-post">
     <div class="container">
-        <form>
+        <form [formGroup]="createPostForm" (ngSubmit)="createPost()">
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-tags"></i> Nhập tiêu đề bài viết</label>
-                    <input type="text" class="form-control">
+                    <input type="text" formControlName="title" class="form-control" placeholder="Nhập tiêu đề">
+                    <div *ngIf="isInvalidForm('title')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('title')">
+                            Yêu cầu nhập tiêu đề .
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <form class="col-md-6" [formGroup]="createProvinceForm" (ngSubmit)="createProvince()">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label><i class="fa fa-map"></i> Tỉnh thành</label>
+                            <select class="form-control" formControlName="province_id" title="--- Chọn tỉnh ---">
+                                <option *ngFor="let data of dataProvince" value="{{data.province_id}}">
+                                    {{data.province_name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label></label>
+                            <button type="submit" class="btn btn-success" style="margin-top: 30px;">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="form-group col-md-6">
                     <label><i class="fa fa-map-marker"></i> Tên địa điểm</label>
-                    <input type="text" class="form-control">
+                    <select class="form-control" formControlName="famous_place_id" title="--- Chọn địa điểm ---">
+                        <option *ngFor="let dataP of dataPlace" value="{{dataP.famous_place_id}}">
+                            {{dataP.title}}
+                        </option>
+                    </select>
+                    <div *ngIf="isInvalidForm('famous_place_id')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('famous_place_id')">
+                            Yêu cầu chọn địa điểm .
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label><i class="fa fa-map"></i> Tỉnh thành</label>
-                    <select class="form-control">
-                        <option selected>--Chọn tỉnh--</option>
-                        <option value="1 ">One</option>
-                        <option value="2 ">Two</option>
-                        <option value="3 ">Three</option>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label><i class="fa fa-times-circle"></i> Thời gian đi</label>
+                    <input type="number" class="form-control" formControlName="duration">
+                </div>
+                
+                <div class="form-group col-md-3">
+                    <label><i class="fa fa-hourglass-half"></i> Thời gian mở</label>
+                    <select class="form-control" formControlName="date_start">
+                        <option *ngFor="let date_st of date_array" value="{{date_st}}">
+                            {{date_st}}  
+                        </option>
+                    </select>     
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label><i class="fa fa-hourglass-half"></i> Thời gian đóng</label>
+                    <select class="form-control" formControlName="date_end">
+                        <option *ngFor="let date_st of date_array" value="{{date_st}}">
+                            {{date_st}}  
+                        </option>
                     </select>
                 </div>
-                <div class="form-group col-md-4">
-                    <label><i class="fa fa-times-circle"></i> Thời gian đi</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-4">
-                    <label><i class="fa fa-hourglass-half"></i> Thời gian phục vụ</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group col-md-4">
+
+                <div class="form-group col-md-3">
                     <label><i class="fa fa-ticket"></i> Giá vé vào cổng</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group col-md-4">
-                    <label><i class="fa fa-image"></i> Chọn ảnh</label>
-                    <input type="file">
+                    <input type="number" class="form-control" formControlName="fare">
                 </div>
             </div>
+            <div *ngIf="isInvalidForm('duration')" class="alert alert-danger col-md-12">
+                    <div *ngIf="isRequired('duration')">
+                        Yêu cầu chọn thời gian .
+                    </div>
+                </div>
+                <div *ngIf="isInvalidForm('date_start')" class="alert alert-danger col-md-12">
+                    <div *ngIf="isRequired('date_start')">
+                        Yêu cầu chọn thời gian bắt đầu .
+                    </div>
+                </div>
+                <div *ngIf="isInvalidForm('date_end')" class="alert alert-danger col-md-12">
+                    <div *ngIf="isRequired('date_end')">
+                        Yêu cầu chọn thời gian kết thúc .
+                    </div>
+                </div>
+                <div *ngIf="isInvalidForm('fare')" class="alert alert-danger col-md-12">
+                    <div *ngIf="isRequired('fare')">
+                        Yêu cầu nhập giá vé .
+                    </div>
+                </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label>Chọn hình</label>
+                    <input class="css_inp col-md-9 " type="file" placeholder="" id="" name="profile" multiple
+                        (change)="onFileSelect($event)" />
+                    <span style="margin-top: 5px; margin-left: 290px; color: red;" class="col-md-12 ">
+                        Chọn ít nhất 1 hình và nhiều nhất 5 hình ảnh
+                    </span>
+                </div>
+            </div>  
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-automobile"></i> Hướng dẫn cách đi</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5" formControlName="gaits"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-suitcase"></i> Chuẩn bị hành lý</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5" formControlName="items"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-hotel"></i> Giới thiệu chỗ ở</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5" formControlName="home_stay"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-location"></i> Địa điểm tham quan - trải nghiệm</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5" formControlName="visits"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-shopping-basket"></i> Ăn uống - mua sắm</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5" formControlName="activitis"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label><i class="fa fa-sticky-note"></i> Ghi chú</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5" formControlName="note"></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-success">Tạo bài viết</button>
