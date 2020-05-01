@@ -51,6 +51,7 @@ nav {
 .shop-nav-left-category li {
     width: auto;
     height: 45px;
+    padding-top: 0px;
     line-height: 45px;
     border: 0.1px solid #dfd9d9;
 }

@@ -51,7 +51,7 @@ const routes: Routes = [
             },
             {
                 path: 'schedule/detail', component: DetailScheduleComponent
-            },
+            }, 
             // {
             //     path: ':id/edit', component: FilmUpdateComponent
             // }

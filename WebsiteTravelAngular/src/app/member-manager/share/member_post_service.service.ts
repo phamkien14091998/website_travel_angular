@@ -9,7 +9,7 @@ export class MemberPostService {
 
     }
 
-    // lấy ra danh sách tỉnh
+    // lấy ra danh sách tỉnh   
     public getProvince(): Observable<any> {
         return this.http.get(`/api/place/province`);
     }
@@ -21,15 +21,24 @@ export class MemberPostService {
     }
 
     // // thêm post mới
-    public createPost(post_data: any): Observable<any> { 
+    public createPost(post_data: any): Observable<any> {
         console.log(post_data);
-        
+
         return this.http.post(`/api/post/new`, post_data);
     }
 
     // // tìm post
     public searchPost(post: any): Observable<any> {
+        console.log(post);
+
         return this.http.post(`/api/post/search-post`, post);
     }
+
+    // get post đã duyệt (ở ngoài trang home)
+    public getPostDuyet(): Observable<any> {
+        return this.http.get(`/api/place/province`);
+    }
+
+
 
 }

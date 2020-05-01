@@ -23,6 +23,7 @@ export class CreateMemberPostComponent implements OnInit {
   myFiles: string[] = [];
   file: string;
 
+  // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
 
   // tạo giờ mở đóng cửa 
@@ -36,7 +37,7 @@ export class CreateMemberPostComponent implements OnInit {
 
 
   constructor(
-    private postService: MemberPostService,
+    private postService: MemberPostService,  
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,

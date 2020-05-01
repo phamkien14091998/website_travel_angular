@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
 import { MemberPostService } from "../../share/member_post_service.service";
-
+import { AuthenticationService } from "../../../authentication.service";
 
 @Component({
   selector: 'app-list-member-post',
@@ -13,19 +13,25 @@ import { MemberPostService } from "../../share/member_post_service.service";
   styleUrls: ['./list-member-post.component.css']
 })
 export class ListMemberPostComponent implements OnInit {
+  options: { content: FormData };
 
-  dataListPost: any = [];   
+  dataListPost: any = [];
   searchPostForm: FormGroup;
+
+  // khai báo để lưu giá trị user đang đăng nhập
+  user: any = '';
 
   constructor(
     private postService: MemberPostService,
     private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
+    private auth: AuthenticationService
   ) { }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.initForm();
+    this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
     this.searchPost();
   }
 
@@ -38,10 +44,22 @@ export class ListMemberPostComponent implements OnInit {
   }
 
   searchPost() {
+    const formData = new FormData();
+
+    formData.append('user_id', this.user.user_id);
+    formData.append('bai_duyet', this.searchPostForm.value.bai_duyet);
+    formData.append('bai_chua_duyet', this.searchPostForm.value.bai_chua_duyet);
+    formData.append('bai_huy', this.searchPostForm.value.bai_huy);
+    this.options = { content: formData };
+
+    formData.forEach((value, key) => {
+      console.log(key + ' ' + value);
+    });
+
     this.postService.searchPost(
-      this.searchPostForm.value
+      formData
     ).subscribe(
-      (data) => {       
+      (data) => {
         this.dataListPost = data
       }, err => { console.log(err) }
     );

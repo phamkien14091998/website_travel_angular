@@ -12,7 +12,7 @@ export class ProductSellComponent implements OnInit {
   dataProduct: any = [];
   data_portfolio: any = [];
   domain = environment.API_URL;
-  selectedItem: any;
+  selectedItem: any;     
 
   dataProductPage1: any = [];
   dataProductPage2: any = [];

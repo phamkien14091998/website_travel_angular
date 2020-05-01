@@ -27,7 +27,7 @@ const routes: Routes = [
         children: [
             {
                 path: '', component: ProductSellComponent
-            },
+            }, 
             {
                 path: 'list', component: ProductListComponent
             },
