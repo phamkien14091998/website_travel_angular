@@ -23,7 +23,7 @@
         width: 32px;
         height: 32px;
         border-radius: 32px;
-        background: url(../../assets/img/img_user.PNG) no-repeat;
+        background: url(../../../../assets/img/img_user.PNG) no-repeat;
     }
 
     /* end header */
@@ -31,7 +31,7 @@
     /* start nav */
 
     .create-trip-detail-nav {
-        border-bottom: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro; 
         border-top: 1px solid gainsboro;
     }
 
@@ -215,7 +215,7 @@
         cursor: pointer;
     }
 
-    .recommend-image {
+    .recommend-image {  
         position: relative;
         cursor: pointer;
     }
