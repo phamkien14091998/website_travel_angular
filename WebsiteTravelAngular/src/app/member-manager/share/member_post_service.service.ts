@@ -39,6 +39,20 @@ export class MemberPostService {
         return this.http.get(`/api/place/province`);
     }
 
+    // lấy ra danh post by id   
+    public getPostById(post_id: any): Observable<any> {
+        return this.http.get(`/api/post/detail/` + post_id);
+    }
 
+    // cập nhật post by id
+    public updatePost(post_id: string, postData: any): Observable<any> {
+        return this.http.post(`/api/post/update/` + post_id, postData);
+    }
+
+    // Xóa post by id
+    public deletePost(post_id: string): Observable<any> {
+        return this.http.delete(`/api/post/delete/` + post_id);
+    }
 
 }
+

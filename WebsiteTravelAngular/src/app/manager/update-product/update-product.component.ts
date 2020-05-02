@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent implements OnInit {
-  data_detailProduct: any = [];
+  data_detailProduct: any = {};
   data_portfolio: any = [];
   domain = environment.API_URL;
 
@@ -44,10 +44,11 @@ export class UpdateProductComponent implements OnInit {
       product_id
     ).subscribe(
       (data) => {
-        // this.updateProductForm.controls['product_name'].setValue(this.data_detailProduct['product_name']);
         data.images = data.images.split('|')
         this.data_detailProduct = data
+        this.updateProductForm.patchValue(this.data_detailProduct)
 
+        //this.updateProductForm.controls['product_name'].setValue(this.data_detailProduct.product_name)
       }, err => { console.log(err) }
     );
 
@@ -91,40 +92,40 @@ export class UpdateProductComponent implements OnInit {
     } else {
       formData.append('images', this.data_detailProduct.images);
     }
-    // kiểm tra nếu có theoo tác trong form hay không
-    if (!this.updateProductForm.controls['product_name'].value) {
-      formData.append('product_name', this.data_detailProduct.product_name);
-    } else {
-      formData.append('product_name', this.updateProductForm.controls['product_name'].value);
-    }
-    if (!this.updateProductForm.controls['price'].value) {
-      formData.append('price', this.data_detailProduct.price);
-    } else {
-      formData.append('price', this.updateProductForm.controls['price'].value);
-    }
-    if (!this.updateProductForm.controls['quantity'].value) {
-      formData.append('quantity', this.data_detailProduct.quantity);
-    } else {
-      formData.append('quantity', this.updateProductForm.controls['quantity'].value);
-    }
-    if (!this.updateProductForm.controls['portfolio_id'].value) {
-      formData.append('portfolio_id', this.data_detailProduct.portfolio_id);
-    } else {
-      formData.append('portfolio_id', this.updateProductForm.controls['portfolio_id'].value);
-    }
-    if (this.updateProductForm.controls['description'].value || this.updateProductForm.controls['description']) {
-      formData.append('description', this.updateProductForm.controls['description'].value);
-    } else {
-      formData.append('description', this.data_detailProduct.description);
-    }
+    // // kiểm tra nếu có theoo tác trong form hay không
+    // if (!this.updateProductForm.controls['product_name'].value) {
+    //   formData.append('product_name', this.data_detailProduct.product_name);
+    // } else {
+    //   formData.append('product_name', this.updateProductForm.controls['product_name'].value);
+    // }
+    // if (!this.updateProductForm.controls['price'].value) {
+    //   formData.append('price', this.data_detailProduct.price);
+    // } else {
+    //   formData.append('price', this.updateProductForm.controls['price'].value);
+    // }
+    // if (!this.updateProductForm.controls['quantity'].value) {
+    //   formData.append('quantity', this.data_detailProduct.quantity);
+    // } else {
+    //   formData.append('quantity', this.updateProductForm.controls['quantity'].value);
+    // }
+    // if (!this.updateProductForm.controls['portfolio_id'].value) {
+    //   formData.append('portfolio_id', this.data_detailProduct.portfolio_id);
+    // } else {
+    //   formData.append('portfolio_id', this.updateProductForm.controls['portfolio_id'].value);
+    // }
+    // if (this.updateProductForm.controls['description'].value || this.updateProductForm.controls['description']) {
+    //   formData.append('description', this.updateProductForm.controls['description'].value);
+    // } else {
+    //   formData.append('description', this.data_detailProduct.description);
+    // }
 
-    formData.append('product_id', this.data_detailProduct.product_id);    
+    formData.append('product_id', this.data_detailProduct.product_id);
 
-    // formData.append('product_name', this.updateProductForm.controls['product_name'].value);
-    // formData.append('price', this.updateProductForm.controls['price'].value);
-    // formData.append('description', this.updateProductForm.controls['description'].value);
-    // formData.append('quantity', this.updateProductForm.controls['quantity'].value);
-    // formData.append('portfolio_id', this.updateProductForm.controls['portfolio_id'].value);
+    formData.append('product_name', this.updateProductForm.controls['product_name'].value);
+    formData.append('price', this.updateProductForm.controls['price'].value);
+    formData.append('description', this.updateProductForm.controls['description'].value);
+    formData.append('quantity', this.updateProductForm.controls['quantity'].value);
+    formData.append('portfolio_id', this.updateProductForm.controls['portfolio_id'].value);
 
     this.options = { content: formData };
 

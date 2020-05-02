@@ -8,8 +8,7 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Sản Phẩm </span>
                             <input class="css_inp col-md-9 " type="text" placeholder="nhập tên sản phẩm" id=""
-                                name="product_name" value="{{data_detailProduct.product_name}}"
-                                formControlName="product_name" />
+                                name="product_name" formControlName="product_name" />
                             <!-- <div *ngIf="isInvalidForm('product_name')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('product_name')">
                                     Yêu cầu nhập tên sản phẩm .
@@ -20,7 +19,7 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Giá </span>
                             <input class="css_inp col-md-9 " type="text" placeholder="nhập giá sản phẩm" id=""
-                                name="price" value="{{data_detailProduct.price}}" formControlName="price" />
+                                name="price" formControlName="price" />
                             <!-- <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('price')">
                                     Yêu cầu nhập giá sản phẩm .
@@ -30,7 +29,7 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Số Lượng </span>
                             <input class="css_inp col-md-9" type="text" placeholder="nhập số lượng " id=""
-                                name="quantity" value="{{data_detailProduct.quantity}}" formControlName="quantity" />
+                                name="quantity" formControlName="quantity" />
                             <!-- <div *ngIf="isInvalidForm('quantity')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('quantity')">
                                     Yêu cầu nhập số lượng sản phẩm .
@@ -49,20 +48,20 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thể Loại </span>
                             <select class="css_inp col-md-9 " id="portfolio_id" title="--chọn thể loại--"
-                                value="{{data_detailProduct.portfolio_id}}" formControlName="portfolio_id">
+                                formControlName="portfolio_id">
 
                                 <!-- <ng-container *ngFor="let data of data_portfolio"> -->
                                 <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
                                     {{data.portfolio_name}}
                                 </option>
-                                <!-- </ng-container> -->    
+                                <!-- </ng-container> -->
                             </select>
                         </div>
 
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Mô Tả </span>
                             <textarea class=" col-md-9 " type="text" rows="8" placeholder="nhập mô tả" id=""
-                                value="{{data_detailProduct.description}}" formControlName="description">
+                                formControlName="description">
 
                             </textarea>
                         </div>

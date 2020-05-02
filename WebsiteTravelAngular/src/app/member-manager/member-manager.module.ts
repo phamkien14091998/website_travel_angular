@@ -23,6 +23,8 @@ import { CreateCollectionComponent } from './member-collection/create-collection
 
 import { CreateScheduleComponent } from './member-schedule/create-schedule/create-schedule.component';
 import { DetailScheduleComponent } from './member-schedule/detail-schedule/detail-schedule.component';
+import { DetailMemberInfoComponent } from './member-info/detail-member-info/detail-member-info.component';
+import { UpdateMemberInfoComponent } from './member-info/update-member-info/update-member-info.component';
 
 
 
@@ -38,12 +40,12 @@ const routes: Routes = [
                 path: 'post/new', component: CreateMemberPostComponent
             },
             {
-                path: 'post/update', component: UpdateMemberPostComponent
-                // path: 'post/update/:post_id', component: UpdateMemberPostComponent
+                //path: 'post/update', component: UpdateMemberPostComponent
+                path: 'post/update/:post_id', component: UpdateMemberPostComponent
             },
             {
-                path: 'post/detail', component: DetailMemberPostComponent
-                // path: 'post/detail/:post_id', component: DetailMemberPostComponent
+                //path: 'post/detail', component: DetailMemberPostComponent
+                path: 'post/detail/:post_id', component: DetailMemberPostComponent
             },
 
             {
@@ -51,6 +53,14 @@ const routes: Routes = [
             },
             {
                 path: 'schedule/detail', component: DetailScheduleComponent
+            },
+            {
+                path: 'info/update', component: UpdateMemberInfoComponent
+                // path: 'info/update/:user_id', component: UpdateMemberInfoComponent
+            },
+            {
+                path: 'info/detail', component: DetailMemberInfoComponent
+                // path: 'post/detail/:post_id', component: DetailMemberInfoComponent
             },
             // {
             //     path: ':id/edit', component: FilmUpdateComponent 
@@ -73,6 +83,8 @@ const routes: Routes = [
         DetailMemberPostComponent,
         CreateScheduleComponent,
         DetailScheduleComponent,
+        DetailMemberInfoComponent,
+        UpdateMemberInfoComponent,
 
     ],
     imports: [

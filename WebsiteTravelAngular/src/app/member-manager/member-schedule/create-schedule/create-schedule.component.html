@@ -1,398 +1,95 @@
-<div class="create-trip-detail">
-    <div class="container-fluid">
-        <!-- start header -->
-        <div class="col-md-12 create-trip-detail-header">
-            <div class="row">
-                <div class="col-md-5 col-sm-4 col-4 header-logo">
-                    <a href="">Travel</a>
+<div class="create-trip">
+    <div class="container">
+        <div class="create-trip-header">
+            <p>Chọn các tỉnh thành mà bạn muốn đến</p>
+            <span>(chọn ít nhất một địa điểm)</span>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
                 </div>
-                <div class="col-md-7 col-sm-8 col-8">
-                    <div class="row">
-                        <div class="header-avatar">
-                        </div>
-                        <div class="header-info">
-                            <span>Phan Công Nhật Vũ</span>
-                        </div>
-                    </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="">An Giang</label>
                 </div>
             </div>
         </div>
-        <!-- end header -->
-        <!-- start nav -->
-        <div class="col-md-12 create-trip-detail-nav">
-            <div class="row">
-                <div class="col-md-2 col-sm-6 col-lg-3" style="line-height: 40px;">
-                    <span><strong>Bước 1: </strong>Chọn ngày</span>
+        <div class="row form-group" id="create-trip-body">
+            <div class="col-md-9 col-sm-12">
+                <label class=" col-sm-12 control-label ">Tên hành trình</label>
+                <div class="col-sm-12 ">
+                    <input type="text " class="form-control " placeholder="Tên hành trình (từ 5 - 255 ký tự) "
+                        maxlength="255 " minlength="5 ">
                 </div>
-                <div class="col-md-3 col-sm-6 col-lg-3" style="line-height: 40px;">
-                    <span><strong>Bước 2: </strong>Chọn tỉnh - thành phố</span>
-                </div>
-                <div class="col-md-7 col-sm-12 col-lg-6">
-                    <div class="row">
-                        <div class="col-md-5" style="line-height: 40px;">
-                            <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
-                        </div>
-                        <div class="col-md-7">
-                            <button type="button" class="finish">Hoàn thành</button>
-                        </div>
-                    </div>
+            </div>
+            <div class="col-md-3 col-sm-12">
+                <label class="col-sm-12 control-label ">Số ngày</label>
+                <select class="form-control ">
+                    <option value="1 ">1 ngày</option>
+                    <option value="2 ">2 ngày</option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group" id="create-trip-body">
+            <div class="col-sm-12">
+                <label class="col-sm-12 control-label ">Mô tả</label>
+                <div class="col-sm-12 " style="padding-right: 0px; ">
+                    <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự " maxlength="1000 "
+                        minlength="5 "></textarea>
                 </div>
             </div>
         </div>
-        <!-- end nav -->
-        <!-- start body -->
-        <div class="col-md-12 create-trip-detail-body">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-lg-3" id="trip-left">
-                    <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày 1</a>
-                            <input type="date">
-                        </div>
-                        <div class="list-places">
-                            <span>Huế <i class="fa fa-angle-right"></i></span>
-                            <span> Ninh Bình</span>
-                        </div>
-                    </div>
-                    <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày 2</a>
-                            <input type="date">
-                        </div>
-                        <div class="list-places">
-                            <span>Huế <i class="fa fa-angle-right"></i></span>
-                            <span> Ninh Bình</span>
-                        </div>
-                    </div>
-                    <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày 3</a>
-                            <input type="date">
-                        </div>
-                        <div class="list-places">
-                            <span>Huế <i class="fa fa-angle-right"></i></span>
-                            <span> Ninh Bình</span>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="button" class="add-day">+ Thêm ngày</button>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-3" id="trip-center">
-                    <div class="trip-center-header">
-                        <div class="header-place">
-                            <div class="title-jouney">
-                                <span class="list-province-jouney">
-                                    <span style="font-weight: 600; color: #28a745;">Ngày 1: </span>
-                                    <span>Huế </span>
-                                    <i class="fa fa-angle-double-right"></i>
-                                    <span> HCM</span>
-                                </span>
-                                <span>
-                                    <input type="button" value="add" class="btn-add-province">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="list-places">
-                            <div class="list-places-day">
-                                <div class="item-place">
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="add-detail" data-toggle="modal" data-target="#add-detail-place"><i
-                                                class="fa fa-bars"></i></span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-6" id="trip-right">
-                    <div id="province-in-plan">
-                        <div class="recommend-points">
-                            <div class="header-province">
-                                Thừa Thiên Huế
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image ">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image ">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title ">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle ">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle ">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end body -->
-    </div>
-</div>
-
-<div class="modal fade" id="add-detail-place" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title">Chỉnh sửa thông tin địa điểm</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <label class="model-title">Thời gian tham quan</label>
-                <div class="row">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="pull-left">
-                            <span class="clearfix">Thời gian đến:</span>
-                            <div class="row" style="width: 280px;">
-                                <div class="col-md-6 col-lg-6">
-                                    <select name="des-time-hour" class="form-control">
-                                        <option class="choose-i-1" value="1">1 AM </option>
-                                        <option class="choose-i-2" value="2">2 AM </option>
-                                        <option class="choose-i-3" value="3">3 AM </option>
-                                        <option class="choose-i-4" value="4">4 AM </option>
-                                        <option class="choose-i-5" value="5">5 AM </option>
-                                        <option class="choose-i-6" value="6">6 AM </option>
-                                        <option class="choose-i-7" value="7">7 AM </option>
-                                        <option class="choose-i-8" value="8">8 AM </option>
-                                        <option class="choose-i-9" value="9">9 AM </option>
-                                        <option class="choose-i-10" value="10">10 AM </option>
-                                        <option class="choose-i-11" value="11">11 AM </option>
-                                        <option class="choose-i-12" value="12">12 PM </option>
-                                        <option class="choose-i-13" value="13">1 PM </option>
-                                        <option class="choose-i-14" value="14">2 PM </option>
-                                        <option class="choose-i-15" value="15">3 PM </option>
-                                        <option class="choose-i-16" value="16">4 PM </option>
-                                        <option class="choose-i-17" value="17">5 PM </option>
-                                        <option class="choose-i-18" value="18">6 PM </option>
-                                        <option class="choose-i-19" value="19">7 PM </option>
-                                        <option class="choose-i-20" value="20">8 PM </option>
-                                        <option class="choose-i-21" value="21">9 PM </option>
-                                        <option class="choose-i-22" value="22">10 PM </option>
-                                        <option class="choose-i-23" value="23">11 PM </option>
-                                        <option class="choose-i-24" value="24">12 AM </option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <select name="des-time-minute" class="form-control">
-                                        <option class="choose-n-0" value="0">0' </option>
-                                        <option class="choose-n-10" value="10">10' </option>
-                                        <option class="choose-n-20" value="20">20' </option>
-                                        <option class="choose-n-30" value="30">30' </option>
-                                        <option class="choose-n-40" value="40">40' </option>
-                                        <option class="choose-n-50" value="50">50' </option>
-                                        <option class="choose-n-60" value="60">60' </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6">
-                        <div class="pull-left">
-                            <span class="clearfix ">Thời gian tham quan:</span>
-                            <div class="row" style="width: 280px;">
-                                <div class="col-md-6 col-lg-6">
-                                    <select name="des-time-in-hour" class="form-control">
-                                        <option class="choose-i-0" value="0">0h </option>
-                                        <option class="choose-i-1" value="1">1h </option>
-                                        <option class="choose-i-2" value="2">2h </option>
-                                        <option class="choose-i-3" value="3">3h </option>
-                                        <option class="choose-i-4" value="4">4h </option>
-                                        <option class="choose-i-5" value="5">5h </option>
-                                        <option class="choose-i-6" value="6">6h </option>
-                                        <option class="choose-i-7" value="7">7h </option>
-                                        <option class="choose-i-8" value="8">8h </option>
-                                        <option class="choose-i-9" value="9">9h </option>
-                                        <option class="choose-i-10" value="10">10h </option>
-                                        <option class="choose-i-11" value="11">11h </option>
-                                        <option class="choose-i-12" value="12">12h </option>
-                                        <option class="choose-i-13" value="13">13h </option>
-                                        <option class="choose-i-14" value="14">14h </option>
-                                        <option class="choose-i-15" value="15">15h </option>
-                                        <option class="choose-i-16" value="16">16h </option>
-                                        <option class="choose-i-17" value="17">17h </option>
-                                        <option class="choose-i-18" value="18">18h </option>
-                                        <option class="choose-i-19" value="19">19h </option>
-                                        <option class="choose-i-20" value="20">20h </option>
-                                        <option class="choose-i-21" value="21">21h </option>
-                                        <option class="choose-i-22" value="22">22h </option>
-                                        <option class="choose-i-23" value="23">23h </option>
-                                        <option class="choose-i-24" value="24">24h </option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <select name="des-time-in-minute" class="form-control">
-                                        <option class="choose-n-0" value="0">0' </option>
-                                        <option class="choose-n-15" value="15">15' </option>
-                                        <option class="choose-n-30" value="30">30' </option>
-                                        <option class="choose-n-45" value="45">45' </option>
-                                        <option class="choose-n-60" value="60">60' </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <label class="model-title" style="margin-top: 15px;">Phương tiện di chuyển</label>
-                <div class="row vehicle">
-                    <div class="group-all">
-                        <ul>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-subway"></i> Tàu hỏa</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-bus"></i> Bus</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-taxi"></i> Taxi/Car</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-bicycle"></i> Xe đạp</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-ship"></i> Tàu thủy</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-plane"></i> Máy bay</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-motorcycle"></i> Xe máy</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-paw"></i> Đi bộ</label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <label class="model-title">Ghi chú</label>
-                <div class="row">
-                    <div class="col-md-12">
-                        <textarea rows="3" style="width: 100%; border-radius: 5px;"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" class="btnLuu">Lưu</button>
-                    </div>
-                </div>
-            </div>
+        <div class="create-trip-button ">
+            <button type="submit ">Tiếp tục</button>
         </div>
     </div>
 </div>

@@ -18,6 +18,9 @@ export class ListMemberPostComponent implements OnInit {
   dataListPost: any = [];
   searchPostForm: FormGroup;
 
+  //delete
+  postDeleteIndex: number;
+
   // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
 
@@ -63,6 +66,20 @@ export class ListMemberPostComponent implements OnInit {
         this.dataListPost = data
       }, err => { console.log(err) }
     );
+  }
+
+  //delete post
+  deletePost(post_id: string) {
+    this.postService.deletePost(post_id).subscribe(
+      () => {
+        this.dataListPost.splice(this.postDeleteIndex, 1);
+        this.postDeleteIndex = undefined;
+        this.toastr.success('thành công', 'Xóa sản phẩm');
+
+      }, () => {
+        this.toastr.error('thất bại', 'Xóa sản phẩm');
+      }
+    )
   }
 
 }   

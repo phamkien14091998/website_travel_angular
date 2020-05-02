@@ -8,7 +8,7 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Địa Điểm </span>
                             <input class="css_inp col-md-9 " type="text" placeholder="nhập tên địa điểm" id=""
-                                name="title" value="{{dataDetailPlace.title}}" formControlName="title" />
+                                name="title" formControlName="title" />
                             <!-- <div *ngIf="isInvalidForm('title')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('title')">
                                     Yêu cầu nhập tên địa điểm .
@@ -18,8 +18,8 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Thời Gian Mở </span>
-                            <select class="css_inp col-md-9 " id="date_start" value="{{dataDetailPlace.date_start}}"
-                                title="--- Chọn giờ mở ---" formControlName="date_start">
+                            <select class="css_inp col-md-9 " id="date_start" title="--- Chọn giờ mở ---"
+                                formControlName="date_start">
                                 <option *ngFor="let date_st of date_array" value="{{date_st}}">
                                     {{date_st}}
                                 </option>
@@ -27,8 +27,8 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Thời Gian Đóng </span>
-                            <select class="css_inp col-md-9 " id="date_end" value="{{dataDetailPlace.date_end}}"
-                                title="--- Chọn giờ đóng ---" formControlName="date_end">
+                            <select class="css_inp col-md-9 " id="date_end" title="--- Chọn giờ đóng ---"
+                                formControlName="date_end">
                                 <option *ngFor="let date_st of date_array" value="{{date_st}}">
                                     {{date_st}}
                                 </option>
@@ -46,7 +46,7 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Tỉnh</span>
                             <select class="css_inp col-md-9 " id="province_id" title="--chọn tỉnh--"
-                                value="{{dataDetailPlace.province_id}}" formControlName="province_id">
+                                formControlName="province_id">
 
                                 <!-- <ng-container *ngFor="let data of data_portfolio"> -->
                                 <option *ngFor="let data of dataProvince" value="{{data.province_id}}">
@@ -59,7 +59,7 @@
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Mô Tả </span>
                             <textarea class=" col-md-9 " type="text" rows="8" placeholder="nhập mô tả" id=""
-                                value="{{dataDetailPlace.description}}" formControlName="description">
+                                formControlName="description">
 
                             </textarea>
                         </div>

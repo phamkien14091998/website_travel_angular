@@ -56,6 +56,8 @@ export class UpdatePlacesComponent implements OnInit {
         data.images = data.images.split('|')
         this.dataDetailPlace = data
 
+        this.updatePlaceForm.patchValue(this.dataDetailPlace)
+
       }, err => { console.log(err) }
     );
   }
@@ -108,31 +110,14 @@ export class UpdatePlacesComponent implements OnInit {
       formData.append('images', this.dataDetailPlace.images);
     }
     // kiểm tra nếu có theoo tác trong form hay không
-    if (!this.updatePlaceForm.controls['title'].value) {
-      formData.append('title', this.dataDetailPlace.title);
-    } else {
-      formData.append('title', this.updatePlaceForm.controls['title'].value);
-    }
-    if (!this.updatePlaceForm.controls['date_start'].value) {
-      formData.append('date_start', this.dataDetailPlace.date_start);
-    } else {
-      formData.append('date_start', this.updatePlaceForm.controls['date_start'].value);
-    }
-    if (!this.updatePlaceForm.controls['date_end'].value) {
-      formData.append('date_end', this.dataDetailPlace.date_end);
-    } else {
-      formData.append('date_end', this.updatePlaceForm.controls['date_end'].value);
-    }
-    if (!this.updatePlaceForm.controls['province_id'].value) {
-      formData.append('province_id', this.dataDetailPlace.province_id);
-    } else {
-      formData.append('province_id', this.updatePlaceForm.controls['province_id'].value);
-    }
-    if (this.updatePlaceForm.controls['description'].value || this.updatePlaceForm.controls['description']) {
-      formData.append('description', this.updatePlaceForm.controls['description'].value);
-    } else {
-      formData.append('description', this.dataDetailPlace.description);
-    }
+    // if (!this.updatePlaceForm.controls['title'].value) {
+    //   formData.append('title', this.dataDetailPlace.title);
+    // } else {
+    formData.append('title', this.updatePlaceForm.controls['title'].value);
+    formData.append('date_start', this.updatePlaceForm.controls['date_start'].value);
+    formData.append('date_end', this.updatePlaceForm.controls['date_end'].value);
+    formData.append('province_id', this.updatePlaceForm.controls['province_id'].value);
+    formData.append('description', this.updatePlaceForm.controls['description'].value);
 
     formData.append('famous_place_id', this.dataDetailPlace.famous_place_id);
 

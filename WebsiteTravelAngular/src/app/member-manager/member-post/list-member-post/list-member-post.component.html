@@ -15,15 +15,15 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label><input type="checkbox" formControlName="bai_chua_duyet">Bài chờ duyệt</label>
-                                </div>  
+                                </div>
                                 <div class="col-md-3">
                                     <label><input type="checkbox" formControlName="bai_huy">Bài bị hủy</label>
-                                </div>    
+                                </div>
                                 <div class="col-md-3">
                                     <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
                                 </div>
                             </div>
-                        </form>  
+                        </form>
                         <div class="col-md-2">
                             <button type="submit" routerLink="/member/post/new" class="btn btn-primary">Thêm Bài
                                 Viết</button>
@@ -34,8 +34,8 @@
                             <thead>
                                 <tr style="background-color: #21ca48;">
                                     <th width="10%">STT</th>
-                                    <th width="75%">Tiêu đề bài viết</th>
-                                    <th width="15%">Xem chi tiết</th>
+                                    <th width="65%">Tiêu đề bài viết</th>
+                                    <th width="25%">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,11 +43,24 @@
                                     <td>{{ i+1 }}</td>
                                     <td>{{post.title}}</td>
                                     <td>
-                                        <button type="button " routerLink="/member/post/detail/{{post.post_id}}"
-                                            class="btn btn-info ">Xem
+                                        <button style="margin-right: 5px;" type="button "
+                                            routerLink="/member/post/detail/{{post.post_id}}" class="btn btn-info ">Xem
                                             chi
                                             tiết
                                         </button>
+
+                                        <button type="button" class="css-b btn btn-danger" (click)="postDeleteIndex = i"
+                                            *ngIf="postDeleteIndex !== i">Xóa
+                                        </button>
+                                        <br><br>
+                                        <div *ngIf="postDeleteIndex === i">
+                                            <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+                                            <button (click)="deletePost(post.post_id)"
+                                                style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
+                                            </button>
+                                            <button style="width: 80px; " (click)="postDeleteIndex = undefined"
+                                                class="btn btn-danger">Không</button>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
