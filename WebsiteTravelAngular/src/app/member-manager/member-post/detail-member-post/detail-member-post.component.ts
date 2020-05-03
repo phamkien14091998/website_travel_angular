@@ -4,7 +4,7 @@ import { MemberPostService } from "../../share/member_post_service.service";
 import { environment } from "../../../../environments/environment";
 
 @Component({
-  selector: 'app-detail-member-post',
+  selector: 'app-detail-member-post',  
   templateUrl: './detail-member-post.component.html',
   styleUrls: ['./detail-member-post.component.css']
 })
@@ -29,7 +29,7 @@ export class DetailMemberPostComponent implements OnInit {
     this.post_service.getPostById(
       post_id
     ).subscribe(
-      (data) => {
+      (data) => { 
         data.images = data.images.split('|')
         this.dataDetailPost = data
         console.log(this.dataDetailPost);

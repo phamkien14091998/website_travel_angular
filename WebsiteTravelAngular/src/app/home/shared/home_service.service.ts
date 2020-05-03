@@ -19,12 +19,17 @@ export class HomeService {
         return this.http.get(`/api/place/list-home`);
     }
 
+    // lấy ra danh post by id   
+    public getPostById(post_id: any): Observable<any> {
+        return this.http.get(`/api/post/detail/` + post_id);
+    }
+
 
 
     // // lấy ra 16 sản phẩm mới nhất 
     // public getListProductNew(): Observable<any> {
 
-    //     return this.http.get(`/api/product/list-product-new`);
+    //     return this.http.get(/api/product/list-product-new);
     // }
     // // lấy ra sản phẩm theo thể loại id
     // public searchByPortfolio_id(portfolio_id: string): Observable<any> {

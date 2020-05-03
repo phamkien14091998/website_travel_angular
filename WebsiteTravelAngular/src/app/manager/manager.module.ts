@@ -10,6 +10,7 @@ import { AuthenticationService } from "../authentication.service";
 import { AuthGuardService } from "./../auth-guard.service";
 import { ManagerProductService } from "./share/manager_product.service";
 import { ManagerPlaceService } from "./share/manager_place.service";
+import { ManagerPostService } from "./share/manager_post.service";
 
 import { ManagerComponent } from './manager.component';
 import { CreateProductComponent } from './create-product/create-product.component';
@@ -44,7 +45,7 @@ const routes: Routes = [
                 path: 'posts', component: PostsComponent,// canActivate: [AuthGuardService],
             },
             {
-                path: 'posts/detail', component: PostsDetailComponent
+                path: 'posts/detail/:post_id', component: PostsDetailComponent
             },
             // router famous places
             {
@@ -96,7 +97,8 @@ const routes: Routes = [
         AuthGuardService,
         AuthenticationService,
         ManagerProductService,
-        ManagerPlaceService
+        ManagerPlaceService,
+        ManagerPostService
 
     ]
 })

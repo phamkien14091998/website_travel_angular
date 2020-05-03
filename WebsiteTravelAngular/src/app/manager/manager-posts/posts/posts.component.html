@@ -14,69 +14,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button " routerLink="/manager/posts/detail" class="btn btn-info ">Xem
+                            <tr *ngFor="let data of dataListPost ; let i = index" [attr.data-index]="i">
+                                <td>{{i+1}}</td>
+                                <td>{{data.user_name}}</td>
+                                <td>{{data.title}}</td>
+                                <td>
+                                    <button type="button " routerLink="/manager/posts/detail/{{data.post_id}}"
+                                        class="btn btn-info ">Xem
                                         chi
-                                        tiết</button></td>
+                                        tiết
+                                    </button></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td><button type="button " class="btn btn-info ">Xem chi tiết</button></td>
-                            </tr>
-
                         </tbody>
                     </table>
 

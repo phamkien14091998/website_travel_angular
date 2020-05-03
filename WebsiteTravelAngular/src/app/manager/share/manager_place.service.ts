@@ -15,7 +15,7 @@ export class ManagerPlaceService {
     }
     // Lấy ra tất cả tỉnh 
     public getProvince(): Observable<any> {
-        return this.http.get(`/api/place/province`);  
+        return this.http.get(`/api/place/province`);
     }
     // chi tiết địa điểm theo id
     public getDetailPlaceById(famous_place_id: string): Observable<any> {
@@ -34,19 +34,6 @@ export class ManagerPlaceService {
     public deletePlace(famous_place_id: string): Observable<any> {
         return this.http.delete('/api/place/delete/' + famous_place_id);
     }
-
-
-
-    // // lấy ra danh sách thể loại
-    // public getProductPortfolio(): Observable<any> {
-    //     return this.http.get(`/api/product/list-portfolio`);
-    // }
-    // // tìm kiếm sản phẩm theo tên sản phẩm
-    // public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
-    //     return this.http.post(`/api/product/search-product`, product);
-    // }
-
-
 
 
 }

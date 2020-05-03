@@ -27,6 +27,7 @@ import { HomePlacesDetailComponent } from './home/home-places-detail/home-places
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },

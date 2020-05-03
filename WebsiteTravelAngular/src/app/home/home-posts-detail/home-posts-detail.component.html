@@ -1,1 +1,144 @@
-<p>home-posts-detail works!</p>
+<!-- start header -->
+<div id="post-detail-header">
+    <div class="container-fluid">
+        <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[0]}}" class="header-img" />
+        <div class="row">
+            <div class="col-md-2 avatar">
+                <a>
+                    <img src="{{dataDetailPost.avatar}}">
+                </a>
+            </div>
+            <div class="col-md-8 title">
+                <span>{{dataDetailPost.post_title}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="container header-info">
+        <div class="row">
+            <div class="col-md-2 person-name">
+                <span>{{dataDetailPost.user_name}}</span>
+            </div>
+            <div class="col-md-10 create_date">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span>{{dataDetailPost.created_at}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end header -->
+<!-- start body -->
+<div id="post-detail-body">
+    <div class="container">
+        <div class="row" id="description">
+            <span>{{dataDetailPost.description}}</span>
+        </div>
+        <div class="row" id="information">
+            <div class="col-md-4">
+                <label><i class="fa fa-map"></i> Tỉnh thành: </label>
+                <span> {{dataDetailPost.province_name}}</span>
+            </div>
+            <div class="col-md-4">
+                <label><i class="fa fa-map-marker"></i> Địa điểm:</label>
+                <span> {{dataDetailPost.place_title}}</span>
+            </div>
+            <div class="col-md-4">
+                <label><i class="fa fa-moon-o"></i> Số ngày: </label>
+                <span> {{dataDetailPost.duration}}</span>
+            </div>
+            <div class="col-md-4">
+                <label><i class="fa fa-clock-o"></i> Giờ mở cửa: </label>
+                <span> {{dataDetailPost.date_start}}</span>
+            </div>
+            <div class="col-md-4">
+                <label><i class="fa fa-clock-o"></i> Giờ đóng cửa: </label>
+                <span> {{dataDetailPost.date_end}}</span>
+            </div>
+            <div class="col-md-4">
+                <label><i class="fa fa-money"></i> Giá vé: </label>
+                <span> {{dataDetailPost.fare}}</span>
+            </div>
+        </div>
+        <div class="row" id="images">
+            <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[0]}}" />
+        </div>
+        <div class="row" id="gaits">
+            <div class="col-md-12 title-detail">
+                <p>1. Hướng dẫn cách đi</p>
+            </div>
+            <div class="col-md-12">
+                <p>{{dataDetailPost.gaits}}</p>
+            </div>
+        </div>
+        <div class="row" id="items">
+            <div class="col-md-12 title-detail">
+                <p>2. Chuẩn bị hành lý</p>
+            </div>
+            <div class="col-md-12">
+                <p>{{dataDetailPost.items}}</p>
+            </div>
+        </div>
+        <div class="row" id="home_stay">
+            <div class="col-md-12 title-detail">
+                <p>3. Chỗ ở</p>
+            </div>
+            <div class="col-md-12">
+                <p>{{dataDetailPost.home_stay}}</p>
+            </div>
+        </div>
+        <div class="row" id="visits">
+            <div class="col-md-12 title-detail">
+                <p>4. Địa điểm tham quan - trải nghiệm</p>
+            </div>
+            <div class="col-md-12">
+                <p>{{dataDetailPost.visits}}</p>
+            </div>
+        </div>
+        <div class="row" id="activitis">
+            <div class="col-md-12 title-detail">
+                <p>5. Ăn uống - mua sắm</p>
+            </div>
+            <div class="col-md-12">
+                <p>{{dataDetailPost.activitis}}</p>
+            </div>
+        </div>
+        <div class="row" id="note">
+            <div class="col-md-12 title-detail">
+                <p>6. Lưu ý</p>
+            </div>
+            <div class="col-md-12">
+                <p>{{dataDetailPost.note}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end body -->
+
+<!-- start commnent -->
+<div id="post-detail-comment">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 comment-avatar">
+                <img src="{{dataDetailPost.avatar}}">
+            </div>
+            <div class="col-md-11 comment-content">
+                <input type="text" placeholder="    Viết một bình luận ...">
+            </div>
+        </div>
+        <div class="row" id="list-comment">
+            <div class="col-md-1 comment-avatar">
+                <img src="{{dataDetailPost.avatar}}">
+            </div>
+            <div class="col-md-11 list-comment-content">
+                <div>
+                    <span class="comment-user">nguyễn văn a</span>
+                    <span class="comment-date">17/03/2020, 9:30am</span>
+                </div>
+                <div class="comment-user-content">
+                    review chi tiết quá thanks bạn
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end comment -->
