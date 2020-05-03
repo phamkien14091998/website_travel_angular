@@ -70,7 +70,7 @@ export class ListProductComponent implements OnInit {
     ).subscribe(  
       (data) => {
   
-        this.data_listProduct = data.map(p => {
+        this.data_listProduct = data.map(p => { 
           p.images = p.images.split("|")
           return p;
         })  

@@ -25,6 +25,7 @@ import { CreateScheduleComponent } from './member-schedule/create-schedule/creat
 import { DetailScheduleComponent } from './member-schedule/detail-schedule/detail-schedule.component';
 import { DetailMemberInfoComponent } from './member-info/detail-member-info/detail-member-info.component';
 import { UpdateMemberInfoComponent } from './member-info/update-member-info/update-member-info.component';
+import { ListScheduleComponent } from './member-schedule/list-schedule/list-schedule.component';
 
 
 
@@ -47,7 +48,9 @@ const routes: Routes = [
                 //path: 'post/detail', component: DetailMemberPostComponent
                 path: 'post/detail/:post_id', component: DetailMemberPostComponent
             },
-
+            {
+                path: 'schedule/list', component: ListScheduleComponent
+            },
             {
                 path: 'schedule/new', component: CreateScheduleComponent
             },
@@ -85,6 +88,7 @@ const routes: Routes = [
         DetailScheduleComponent,
         DetailMemberInfoComponent,
         UpdateMemberInfoComponent,
+        ListScheduleComponent,
 
     ],
     imports: [

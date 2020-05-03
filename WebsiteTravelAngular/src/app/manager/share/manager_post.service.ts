@@ -17,24 +17,11 @@ export class ManagerPostService {
     public getPostById(post_id: any): Observable<any> {
         return this.http.get(`/api/post/detail/` + post_id);
     }
-    // // chi tiết địa điểm theo id
-    // public getDetailPlaceById(famous_place_id: string): Observable<any> {
+    // phê duyệt bài viết hoạc hủy bài viết
+    public approvedOrNotApprovedPost(dataPost: any): Observable<any> {
 
-    //     return this.http.get('/api/place/detail/' + famous_place_id);
-    // }
-    // // thêm địa điểm mới
-    // public createPlace(place_data: any): Observable<any> {
-    //     return this.http.post(`/api/place/new`, place_data);
-    // }
-    // //update place by id
-    // public updatePlace(famous_place_id: string, placeData: any): Observable<any> {
-    //     return this.http.post('/api/place/update/' + famous_place_id, placeData);
-    // }
-    // //xóa địa điểm theo id
-    // public deletePlace(famous_place_id: string): Observable<any> {
-    //     return this.http.delete('/api/place/delete/' + famous_place_id);
-    // }
-
+        return this.http.post(`/api/post/approved-or-notapproved`, dataPost);
+    }
 
 
 }
