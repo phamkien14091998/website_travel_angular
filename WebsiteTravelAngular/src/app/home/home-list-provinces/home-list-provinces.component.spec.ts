@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListMemberPostComponent } from './list-member-post.component';
+import { HomeListProvincesComponent } from './home-list-provinces.component';
 
-describe('ListMemberPostComponent', () => {
-  let component: ListMemberPostComponent;
-  let fixture: ComponentFixture<ListMemberPostComponent>;
+describe('HomeListProvincesComponent', () => {
+  let component: HomeListProvincesComponent;
+  let fixture: ComponentFixture<HomeListProvincesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListMemberPostComponent ]
+      declarations: [ HomeListProvincesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListMemberPostComponent);
+    fixture = TestBed.createComponent(HomeListProvincesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

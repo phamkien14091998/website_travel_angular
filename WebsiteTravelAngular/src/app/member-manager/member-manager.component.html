@@ -1,18 +1,46 @@
-<div class=" navbar-expand-lg" id="navbar-right">
-    <!-- *ngIf="user?.role==1 && auth.haveLogin()" -->
-    <!-- [ngClass]="{'active': selectedItem == 1}"
-        (click)="listClick($event, 1)" -->
-    <button routerLink="/member/info/detail" class="btn btn-success css-b" type="button">
-        Quản Lý Thông Tin Cá Nhân
-    </button>
-    <button routerLink="/member/post/list" class="btn btn-success css-b" type="button">
-        Quản Lý Bài Viết
-    </button>
-    <button routerLink="/member/collection/list" class="btn btn-success css-b" type="button">
-        Quản Lý Bộ Sưu Tập
-    </button>
-    <button routerLink="/member/schedule/list" class="btn btn-success css-b" type="button">
-        Quản Lý Lịch Trình
-    </button>
+<div class="personal-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" id="personal-page-left">
+                <div class="left-header">
+                    <span>Trang cá nhân / <a>{{dataUser.user_name}}</a></span>
+                </div>
+                <div class="left-info">
+                    <div id="user-avatar">
+                        <img src="../../{{dataUser.avatar}}">
+                    </div>
+                    <div id="user-name-name">
+                        <span id="user-name">
+                            <a>{{dataUser.user_name}}</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10" id="personal-page-right">
+                <div class="navbar-expand-lg nav-right" id="navbar-right">
+                    <!-- *ngIf="user?.role==1 && auth.haveLogin()" -->
+                    <!-- [ngClass]="{'active': selectedItem == 1}"
+                        (click)="listClick($event, 1)" -->
+                    <div id="navbar-right-header">
+                        <button routerLink="/member/info/detail/{{dataUser.user_name}}" class="btn btn-success css-b"
+                            type="button" style="margin-left: 165px;">
+                            Quản Lý Thông Tin Cá Nhân
+                        </button>
+                        <button routerLink="/member/post/list" class="btn btn-success css-b" type="button">
+                            Quản Lý Bài Viết
+                        </button>
+                        <button routerLink="/member/collection/list" class="btn btn-success css-b" type="button">
+                            Quản Lý Bộ Sưu Tập
+                        </button>
+                        <button routerLink="/member/schedule/list" class="btn btn-success css-b" type="button">
+                            Quản Lý Lịch Trình
+                        </button>
+                    </div>
+                    <div>
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<router-outlet></router-outlet>

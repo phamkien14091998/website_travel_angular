@@ -45,33 +45,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-lg-3" id="trip-left">
                     <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày 1</a>
-                            <input type="date">
-                        </div>
-                        <div class="list-places">
-                            <span>Huế <i class="fa fa-angle-right"></i></span>
-                            <span> Ninh Bình</span>
-                        </div>
-                    </div>
-                    <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày 2</a>
-                            <input type="date">
-                        </div>
-                        <div class="list-places">
-                            <span>Huế <i class="fa fa-angle-right"></i></span>
-                            <span> Ninh Bình</span>
-                        </div>
-                    </div>
-                    <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày 3</a>
-                            <input type="date">
-                        </div>
-                        <div class="list-places">
-                            <span>Huế <i class="fa fa-angle-right"></i></span>
-                            <span> Ninh Bình</span>
+                        <div class="top-data" *ngFor="let day of day_number_new">
+                            <a href="#">Ngày {{day}}</a>
+                            <input type="date" id="day" (change)="congNgay($event)">
                         </div>
                     </div>
                     <div>
@@ -88,8 +64,18 @@
                                     <i class="fa fa-angle-double-right"></i>
                                     <span> HCM</span>
                                 </span>
-                                <span>
-                                    <input type="button" value="add" class="btn-add-province">
+                                <span class="row">
+                                    <form class="row col-md-12" [formGroup]="getPlaceForm"
+                                        (ngSubmit)="getPlaceByProvince()">
+                                        <select class="col-md-8" style="margin-left:5px; width: 120px;"
+                                            class="form-control" title="--- Chọn tỉnh ---"
+                                            formControlName="province_id">
+                                            <option *ngFor="let pro of dataListProvince" value="{{pro.province_id}}">
+                                                {{pro.province_name}}
+                                            </option>
+                                        </select>
+                                        <button style="margin-left: 5px;" class="col-md-3" type="submit">tìm</button>
+                                    </form>
                                 </span>
                             </div>
                         </div>
@@ -98,34 +84,9 @@
                                 <div class="item-place">
                                     <div class="item">
                                         <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
+                                        <span class="name">hahahaah</span>
                                         <span class="add-detail" data-toggle="modal" data-target="#add-detail-place"><i
                                                 class="fa fa-bars"></i></span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">Cùng đình Huế</span>
                                         <span class="delete"><i class="fa fa-trash-o"></i></span>
                                     </div>
                                 </div>
@@ -137,97 +98,24 @@
                     <div id="province-in-plan">
                         <div class="recommend-points">
                             <div class="header-province">
-                                Thừa Thiên Huế
+                                {{province_name}}
                             </div>
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
+                                <div class="col-md-4 col-sm-4 col-6 recommend-point"
+                                    *ngFor="let place of dataListPlace">
                                     <div class="recommend-image ">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
+                                        <img src="{{domain}}/{{place.images[0]}}" class="image">
                                         <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
+                                            <i class="fa fa-plus-circle " aria-hidden="true">
+                                                <input type="checkbox">
+                                            </i>
                                         </div>
                                     </div>
                                     <div class="recommend-title">
-                                        Cung Đình Huế
+                                        {{place.title}}
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image ">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title ">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle ">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6 recommend-point">
-                                    <div class="recommend-image">
-                                        <img src="../../assets/img/img_user.PNG" class="image">
-                                        <div class="middle ">
-                                            <i class="fa fa-plus-circle text" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="recommend-title">
-                                        Cung Đình Huế
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

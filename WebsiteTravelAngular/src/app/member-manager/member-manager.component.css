@@ -1,4 +1,4 @@
-.css-a-w {
+/* .css-a-w {
     width: 90px;
     height: 45px;
     margin-left: 5px;
@@ -18,4 +18,62 @@
     margin-bottom: 55px;
     text-align: center;
     margin-top: 5px;
+} */
+
+/* left */
+
+#personal-page-left {
+    text-align: center;
+    background-color: white;
 }
+
+.left-info {
+    margin-top: 30px;
+}
+
+.left-header {
+    border-bottom: 0.5px solid gainsboro;
+}
+
+.left-header span {
+    color: #777;
+    font-size: 12px;
+}
+
+.left-header a {
+    cursor: pointer;
+}
+
+#user-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 24px;
+    word-wrap: break-word;
+    color: #009580;
+}
+
+#user-name-name {
+    padding-top: 24px;
+}
+
+#user-name a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.left-info img {
+    width: 120px;
+    height: 120px;
+    border-radius: 120px;
+}
+
+/* end left */
+
+/* start right */
+
+#navbar-right-header {
+    height: 50px;
+    line-height: 50px;
+}
+
+/* end right */

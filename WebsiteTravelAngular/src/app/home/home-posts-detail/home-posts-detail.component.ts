@@ -11,7 +11,7 @@ import { environment } from "../../../environments/environment";
 export class HomePostsDetailComponent implements OnInit {
 
   dataDetailPost: any = {};
-  domain = environment.API_URL;
+  domain = environment.API_URL; 
 
   constructor(
     private route: ActivatedRoute,
@@ -41,3 +41,4 @@ export class HomePostsDetailComponent implements OnInit {
   }
 
 }
+

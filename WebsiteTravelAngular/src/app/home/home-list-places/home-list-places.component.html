@@ -1,0 +1,27 @@
+<div id="list-all-places">
+    <div class="container">
+        <div class="row" id="header">
+            <div class="col-md-7">
+                <h1 id="province-name">{{dataProvinceName}}</h1>
+            </div>
+            <div class="col-md-5">
+                <div id="description" class="row">
+                    <span>{{dataProvinceName}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="list-places">
+            <div class="col-md-12" id="numberOfPlace">
+                <span>Tìm thấy {{numberOfPlace}} địa điểm cho bạn</span>
+            </div>
+            <div class="col-md-3 place" *ngFor="let dataPlace of dataListPlace">
+                <div class="place-image" routerLink="/place/detail/{{dataPlace.famous_place_id}}">
+                    <img src="{{domain}}/{{dataPlace.images[0]}}" />
+                </div>
+                <div>
+                    <p class="place-title" routerLink="/place/detail/{{dataPlace.famous_place_id}}">{{dataPlace.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

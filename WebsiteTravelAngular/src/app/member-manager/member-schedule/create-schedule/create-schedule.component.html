@@ -6,90 +6,50 @@
             <hr />
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="">An Giang</label>
-                </div>
-            </div>
         </div>
-        <div class="row form-group" id="create-trip-body">
-            <div class="col-md-9 col-sm-12">
-                <label class=" col-sm-12 control-label ">Tên hành trình</label>
-                <div class="col-sm-12 ">
-                    <input type="text " class="form-control " placeholder="Tên hành trình (từ 5 - 255 ký tự) "
-                        maxlength="255 " minlength="5 ">
+        <form [formGroup]="createScheduleForm" (ngSubmit)="createSchedule()">
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-md-9 col-sm-12">
+                    <label class=" col-sm-12 control-label ">Tên hành trình</label>
+                    <div class="col-sm-12 ">
+                        <input type="text " class="form-control " formControlName="trip_name"
+                            placeholder="Tên hành trình (từ 5 - 255 ký tự) " maxlength="255" minlength="5">
+                    </div>
+                    <div *ngIf="isInvalidForm('trip_name')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('trip_name')">
+                            Yêu cầu nhập tên chuyến đi .
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-12">
-                <label class="col-sm-12 control-label ">Số ngày</label>
-                <select class="form-control ">
-                    <option value="1 ">1 ngày</option>
-                    <option value="2 ">2 ngày</option>
-                </select>
-            </div>
-        </div>
-        <div class="row form-group" id="create-trip-body">
-            <div class="col-sm-12">
-                <label class="col-sm-12 control-label ">Mô tả</label>
-                <div class="col-sm-12 " style="padding-right: 0px; ">
-                    <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự " maxlength="1000 "
-                        minlength="5 "></textarea>
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-md-6 col-sm-6">
+                    <label class="col-sm-12 control-label ">Chọn số ngày</label>
+                    <input style="margin-left: 15px;" type="number" formControlName="day_number">
+                    <div *ngIf="isInvalidForm('day_number')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('day_number')">
+                            Yêu cầu chọn số ngày của chuyển đi .
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="create-trip-button ">
-            <button type="submit ">Tiếp tục</button>
-        </div>
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-sm-12">
+                    <label class="col-sm-12 control-label ">Mô tả</label>
+                    <div class="col-sm-12 " style="padding-right: 0px; ">
+                        <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự " maxlength="1000"
+                            minlength="5" formControlName="description"></textarea>
+                    </div>
+                    <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('description')">
+                            Yêu cầu nhập mô tả.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="create-trip-button ">
+                <button type="submit">Tiếp tục</button>
+            </div>
+        </form>
     </div>
 </div>

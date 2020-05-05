@@ -14,9 +14,19 @@ export class HomeService {
         return this.http.get(`/api/post/list-approved`);
     }
 
+    // lấy ra all bài post đã duyệt
+    public getAllPost(): Observable<any> {
+        return this.http.get(`/api/post/all`);
+    }
+
     // lấy ra 8 dia diem đã duyệt
-    public getAll8Place(): Observable<any> {
+    public getAll8PProvince(): Observable<any> {
         return this.http.get(`/api/place/list-home`);
+    }
+
+    // lấy ra 11 dia diem đã duyệt cho trang place_details
+    public get11Provinces(): Observable<any> {
+        return this.http.get(`/api/place/11provinces`);
     }
 
     // lấy ra danh post by id   
@@ -24,23 +34,28 @@ export class HomeService {
         return this.http.get(`/api/post/detail/` + post_id);
     }
 
+    // lấy ra danh list place by province_id  
+    public getListPlaceByProvinceId(province_id: any): Observable<any> {
+        return this.http.get(`/api/place/search-place-by-province-id/` + province_id);
+    }
 
+    // lấy ra danh post by id   
+    public getListPostByPlaceId(famous_place_id: any): Observable<any> {
+        return this.http.get(`/api/post/place/detail/` + famous_place_id);
+    }
 
-    // // lấy ra 16 sản phẩm mới nhất 
-    // public getListProductNew(): Observable<any> {
+    // lấy ra danh post by province id   
+    public getListPostByProvinceId(province_id: any): Observable<any> {
+        return this.http.get(`/api/post/province/detail/` + province_id);
+    }
 
-    //     return this.http.get(/api/product/list-product-new);
-    // }
-    // // lấy ra sản phẩm theo thể loại id
-    // public searchByPortfolio_id(portfolio_id: string): Observable<any> {
-    //     return this.http.get('/api/product/search-by-portfolio_id/' + portfolio_id);
-    // }
-    // // chi tiết sản phẩm theo id
-    // public getDetailProductById(product_id: string): Observable<any> {
-
-    //     return this.http.get('/api/product/detail-product/' + product_id);
-    // }
-
+    // get all province
+    public getAllProvinces(): Observable<any> {
+        return this.http.get(`/api/place/province`);
+    }
 
 
 }
+
+
+

@@ -1,0 +1,43 @@
+#province-name {
+    font-size: 60px;
+    line-height: normal;
+    color: #43ac49;
+}
+
+#header {
+    border-bottom: 0.5px solid #43ac49;
+}
+
+#numberOfPlace {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#numberOfPlace span {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.place {
+    margin-top: 50px;
+}
+
+.place-image {
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+    border: 0.5px solid gainsboro;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.place-image img {
+    height: 250px;
+    width: 255px;
+}
+
+.place-title {
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+}

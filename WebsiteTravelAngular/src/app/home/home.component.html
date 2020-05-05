@@ -5,8 +5,7 @@
         <div class="col-md-12" id="search-input">
             <div class="col-md-1"></div>
             <p class="col-md-1 icon-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></p>
-            <input type="text" class="col-md-8 form-control search-input-text" id=""
-                placeholder="Nhập nơi bạn muốn đến ...">
+            <input type="text" class="col-md-8 form-control search-input-text" id="" placeholder="Nhập nơi bạn muốn đến ...">
             <button class="col-md-2 btn-search">Tìm kiếm</button>
         </div>
     </div>
@@ -61,22 +60,20 @@
                     <span class="a-post-fullname">{{dataPost.user_name}}</span>
                 </a>
                 <br />
-                <a href="">
+                <a routerLink="/detail-post/{{dataPost.post_id}}">
                     <img class="post-review-image" src="{{domain}}/{{dataPost.images[0]}}" />
                 </a>
-                <a href="#">
+                <a routerLink="/detail-post/{{dataPost.post_id}}">
                     <h6 class="a-post-title">{{dataPost.title}}</h6>
                 </a>
                 <div class="a-post-detail">
                     <i class="fa fa-eye" aria-hidden="true"></i> 1234
                     <i class="fa fa-commenting" aria-hidden="true"></i> 123
                     <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
-                    <span class="post-review-date">{{dataPost.created_at}}</span>   
+                    <span class="post-review-date">{{dataPost.created_at}}</span>
                 </div>
                 <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
-                    <a class="link-manga"
-                        style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;"
-                        routerLink="/detail-post/{{dataPost.post_id}}">
+                    <a class="link-manga" style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;" routerLink="/detail-post/{{dataPost.post_id}}">
                         <span class="blink_me">＞＞</span>
                         <span>Xem Bài Viết</span>
                         <span class="blink_me">＜＜</span>
@@ -86,7 +83,7 @@
         </div>
     </div>
     <div id="post-review-footer">
-        <button type="button">Xem thêm</button>
+        <button type="button" routerLink="/post">Xem thêm</button>
     </div>
 </div>
 <!-- end post review -->
@@ -98,15 +95,15 @@
         <h6>Tổng hợp các điểm đến nổi tiếng của các tỉnh thành</h6>
     </div>
     <div class="row" style="padding-left: 37px; ">
-        <div style="padding-bottom: 20px;" class="col-md-3" *ngFor="let dataPlace of dataListPlace">
-            <div class="place-image">
-                <a href=""><img src="{{domain}}/{{dataPlace.images[0]}}"></a>
-                <h5 style="color: black;padding-top: 150px;">{{dataPlace.title}}</h5>
+        <div style="padding-bottom: 20px;" class="col-md-3" *ngFor="let dataProvince of dataListProvince">
+            <div class="place-image" routerLink="/province/detail/{{dataProvince.province_id}}">
+                <a><img src="{{domain}}/{{dataProvince.image}}"></a>
+                <h5 style="color: black;padding-top: 150px;">{{dataProvince.province_name}}</h5>
             </div>
         </div>
     </div>
     <div id="place-footer">
-        <button type="button">Xem thêm</button>
+        <button type="button" routerLink="/province">Xem thêm</button>
     </div>
 </div>
 <!-- end place -->

@@ -259,6 +259,7 @@
     float: left;
     position: relative;
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .place-image h5 {

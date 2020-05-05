@@ -12,7 +12,7 @@ import { HomeService } from "./shared/home_service.service";
 })
 export class HomeComponent {
     dataListPost: any = [];
-    dataListPlace: any = [];
+    dataListProvince: any = [];
     domain = environment.API_URL;
 
     constructor(
@@ -25,7 +25,7 @@ export class HomeComponent {
     ngOnInit(): void {
 
         this.getAllPost();
-        this.getAllPlace();
+        this.getAllProvince();
     }
     // get 9 bài viết đã duyệt
     getAllPost() {
@@ -39,20 +39,18 @@ export class HomeComponent {
             err => { console.log(err) }
         );
     }
-    // get 8 địa điểm 
-    getAllPlace() {
-        this.homeService.getAll8Place().subscribe(
+    // get 8 tỉnh thành 
+    getAllProvince() {
+        this.homeService.getAll8PProvince().subscribe(
             (data) => {
-                this.dataListPlace = data.map(p => {
-                    p.images = p.images.split("|")
-                    return p;
-                })
+                this.dataListProvince = data
+                // (p => {
+                //     p.images = p.images.split("|")
+                //     return p; 
+                // })
             },
             err => { console.log(err) }
         );
     }
 
 }
-
-
-

@@ -23,16 +23,24 @@ import { ProductModule } from "./product/product.module";
 import { MemberManagerModule } from "./member-manager/member-manager.module";
 import { HomePostsDetailComponent } from './home/home-posts-detail/home-posts-detail.component';
 import { HomePlacesDetailComponent } from './home/home-places-detail/home-places-detail.component';
+import { HomeListPlacesComponent } from './home/home-list-places/home-list-places.component';
+import { HomeListPostsComponent } from './home/home-list-posts/home-list-posts.component';
+import { HomeListProvincesComponent } from './home/home-list-provinces/home-list-provinces.component';
+import { HomeListPostProvinceComponent } from './home/home-list-post-province/home-list-post-province.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
+  { path: 'province/detail/:province_id', component: HomeListPlacesComponent }, //lấy các địa điểm trong tỉnh
+  { path: 'province', component: HomeListProvincesComponent }, // lấy danh sách tất cả các tỉnh
+  { path: 'province/:province_id', component: HomeListPostProvinceComponent }, // lấy danh sách tất cả bài viết theo tỉnh
+  { path: 'place/detail/:famous_place_id', component: HomePlacesDetailComponent }, // lấy tất cả các bài viết của 1 địa điểm của tỉnh
+  { path: 'post', component: HomeListPostsComponent }, // lấy tất cả các bài post
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
-  // { path: 'product', component: ProductComponent },
 
 
 ]
@@ -48,7 +56,10 @@ const routes: Routes = [
     FooterComponent,
     HomePostsDetailComponent,
     HomePlacesDetailComponent,
-
+    HomeListPlacesComponent,
+    HomeListPostsComponent,
+    HomeListProvincesComponent,
+    HomeListPostProvinceComponent,
   ],
   imports: [
     BrowserModule,

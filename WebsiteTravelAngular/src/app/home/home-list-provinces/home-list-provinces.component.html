@@ -1,0 +1,19 @@
+<div id="all-provinces">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="header">
+                <span>Danh sách tất cả các tỉnh thành</span>
+            </div>
+            <div class="col-md-12" id="body">
+                <div class="row" style="padding-left: 37px; ">
+                    <div style="padding-bottom: 20px;" class="col-md-3" *ngFor="let dataProvince of dataListProvince">
+                        <div class="place-image" routerLink="/province/detail/{{dataProvince.province_id}}">
+                            <a><img src="{{domain}}/{{dataProvince.image}}"></a>
+                            <h5 style="color: black;padding-top: 150px;">{{dataProvince.province_name}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

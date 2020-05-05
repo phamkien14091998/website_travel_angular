@@ -1,15 +1,25 @@
-<div id="list-post-place">
+<div id="province-detail">
     <div class="container">
-        <div class="row" id="header">
-            <div class="col-md-4">
-                <h1 class="place-name">{{dataProvinceName}}</h1>
-                <h3 class="place-name">{{dataPlaceName}}</h3>
+        <div class="row" id="list-province-show">
+            <div class="col-md-2" *ngFor="let data11Province of dataList11Province">
+                <a routerLink="/province/{{data11Province.province_id}}">{{data11Province.province_name}}</a>
             </div>
-            <div class="col-md-8">
-                <div id="description" class="row">
-                    {{dataDescription}}
-                </div>
+            <div class="col-md-2">
+                <a onclick="is_open_all(this)" style="color: #1d9c73;">Xem thêm ...</a>
             </div>
+        </div>
+
+        <div class="row display" id="list-province-hide">
+            <div class="col-md-2" *ngFor="let dataProvince of dataListProvince">
+                <a routerLink="/province/{{dataProvince.province_id}}">{{dataProvince.province_name}}</a>
+            </div>
+            <div class="col-md-2">
+                <a onclick="close_all_tag(this)" style="color: red;">Đóng (X)</a>
+            </div>
+        </div>
+
+        <div class="row" id="header-title">
+            <p>Danh sách tất cả các bài viết</p>
         </div>
 
         <div class="row" id="list-post" *ngFor="let dataPost of dataListPost">
@@ -37,9 +47,9 @@
                 <div class="post-detail">
                     <div class="col-left">
                         <span class="item-tag">
-                            <a class="tags" href="">
+							<a class="tags" href="">
                                 <i class="fa fa-tags" aria-hidden="true"></i>{{dataPost.place_title}}</a>
-                        </span>
+                            </span>
                         <span><i class="fa fa-eye"></i>14668</span>
                         <span><i class="fa fa-comments-o"></i> 4</span>
                         <span><i class="fa fa-calendar"></i>{{dataPost.created_at}}</span>
@@ -48,6 +58,9 @@
                 <div class="post-discription line-clamp-4">
                     <p>{{dataPost.description}}</p>
                 </div>
+                <!-- <div class="option-blog">
+                    <a><i class="fa fa-bookmark-o"></i></a>
+                </div> -->
             </div>
         </div>
     </div>

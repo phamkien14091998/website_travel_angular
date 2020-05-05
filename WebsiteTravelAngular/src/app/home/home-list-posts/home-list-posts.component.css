@@ -1,15 +1,47 @@
-/*  */
-
-#header {
-    margin-top: 50px;
-    margin-bottom: 50px;
+#list-post {
+    margin-bottom: 30px;
 }
 
-.place-name {
-    color: #43ac49;
+#list-province-show {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-/* start body */
+#list-province-show a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #575757;
+}
+
+#list-province-show a:hover {
+    color: #1d9c73;
+}
+
+#list-province-hide {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#list-province-hide a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #575757;
+}
+
+#header-title p {
+    margin-left: 370px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #1d9c73;
+}
+
+.display {
+    display: none;
+}
+
+#list-province-hide a:hover {
+    color: #1d9c73;
+}
 
 .post {
     border: 0.5px solid gainsboro;

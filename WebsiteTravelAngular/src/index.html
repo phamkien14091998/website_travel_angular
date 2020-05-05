@@ -15,4 +15,20 @@
   <app-root></app-root>
 </body>
 
+
+<script type="text/javascript">
+  // nút xem thêm ở trang list places by province_id - để hiển thị tất cả 63 tỉnh thành
+  function is_open_all(e) {
+    $('#list-province-show').addClass("show");
+    $('#list-province-hide').removeClass("display");
+    $('.show').hide();
+  }
+  // nút đóng ở trang list places by province_id - để hiển rút gọn từ 63 xuống còn 11 tỉnh thành 
+  function close_all_tag() {
+    $('#list-province-hide').addClass("display");
+    $('#list-province-show').addClass("show");
+    $('.show').show();
+  }
+</script>
+
 </html>

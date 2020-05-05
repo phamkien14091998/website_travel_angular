@@ -26,6 +26,7 @@ import { DetailScheduleComponent } from './member-schedule/detail-schedule/detai
 import { DetailMemberInfoComponent } from './member-info/detail-member-info/detail-member-info.component';
 import { UpdateMemberInfoComponent } from './member-info/update-member-info/update-member-info.component';
 import { ListScheduleComponent } from './member-schedule/list-schedule/list-schedule.component';
+import { MemberService } from './share/member_service.service';
 
 
 
@@ -34,6 +35,10 @@ const routes: Routes = [
     {
         path: 'member', component: MemberManagerComponent, canActivate: [AuthGuardService],
         children: [
+            {
+                path: 'info/detail/:user_name', component: DetailMemberInfoComponent
+                // path: 'post/detail/:post_id', component: DetailMemberInfoComponent
+            },
             {
                 path: 'post/list', component: ListMemberPostComponent
             },
@@ -61,10 +66,7 @@ const routes: Routes = [
                 path: 'info/update', component: UpdateMemberInfoComponent
                 // path: 'info/update/:user_id', component: UpdateMemberInfoComponent
             },
-            {
-                path: 'info/detail', component: DetailMemberInfoComponent
-                // path: 'post/detail/:post_id', component: DetailMemberInfoComponent
-            },
+            
             // {
             //     path: ':id/edit', component: FilmUpdateComponent 
             // }
@@ -107,7 +109,8 @@ const routes: Routes = [
         AuthenticationService,
         MemberPostService,
         MemberScheduleService,
-        MemberCollectionService
+        MemberCollectionService,
+        MemberService
 
     ]
 })

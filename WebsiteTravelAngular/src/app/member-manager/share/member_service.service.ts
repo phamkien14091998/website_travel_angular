@@ -7,16 +7,16 @@ import { HttpClient } from "@angular/common/http";
 export class MemberService {
     constructor(private http: HttpClient) {
 
-    }         
+    }
 
     // lấy ra danh sách thể loại
     // public getProductPortfolio(): Observable<any> {
     //     return this.http.get(`/api/product/list-portfolio`);
     // }
     // // thêm sản phẩm mới
-    // public createProduct(product_data: any): Observable<any> {
-    //     return this.http.post(`/api/product/new`, product_data);
-    // }
+    public getUserByUserName(user_name: String): Observable<any> {
+        return this.http.get(`/api/member/user/` + user_name);
+    }
     // // lấy ra tất cả danh sách sản phẩm
     // public getListProduct(): Observable<any> {
     //     // console.log(product_search);
@@ -31,3 +31,4 @@ export class MemberService {
 
 
 }
+
