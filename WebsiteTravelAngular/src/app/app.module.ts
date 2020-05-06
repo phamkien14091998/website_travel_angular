@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
   { path: 'province/detail/:province_id', component: HomeListPlacesComponent }, //lấy các địa điểm trong tỉnh
   { path: 'province', component: HomeListProvincesComponent }, // lấy danh sách tất cả các tỉnh
-  { path: 'province/:province_id', component: HomeListPostProvinceComponent }, // lấy danh sách tất cả bài viết theo tỉnh
+  //{ path: 'province/:province_id', component: HomeListPostProvinceComponent }, // lấy danh sách tất cả bài viết theo tỉnh
   { path: 'place/detail/:famous_place_id', component: HomePlacesDetailComponent }, // lấy tất cả các bài viết của 1 địa điểm của tỉnh
   { path: 'post', component: HomeListPostsComponent }, // lấy tất cả các bài post
   { path: 'login', component: LoginComponent },

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row" id="list-province-show">
             <div class="col-md-2" *ngFor="let data11Province of dataList11Province">
-                <a routerLink="/province/{{data11Province.province_id}}">{{data11Province.province_name}}</a>
+                <a routerLink="/province/detail/{{data11Province.province_id}}">{{data11Province.province_name}}</a>
             </div>
             <div class="col-md-2">
                 <a onclick="is_open_all(this)" style="color: #1d9c73;">Xem thêm ...</a>
@@ -11,7 +11,7 @@
 
         <div class="row display" id="list-province-hide">
             <div class="col-md-2" *ngFor="let dataProvince of dataListProvince">
-                <a routerLink="/province/{{dataProvince.province_id}}">{{dataProvince.province_name}}</a>
+                <a routerLink="/province/detail/{{dataProvince.province_id}}">{{dataProvince.province_name}}</a>
             </div>
             <div class="col-md-2">
                 <a onclick="close_all_tag(this)" style="color: red;">Đóng (X)</a>
@@ -47,9 +47,9 @@
                 <div class="post-detail">
                     <div class="col-left">
                         <span class="item-tag">
-							<a class="tags" href="">
+                            <a class="tags" href="">
                                 <i class="fa fa-tags" aria-hidden="true"></i>{{dataPost.place_title}}</a>
-                            </span>
+                        </span>
                         <span><i class="fa fa-eye"></i>14668</span>
                         <span><i class="fa fa-comments-o"></i> 4</span>
                         <span><i class="fa fa-calendar"></i>{{dataPost.created_at}}</span>

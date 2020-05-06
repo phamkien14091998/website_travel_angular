@@ -5,10 +5,7 @@
                 <fieldset class="css-fieldset">
                     <legend class="col-md-12">QUẢN LÝ BÀI VIẾT</legend>
                     <div style="margin-top: 30px; margin-bottom: 30px;" class="row col-md-12">
-                        <div class="col-md-2">
-
-                        </div>
-                        <form class="col-md-8" [formGroup]="searchPostForm" (ngSubmit)="searchPost()">
+                        <form class="col-md-9" [formGroup]="searchPostForm" (ngSubmit)="searchPost()">
                             <div class="row">
                                 <div class="col-md-3">
                                     <label><input type="checkbox" formControlName="bai_duyet">Bài đã duyệt</label>
@@ -24,7 +21,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <button type="submit" routerLink="/member/post/new" class="btn btn-primary">Thêm Bài
                                 Viết</button>
                         </div>
@@ -33,9 +30,9 @@
                         <table class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                             <thead>
                                 <tr style="background-color: #21ca48;">
-                                    <th width="10%">STT</th>
+                                    <th width="5%">STT</th>
                                     <th width="65%">Tiêu đề bài viết</th>
-                                    <th width="25%">Thao tác</th>
+                                    <th width="30%">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,23 +40,19 @@
                                     <td>{{ i+1 }}</td>
                                     <td>{{post.title}}</td>
                                     <td>
-                                        <button style="margin-right: 5px;" type="button "
-                                            routerLink="/member/post/detail/{{post.post_id}}" class="btn btn-info ">Xem
+                                        <button style="margin-right: 5px;" type="button " routerLink="/member/post/detail/{{post.post_id}}" class="btn btn-info ">Xem
                                             chi
                                             tiết
                                         </button>
 
-                                        <button type="button" class="css-b btn btn-danger" (click)="postDeleteIndex = i"
-                                            *ngIf="postDeleteIndex !== i">Xóa
+                                        <button type="button" class="css-b btn btn-danger" (click)="postDeleteIndex = i" *ngIf="postDeleteIndex !== i">Xóa
                                         </button>
                                         <br><br>
                                         <div *ngIf="postDeleteIndex === i">
                                             <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
-                                            <button (click)="deletePost(post.post_id)"
-                                                style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
+                                            <button (click)="deletePost(post.post_id)" style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
                                             </button>
-                                            <button style="width: 80px; " (click)="postDeleteIndex = undefined"
-                                                class="btn btn-danger">Không</button>
+                                            <button style="width: 80px; " (click)="postDeleteIndex = undefined" class="btn btn-danger">Không</button>
                                         </div>
                                     </td>
                                 </tr>

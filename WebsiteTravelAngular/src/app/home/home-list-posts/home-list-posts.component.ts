@@ -10,7 +10,7 @@ import { environment } from "../../../environments/environment";
 })
 export class HomeListPostsComponent implements OnInit {
 
-  dataListProvince: any = [];
+  dataListProvince: any = []; 
   dataList11Province: any = [];
   dataListPost: any = [];
   domain = environment.API_URL; 

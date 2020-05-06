@@ -15,7 +15,7 @@ export class MemberScheduleService {
     }
     // lấy ra danh list place by province_id  
     public getPlaceByProvinceId(province_id: any): Observable<any> {
-        console.log(province_id);
+        console.log(province_id); 
         return this.http.post(`/api/place/search-place-by-province-id`, province_id);
     }
 

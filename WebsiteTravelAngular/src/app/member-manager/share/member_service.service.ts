@@ -13,10 +13,24 @@ export class MemberService {
     // public getProductPortfolio(): Observable<any> {
     //     return this.http.get(`/api/product/list-portfolio`);
     // }
-    // // thêm sản phẩm mới
+
+    // lấy ra user by user name
     public getUserByUserName(user_name: String): Observable<any> {
-        return this.http.get(`/api/member/user/` + user_name);
+        return this.http.get(`/api/member/username/` + user_name);
     }
+
+    // lấy ra user by user id
+    public getUserByUserId(user_id: String): Observable<any> {
+        return this.http.get(`/api/member/userid/` + user_id);
+    }
+
+    //update product by product_id
+    public updateUser(user_id: string, userData: any): Observable<any> {
+        return this.http.post(`/api/member/update/` + user_id, userData);
+    }
+
+
+
     // // lấy ra tất cả danh sách sản phẩm
     // public getListProduct(): Observable<any> {
     //     // console.log(product_search);
@@ -31,4 +45,3 @@ export class MemberService {
 
 
 }
-

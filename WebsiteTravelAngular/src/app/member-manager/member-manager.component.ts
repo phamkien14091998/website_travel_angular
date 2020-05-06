@@ -13,7 +13,7 @@ export class MemberManagerComponent implements OnInit {
   dataUser: any = {};
   user: any = '';
   domain = environment.API_URL;
-  user_name: any;
+  user_id: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,16 +23,16 @@ export class MemberManagerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user_name = this.route.firstChild.snapshot.params.user_name; //lấy params của component con
+    this.user_id = this.route.firstChild.snapshot.params.user_id; //lấy params của component con
     this.route.params.subscribe(
       (params) => {
-        this.getUserByUserName(this.user_name);
+        this.getUserByUserId(this.user_id);
       })
   }
 
-  getUserByUserName(user_name: String) {
-    this.memberService.getUserByUserName(
-      user_name
+  getUserByUserId(user_id: String) {
+    this.memberService.getUserByUserId(
+      user_id
     ).subscribe(
       (data) => {
         //data.images = data.images.split('|')

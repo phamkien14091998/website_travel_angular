@@ -1,1 +1,110 @@
-<p>create-collection works!</p>
+<div class="body-product">
+    <div class="row">
+        <div class=" col-md-12">
+            <fieldset class="css-fieldset">
+                <legend class="col-md-12">THÊM BỘ SƯU TẬP</legend>
+                <div class="css-h row col-md-12">
+                    <form [formGroup]="createCollectionForm" (ngSubmit)="createCollection()">
+                        <div class="row col-md-12 pd-t ">
+                            <span class="col-md-3 text-center">Tên Bộ Sưu Tập</span>
+                            <input class="css_inp col-md-9 " type="text" placeholder="nhập tên sản phẩm" id=""
+                                formControlName="collection_name" />
+                            <div *ngIf="isInvalidForm('collection_name')" class="alert alert-danger col-md-12">
+                                <div *ngIf="isRequired('collection_name')">
+                                    Yêu cầu nhập tên bộ sưu tập .
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 create-trip-detail-nav">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-7 col-lg-4" style="line-height: 40px;">
+                                    <span>Chọn tỉnh</span>
+                                </div>
+                                <div class="col-md-8 col-sm-12 col-lg-7">
+                                    <div class="row">
+                                        <div class="col-md-5" style="line-height: 40px;">
+                                            <span>Chọn địa điểm</span>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <button type="button" class="finish">Hoàn thành</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- start body -->
+                        <div class="col-md-12 create-trip-detail-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-lg-3" id="trip-center">
+                                    <div class="trip-center-header">
+                                        <div class="header-place">
+                                            <div class="title-jouney">
+                                                <span class="row">
+                                                    <form class="row col-md-12" [formGroup]="getPlaceForm"
+                                                        (ngSubmit)="getPlaceByProvince()">
+                                                        <select class="col-md-7" style="margin-left:5px; width: 115px;"
+                                                            class="form-control" title="--- Chọn tỉnh ---"
+                                                            formControlName="province_id">
+                                                            <option *ngFor="let pro of dataListProvince"
+                                                                value="{{pro.province_id}}">
+                                                                {{pro.province_name}}
+                                                            </option>
+                                                        </select>
+                                                        <button style="margin-left: 5px;" class="col-md-3"
+                                                            type="submit">tìm</button>
+                                                    </form>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-6" id="trip-right">
+                                    <div id="province-in-plan">
+                                        <div class="recommend-points">
+                                            <div class="header-province">
+                                                {{province_name}}
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-6 recommend-point"
+                                                    *ngFor="let place of dataListPlace">
+                                                    <div class="recommend-image ">
+                                                        <img src="{{domain}}/{{place.images[0]}}" class="image">
+                                                        <div class="middle" (click)="getIdPlace($event)">
+                                                            <i class="fa fa-plus-circle " aria-hidden="true">
+                                                                <input type="checkbox"
+                                                                    formControlName="famous_place_id" name="{{place.famous_place_id}}">
+                                                            </i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="recommend-title">
+                                                        {{place.title}}
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end body -->
+
+                        <div class="row col-md-12 css-bu">
+                            <div class="col-md-5">
+                            </div>
+                            <!-- [disabled]="!createCollectionForm.valid" -->
+                            <button type="submit" class="btn btn-success col-md-2">Thêm</button>
+                            <div class="col-md-5">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+</div>

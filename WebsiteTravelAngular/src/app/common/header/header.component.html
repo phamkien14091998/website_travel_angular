@@ -60,7 +60,7 @@
   <div class="col-md-4" id="navbar-right">
     <ul class="navbar-nav">
       <li *ngIf="user?.role==0 && auth.haveLogin()" class="nav-item navbar-right-button">
-        <a routerLink="/member/info/detail/{{user?.user_name}}" style="background-color: #55d65d;" class="nav-link">Chức
+        <a routerLink="/member/info/detail/{{user?.user_id}}" style="background-color: #55d65d;" class="nav-link">Chức
           năng người dùng</a>
       </li>
 

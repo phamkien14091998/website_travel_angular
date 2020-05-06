@@ -36,7 +36,7 @@ const routes: Routes = [
         path: 'member', component: MemberManagerComponent, canActivate: [AuthGuardService],
         children: [
             {
-                path: 'info/detail/:user_name', component: DetailMemberInfoComponent
+                path: 'info/detail/:user_id', component: DetailMemberInfoComponent
                 // path: 'post/detail/:post_id', component: DetailMemberInfoComponent
             },
             {
@@ -63,13 +63,16 @@ const routes: Routes = [
                 path: 'schedule/detail', component: DetailScheduleComponent
             },
             {
-                path: 'info/update', component: UpdateMemberInfoComponent
-                // path: 'info/update/:user_id', component: UpdateMemberInfoComponent
+                //path: 'info/update', component: UpdateMemberInfoComponent
+                path: 'info/update/:user_id', component: UpdateMemberInfoComponent
             },
-            
-            // {
-            //     path: ':id/edit', component: FilmUpdateComponent 
-            // }
+            {
+                path: 'collection/list', component: ListCollectionComponent
+            },
+            {
+                path: 'collection/new', component: CreateCollectionComponent
+            },
+
 
         ]
     }

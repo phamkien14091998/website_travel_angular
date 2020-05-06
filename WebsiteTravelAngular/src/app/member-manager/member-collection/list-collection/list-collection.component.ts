@@ -10,6 +10,6 @@ export class ListCollectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
+  }   
 
 }

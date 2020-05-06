@@ -24,13 +24,13 @@ export class DetailMemberInfoComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params) => {
-        this.getUserByUserName(params['user_name']);
+        this.getUserByUserId(params['user_id']);
       })
   }
 
-  getUserByUserName(user_name: String) {
-    this.memberService.getUserByUserName(
-      user_name
+  getUserByUserId(user_id: String) {
+    this.memberService.getUserByUserId(
+      user_id
     ).subscribe(
       (data) => {
         //data.images = data.images.split('|')
