@@ -7,7 +7,7 @@
                 </div>
                 <div class="left-info">
                     <div id="user-avatar">
-                        <img src="../../{{dataUser.avatar}}">
+                        <img src="../../assets/img/img_user.PNG">
                     </div>
                     <div id="user-name-name">
                         <span id="user-name">
@@ -21,17 +21,22 @@
                     <!-- *ngIf="user?.role==1 && auth.haveLogin()" -->
                     <!-- [ngClass]="{'active': selectedItem == 1}"
                         (click)="listClick($event, 1)" -->
-                    <div id="navbar-right-header">
-                        <button routerLink="/member/info/detail/{{dataUser.user_id}}" class="btn btn-success css-b" type="button" style="margin-left: 165px;">
+                    <div id="navbar-right-header" style="margin-bottom: 20px;">
+                        <button routerLink="/member/info/detail/{{dataUser.user_id}}"
+                            [ngClass]="{'active': selectedItem == 1}" (click)="listClick($event, 1)"
+                            class="btn btn-success css-b css-bu" type="button" style="margin-left: 70px;">
                             Thông Tin Cá Nhân
                         </button>
-                        <button routerLink="/member/post/list" class="btn btn-success css-b" type="button">
+                        <button routerLink="/member/post/list" [ngClass]="{'active': selectedItem == 2}"
+                            (click)="listClick($event, 2)" class="btn btn-success css-b css-bu" type="button">
                             Quản Lý Bài Viết
                         </button>
-                        <button routerLink="/member/collection/list" class="btn btn-success css-b" type="button">
+                        <button routerLink="/member/collection/list" [ngClass]="{'active': selectedItem == 3}"
+                            (click)="listClick($event, 3)" class="btn btn-success css-b css-bu" type="button">
                             Quản Lý Bộ Sưu Tập
                         </button>
-                        <button routerLink="/member/schedule/list" class="btn btn-success css-b" type="button">
+                        <button routerLink="/member/schedule/list" [ngClass]="{'active': selectedItem == 4}"
+                            (click)="listClick($event, 4)" class="btn btn-success css-b css-bu" type="button">
                             Quản Lý Lịch Trình
                         </button>
                     </div>

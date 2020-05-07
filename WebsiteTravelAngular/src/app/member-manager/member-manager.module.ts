@@ -27,9 +27,7 @@ import { DetailMemberInfoComponent } from './member-info/detail-member-info/deta
 import { UpdateMemberInfoComponent } from './member-info/update-member-info/update-member-info.component';
 import { ListScheduleComponent } from './member-schedule/list-schedule/list-schedule.component';
 import { MemberService } from './share/member_service.service';
-
-
-
+import { DetailCollectionComponent } from './member-collection/detail-collection/detail-collection.component';
 
 const routes: Routes = [
     {
@@ -72,7 +70,9 @@ const routes: Routes = [
             {
                 path: 'collection/new', component: CreateCollectionComponent
             },
-
+            {
+                path: 'collection/detail/:collection_id', component: DetailCollectionComponent
+            },
 
         ]
     }
@@ -94,6 +94,7 @@ const routes: Routes = [
         DetailMemberInfoComponent,
         UpdateMemberInfoComponent,
         ListScheduleComponent,
+        DetailCollectionComponent,
 
     ],
     imports: [

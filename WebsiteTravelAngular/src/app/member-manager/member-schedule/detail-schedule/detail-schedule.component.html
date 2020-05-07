@@ -27,7 +27,7 @@
                 <div class="col-md-3 col-sm-6 col-lg-3" style="line-height: 40px;">
                     <span><strong>Bước 2: </strong>Chọn tỉnh - thành phố</span>
                 </div>
-                <div class="col-md-7 col-sm-12 col-lg-6">
+                <div class="col-md-7 col-sm-12 col-lg-6">     
                     <div class="row">
                         <div class="col-md-5" style="line-height: 40px;">
                             <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
@@ -47,7 +47,7 @@
                     <div id="item-day-in">
                         <div class="top-data" *ngFor="let day of day_number_new">
                             <a href="#">Ngày {{day}}</a>
-                            <input type="date" id="day" (change)="congNgay($event)">
+                            <input type="date" id="day" [value]="day" (change)="congNgay($event)">
                         </div>
                     </div>
                     <div>
@@ -80,11 +80,11 @@
                             </div>
                         </div>
                         <div class="list-places">
-                            <div class="list-places-day">
-                                <div class="item-place">
-                                    <div class="item">
-                                        <span class="icon">A</span>
-                                        <span class="name">hahahaah</span>
+                            <div class="list-places-day" *ngFor="let pla of data; let i = index" [attr.data-index]="i">
+                                <div class="item-place" >
+                                    <div class="item" >
+                                        <span class="icon"></span>
+                                        <span class="name">{{pla.title}}</span>
                                         <span class="add-detail" data-toggle="modal" data-target="#add-detail-place"><i
                                                 class="fa fa-bars"></i></span>
                                         <span class="delete"><i class="fa fa-trash-o"></i></span>
@@ -101,21 +101,28 @@
                                 {{province_name}}
                             </div>
                             <div class="row">
+                              <form class="row" [formGroup]="arrayForm" (ngSubmit)="submitFormArray()" novalidate>
                                 <div class="col-md-4 col-sm-4 col-6 recommend-point"
                                     *ngFor="let place of dataListPlace">
                                     <div class="recommend-image ">
                                         <img src="{{domain}}/{{place.images[0]}}" class="image">
                                         <div class="middle">
-                                            <i class="fa fa-plus-circle " aria-hidden="true">
-                                                <input type="checkbox">
+                                            <i aria-hidden="true" >
+                                              <input type="checkbox"
+                                               [value]="place.famous_place_id"
+                                              style="width: 20px;height: 20px;"
+                                               (change)="onCheckboxChange($event)"
+                                              >
+
                                             </i>
                                         </div>
                                     </div>
                                     <div class="recommend-title">
+
                                         {{place.title}}
                                     </div>
                                 </div>
-
+                              </form>
                             </div>
                         </div>
                     </div>
@@ -235,8 +242,7 @@
                     <div class="group-all">
                         <ul>
                             <li>
-                                <input type="checkbox">
-                                <label><i class="fa fa-subway"></i> Tàu hỏa</label>
+                                <label><i class="fa fa-subway"></i><input type="checkbox"> Tàu hỏa</label>
                             </li>
                             <li>
                                 <input type="checkbox">

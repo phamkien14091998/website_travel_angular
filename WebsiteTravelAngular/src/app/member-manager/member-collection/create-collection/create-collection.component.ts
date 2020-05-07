@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../../../authentication.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators,FormArray,FormControl } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
 import { MemberCollectionService } from "../../share/member_collection_service.service";
@@ -20,6 +20,8 @@ export class CreateCollectionComponent implements OnInit {
   dataListPlace: any = [];
   getPlaceForm: FormGroup;
   createCollectionForm: FormGroup
+  arrayForm: FormGroup
+  dataArrayPlace: any = []
 
   domain = environment.API_URL;
   // khai báo để lưu giá trị user đang đăng nhập
@@ -46,7 +48,6 @@ export class CreateCollectionComponent implements OnInit {
       (data) => {
         this.dataListProvince = data;
         // console.log(data);
-
       }
     )
   }
@@ -58,6 +59,9 @@ export class CreateCollectionComponent implements OnInit {
     this.createCollectionForm = this.fb.group({
       collection_name: ['', Validators.required],
       famous_place_id: ['']
+    })
+    this.arrayForm = this.fb.group({
+      checkArray: this.fb.array([])
     })
   }
   // kiểm tra dữ liệu nhập hợp lệ
@@ -82,32 +86,59 @@ export class CreateCollectionComponent implements OnInit {
             return p;
           });
         this.province_name = data[0].province_name
-
       }
     )
   }
 
-  // lấy ra các id địa điểm đã chọn và đẩy vào mảng
-  getIdPlace(event) {
-    console.log(event.target.name);
+  // xử lý thay đổi khi người dùng checkbox vào
+  onCheckboxChange(e) {
+    const checkArray: FormArray = this.arrayForm.get('checkArray') as FormArray;
 
+    if (e.target.checked) {
+      checkArray.push(new FormControl(e.target.value));
+    } else {
+      let i: number = 0;
+      checkArray.controls.forEach((item: FormControl) => {
+        if (item.value == e.target.value) {
+          checkArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+    this.dataArrayPlace = checkArray.value
+    console.log(this.dataArrayPlace);
 
   }
+  // submit form checkbox để lấy ra tập giá trị đã check
+  submitFormArray(){
+    // console.log(this.arrayForm.value)
+  }
 
-  // taoj collection
+  // tao collection
   createCollection() {
     const formData = new FormData();
     formData.append('collection_name', this.createCollectionForm.controls['collection_name'].value);
     formData.append('user_id', this.user.user_id);
+    formData.append('famous_place_id_array', this.dataArrayPlace);
 
     this.options = { content: formData };
 
     formData.forEach((value, key) => {
       console.log(key + ' ' + value);
     });
-
+    this.collectionService.createCollection(
+      formData
+    ).subscribe(
+      () => {
+        this.toastr.success('Thành Công ', 'Thêm Bộ Sưu Tập');
+        this.router.navigateByUrl('/member/collection/list');
+      },
+      err => {
+        this.toastr.error('Thất Bại ', 'Thêm Bộ Sưu Tập');
+      }
+    )
   }
-
 
 
 }

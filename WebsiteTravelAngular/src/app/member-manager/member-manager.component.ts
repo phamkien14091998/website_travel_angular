@@ -15,6 +15,8 @@ export class MemberManagerComponent implements OnInit {
   domain = environment.API_URL;
   user_id: any;
 
+  selectedItem: any;
+
   constructor(
     private route: ActivatedRoute,
     private memberService: MemberService,
@@ -40,6 +42,10 @@ export class MemberManagerComponent implements OnInit {
         // console.log(this.dataUser);
       }, err => { console.log(err) }
     );
+  }
+  // xử lý navbar khi click chọn
+  listClick(event, newValue) {
+    this.selectedItem = newValue;
   }
 
 }

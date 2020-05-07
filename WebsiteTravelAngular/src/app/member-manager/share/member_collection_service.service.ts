@@ -9,35 +9,29 @@ export class MemberCollectionService {
 
     }
 
-    // lấy ra danh sách tỉnh   
+    // lấy ra danh sách tỉnh
     public getProvince(): Observable<any> {
         return this.http.get(`/api/place/province`);
     }
-     // lấy ra danh list place by province_id  
-     public getPlaceByProvinceId(province_id: any): Observable<any> {
-        console.log(province_id); 
+    // lấy ra danh list place by province_id
+    public getPlaceByProvinceId(province_id: any): Observable<any> {
+        console.log(province_id);
         return this.http.post(`/api/place/search-place-by-province-id`, province_id);
     }
-
-    // lấy ra danh sách thể loại
-    // public getProductPortfolio(): Observable<any> {
-    //     return this.http.get(`/api/product/list-portfolio`);
-    // } 
-    // // thêm sản phẩm mới
-    // public createProduct(product_data: any): Observable<any> {
-    //     return this.http.post(`/api/product/new`, product_data);
-    // }
-    // // lấy ra tất cả danh sách sản phẩm
-    // public getListProduct(): Observable<any> {
-    //     // console.log(product_search);
-
-    //     return this.http.get(`/api/product/list-product`);
-    // }
-    // // tìm kiếm sản phẩm theo tên sản phẩm
-    // public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
-    //     return this.http.post(`/api/product/search-product`, product);
-    // }
-
+    // thêm collection mới
+    public createCollection(collection_data: any): Observable<any> {
+        return this.http.post(`/api/collection/new`, collection_data);
+    }
+    // lấy ra tất cả bộ sưu tập của user đang dăng nhập
+    public getListCollectionByUser(user_id: any): Observable<any> {
+        console.log(user_id);
+        return this.http.post(`/api/collection/list`, user_id);
+    }
+    // get chi tiết danh sách bộ sưu tập theo id
+    public getCollectionById(collection_id: any): Observable<any> {
+        console.log(collection_id);
+        return this.http.get(`/api/collection/detail/` + collection_id);
+    }
 
 
 }

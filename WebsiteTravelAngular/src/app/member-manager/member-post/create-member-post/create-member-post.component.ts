@@ -37,7 +37,7 @@ export class CreateMemberPostComponent implements OnInit {
 
 
   constructor(
-    private postService: MemberPostService,  
+    private postService: MemberPostService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -49,7 +49,7 @@ export class CreateMemberPostComponent implements OnInit {
     this.initForm();
     this.getProvince();
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
-    
+
   }
 
   initForm() {
