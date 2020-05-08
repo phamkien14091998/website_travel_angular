@@ -33,7 +33,8 @@ export class CreateScheduleComponent implements OnInit {
     this.createScheduleForm = this.fb.group({
       trip_name: ['', Validators.required],
       description: ['', Validators.required],
-      day_number: ['', Validators.required]
+      day_start: ['', Validators.required],
+      day_end: ['', Validators.required]
 
     });
   }
@@ -53,7 +54,8 @@ export class CreateScheduleComponent implements OnInit {
     // lưu trữ tạm thời
     localStorage.setItem('trip_name', this.createScheduleForm.value.trip_name);
     localStorage.setItem('description', this.createScheduleForm.value.description);
-    localStorage.setItem('day_number', this.createScheduleForm.value.day_number);
+    localStorage.setItem('day_start', this.createScheduleForm.value.day_start);
+    localStorage.setItem('day_end', this.createScheduleForm.value.day_end);
 
     // chuyển tới trang trip-detail
     this.router.navigateByUrl('/member/schedule/detail');
