@@ -1,249 +1,248 @@
-<div class="create-trip-detail">
-    <div class="container-fluid">
-        <!-- start header -->
-        <div class="col-md-12 create-trip-detail-header">
-            <div class="row">
-                <div class="col-md-5 col-sm-4 col-4 header-logo">
-                    <a href="">Travel</a>
-                </div>
-                <div class="col-md-7 col-sm-8 col-8">
-                    <div class="row">
-                        <div class="header-avatar">
-                        </div>
-                        <div class="header-info">
-                            <span>Phan Công Nhật Vũ</span>
-                        </div>
+<form [formGroup]="createForm">
+    <div class="create-trip-detail">
+        <div class="container-fluid">
+            <!-- start header -->
+            <div class="col-md-12 create-trip-detail-header">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4 col-4 header-logo">
+                        <a href="">Travel</a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- end header -->
-        <!-- start nav -->
-        <div class="col-md-12 create-trip-detail-nav">
-            <div class="row">
-                <div class="col-md-2 col-sm-6 col-lg-3" style="line-height: 40px;">
-                    <span><strong>Bước 1: </strong>Chọn ngày</span>
-                </div>
-                <div class="col-md-3 col-sm-6 col-lg-3" style="line-height: 40px;">
-                    <span><strong>Bước 2: </strong>Chọn tỉnh - thành phố</span>
-                </div>
-                <div class="col-md-7 col-sm-12 col-lg-6">
-                    <div class="row">
-                        <div class="col-md-5" style="line-height: 40px;">
-                            <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
-                        </div>
-                        <div class="col-md-7">
-                            <button type="button" class="finish">Hoàn thành</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end nav -->
-        <!-- start body -->
-        <div class="col-md-12 create-trip-detail-body">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-lg-3" id="trip-left">
-                    <div id="item-day-in">
-                        <div class="top-data">
-                            <a href="#">Ngày bắt đầu</a>
-                            <input type="date" id="day_start" [value]="day_start">
-                        </div>
-                        <div class="top-data">
-                            <a href="#">Ngày kết thúc</a>
-                            <input type="date" id="day_end" [value]="day_end">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-3" id="trip-center">
-                    <div class="trip-center-header">
-                        <div class="header-place">
-                            <div class="title-jouney">
-                                <span class="list-province-jouney">
-                                    <span style="font-weight: 600; color: #28a745;">Ngày 1: </span>
-                                    <span>Huế </span>
-                                    <i class="fa fa-angle-double-right"></i>
-                                    <span> HCM</span>
-                                </span>
-                                <span class="row">
-                                    <form class="row col-md-12" [formGroup]="getPlaceForm"
-                                        (ngSubmit)="getPlaceByProvince()">
-                                        <select class="col-md-8" style="margin-left:5px; width: 120px;"
-                                            class="form-control" title="--- Chọn tỉnh ---"
-                                            formControlName="province_id">
-                                            <option *ngFor="let pro of dataListProvince" value="{{pro.province_id}}">
-                                                {{pro.province_name}}
-                                            </option>
-                                        </select>
-                                        <button style="margin-left: 5px;" class="col-md-3" type="submit">tìm</button>
-                                    </form>
-                                </span>
+                    <div class="col-md-7 col-sm-8 col-8">
+                        <div class="row">
+                            <div class="header-avatar">
+                            </div>
+                            <div class="header-info">
+                                <span>Phan Công Nhật Vũ</span>
                             </div>
                         </div>
-                        <div class="list-places">
-                            <div class="list-places-day">
-                                <div class="item-place">
-                                    <div class="item" *ngFor="let pla of data">
-                                        <span class="icon"></span>
-                                        <span class="name">{{pla.title}}</span>
-                                        <span class="add-detail" data-toggle="modal" data-target="#add-detail-place"><i
-                                                class="fa fa-bars"></i></span>
-                                        <span class="delete"><i class="fa fa-trash-o"></i></span>
+                    </div>
+                </div>
+            </div>
+            <!-- end header -->
+            <!-- start nav -->
+            <div class="col-md-12 create-trip-detail-nav">
+                <div class="row">
+                    <div class="col-md-2 col-sm-6 col-lg-3" style="line-height: 40px;">
+                        <span><strong>Bước 1: </strong>Chọn ngày</span>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-lg-3" style="line-height: 40px;">
+                        <span><strong>Bước 2: </strong>Chọn tỉnh - thành phố</span>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-lg-4">
+                        <div class="row">
+                            <div class="col-md-9" style="line-height: 40px;">
+                                <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-lg-1">
+                        <div class="col-md-12">
+
+                        </div>
+                        <div class="col-md-12" style="margin-top: 10px;">
+                            <button type="button" (click)="create()" class="finish">Hoàn thành</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end nav -->
+            <!-- start body -->
+            <div class="col-md-12 create-trip-detail-body">
+                <!-- <form [formGroup]="createForm" (ngSubmit)="create()"> -->
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-3" id="trip-left">
+                        <div id="item-day-in">
+                            <div class="top-data">
+                                <a href="#">Ngày bắt đầu</a>
+                                <input type="date" id="day_start" [value]="day_start">
+                            </div>
+                            <div class="top-data">
+                                <a href="#">Ngày kết thúc</a>
+                                <input type="date" id="day_end" [value]="day_end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-3" id="trip-center">
+                        <div class="trip-center-header">
+                            <div class="header-place">
+                                <div class="title-jouney">
+                                    <span class="list-province-jouney">
+                                        <span style="font-weight: 600; color: #28a745;"> </span>
+                                        <span> </span>
+                                        <!-- <i class="fa fa-angle-double-right"></i> -->
+                                        <span> </span>
+                                    </span>
+                                    <span class="row">
+                                        <form class="row col-md-12" [formGroup]="getPlaceForm"
+                                            (ngSubmit)="getPlaceByProvince()">
+                                            <select class="col-md-8" style="margin-left:10px; width: 120px;"
+                                                class="form-control" title="--- Chọn tỉnh ---"
+                                                formControlName="province_id">
+                                                <option *ngFor="let pro of dataListProvince"
+                                                    value="{{pro.province_id}}">
+                                                    {{pro.province_name}}
+                                                </option>
+                                            </select>
+                                            <button style="margin-left: 5px;" class="btn btn-success col-md-3"
+                                                type="submit">tìm</button>
+                                        </form>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="list-places">
+                                <div class="list-places-day">
+                                    <div class="item-place">
+                                        <div class="item" *ngFor="let pla of data">
+                                            <span class="icon"></span>
+                                            <span class="name">{{pla.title}}</span>
+                                            <span class="add-detail" data-toggle="modal" title="---thêm chi tiết---"
+                                                data-target="#add-detail-place">
+                                                <button class="fa fa-bars" (click)="getIdModel($event)"
+                                                    value="{{pla.famous_place_id}}">
+                                                </button></span>
+                                            <!-- <span class="delete"><i class="fa fa-trash-o"></i></span> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-6" id="trip-right">
-                    <div id="province-in-plan">
-                        <div class="recommend-points">
-                            <div class="header-province">
-                                {{province_name}}
-                            </div>
-                            <div class="row">
-                                <form class="row" [formGroup]="arrayForm" (ngSubmit)="submitFormArray()" novalidate>
-                                    <div class="col-md-4 col-sm-4 col-6 recommend-point"
-                                        *ngFor="let place of dataListPlace">
-                                        <div class="recommend-image ">
-                                            <img src="{{domain}}/{{place.images[0]}}" class="image">
-                                            <div class="middle">
-                                                <i aria-hidden="true">
-                                                    <input type="checkbox" [value]="place.famous_place_id"
-                                                        style="width: 20px;height: 20px;"
-                                                        (change)="onCheckboxChange($event)">
+                    <div class="col-md-12 col-sm-12 col-lg-6" id="trip-right">
+                        <div id="province-in-plan">
+                            <div class="recommend-points">
+                                <div class="header-province">
+                                    {{province_name}}
+                                </div>
+                                <div class="row">
+                                    <form class="row" [formGroup]="arrayForm" (ngSubmit)="submitFormArray()" novalidate>
+                                        <div class="col-md-6 col-sm-6 col-6 recommend-point"
+                                            *ngFor="let place of dataListPlace">
+                                            <div class="recommend-image ">
+                                                <img src="{{domain}}/{{place.images[0]}}" class="image">
+                                                <div class="middle">
+                                                    <i aria-hidden="true">
+                                                        <input type="checkbox" [value]="place.famous_place_id"
+                                                            style="width: 20px;height: 20px;"
+                                                            (change)="onCheckboxChange($event)">
 
-                                                </i>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                            <div class="recommend-title">
+                                                {{place.title}}
                                             </div>
                                         </div>
-                                        <div class="recommend-title">
-                                            {{place.title}}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row col-md-12">
+                    <div class="col-md-7">
+                        <button type="submit" class="finish">Hoàn thành</button>
+                    </div>
+                </div>
+            </form> -->
+            </div>
+            <!-- end body -->
+        </div>
+    </div>
+
+    <div class="modal fade" id="add-detail-place" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form [formGroup]="createDetailTripForm" (ngSubmit)="createDetailTrip()">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Chỉnh sửa thông tin địa điểm</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label class="model-title">Thời gian tham quan</label>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="pull-left">
+                                    <span class="clearfix">Thời gian đến:</span>
+                                    <div class="row" style="width: 280px;">
+                                        <div class="col-md-6 col-lg-6">
+                                            <select name="des-time-hour" class="form-control"
+                                                formControlName="time_to_h" title="--- Chọn giờ ---">
+                                                <option class="choose-i-1" *ngFor="let h of dataTimeHour">
+                                                    {{h}}h
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <select name="des-time-minute" class="form-control"
+                                                formControlName="time_to_p" title="--- Chọn phút ---">
+                                                <option class="choose-n-0" *ngFor="let p of dataTimeMinute">
+                                                    {{p}}'
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="pull-left">
+                                    <span class="clearfix ">Thời gian tham quan:</span>
+                                    <div class="row" style="width: 280px;">
+                                        <div class="col-md-6 col-lg-6">
+                                            <select name="des-time-hour" class="form-control"
+                                                formControlName="time_stay_h" title="--- Chọn giờ ---">
+                                                <option class="choose-i-1" *ngFor="let h of dataTimeHour">
+                                                    {{h}}h
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <select name="des-time-minute" class="form-control"
+                                                formControlName="time_stay_p" title="--- Chọn phút ---">
+                                                <option class="choose-n-0" *ngFor="let p of dataTimeMinute">
+                                                    {{p}}'
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="model-title" style="margin-top: 15px;">Phương tiện di chuyển</label>
+                        <div class="row vehicle">
+                            <div class="group-all">
+                                <ul>
+                                    <form class="row" [formGroup]="arrayVehicleForm"
+                                        (ngSubmit)="submitFormArrayVehicle()" novalidate>
+                                        <li *ngFor="let v of dataVehicle">
+                                            <label>
+                                                <input type="checkbox" [value]="v.vehicle_id" [name]="v.title"
+                                                    (change)="onCheckboxChangeVehicle($event)">
+                                                <i [class]="v.description"></i>{{v.title}}
+                                            </label>
+                                        </li>
+                                    </form>
+                                </ul>
+                            </div>
+                        </div>
+                        <label class="model-title">Ghi chú</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea rows="3" style="width: 100%; border-radius: 5px;"
+                                    formControlName="note"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="hidden" formControlName="id_place" value="{{place_id_luu_arr}}">
+                            <div class="col-md-12">
+                                <button id="btnLuuDetailSchedule" [disabled]="!createDetailTripForm.valid" type="submit"
+                                    onclick="$('.modal').modal('hide')" class="btnLuu">Lưu</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        <!-- end body -->
     </div>
-</div>
-
-<div class="modal fade" id="add-detail-place" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form [formGroup]="createDetailTripForm" (ngSubmit)="createDetailTrip()">
-                <div class="modal-header">
-                    <h6 class="modal-title">Chỉnh sửa thông tin địa điểm</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <label class="model-title">Thời gian tham quan</label>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="pull-left">
-                                <span class="clearfix">Thời gian đến:</span>
-                                <div class="row" style="width: 280px;">
-                                    <div class="col-md-6 col-lg-6">
-                                        <select name="des-time-hour" class="form-control" formControlName="time_to_h"
-                                            title="--- Chọn giờ ---">
-                                            <option class="choose-i-1" *ngFor="let h of dataTimeHour">
-                                                {{h}}h
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6">
-                                        <select name="des-time-minute" class="form-control" formControlName="time_to_p"
-                                            title="--- Chọn phút ---">
-                                            <option class="choose-n-0" *ngFor="let p of dataTimeMinute">
-                                                {{p}}'
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div class="pull-left">
-                                <span class="clearfix ">Thời gian tham quan:</span>
-                                <div class="row" style="width: 280px;">
-                                    <div class="col-md-6 col-lg-6">
-                                        <select name="des-time-hour" class="form-control" formControlName="time_stay_h"
-                                            title="--- Chọn giờ ---">
-                                            <option class="choose-i-1" *ngFor="let h of dataTimeHour">
-                                                {{h}}h
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6">
-                                        <select name="des-time-minute" class="form-control"
-                                            formControlName="time_stay_p" title="--- Chọn phút ---">
-                                            <option class="choose-n-0" *ngFor="let p of dataTimeMinute">
-                                                {{p}}'
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <label class="model-title" style="margin-top: 15px;">Phương tiện di chuyển</label>
-                    <div class="row vehicle">
-                        <div class="group-all">
-                            <ul>
-                                <li>
-                                    <label><input type="checkbox" value="Tàu hỏa" formControlName="tau_hoa"><i
-                                            class="fa fa-subway"></i>Tàu hỏa</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Bus" formControlName="bus"><i
-                                            class="fa fa-bus"></i> Bus</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Taxi/Car" formControlName="taxi"><i
-                                            class="fa fa-taxi"></i> Taxi/Car</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Xe đạp" formControlName="xe_dap"><i
-                                            class="fa fa-bicycle"></i> Xe đạp</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Tàu thủy" formControlName="tau_thuy"><i
-                                            class="fa fa-ship"></i> Tàu thủy</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Máy bay" formControlName="may_bay"><i
-                                            class="fa fa-plane"></i> Máy bay</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Xe máy" formControlName="xe_may"><i
-                                            class="fa fa-motorcycle"></i> Xe máy</label>
-                                </li>
-                                <li>
-                                    <label><input type="checkbox" value="Đi bộ" formControlName="di_bo"><i
-                                            class="fa fa-paw"></i> Đi bộ</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <label class="model-title">Ghi chú</label>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <textarea rows="3" style="width: 100%; border-radius: 5px;"
-                                formControlName="note"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="submit" class="btnLuu">Lưu</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+</form>

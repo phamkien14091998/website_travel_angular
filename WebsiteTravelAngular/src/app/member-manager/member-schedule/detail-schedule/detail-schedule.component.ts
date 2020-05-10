@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { MemberScheduleService } from "../../share/member_schedule_service.service";
 import { environment } from "../../../../environments/environment";
+import { empty } from 'rxjs';
 
 
 
@@ -15,6 +16,8 @@ import { environment } from "../../../../environments/environment";
   styleUrls: ['./detail-schedule.component.css']
 })
 export class DetailScheduleComponent implements OnInit {
+  options: { content: FormData };
+
   dataListProvince: any = [];
   getPlaceForm: FormGroup;
   dataListPlace: any = [];
@@ -34,6 +37,20 @@ export class DetailScheduleComponent implements OnInit {
   time_stay: any = ''
   vehicle: any = ''
 
+  ///////////////////
+  dataVehicle: any = []; // lưu danh sách xe lấy lên
+  arrayVehicleForm: FormGroup
+  dataArrayVehicle: any = []
+  dataVehicleArr: any = [] // lưu dữ liệu danh xe đã chọn
+  place_id_luu_arr: any = ''
+  dataDetail_trip: any = []
+
+  ///////////////////
+  createForm: FormGroup  // form để lưu tất cả giá trị
+  data_detail: any = ''
+
+  //////////////////
+
 
   // biến lưu vô localstore
   province_i: any = localStorage.getItem('province_id')
@@ -51,6 +68,9 @@ export class DetailScheduleComponent implements OnInit {
     '0', '10', '20', '30', '40', '50', '60'
   ];
 
+  // khai báo để lưu giá trị user đang đăng nhập
+  user: any = '';
+
   constructor(
     private scheduleService: MemberScheduleService,
     private fb: FormBuilder,
@@ -62,8 +82,10 @@ export class DetailScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListProvince();
+    this.getListVehicle();
     this.initForm();
-
+    // console.log(this.createDetailTripForm.value)
+    this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
   }
 
   // get ra all tỉnh
@@ -86,17 +108,16 @@ export class DetailScheduleComponent implements OnInit {
       time_to_p: ['0'],
       time_stay_h: ['0'],
       time_stay_p: ['0'],
-      tau_hoa: [''],
-      bus: [''],
-      taxi: [''],
-      xe_dap: [''],
-      tau_thuy: [''],
-      may_bay: [''],
-      xe_may: [''],
-      di_bo: [''],
-      note: ['']
-
+      note: [''],
+      id_place: [this.place_id_luu_arr]
     });
+    this.arrayVehicleForm = this.fb.group({
+      checkArray: this.fb.array([])
+    });
+    // form lưu toàn bô giá trị
+    this.createForm = this.fb.group({
+
+    })
 
   }
   // xử lý thay đổi khi người dùng checkbox vào
@@ -154,55 +175,112 @@ export class DetailScheduleComponent implements OnInit {
   // thêm chi tiết cho địa điểm đó
   createDetailTrip() {
 
-    if (this.createDetailTripForm.value.tau_hoa == true) {
-      console.log('vo tau');
-      console.log(this.createDetailTripForm.value);
-
-      this.createDetailTripForm.value.tau_hoa = "Tàu hỏa"
-    }
-    if (this.createDetailTripForm.value.bus == true) {
-      console.log('vo bus');
-      this.createDetailTripForm.value.bus = "Bus"
-    }
-    if (this.createDetailTripForm.value.taxi == true) {
-      console.log('vo taxi');
-      this.createDetailTripForm.value.taxi = "Taxi/Car"
-    }
-    if (this.createDetailTripForm.value.xe_dap == true) {
-      this.createDetailTripForm.value.xe_dap = "Xe đạp"
-    }
-    if (this.createDetailTripForm.value.tau_thuy == true) {
-      this.createDetailTripForm.value.tau_thuy = "Tàu thủy"
-    }
-    if (this.createDetailTripForm.value.may_bay == true) {
-      this.createDetailTripForm.value.may_bay = "Máy bay"
-    }
-    if (this.createDetailTripForm.value.xe_may == true) {
-      this.createDetailTripForm.value.xe_may = "Xe máy"
-    }
-    if (this.createDetailTripForm.value.di_bo == true) {
-      this.createDetailTripForm.value.di_bo = "Đi bộ"
-    }
-
     this.time_to = this.createDetailTripForm.value.time_to_h + this.createDetailTripForm.value.time_to_p
     this.time_stay = this.createDetailTripForm.value.time_stay_h + this.createDetailTripForm.value.time_stay_p
-    this.vehicle = this.createDetailTripForm.value.tau_hoa + '|' + this.createDetailTripForm.value.bus + '|' +
-      this.createDetailTripForm.value.taxi + '|' + this.createDetailTripForm.value.xe_dap + '|' +
-      this.createDetailTripForm.value.tau_thuy + '|' + this.createDetailTripForm.value.may_bay + '|' +
-      this.createDetailTripForm.value.xe_may + '|' + this.createDetailTripForm.value.di_bo
 
+    // lấy được và lưu nó thành thành object
+    this.data_detail = {
+      'time_to': this.time_to,
+      'time_stay': this.time_stay,
+      'note': this.createDetailTripForm.value.note,
+      'vehicle': this.dataArrayVehicle.join('|'),
+      'famous_place_id': this.place_id_luu_arr
+    }
+    // nếu mà không nhập giá trị trong data_detail (chưa xong)
+    // if (empty(this.data_detail)) {
+    //   this.data_detail = {
+    //     'time_to': '',
+    //     'time_stay': '',
+    //     'note': '',
+    //     'vehicle': '',
+    //     'famous_place_id': this.place_id_luu_arr
+    //   }
 
-    console.log(this.time_to);
-    console.log(this.time_to);
-    console.log(this.vehicle);
+    // }
 
+    this.dataDetail_trip.push(this.data_detail);
 
+    // lưu xong sau đó set cho form nó rỗng
+    this.createDetailTripForm.patchValue({ 'time_to_h': '0' })
+    this.createDetailTripForm.patchValue({ 'time_to_p': '0' })
+    this.createDetailTripForm.patchValue({ 'time_stay_h': '0' })
+    this.createDetailTripForm.patchValue({ 'time_stay_p': '0' })
+    this.createDetailTripForm.patchValue({ 'note': '' })
 
-    // console.log(this.createDetailTripForm.value);
-    // lưu vào localstore
-    // localStorage.setItem('detail-trip',this.createDetailTripForm.value);
-    // console.log(localStorage.getItem('detail-trip'));
+    console.log(this.dataDetail_trip); // dữ liệu ở form detail và thêm vô mảng
+    // sau khi lấy đc vehicle thì set null cho nó
+    // this.arrayVehicleForm.reset();
+    // this.arrayVehicleForm.get('checkArray').patchValue([])
 
   }
+  // lấy ra danh sách vehicle
+  getListVehicle() {
+    this.scheduleService.getListVehicle().subscribe(
+      (data) => {
+        this.dataVehicle = data;
+      }
+    )
+  }
+  onCheckboxChangeVehicle(e) {
+    const checkArray: FormArray = this.arrayVehicleForm.get('checkArray') as FormArray;
+
+    if (e.target.checked) {
+
+      checkArray.push(new FormControl(e.target.name));
+    } else {
+      let i: number = 0;
+      checkArray.controls.forEach((item: FormControl) => {
+        if (item.value == e.target.name) {
+          checkArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+    this.dataArrayVehicle = checkArray.value
+
+    console.log(this.dataArrayVehicle);
+
+  }
+  submitFormArrayVehicle() {
+
+  }
+
+  getIdModel(e) {
+
+    this.place_id_luu_arr = e.target.value;
+    console.log(this.place_id_luu_arr);
+
+  }
+
+  //////////////////////
+  // lưu toàn bộ giá trị xuống
+  create() {
+
+    const body = {
+      'dataDetail_trip': this.dataDetail_trip,
+      'trip_name': this.trip_name,
+      'description': this.description,
+      'day_start': this.day_start,
+      'day_end': this.day_end,
+      'user_id': this.user.user_id
+    }
+
+    this.scheduleService.createSchedule(
+      body
+    ).subscribe(
+      (data) => {
+        this.toastr.success('Thành Công ', 'Thêm Lịch Trình');
+        this.router.navigateByUrl('/member/schedule/list');
+      },
+      err => {
+        this.toastr.error('Thất Bại ', 'Thêm Lịch Trình');
+      }
+    )
+
+
+  }
+
+
 
 }

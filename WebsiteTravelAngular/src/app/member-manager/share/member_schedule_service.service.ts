@@ -20,9 +20,30 @@ export class MemberScheduleService {
     }
     // lấy ra địa điểm theo id
     public getPlaceById(famous_place_id_arr: any): Observable<any> {
-      // console.log(famous_place_id);
-      return this.http.post(`/api/place/get-famous-id`, famous_place_id_arr);
-  }
+        // console.log(famous_place_id);
+        return this.http.post(`/api/place/get-famous-id`, famous_place_id_arr);
+    }
+
+    // lấy tất cả vehicle  list-vehicle
+    public getListVehicle(): Observable<any> {
+        return this.http.get(`/api/schedule/list-vehicle`);
+    }
+
+    // create lịch trình
+    public createSchedule(schedule_data: any): Observable<any> {
+
+        return this.http.post(`/api/schedule/new`, schedule_data);
+    }
+    // lấy ra tất cả lịch trình của user đang dăng nhập
+    public getListScheduleByUser(user_id: any): Observable<any> {
+        console.log(user_id);
+        return this.http.post(`/api/schedule/list`, user_id);
+    }
+    // get chi tiết lịch trình theo id
+    public getScheduleById(schedule_id: any): Observable<any> {
+        return this.http.get(`/api/schedule/detail/` + schedule_id);
+    }
+
 
 
 }

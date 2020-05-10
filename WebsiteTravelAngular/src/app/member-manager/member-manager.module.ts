@@ -28,6 +28,7 @@ import { UpdateMemberInfoComponent } from './member-info/update-member-info/upda
 import { ListScheduleComponent } from './member-schedule/list-schedule/list-schedule.component';
 import { MemberService } from './share/member_service.service';
 import { DetailCollectionComponent } from './member-collection/detail-collection/detail-collection.component';
+import { DetailPlaceScheduleComponent } from './member-schedule/detail-place-schedule/detail-place-schedule.component';
 
 const routes: Routes = [
     {
@@ -73,6 +74,9 @@ const routes: Routes = [
             {
                 path: 'collection/detail/:collection_id', component: DetailCollectionComponent
             },
+            {
+                path: 'schedule/detail/:schedule_id', component: DetailScheduleComponent
+            },
 
         ]
     }
@@ -95,6 +99,7 @@ const routes: Routes = [
         UpdateMemberInfoComponent,
         ListScheduleComponent,
         DetailCollectionComponent,
+        DetailPlaceScheduleComponent,
 
     ],
     imports: [

@@ -13,7 +13,7 @@ export class DetailCollectionComponent implements OnInit {
   domain = environment.API_URL;
 
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute,   
     private collectionService: MemberCollectionService
   ) { }
 
