@@ -1,1 +1,50 @@
-<p>detail-place-schedule works!</p>
+<div class=" css-body" id="body" style="margin-top: 30px; margin-bottom: 100px;">
+  <div class="row " *ngFor="let data of dataDetailSchedule let i = index" [attr.data-index]="i"
+    style="padding-left: 20px;">
+    <div class="col-md-12" style="height: 70px; width: 100%;">
+      <h4 style="padding-bottom: 12px; border: 1px solid;">Địa điểm số {{i+1}}: {{data.title}} ({{data.province_name}}) </h4>
+    </div>
+    <div class="col-md-4">
+      <a>
+        <!-- routerLink="/member/schedule/detail/{{data.trip_id}}" -->
+        <img width="250px" height="200px" src="{{domain}}/{{data.images[0]}}" alt="">
+      </a>
+    </div>
+    <div class="col-md-8">
+      <h5>
+        <!-- {{data.title}} ({{data.province_name}}) -->
+      </h5>
+      <br>
+      <span>
+        {{data.description}}
+      </span><br>
+      <span>
+        Thời gian đến: {{data.time_to}}
+      </span><br>
+      <span>
+        Thời gian tham quan: {{data.time_stay}}
+      </span><br>
+      <span>
+        Phương tiện : {{data.vehicle[0]}}&nbsp;{{data.vehicle[1]}}&nbsp;{{data.vehicle[2]}}
+        &nbsp;&nbsp;{{data.vehicle[3]}}&nbsp;{{data.vehicle[4]}}&nbsp;
+        {{data.vehicle[5]}}&nbsp;{{data.vehicle[6]}}&nbsp;{{data.vehicle[7]}}&nbsp;{{data.vehicle[8]}}
+      </span><br>
+      <span>
+        Ghi chú: {{data.date_stay}}
+      </span><br>
+
+      <ul style="margin-top: 17px; margin-left: 271px;list-style: none;">
+        <li>
+          <a href="" target="_blank" style="text-decoration: none;">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit
+          </a>
+        </li>
+        <li>
+          <a style="text-decoration: none;">
+            <i class="fa fa-trash" aria-hidden="true"></i>delete
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

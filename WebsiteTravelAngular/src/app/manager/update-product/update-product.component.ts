@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './update-product.component.html',
   styleUrls: ['./update-product.component.css']
 })
-export class UpdateProductComponent implements OnInit {
+export class UpdateProductComponent implements OnInit { 
   data_detailProduct: any = {};
   data_portfolio: any = [];
   domain = environment.API_URL;

@@ -20,7 +20,7 @@
                                 <a>
                                     <h4 class="a-post-title text-center css-h4">{{data.collection_name}}</h4>
                                     <p class="a-post-title text-center" style="padding-top: 20px; padding-left: 10px;">
-                                        Ngày Tạo: {{data.created_at}}</p>
+                                        Ngày Tạo: {{data.created_at | date : "dd/MM/yyyy"}}</p>
                                 </a>
                                 <div style="padding: 25px 0 10px 0;" class="text-center css-detail">
                                     <a routerLink="/member/collection/detail/{{data.collection_id}}" class="link-manga"

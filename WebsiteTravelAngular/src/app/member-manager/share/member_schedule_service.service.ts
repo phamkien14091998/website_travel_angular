@@ -34,15 +34,30 @@ export class MemberScheduleService {
 
         return this.http.post(`/api/schedule/new`, schedule_data);
     }
-    // lấy ra tất cả lịch trình của user đang dăng nhập
+    // lấy ra tất cả lịch trình của user đang dăng nhập    
     public getListScheduleByUser(user_id: any): Observable<any> {
         console.log(user_id);
         return this.http.post(`/api/schedule/list`, user_id);
     }
     // get chi tiết lịch trình theo id
-    public getScheduleById(schedule_id: any): Observable<any> {
-        return this.http.get(`/api/schedule/detail/` + schedule_id);
+    public getScheduleById(trip_id: any): Observable<any> {
+        return this.http.get(`/api/schedule/detail/` + trip_id);
     }
+    // cập nhật schedule by id
+    public updateSchdule(trip_id: string, tripData: any): Observable<any> {
+        return this.http.post(`/api/schedule/update/` + trip_id, tripData);
+    }
+
+    // Xóa post by id
+    public deleteSchedule(trip_id: string): Observable<any> {
+        return this.http.delete(`/api/schedule/delete/` + trip_id);
+    }
+    // get chi tiết bảng trip
+    public getDetailTrip(trip_id: any): Observable<any> {
+        // console.log(famous_place_id);
+        return this.http.get(`/api/schedule/detail-trip/` + trip_id);
+    }
+
 
 
 

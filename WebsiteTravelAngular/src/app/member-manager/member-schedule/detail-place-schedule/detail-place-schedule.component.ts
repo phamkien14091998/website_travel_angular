@@ -20,21 +20,24 @@ export class DetailPlaceScheduleComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params) => {
-        this.getScheduleId(params['schedule_id']);
+        this.getScheduleId(params['trip_id']);
       })
   }
-  getScheduleId(schedule_id: string) {
+  getScheduleId(trip_id: string) {
 
     this.scheduleService.getScheduleById(
-      schedule_id
+      trip_id
     ).subscribe(
       (data) => {
+        console.log(data);
+
         this.dataDetailSchedule = data.map(p => {
           p.vehicle = p.vehicle.split('|')
+          p.images = p.images.split('|')
           return p
         })
 
-        console.log(this.dataDetailSchedule);
+        // console.log(this.dataDetailSchedule);
 
       }, err => { console.log(err) }
     );

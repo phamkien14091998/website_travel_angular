@@ -17,6 +17,8 @@ export class ListScheduleComponent implements OnInit {
   domain = environment.API_URL;
   // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
+  //delete
+  postDeleteIndex: number;
 
   constructor(
     private scheduleService: MemberScheduleService,
@@ -48,6 +50,19 @@ export class ListScheduleComponent implements OnInit {
     );
   }
 
+  //delete schedule
+  deleteSchedule(trip_id: string) {
+    this.scheduleService.deleteSchedule(trip_id).subscribe(
+      () => {
+        this.dataListSchedule.splice(this.postDeleteIndex, 1);
+        this.postDeleteIndex = undefined;
+        this.toastr.success('thành công', 'Xóa lịch trình');
+
+      }, () => {
+        this.toastr.error('thất bại', 'Xóa lịch trình');
+      }
+    )
+  }
 
 
 }

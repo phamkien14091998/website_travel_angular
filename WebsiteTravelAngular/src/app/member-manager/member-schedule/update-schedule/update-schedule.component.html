@@ -1,0 +1,64 @@
+<div class="create-trip">
+    <div class="container">
+        <div class="create-trip-header">
+            <p>CẬP NHẬT LỊCH TRÌNH CỦA BẠN</p>
+
+        </div>
+        <div class="row">
+        </div>
+        <form [formGroup]="updateScheduleForm" (ngSubmit)="updateSchedule()">
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-md-9 col-sm-12">
+                    <label class=" col-sm-12 control-label ">Tên hành trình</label>
+                    <div class="col-sm-12 ">
+                        <input type="text " class="form-control " formControlName="trip_name"
+                            placeholder="Tên hành trình (từ 5 - 255 ký tự) " maxlength="255" minlength="5">
+                    </div>
+                    <div *ngIf="isInvalidForm('trip_name')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('trip_name')">
+                            Yêu cầu nhập tên chuyến đi .
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-md-6 col-sm-6">
+                    <label class="col-sm-12 control-label ">Chọn ngày bắt đầu</label>
+                    <input style="margin-left: 15px;" type="date" formControlName="day_start">
+                    <div *ngIf="isInvalidForm('day_start')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('day_start')">
+                            Yêu cầu chọn ngày bắt đầu của chuyến đi .
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <label class="col-sm-12 control-label ">Chọn ngày kết thúc</label>
+                    <input style="margin-left: 15px;" type="date" formControlName="day_end">
+                    <div *ngIf="isInvalidForm('day_end')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('day_end')">
+                            Yêu cầu chọn ngày kết thúc của chuyến đi .
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-sm-12">
+                    <label class="col-sm-12 control-label ">Mô tả</label>
+                    <div class="col-sm-12 " style="padding-right: 0px; ">
+                        <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự " maxlength="1000"
+                            minlength="5" formControlName="description"></textarea>
+                    </div>
+                    <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">
+                        <div *ngIf="isRequired('description')">
+                            Yêu cầu nhập mô tả.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="create-trip-button ">
+                <!-- [disabled]="!createScheduleForm.valid" -->
+                <button type="submit">Cập Nhật</button>
+            </div>
+        </form>
+    </div>
+</div>
