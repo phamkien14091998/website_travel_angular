@@ -32,6 +32,10 @@ export class MemberCollectionService {
         console.log(collection_id);
         return this.http.get(`/api/collection/detail/` + collection_id);
     }
+    // Xóa collection by id
+    public deleteCollection(collection_id: string): Observable<any> {
+        return this.http.delete(`/api/collection/delete/` + collection_id);
+    }
 
 
 }

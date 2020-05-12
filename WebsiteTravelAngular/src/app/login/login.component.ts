@@ -15,7 +15,7 @@ export class LoginComponent {
     notifyMessage: string = '';
     user_name: string = '';
 
-    constructor(
+    constructor( 
         private auth: AuthenticationService,
         private fb: FormBuilder,
         private router: Router,
@@ -51,7 +51,7 @@ export class LoginComponent {
     }
     login() {
         this.auth.login(this.loginForm.value)
-    }
+    } 
 
 }
 

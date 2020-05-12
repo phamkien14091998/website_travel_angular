@@ -15,18 +15,44 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 50px; margin-bottom: 30px;">
-                        <div class="col-md-4" *ngFor="let data of dataListCollection">
+                        <div class="col-md-4" *ngFor="let data of dataListCollection ; let i = index"
+                            [attr.data-index]="i">
                             <div class="a-post-review css-div">
                                 <a>
-                                    <h4 class="a-post-title text-center css-h4">{{data.collection_name}}</h4>
+                                    <h4 class="a-post-title text-center css-h4">
+                                        {{data.collection_name}}
+
+                                    </h4>
                                     <p class="a-post-title text-center" style="padding-top: 20px; padding-left: 10px;">
                                         Ngày Tạo: {{data.created_at | date : "dd/MM/yyyy"}}</p>
                                 </a>
-                                <div style="padding: 25px 0 10px 0;" class="text-center css-detail">
+                                <div class="row col-md-12">
+                                    <!-- routerLink="/member/schedule/update/{{data.trip_id}}" -->
+                                    <a type="button"
+                                        style="text-decoration: none;padding-left: 85px;    margin-right: 13px; color: rgb(7, 121, 5);">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> sửa
+                                    </a>
+                                    <a type="button" style="text-decoration: none; color: red;"
+                                        (click)="postDeleteIndex = i" *ngIf="postDeleteIndex !== i">
+
+                                        <i class="fa fa-trash" aria-hidden="true"></i>xóa
+                                    </a>
+
+                                    <div *ngIf="postDeleteIndex === i">
+                                        <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+                                        <button (click)="deleteCollection(data.collection_id)"
+                                            style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
+                                        </button>
+                                        <button style="width: 80px; " (click)="postDeleteIndex = undefined"
+                                            class="btn btn-danger">Không</button>
+                                    </div>
+                                </div>
+
+                                <div style="padding: 15px 0 10px 0;" class="text-center css-detail">
                                     <a routerLink="/member/collection/detail/{{data.collection_id}}" class="link-manga"
                                         style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;text-decoration: none;">
                                         <span class="blink_me">＞＞</span>
-                                        <span>Xem Chi Tiết</span>
+                                        <span>Chi Tiết</span>
                                         <span class="blink_me">＜＜</span>
                                     </a>
                                 </div>

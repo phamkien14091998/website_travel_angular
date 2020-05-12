@@ -48,7 +48,7 @@ export class MemberScheduleService {
         return this.http.post(`/api/schedule/update/` + trip_id, tripData);
     }
 
-    // Xóa post by id
+    // Xóa schedule by id
     public deleteSchedule(trip_id: string): Observable<any> {
         return this.http.delete(`/api/schedule/delete/` + trip_id);
     }
@@ -58,7 +58,21 @@ export class MemberScheduleService {
         return this.http.get(`/api/schedule/detail-trip/` + trip_id);
     }
 
+    // Xóa shcedule-detail by trip_detail_id
+    public deleteScheduleDetail(trip_detail_id: string): Observable<any> {
+        return this.http.delete(`/api/schedule/delete-detail/` + trip_detail_id);
+    }
+    // get chi tiết bảng trip-detail
+    public getTripDetail(trip_detail_id: any): Observable<any> {
 
+        return this.http.get(`/api/schedule/trip-detail/` + trip_detail_id);
+    }
+    // cập nhật schedule-detail by id
+    public updateScheduleDetail(trip_detail_id: string, body: any): Observable<any> {
+        console.log(body);
+
+        return this.http.post(`/api/schedule/update-trip-detail/` + trip_detail_id, body);
+    }
 
 
 }

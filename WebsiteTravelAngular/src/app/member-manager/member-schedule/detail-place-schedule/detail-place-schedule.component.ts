@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { MemberScheduleService } from "../../share/member_schedule_service.service";
 import { environment } from "../../../../environments/environment";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail-place-schedule',
@@ -12,9 +13,13 @@ export class DetailPlaceScheduleComponent implements OnInit {
   dataDetailSchedule: any = [];
   domain = environment.API_URL;
 
+  //delete
+  postDeleteIndex: number;
+
   constructor(
     private route: ActivatedRoute,
-    private scheduleService: MemberScheduleService
+    private scheduleService: MemberScheduleService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +37,9 @@ export class DetailPlaceScheduleComponent implements OnInit {
         console.log(data);
 
         this.dataDetailSchedule = data.map(p => {
-          p.vehicle = p.vehicle.split('|')
+          if (p.vehicle != null) {
+            p.vehicle = p.vehicle.split('|')
+          }
           p.images = p.images.split('|')
           return p
         })
@@ -43,5 +50,21 @@ export class DetailPlaceScheduleComponent implements OnInit {
     );
 
   }
+
+  //delete schedule-detail
+  deleteScheduleDetail(trip_detail_id: string) {
+    this.scheduleService.deleteScheduleDetail(trip_detail_id).subscribe(
+      () => {
+        this.dataDetailSchedule.splice(this.postDeleteIndex, 1);
+        this.postDeleteIndex = undefined;
+        this.toastr.success('thành công', 'Xóa');
+
+      }, () => {
+        this.toastr.error('thất bại', 'Xóa');
+      }
+    )
+  }
+
+
 
 }

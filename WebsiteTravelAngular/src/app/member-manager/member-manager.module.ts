@@ -30,6 +30,7 @@ import { MemberService } from './share/member_service.service';
 import { DetailCollectionComponent } from './member-collection/detail-collection/detail-collection.component';
 import { DetailPlaceScheduleComponent } from './member-schedule/detail-place-schedule/detail-place-schedule.component';
 import { UpdateScheduleComponent } from './member-schedule/update-schedule/update-schedule.component';
+import { UpdateScheduleDetailComponent } from './member-schedule/update-schedule-detail/update-schedule-detail.component';
 
 const routes: Routes = [
     {
@@ -69,6 +70,9 @@ const routes: Routes = [
                 path: 'schedule/update/:trip_id', component: UpdateScheduleComponent
             },
             {
+                path: 'schedule-detail/update/:trip_detail_id', component: UpdateScheduleDetailComponent
+            },
+            {
                 //path: 'info/update', component: UpdateMemberInfoComponent
                 path: 'info/update/:user_id', component: UpdateMemberInfoComponent
             },
@@ -105,6 +109,7 @@ const routes: Routes = [
         DetailCollectionComponent,
         DetailPlaceScheduleComponent,
         UpdateScheduleComponent,
+        UpdateScheduleDetailComponent,
 
     ],
     imports: [

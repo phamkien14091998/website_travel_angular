@@ -32,10 +32,14 @@
                         <div *ngIf="loginForm.controls['password'].errors.pattern">
                             Yêu cầu nhập mật khẩu ít nhất 5 ký tự
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success">
                     Đăng Nhập
+                </button>
+                <br><br>
+                <button type="submit" class="btn btn-success">
+                    Đăng Nhập Bằng Facebook
                 </button>
                 <br><br>
                 <div class="form-group">

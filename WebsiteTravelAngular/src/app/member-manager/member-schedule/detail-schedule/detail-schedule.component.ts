@@ -104,10 +104,10 @@ export class DetailScheduleComponent implements OnInit {
       checkArray: this.fb.array([])
     });
     this.createDetailTripForm = this.fb.group({
-      time_to_h: ['0'],
-      time_to_p: ['0'],
-      time_stay_h: ['0'],
-      time_stay_p: ['0'],
+      time_to_h: ['0h'],
+      time_to_p: ['0' + "'"],
+      time_stay_h: ['0h'],
+      time_stay_p: ['0' + "'"],
       note: [''],
       id_place: [this.place_id_luu_arr]
     });
@@ -201,10 +201,10 @@ export class DetailScheduleComponent implements OnInit {
     this.dataDetail_trip.push(this.data_detail);
 
     // lưu xong sau đó set cho form nó rỗng
-    this.createDetailTripForm.patchValue({ 'time_to_h': '0' })
-    this.createDetailTripForm.patchValue({ 'time_to_p': '0' })
-    this.createDetailTripForm.patchValue({ 'time_stay_h': '0' })
-    this.createDetailTripForm.patchValue({ 'time_stay_p': '0' })
+    this.createDetailTripForm.patchValue({ 'time_to_h': '0h' })
+    this.createDetailTripForm.patchValue({ 'time_to_p': "0'" })
+    this.createDetailTripForm.patchValue({ 'time_stay_h': '0h' })
+    this.createDetailTripForm.patchValue({ 'time_stay_p': "0'" })
     this.createDetailTripForm.patchValue({ 'note': '' })
 
     console.log(this.dataDetail_trip); // dữ liệu ở form detail và thêm vô mảng

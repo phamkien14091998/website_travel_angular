@@ -19,6 +19,8 @@ export class ListCollectionComponent implements OnInit {
   domain = environment.API_URL;
   // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
+  //delete
+  postDeleteIndex: number;
 
   constructor(
     private collectionService: MemberCollectionService,
@@ -33,20 +35,33 @@ export class ListCollectionComponent implements OnInit {
     this.getListCollectionByUser();
   }
 
-    // get all collection
-    getListCollectionByUser() {
-      // console.log(this.user.user_id);
+  // get all collection
+  getListCollectionByUser() {
+    // console.log(this.user.user_id);
 
-      this.collectionService.getListCollectionByUser(
-        this.user.user_id
-      ).subscribe(
-        (data) => {
+    this.collectionService.getListCollectionByUser(
+      this.user.user_id
+    ).subscribe(
+      (data) => {
 
-          this.dataListCollection = data
-        }, err => { console.log(err) }
-      );
-    }
+        this.dataListCollection = data
+      }, err => { console.log(err) }
+    );
+  }
 
+  //delete collection
+  deleteCollection(collection_id: string) {
+    this.collectionService.deleteCollection(collection_id).subscribe(
+      () => {
+        this.dataListCollection.splice(this.postDeleteIndex, 1);
+        this.postDeleteIndex = undefined;
+        this.toastr.success('thành công', 'Xóa Bộ Sưu Tập');
+
+      }, () => {
+        this.toastr.error('thất bại', 'Xóa Bộ Sưu Tập');
+      }
+    )
+  }
 
 
 }

@@ -51,7 +51,7 @@ export class CreateScheduleComponent implements OnInit {
 
   createSchedule() {
 
-    // lưu trữ tạm thời
+    // lưu trữ tạm thời   
     localStorage.setItem('trip_name', this.createScheduleForm.value.trip_name);
     localStorage.setItem('description', this.createScheduleForm.value.description);
     localStorage.setItem('day_start', this.createScheduleForm.value.day_start);

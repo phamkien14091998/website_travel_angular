@@ -2,7 +2,8 @@
   <div class="row " *ngFor="let data of dataDetailSchedule let i = index" [attr.data-index]="i"
     style="padding-left: 20px;">
     <div class="col-md-12" style="height: 70px; width: 100%;">
-      <h4 style="padding-bottom: 12px; border: 1px solid;">Địa điểm số {{i+1}}: {{data.title}} ({{data.province_name}}) </h4>
+      <h4 style="padding-bottom: 12px; border: 1px solid;">Địa điểm số {{i+1}}: {{data.title}} ({{data.province_name}})
+      </h4>
     </div>
     <div class="col-md-4">
       <a>
@@ -30,19 +31,27 @@
         {{data.vehicle[5]}}&nbsp;{{data.vehicle[6]}}&nbsp;{{data.vehicle[7]}}&nbsp;{{data.vehicle[8]}}
       </span><br>
       <span>
-        Ghi chú: {{data.date_stay}}
+        Ghi chú: {{data.note}}
       </span><br>
 
       <ul style="margin-top: 17px; margin-left: 271px;list-style: none;">
         <li>
-          <a href="" target="_blank" style="text-decoration: none;">
+          <a style="text-decoration: none;" routerLink="/member/schedule-detail/update/{{data.trip_detail_id}}">
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit
           </a>
         </li>
         <li>
-          <a style="text-decoration: none;">
+          <a style="text-decoration: none; color: red;" (click)="postDeleteIndex = i" *ngIf="postDeleteIndex !== i">
             <i class="fa fa-trash" aria-hidden="true"></i>delete
           </a>
+          <br><br>
+          <div *ngIf="postDeleteIndex === i">
+            <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+            <button (click)="deleteScheduleDetail(data.trip_detail_id)" style="width: 80px; margin-right: 5px;"
+              class="btn btn-success">CÓ
+            </button>
+            <button style="width: 80px; " (click)="postDeleteIndex = undefined" class="btn btn-danger">Không</button>
+          </div>
         </li>
       </ul>
     </div>
