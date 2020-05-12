@@ -7,8 +7,11 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 </head>
 
 <body>
@@ -17,12 +20,21 @@
 
 
 <script type="text/javascript">
+  angular.module('myApp', [])
+
+    .controller('myCtrl', [function () {
+      angular.element(document).ready(function () {
+
+      });
+    }]);
+
   // nút xem thêm ở trang list places by province_id - để hiển thị tất cả 63 tỉnh thành
   function is_open_all(e) {
     $('#list-province-show').addClass("show");
     $('#list-province-hide').removeClass("display");
     $('.show').hide();
   }
+
   // nút đóng ở trang list places by province_id - để hiển rút gọn từ 63 xuống còn 11 tỉnh thành 
   function close_all_tag() {
     $('#list-province-hide').addClass("display");
@@ -30,7 +42,58 @@
     $('.show').show();
   }
 
+  //thay đổi số tiền của mỗi sản phẩm khi thay đổi số lượng
+  $(document).ready(function () {
+    $("body").on("change", ".cart-so-luong", function () {
+      var tongTienAllSP = 0;
+      var giaTien1SP = $(this).closest('tr').find('.cart-price').text();
+      var amount = $(this).closest('tr').find('.cart-so-luong').val();
 
+      var giaTien1SPInt = giaTien1SP.slice(0, 7);
+
+      var thanhTien1Sp = amount * parseInt(giaTien1SPInt);
+
+      var giaTienStr = parseFloat(thanhTien1Sp).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString();
+
+      var totalOfProduct = $(this).closest('tr').find('.total-of-product');
+      totalOfProduct.text(giaTienStr + " VND");
+
+      $('.total-of-product').each(function () {
+        var giaTien = $(this).text();
+        if (giaTien.length > 11) {
+          var giaTienInt = giaTien.slice(0, 9);
+          var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+
+        } else {
+          var giaTienInt = giaTien.slice(0, 7);
+          var giaTienRealInt = giaTienInt.replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+
+        }
+        $("#total-cart").text(tongTienAllSP.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
+      });
+    });
+
+    $("body").on("click", ".delete-sp", function () {
+      (this).closest('.product-cart').remove();
+      var tongTienAllSP = 0;
+      $('.total-of-product').each(function () {
+        var giaTien = $(this).text();
+        if (giaTien.length > 11) {
+          var giaTienInt = giaTien.slice(0, 9);
+          var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+        } else {
+          var giaTienInt = giaTien.slice(0, 7);
+          var giaTienRealInt = giaTienInt.replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+        }
+        $("#total-cart").text(tongTienAllSP.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
+      });
+
+    });
+  });
 </script>
 
 </html>

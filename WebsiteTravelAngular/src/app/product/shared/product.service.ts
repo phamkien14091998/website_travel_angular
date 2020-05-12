@@ -28,6 +28,13 @@ export class ProductService {
         return this.http.get('/api/product/detail-product/' + product_id);
     }
 
+    // chi tiết sản phẩm theo id
+    public addToCart(product_id: string): Observable<any> {
+        return this.http.get('/api/cart/add/' + product_id);
+    }
+
+
+
 
     // // lấy ra tất cả danh sách sản phẩm
     // public getListProduct(): Observable<any> {

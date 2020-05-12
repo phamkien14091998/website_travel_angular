@@ -15,6 +15,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { AuthenticationService } from "./authentication.service";
 import { AuthGuardService } from "./auth-guard.service";
 import { HomeService } from "./home/shared/home_service.service";
+import { CartService } from "./card/shared/cart.service";
 
 import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
@@ -82,7 +83,8 @@ const routes: Routes = [
   providers: [
     AuthGuardService,
     AuthenticationService,
-    HomeService
+    HomeService,
+    CartService
 
   ],
   bootstrap: [AppComponent]

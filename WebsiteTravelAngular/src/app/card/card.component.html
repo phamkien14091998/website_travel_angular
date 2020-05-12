@@ -13,63 +13,45 @@
                             <th> </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-sm-8 col-md-6">
-                                <div class="media">
-                                    <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                            src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
-                                            style="width: 72px; height: 72px;"> </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href="#">Tên sản phẩm</a></h4>
-                                        <h5 class="media-heading"> by <a href="#">Thể loại</a></h5>
-                                        <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                    <tbody ng-app="myApp" ng-controller="myCtrl">
+                        <tr *ngFor="let product of dataProduct" class="product-cart">
+                            <ng-container *ngIf="product.product_id">
+                                <td class="col-sm-8 col-md-6">
+                                    <div class="media">
+                                        <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                                src="{{domain}}/{{product.images[0]}}"
+                                                style="width: 72px; height: 72px;"> </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="#">{{product.product_name}}</a></h4>
+                                            <!-- <h5 class="media-heading"> by <a href="#">Thể loại</a></h5> -->
+                                            <span>Số lượng còn: </span><span
+                                                class="text-success"><strong>{{product.quantity}}</strong></span>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="col-sm-1 col-md-1" style="text-align: center">
-                                <input type="number" class="form-control cart-so-luong" value="3">
-                            </td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
-                            <td class="col-sm-1 col-md-1">
-                                <button type="button" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-remove"></span> Xóa
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-6">
-                                <div class="media">
-                                    <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                            src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
-                                            style="width: 72px; height: 72px;"> </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href="#">Tên sản phẩm</a></h4>
-                                        <h5 class="media-heading"> by <a href="#">Thể loại</a></h5>
-                                        <span>Status: </span><span class="text-warning"><strong>Leaves warehouse in 2 -
-                                                3 weeks</strong></span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="col-md-1" style="text-align: center">
-                                <input type="number" class="form-control cart-so-luong" value="2">
-                            </td>
-                            <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                            <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                            <td class="col-md-1">
-                                <button type="button" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-remove"></span> Xóa
-                                </button></td>
+                                </td>
+                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                    <input type="number" class="form-control cart-so-luong" value="1" min="1">
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong class="cart-price"
+                                        [attr.data-price]="product.price">{{product.price}}</strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong class="total-of-product"
+                                        [attr.data-pricee]="product.price">{{product.price}} VND</strong></td>
+                                <td class="col-sm-1 col-md-1">
+                                    <button type="button" class="btn btn-danger delete-sp"
+                                        (click)="deleteProductCart(product.product_id)">
+                                        <span class="glyphicon glyphicon-remove"></span> Xóa
+                                    </button></td>
+                            </ng-container>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
-                            <td>
+                            <td (click)="getTotalCart()">
                                 <h5 class="cart-title">Tổng tiền</h5>
                             </td>
                             <td class="text-right">
-                                <h5><strong>$24.59</strong></h5>
+                                <h5><strong id="total-cart">{{dataTotal}} VND</strong></h5>
                             </td>
                         </tr>
                         <tr>

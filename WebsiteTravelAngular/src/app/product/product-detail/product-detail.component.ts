@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { ProductService } from "../shared/product.service";
 import { environment } from "../../../environments/environment";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,12 +10,15 @@ import { environment } from "../../../environments/environment";
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+
   data_detailProduct: any = {};
   domain = environment.API_URL;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private toastr: ToastrService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -29,15 +33,27 @@ export class ProductDetailComponent implements OnInit {
       product_id
     ).subscribe(
       (data) => {
-
         data.images = data.images.split('|')
         this.data_detailProduct = data
         console.log(this.data_detailProduct);
 
       }, err => { console.log(err) }
     );
-
   }
 
+  addToCart(product_id) {
+    this.productService.addToCart(
+      product_id
+    ).subscribe(
+      (data) => {
+        this.data_detailProduct = data;
+        this.router.navigateByUrl('/product');
 
+        console.log(this.data_detailProduct);
+      },
+      err => {
+        this.toastr.error('Thất Bại ', 'Thêm giỏ hàng');
+      }
+    );
+  }
 }
