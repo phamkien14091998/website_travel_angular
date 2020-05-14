@@ -53,7 +53,19 @@ export class HomeService {
     public getAllProvinces(): Observable<any> {
         return this.http.get(`/api/place/province`);
     }
-
+ 
+    // lấy ra tất cả comment của bài biết đã chọn
+    public getAllCommentByPostId(post_id: any): Observable<any> {
+        return this.http.get(`/api/comment/list-post/` + post_id);
+    }
+    // thêm bình luận của user vào bài viết
+    public createComment(data: any): Observable<any> {
+        return this.http.post(`/api/comment/new-post`, data);
+    }
+    //delete comment
+    public deleteComment(comment_id: string): Observable<any> {
+        return this.http.delete(`/api/comment/delete/` + comment_id);
+    }
 
 }
 

@@ -88,7 +88,7 @@ export class ListProductComponent implements OnInit {
 
       }, () => {
         this.toastr.error('thất bại', 'Xóa sản phẩm');
-      }
+      } 
     )
   }
 

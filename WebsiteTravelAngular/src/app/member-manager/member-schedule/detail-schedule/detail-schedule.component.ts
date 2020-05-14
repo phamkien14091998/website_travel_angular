@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MemberScheduleService } from "../../share/member_schedule_service.service";
 import { environment } from "../../../../environments/environment";
 import { empty } from 'rxjs';
+import { count } from 'rxjs/operators';
 
 
 
@@ -210,7 +211,20 @@ export class DetailScheduleComponent implements OnInit {
     console.log(this.dataDetail_trip); // dữ liệu ở form detail và thêm vô mảng
     // sau khi lấy đc vehicle thì set null cho nó
     // this.arrayVehicleForm.reset();
-    // this.arrayVehicleForm.get('checkArray').patchValue([])
+    // this.arrayVehicleForm.get('checkArray').patchValue([{}])
+
+    // for (let i = 0; i < this.dataArrayVehicle.length; i++) {
+    //   this.arrayVehicleForm.clearAsyncValidators;
+    //   console.log(this.dataArrayVehicle.removeAt(i));
+
+    // }
+
+    // const dataArrayVehicle = (<FormArray>this.arrayVehicleForm.get('checkArray'));
+    // for (let i = 0; i < dataArrayVehicle.length; i++) {
+    //   dataArrayVehicle.removeAt(i);
+    // }
+    // // this.arrayVehicleForm.get('checkArray').setValue(this.dataArrayVehicle);
+
 
   }
   // lấy ra danh sách vehicle

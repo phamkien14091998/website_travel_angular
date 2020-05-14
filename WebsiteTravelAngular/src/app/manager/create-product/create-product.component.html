@@ -3,7 +3,7 @@
         <div class=" col-md-12">
             <fieldset class="css-fieldset">
                 <legend class="col-md-12">THÊM SẢN PHẨM</legend>
-                <div class="css-h row col-md-12"> 
+                <div class="css-h row col-md-12">
                     <form [formGroup]="createProductForm" (ngSubmit)="createProduct()">
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Sản Phẩm </span>
@@ -12,7 +12,7 @@
                             <div *ngIf="isInvalidForm('product_name')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('product_name')">
                                     Yêu cầu nhập tên sản phẩm .
-                                </div>     
+                                </div>
                             </div>
                         </div>
                         <div class="row col-md-12 pd-t">
@@ -22,16 +22,6 @@
                             <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('price')">
                                     Yêu cầu nhập giá sản phẩm .
-                                </div>
-                            </div>     
-                        </div>
-                        <div class="row col-md-12 pd-t">
-                            <span class="col-md-3  text-center">Số Lượng </span>
-                            <input class="css_inp col-md-9" type="text" placeholder="nhập số lượng " id=""
-                                name="quantity" formControlName="quantity" />
-                            <div *ngIf="isInvalidForm('quantity')" class="alert alert-danger col-md-12">
-                                <div *ngIf="isRequired('quantity')">
-                                    Yêu cầu nhập số lượng sản phẩm .
                                 </div>
                             </div>
                         </div>
@@ -43,13 +33,13 @@
                                 Chọn ít nhất 1 hình và nhiều nhất 3 hình ảnh
                             </span>
                         </div>
-    
+
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thể Loại </span>
                             <select class="css_inp col-md-9 " id="portfolio_id" title="--- Chọn Thể Loại Sản Phẩm ---"
                                 formControlName="portfolio_id">
                                 <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
-                                    {{data.portfolio_name}}   
+                                    {{data.portfolio_name}}
                                 </option>
                             </select>
                             <div *ngIf="isInvalidForm('portfolio_id')" class="alert alert-danger col-md-12">

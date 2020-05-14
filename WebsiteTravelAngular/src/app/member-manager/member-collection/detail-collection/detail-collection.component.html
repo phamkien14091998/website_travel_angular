@@ -1,6 +1,7 @@
 <div id="post-review" class="row">
     <div class="row col-md-12">
-        <div class="col-md-6" *ngFor="let data of dataDetailCollection">
+        <div class="col-md-6" *ngFor="let data of dataDetailCollection ; let i = index" [attr.data-index]="i"
+            style="margin-top: 50px;">
             <div class="a-post-review">
                 <a href="">
                     <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
@@ -37,6 +38,23 @@
                         <span class="blink_me">＜＜</span>
                     </a>
                 </div>
+                <div>
+                    <a type="button" style="text-decoration: none; color: red;" (click)="collectionPlaceIndex = i"
+                        *ngIf="collectionPlaceIndex !== i">
+                        <i class="fa fa-trash">
+                            xóa
+                        </i>
+                    </a>
+                    <div *ngIf="collectionPlaceIndex === i">
+                        <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+                        <button (click)="deletePlaceCollection(data.famous_place_id)"
+                            style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
+                        </button>
+                        <button style="width: 80px; " (click)="collectionPlaceIndex = undefined"
+                            class="btn btn-danger">Không</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

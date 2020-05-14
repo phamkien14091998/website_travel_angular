@@ -97,9 +97,9 @@
                 <div class="form-group col-md-12">
                     <label>Chọn hình</label>
                     <input class="css_inp col-md-9 " type="file" placeholder="" id="" name="profile" multiple
-                        (change)="onFileSelect($event)" />
-                    <span style="margin-top: 5px; margin-left: 290px; color: red;" class="col-md-12 ">
-                        Chọn ít nhất 1 hình và nhiều nhất 5 hình ảnh
+                        (change)="onFileSelect($event)" /><br>
+                    <span style="margin-top: 5px; color: red;" class="text-left col-md-12 ">
+                        Chọn 5 hình ảnh
                     </span>
                 </div>
             </div>
@@ -141,7 +141,7 @@
             </div>
             <!-- [disabled]="!createPostForm.valid" -->
             <button type="submit" class="btn btn-success">Tạo bài viết</button>
-            <button style="margin-left: 10px;" routerLink="/member/post/list" type="button"
+            <button style="margin-left: 10px; width: 100px;" routerLink="/member/post/list" type="button"
                 class="btn btn-secondary">Hủy</button>
         </form>
     </div>

@@ -1,15 +1,16 @@
 <!-- start header -->
 <div id="post-detail-header">
     <div class="container-fluid">
-        <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[0]}}" class="header-img" />
+        <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[0]}}" class="header-img"
+            style="margin-top: 10px;" />
         <div class="row">
             <div class="col-md-2 avatar">
                 <a>
-                    <img src="{{dataDetailPost.avatar}}">
+                    <img src="../../../assets/img/img_user.PNG">
                 </a>
             </div>
             <div class="col-md-8 title">
-                <span>{{dataDetailPost.post_title}}</span>
+                <span style="font-size: 30px; color: black;">{{dataDetailPost.post_title}}</span>
             </div>
         </div>
     </div>
@@ -20,7 +21,7 @@
             </div>
             <div class="col-md-10 create_date">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <span>{{dataDetailPost.created_at}}</span>
+                <span>{{dataDetailPost.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
             </div>
         </div>
     </div>
@@ -59,7 +60,9 @@
             </div>
         </div>
         <div class="row" id="images">
-            <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[0]}}" />
+            <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[1]}}"
+                style="margin-right: 10px; margin-top: 5px;" />
+            <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[2]}}" style="margin-top: 5px;" />
         </div>
         <div class="row" id="gaits">
             <div class="col-md-12 title-detail">
@@ -77,6 +80,10 @@
                 <p>{{dataDetailPost.items}}</p>
             </div>
         </div>
+        <div class="row" id="images">
+            <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[3]}}"
+                style="margin-right: 10px; margin-top: 5px; margin-bottom: 20px; width: 95%;" />
+        </div>
         <div class="row" id="home_stay">
             <div class="col-md-12 title-detail">
                 <p>3. Chỗ ở</p>
@@ -92,6 +99,10 @@
             <div class="col-md-12">
                 <p>{{dataDetailPost.visits}}</p>
             </div>
+        </div>
+        <div class="row" id="images">
+            <img *ngIf="dataDetailPost.images" src="{{domain}}/{{dataDetailPost.images[4]}}"
+                style="margin-right: 10px; margin-top: 5px; margin-bottom: 20px; width: 95%;" />
         </div>
         <div class="row" id="activitis">
             <div class="col-md-12 title-detail">
@@ -117,24 +128,58 @@
 <div id="post-detail-comment">
     <div class="container">
         <div class="row">
-            <div class="col-md-1 comment-avatar">
-                <img src="{{dataDetailPost.avatar}}">
-            </div>
-            <div class="col-md-11 comment-content">
-                <input type="text" placeholder="    Viết một bình luận ...">
-            </div>
+            <form class="row col-md-12" [formGroup]="createCommentForm" (ngSubmit)="createConment()">
+                <div class="col-md-1 comment-avatar">
+                    <img src="../../../assets/img/img_user.PNG">
+                </div>
+                <!-- <div *ngIf="auth.haveLogin()" class="col-md-1">
+                    {{user.user_name}}
+                </div> -->
+                <div class="col-md-9 comment-content">
+                    <input type="text" style="padding-left: 20px;" formControlName="content"
+                        placeholder="    Viết một bình luận ..." *ngIf="auth.haveLogin(); else elseBlock">
+                    <ng-template #elseBlock>
+                        <input type="text" style="padding-left: 20px;" formControlName="content"
+                            placeholder="    Bạn phải đăng nhập để bình luận ..." disabled>
+                    </ng-template>
+                </div>
+                <div class="col-md-2">
+                    <button class="col-md-12" type="submit" class="btn btn-success" *ngIf="auth.haveLogin()">
+                        Bình luận
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="row" id="list-comment">
+        <div class="row" id="list-comment" *ngFor="let lc of dataListComment ; let i = index" [attr.data-index]="i">
             <div class="col-md-1 comment-avatar">
-                <img src="{{dataDetailPost.avatar}}">
+                <img src="../../../assets/img/img_user.PNG">
             </div>
             <div class="col-md-11 list-comment-content">
                 <div>
-                    <span class="comment-user">nguyễn văn a</span>
-                    <span class="comment-date">17/03/2020, 9:30am</span>
+                    <span class="comment-user">{{lc.user_name}}</span>
+                    <span class="comment-date">{{lc.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
                 </div>
                 <div class="comment-user-content">
-                    review chi tiết quá thanks bạn
+                    {{lc.content}}
+
+                    <!-- <a type="button" style="text-decoration: none; color: rgb(7, 121, 5); margin-right: 4px;"
+                        (click)="commentDeleteIndex = i" *ngIf="commentDeleteIndex !== i">
+                        <i class="fa fa-pencil-square-o">
+                        </i>
+                    </a> -->
+                    <a type="button" style="text-decoration: none; color: red;" (click)="commentDeleteIndex = i"
+                        *ngIf="commentDeleteIndex !== i">
+                        <i class="fa fa-trash">
+                        </i>
+                    </a>
+                    <div *ngIf="commentDeleteIndex === i">
+                        <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+                        <button (click)="deleteComment(lc.comment_id)" style="width: 80px; margin-right: 5px;"
+                            class="btn btn-success">CÓ
+                        </button>
+                        <button style="width: 80px; " (click)="commentDeleteIndex = undefined"
+                            class="btn btn-danger">Không</button>
+                    </div>
                 </div>
             </div>
         </div>

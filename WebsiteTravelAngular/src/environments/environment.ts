@@ -8,7 +8,7 @@ export const environment = {
   // get API_URL() { return `http://${window.location.hostname}:${this.server_port}`; },
 
   get API_URL() {
-    return `http://local_websitetravel.test`;
+    return `http://127.0.0.1:8000`;
   },
 
 };

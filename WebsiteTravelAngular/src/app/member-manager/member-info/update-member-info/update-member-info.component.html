@@ -11,7 +11,8 @@
                                     <span class="per-info-detail">Họ tên</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="full_name" formControlName="full_name" value="{{dataDetailUser.full_name}}" />
+                                    <input type="text" name="full_name" formControlName="full_name"
+                                        value="{{dataDetailUser.full_name}}" />
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -19,7 +20,8 @@
                                     <span class="per-info-detail">Tên tài khoản</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="user_name" formControlName="user_name" value="{{dataDetailUser.user_name}}" />
+                                    <input type="text" name="user_name" formControlName="user_name"
+                                        value="{{dataDetailUser.user_name}}" />
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -27,7 +29,8 @@
                                     <span class="per-info-detail">Email</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="email" formControlName="email" value="{{dataDetailUser.email}}" disabled/>
+                                    <input type="text" name="email" formControlName="email"
+                                        value="{{dataDetailUser.email}}" disabled />
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -35,7 +38,8 @@
                                     <span class="per-info-detail">Ngày sinh</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="date_of_birth" formControlName="date_of_birth" value="{{dataDetailUser.date_of_birth}}" disabled/>
+                                    <input type="text" name="date_of_birth" formControlName="date_of_birth"
+                                        value="{{dataDetailUser.date_of_birth }}" disabled />
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -43,7 +47,8 @@
                                     <span class="per-info-detail">Quê quán</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="home_town" formControlName="home_town" value="{{dataDetailUser.home_town}}" />
+                                    <input type="text" name="home_town" formControlName="home_town"
+                                        value="{{dataDetailUser.home_town}}" />
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -51,7 +56,28 @@
                                     <span class="per-info-detail">Giới tính</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="gender" formControlName="gender" value="{{dataDetailUser.gender}}" disabled/>
+                                    <input type="text" name="gender" formControlName="gender"
+                                        value="{{dataDetailUser.gender}}" disabled />
+                                </div>
+                            </div>
+                            <div class="row per-info">
+                                <div class="col-md-3">
+                                    <span class="per-info-detail">Số điện thoại</span>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" name="phone_number" formControlName="phone_number"
+                                        value="{{dataDetailUser.phone_number}}" />
+                                </div>
+                            </div>
+                            <div class="row per-info">
+                                <div class="col-md-3">
+                                    <span class="per-info-detail">Địa chỉ</span>
+                                </div>
+                                <div class="col-md-9">
+                                    <textarea class="text-left" type="text" rows="4" cols="60" name="address"
+                                        formControlName="address">
+                                        {{dataDetailUser.address}}
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -59,27 +85,16 @@
                                     <span class="per-info-detail">Sở thích</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="hobbies" formControlName="hobbies" value="{{dataDetailUser.hobbies}}" />
+                                    <textarea class="text-left" type="text" rows="4" cols="60" name="hobbies"
+                                        formControlName="hobbies">
+                                        {{dataDetailUser.hobbies}}
+                                    </textarea>
                                 </div>
                             </div>
-                            <div class="row per-info">
-                                <div class="col-md-3">
-                                    <span class="per-info-detail">Ngày tạo</span>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" name="created_at" formControlName="created_at" value="{{dataDetailUser.created_at}}" disabled/>
-                                </div>
-                            </div>
-                            <div class="row per-info">
-                                <div class="col-md-3">
-                                    <span class="per-info-detail">Ảnh đại diện</span>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="file" (change)="onFileSelect($event)" name="profile" multiple />
-                                </div>
-                            </div>
+
                             <div id="btnUpdateUser">
-                                <button routerLink="/member/info/update/{{dataDetailUser.user_id}}" style="width: 120px;">Cập nhật</button>
+                                <button type="submit" routerLink="/member/info/update/{{dataDetailUser.user_id}}"
+                                    style="width: 120px;">Cập nhật</button>
                             </div>
                         </div>
                     </form>

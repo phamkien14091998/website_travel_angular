@@ -103,7 +103,7 @@ export class AuthenticationService {
         }
     }
 
-    public register(users: TokenPayload): Observable<any> {   
+    public register(users: TokenPayload): Observable<any> {
         // console.log(users);
         return this.http.post(`/api/register`, users, {
             headers: { 'Content-Type': 'application/json' }
@@ -147,6 +147,14 @@ export class AuthenticationService {
         this.token = ''
         window.localStorage.removeItem('usertoken')
         this.router.navigateByUrl('/')
+    }
+
+    //////////// đăng nhập bằng google   
+    public logInGoogle(): Observable<any> {
+        return this.http.get(`/api/auth/google/url`);
+    }
+    public handlerGoogle(): Observable<any> {
+        return this.http.get(`/api/auth/google/callback?client_id=536215063801-cs5sgqi4pufhn8678h32atls9bvj6g8t.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2F&scope=openid+profile+email&response_type=code`);
     }
 
 

@@ -109,6 +109,15 @@ export class UpdateScheduleDetailComponent implements OnInit {
         this.arrayVehicleForm.patchValue(this.dataVehicle)
         console.log(this.arrayVehicleForm);
 
+        // const checkArray: FormArray = this.arrayVehicleForm.get('checkArray') as FormArray;
+        // const dataArrayVehicle = (<FormArray>this.arrayVehicleForm.get('checkArray'));
+        // for (let i = 0; i < dataArrayVehicle.length; i++) {
+        //   dataArrayVehicle.removeAt(i);
+        // }
+        // this.arrayVehicleForm.get('checkArray').setValue(this.dataArrayVehicle);
+
+
+
 
       }, err => { console.log(err) }
     );

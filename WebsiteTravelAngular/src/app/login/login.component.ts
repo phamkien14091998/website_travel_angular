@@ -3,6 +3,7 @@ import { AuthenticationService, TokenPayload } from "../authentication.service";
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+import { windowCount } from 'rxjs/operators';
 
 @Component({
     templateUrl: './login.component.html',
@@ -14,8 +15,11 @@ export class LoginComponent {
     errors: any[] = [];
     notifyMessage: string = '';
     user_name: string = '';
+    urlLogin = "";
 
-    constructor( 
+    url = "/api/auth/google/callback${this.props.location.search}"
+
+    constructor(
         private auth: AuthenticationService,
         private fb: FormBuilder,
         private router: Router,
@@ -30,6 +34,10 @@ export class LoginComponent {
                 this.notifyMessage = 'Bạn đã đăng ký thành công, bạn có thể đăng nhập bây giờ!'
             }
         })
+
+        this.getLinkLogin();
+
+
     }
     // form
     initForm() {
@@ -51,7 +59,37 @@ export class LoginComponent {
     }
     login() {
         this.auth.login(this.loginForm.value)
-    } 
+    }
+
+
+    logInGoogle() {
+        // this.auth.logInGoogle(
+        // ).subscribe(
+        //     (data) => {
+        //         console.log(data);
+        //         this.auth.handlerGoogle(
+        //         ).subscribe(
+        //             () => {
+
+        //             }
+        //         )
+
+        //     }
+        // )
+        window.location.href = this.urlLogin;
+
+    }
+    getLinkLogin() {
+        
+        this.auth.logInGoogle(
+            ).subscribe(
+                (data) => {
+                    console.log(data)
+                    this.urlLogin = data.url;
+                })
+    }
+
+
 
 }
 

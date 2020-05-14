@@ -11,9 +11,11 @@ import { environment } from "../../../../environments/environment";
 export class DetailCollectionComponent implements OnInit {
   dataDetailCollection: any = [];
   domain = environment.API_URL;
+  //delete place trong colelction
+  collectionPlaceIndex: number;
 
   constructor(
-    private route: ActivatedRoute,   
+    private route: ActivatedRoute,
     private collectionService: MemberCollectionService
   ) { }
 
@@ -40,6 +42,21 @@ export class DetailCollectionComponent implements OnInit {
       }, err => { console.log(err) }
     );
 
+  }
+
+  //delete place trong collection
+  deletePlaceCollection(famous_place_id: string) {
+    console.log(famous_place_id);
+
+    this.collectionService.deletePlaceCollection(famous_place_id).subscribe(
+      () => {
+        this.dataDetailCollection.splice(this.collectionPlaceIndex, 1);
+        this.collectionPlaceIndex = undefined;
+
+      }, () => {
+
+      }
+    )
   }
 
 

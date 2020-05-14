@@ -32,15 +32,16 @@
                         <div *ngIf="loginForm.controls['password'].errors.pattern">
                             Yêu cầu nhập mật khẩu ít nhất 5 ký tự
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success">
                     Đăng Nhập
                 </button>
                 <br><br>
-                <button type="submit" class="btn btn-success">
-                    Đăng Nhập Bằng Facebook
-                </button>
+                <!-- {{ URL::to('auth/google') }} -->
+                <a class="btn btn-link" href="{{urlLogin}}">
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng Google
+                </a>
                 <br><br>
                 <div class="form-group">
                     <H5 style="color: teal;">KHÁM PHÁ CÁC ĐỊA ĐIỂM DU LỊCH TRONG TẦM TAY BẠN</H5>

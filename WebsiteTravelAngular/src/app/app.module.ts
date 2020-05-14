@@ -31,7 +31,7 @@ import { HomeListPostProvinceComponent } from './home/home-list-post-province/ho
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent }, 
   { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
   { path: 'province/detail/:province_id', component: HomeListPlacesComponent }, //lấy các địa điểm trong tỉnh
   { path: 'province', component: HomeListProvincesComponent }, // lấy danh sách tất cả các tỉnh
@@ -42,10 +42,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
-
+  
 
 ]
-
+ 
 @NgModule({
   declarations: [
     AppComponent,

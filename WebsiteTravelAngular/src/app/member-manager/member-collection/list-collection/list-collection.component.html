@@ -26,9 +26,17 @@
                                     <p class="a-post-title text-center" style="padding-top: 20px; padding-left: 10px;">
                                         Ngày Tạo: {{data.created_at | date : "dd/MM/yyyy"}}</p>
                                 </a>
+
+                                <div style="padding: 15px 0 10px 0;" class="text-center css-detail">
+                                    <a routerLink="/member/collection/detail/{{data.collection_id}}" class="link-manga"
+                                        style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;text-decoration: none;">
+                                        <span class="blink_me">＞＞</span>
+                                        <span>Chi Tiết</span>
+                                        <span class="blink_me">＜＜</span>
+                                    </a>
+                                </div>
                                 <div class="row col-md-12">
-                                    <!-- routerLink="/member/schedule/update/{{data.trip_id}}" -->
-                                    <a type="button"
+                                    <a type="button" routerLink="/member/collection/update/{{data.collection_id}}"
                                         style="text-decoration: none;padding-left: 85px;    margin-right: 13px; color: rgb(7, 121, 5);">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i> sửa
                                     </a>
@@ -46,15 +54,6 @@
                                         <button style="width: 80px; " (click)="postDeleteIndex = undefined"
                                             class="btn btn-danger">Không</button>
                                     </div>
-                                </div>
-
-                                <div style="padding: 15px 0 10px 0;" class="text-center css-detail">
-                                    <a routerLink="/member/collection/detail/{{data.collection_id}}" class="link-manga"
-                                        style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;text-decoration: none;">
-                                        <span class="blink_me">＞＞</span>
-                                        <span>Chi Tiết</span>
-                                        <span class="blink_me">＜＜</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>

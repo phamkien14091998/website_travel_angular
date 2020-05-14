@@ -31,6 +31,7 @@ import { DetailCollectionComponent } from './member-collection/detail-collection
 import { DetailPlaceScheduleComponent } from './member-schedule/detail-place-schedule/detail-place-schedule.component';
 import { UpdateScheduleComponent } from './member-schedule/update-schedule/update-schedule.component';
 import { UpdateScheduleDetailComponent } from './member-schedule/update-schedule-detail/update-schedule-detail.component';
+import { UpdateCollectionComponent } from './member-collection/update-collection/update-collection.component';
 
 const routes: Routes = [
     {
@@ -85,6 +86,9 @@ const routes: Routes = [
             {
                 path: 'collection/detail/:collection_id', component: DetailCollectionComponent
             },
+            {
+                path: 'collection/update/:collection_id', component: UpdateCollectionComponent
+            },
 
         ]
     }
@@ -110,6 +114,7 @@ const routes: Routes = [
         DetailPlaceScheduleComponent,
         UpdateScheduleComponent,
         UpdateScheduleDetailComponent,
+        UpdateCollectionComponent,
 
     ],
     imports: [

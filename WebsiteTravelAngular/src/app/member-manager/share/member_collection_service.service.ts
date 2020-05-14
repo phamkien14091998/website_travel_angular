@@ -36,6 +36,24 @@ export class MemberCollectionService {
     public deleteCollection(collection_id: string): Observable<any> {
         return this.http.delete(`/api/collection/delete/` + collection_id);
     }
+    // get detail collection by id
+    public getDetailColectionById(collection_id: any): Observable<any> {
+        return this.http.get(`/api/collection/detail-id/` + collection_id);
+    }
+    // cập nhật collection by id
+    public updateCollection(collection_id: string, data: any): Observable<any> {
+        console.log(data);
 
+        return this.http.post(`/api/collection/update/` + collection_id, data);
+    }
+    // thêm địa điểm vào bộ sưu tập ở trang home
+    public addPlaceIntoCollection(placeData: any): Observable<any> {
+        return this.http.post(`/api/collection/add-place`, placeData);
+    }
+    // Xóa place trong collection 
+    public deletePlaceCollection(famous_place_id: string): Observable<any> {
+
+        return this.http.delete(`/api/collection/delete-place/` + famous_place_id);
+    }
 
 }

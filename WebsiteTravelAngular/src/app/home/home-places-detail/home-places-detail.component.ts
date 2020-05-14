@@ -31,7 +31,7 @@ export class HomePlacesDetailComponent implements OnInit {
   getListPostByPlaceId(famous_place_id: any) {
     this.homeService.getListPostByPlaceId(
       famous_place_id
-    ).subscribe(
+    ).subscribe( 
       (data) => {
         this.dataListPost = data.map(p => {
           this.dataProvinceName = p.province_name

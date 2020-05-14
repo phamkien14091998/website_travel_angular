@@ -40,7 +40,8 @@
                                                 <span class="row">
                                                     <form class="row col-md-12" [formGroup]="getPlaceForm"
                                                         (ngSubmit)="getPlaceByProvince()">
-                                                        <select class="col-md-7" style="margin-left:10px; width: 135px; padding-left: 5px;"
+                                                        <select class="col-md-7"
+                                                            style="margin-left:10px; width: 135px; padding-left: 5px;"
                                                             class="form-control" title="--- Chọn tỉnh ---"
                                                             formControlName="province_id">
                                                             <option *ngFor="let pro of dataListProvince"
@@ -48,8 +49,8 @@
                                                                 {{pro.province_name}}
                                                             </option>
                                                         </select>
-                                                        <button style="margin-left: 5px;" class="btn btn-success col-md-3"
-                                                            type="submit">tìm</button>
+                                                        <button style="margin-left: 5px;"
+                                                            class="btn btn-success col-md-3" type="submit">tìm</button>
                                                     </form>
                                                 </span>
                                             </div>
@@ -64,33 +65,35 @@
                                                 {{province_name}}
                                             </div>
                                             <div class="row">
-                                              <form class="row" [formGroup]="arrayForm" (ngSubmit)="submitFormArray()" novalidate>
-                                                <div class="row" style="margin-left: 20px;margin-right: 20px;">
-                                                  <div class="col-md-6 col-sm-6 col-6 recommend-point"
-                                                    *ngFor="let place of dataListPlace ; let i=index" >
-                                                    <div class="recommend-image">
-                                                        <img src="{{domain}}/{{place.images[0]}}" class="image">
-                                                        <div class="middle">
-                                                          <!-- fa fa-plus-circle -->
-                                                            <i class=" " aria-hidden="true">
-                                                                <input type="checkbox" [value]="place.famous_place_id"
-                                                                style="width: 25px;height: 25px;"
-                                                                 (change)="onCheckboxChange($event)"
-                                                                  >
-                                                            </i>
+                                                <form class="row" [formGroup]="arrayForm" (ngSubmit)="submitFormArray()"
+                                                    novalidate>
+                                                    <div class="row" style="margin-left: 20px;margin-right: 20px;">
+                                                        <div class="col-md-6 col-sm-6 col-6 recommend-point"
+                                                            *ngFor="let place of dataListPlace ; let i=index">
+                                                            <div class="recommend-image">
+                                                                <img src="{{domain}}/{{place.images[0]}}" class="image">
+                                                                <div class="middle">
+                                                                    <!-- fa fa-plus-circle -->
+                                                                    <i class=" " aria-hidden="true">
+                                                                        <input type="checkbox"
+                                                                            [value]="place.famous_place_id"
+                                                                            style="width: 25px;height: 25px;"
+                                                                            (change)="onCheckboxChange($event)">
+                                                                    </i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="recommend-title">
+                                                                {{place.title}}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="recommend-title">
-                                                        {{place.title}}
-                                                    </div>
-                                                  </div>
-                                                </div>
 
-                                                <p class="error" *ngIf="this.arrayForm.controls['checkArray'].errors?.required">
-                                                  Vui long chon dia diem.
-                                                </p>
-                                                <!-- <button type="submit" class="btn btn-success col-md-2">sunmit</button> -->
-                                              </form>
+                                                    <p class="error"
+                                                        *ngIf="this.arrayForm.controls['checkArray'].errors?.required">
+                                                        Vui long chon dia diem.
+                                                    </p>
+                                                    <!-- <button type="submit" class="btn btn-success col-md-2">sunmit</button> -->
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +105,10 @@
                         <div class="row col-md-12 css-bu">
                             <div class="col-md-5">
                             </div>
-                            <button type="submit" [disabled]="!createCollectionForm.valid" class="btn btn-success col-md-2">Hoàn Thành</button>
+                            <button type="submit" [disabled]="!createCollectionForm.valid"
+                                class="btn btn-success col-md-2">Hoàn Thành</button>
+                            <button type="button" routerLink="/member/collection/list"
+                                class="btn btn-secondary col-md-2" style="margin-left: 5px;">Hủy</button>
                             <div class="col-md-5">
                             </div>
                         </div>

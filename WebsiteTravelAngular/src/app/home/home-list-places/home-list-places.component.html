@@ -18,8 +18,25 @@
                 <div class="place-image" routerLink="/place/detail/{{dataPlace.famous_place_id}}">
                     <img src="{{domain}}/{{dataPlace.images[0]}}" />
                 </div>
-                <div>
-                    <p class="place-title" routerLink="/place/detail/{{dataPlace.famous_place_id}}">{{dataPlace.title}}</p>
+                <div class="row col-md-12">
+                    <p class="place-title col-md-12" routerLink="/place/detail/{{dataPlace.famous_place_id}}">
+                        {{dataPlace.title}}
+                    </p>
+                </div>
+                <div class="row col-md-12" *ngIf="auth.haveLogin()">
+                    <form class="row col-md-12" [formGroup]="addPlaceCollectionForm" (ngSubmit)="addPlaceCollection()">
+                        <select class="col-md-6" formControlName="collection_id" title="--- Chọn bộ sưu tập ---"
+                            style="height: 36px; width: 95px; border-radius: .25rem;" (change)="layid($event)"
+                            name="{{dataPlace.famous_place_id}}">
+                            <option value="{{d.collection_id}}" *ngFor="let d of dataListCollection">
+                                {{d.collection_name}}
+                            </option>
+                        </select>
+                        <!-- <input type="text" [ngModel]="dataPlace.famous_place_id" formControlName="famous_place_id"> -->
+                        <button class="btn btn-success col-md-6" style="height: 35px;margin-bottom: 5px;" type="submit">
+                            Thêm BST
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

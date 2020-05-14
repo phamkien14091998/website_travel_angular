@@ -75,7 +75,7 @@
                                     <button type="button" class="css-b btn btn-danger" (click)="productDeleteIndex = i"
                                         *ngIf="productDeleteIndex !== i">Xóa
                                     </button>
-                                    <br><br>
+                                    <br><br> 
                                     <div *ngIf="productDeleteIndex === i">
                                         <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
                                         <button (click)="deleteProduct(data.product_id)"
