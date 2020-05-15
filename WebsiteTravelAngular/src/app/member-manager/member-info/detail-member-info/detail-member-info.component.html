@@ -43,7 +43,7 @@
                                     <span class="per-info-detail">Quê quán</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <span>{{dataUser.home_town}}</span>
+                                    <span>{{dataUser.hometown}}</span>
                                 </div>
                             </div>
                             <div class="row per-info">
@@ -64,14 +64,23 @@
                             </div>
                             <div class="row per-info">
                                 <div class="col-md-3">
-                                    <span class="per-info-detail">Ngày tạo</span>
+                                    <span class="per-info-detail">Số điện thoại</span>
                                 </div>
                                 <div class="col-md-9">
-                                    <span>{{dataUser.created_at}}</span>
+                                    <span>{{dataUser.phone_number}}</span>
+                                </div>
+                            </div>
+                            <div class="row per-info">
+                                <div class="col-md-3">
+                                    <span class="per-info-detail">Địa chỉ</span>
+                                </div>
+                                <div class="col-md-9">
+                                    <span>{{dataUser.address}}</span>
                                 </div>
                             </div>
                             <div id="btnUpdateUser">
-                                <button routerLink="/member/info/update/{{dataUser.user_id}}">Cập nhật thông
+                                <button class="btn btn-success"
+                                    routerLink="/member/info/update/{{dataUser.user_id}}">Cập nhật thông
                                     tin</button>
                             </div>
                         </div>

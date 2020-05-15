@@ -98,14 +98,13 @@ export class HomePostsDetailComponent implements OnInit {
     this.home_service.createComment(
       body
     ).subscribe(
-      () => {
-        // this.toastr.success('Thành Công ', 'Thêm Sản Phẩm');
+      (data) => {
+        console.log(data);
+        this.dataListComment.unshift(data);
         this.createCommentForm.patchValue({ content: '' })
-        location.reload()
-        // this.router.navigateByUrl('/detail-post/' + this.dataDetailPost.post_id);
+        // location.reload()
       },
       err => {
-        // this.toastr.error('', 'Bạn chưa đăng nhập');
       }
     )
   }

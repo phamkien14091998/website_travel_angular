@@ -26,9 +26,12 @@
         Thời gian tham quan: {{data.time_stay}}
       </span><br>
       <span>
-        Phương tiện : {{data.vehicle[0]}}&nbsp;{{data.vehicle[1]}}&nbsp;{{data.vehicle[2]}}
-        &nbsp;&nbsp;{{data.vehicle[3]}}&nbsp;{{data.vehicle[4]}}&nbsp;
-        {{data.vehicle[5]}}&nbsp;{{data.vehicle[6]}}&nbsp;{{data.vehicle[7]}}&nbsp;{{data.vehicle[8]}}
+        <span>Phương tiện :</span>
+        <span *ngIf="data.vehicle">
+          {{data.vehicle[0]}}&nbsp;{{data.vehicle[1]}}&nbsp;{{data.vehicle[2]}}
+          &nbsp;&nbsp;{{data.vehicle[3]}}&nbsp;{{data.vehicle[4]}}&nbsp;
+          {{data.vehicle[5]}}&nbsp;{{data.vehicle[6]}}&nbsp;{{data.vehicle[7]}}&nbsp;{{data.vehicle[8]}}
+        </span>
       </span><br>
       <span>
         Ghi chú: {{data.note}}

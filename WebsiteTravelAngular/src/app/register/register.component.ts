@@ -42,12 +42,12 @@ export class RegisterComponent {
             Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
             password: ['', [Validators.required,
             Validators.pattern('[a-zA-Z0-9]{5,50}')]],
-            full_name: ['', Validators.required],
+            full_name: ['', Validators.required],   
             avatar: ['assets/img/img_user.PNG', Validators.required],
             date_of_birth: ['', Validators.required],
             gender: ['', Validators.required],
             hometown: ['', Validators.required],
-            hobbies: ['', Validators.required],
+            hobbies: ['', Validators.required], 
         });
     }
     // kiểm tra dữ liệu nhập hợp lệ

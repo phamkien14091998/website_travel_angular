@@ -30,7 +30,10 @@
       </li>
 
       <li *ngIf="auth.haveLogin()" class="nav-item">
-        <a class="nav-link btn btn btn-info btn-outline-info css-info">{{user?.user_name}} </a>
+        <a class="nav-link  css-info" routerLink="/member/info/detail/{{user?.user_id}}">
+          <img width="40px" height="40px" style="border-radius: 120px;color: #fbf9f9;"
+            src="../../../assets/img/img_user.PNG" alt="">{{user?.user_name}}
+        </a>
       </li>
       <li *ngIf="auth.haveLogin()" class="nav-item">
         <a routerLink="/logout" (click)="auth.logout()" class="nav-link btn btn-danger css-a">Đăng Xuất</a>
@@ -60,7 +63,8 @@
   <div class="col-md-4" id="navbar-right">
     <ul class="navbar-nav">
       <li *ngIf="user?.role==0 && auth.haveLogin()" class="nav-item navbar-right-button">
-        <a routerLink="/member/info/detail/{{user?.user_id}}" style="background-color: #55d65d;" class="nav-link">Chức
+        <a routerLink="/member/info/detail/{{user?.user_id}}"
+          style="background-color: #55d65d;width: 215px; color: #ffff;" class="nav-link">Chức
           năng người dùng</a>
       </li>
 

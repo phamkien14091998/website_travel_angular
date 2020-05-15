@@ -54,6 +54,20 @@
                                                     </form>
                                                 </span>
                                             </div>
+                                            <!-- danh sách địa điểm được chọn -->
+                                            <div class="list-places">
+                                                <div class="list-places-day">
+                                                    <div class="item-place">
+                                                        <div class="item" *ngFor="let pla of data">
+                                                            <span class="icon"></span>
+                                                            <span class="name">
+                                                                {{pla.title}}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- danh sách -->
                                         </div>
 
                                     </div>

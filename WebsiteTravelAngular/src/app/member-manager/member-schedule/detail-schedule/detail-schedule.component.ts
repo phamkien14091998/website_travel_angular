@@ -195,7 +195,7 @@ export class DetailScheduleComponent implements OnInit {
     //     'note': '',
     //     'vehicle': '',
     //     'famous_place_id': this.place_id_luu_arr
-    //   }
+    //   }  
 
     // }
 
@@ -218,6 +218,7 @@ export class DetailScheduleComponent implements OnInit {
     //   console.log(this.dataArrayVehicle.removeAt(i));
 
     // }
+    // this.arrayVehicleForm.setValue([false]);
 
     // const dataArrayVehicle = (<FormArray>this.arrayVehicleForm.get('checkArray'));
     // for (let i = 0; i < dataArrayVehicle.length; i++) {
@@ -277,7 +278,8 @@ export class DetailScheduleComponent implements OnInit {
       'description': this.description,
       'day_start': this.day_start,
       'day_end': this.day_end,
-      'user_id': this.user.user_id
+      'user_id': this.user.user_id,
+      'email': this.user.email
     }
 
     this.scheduleService.createSchedule(

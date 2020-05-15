@@ -5,7 +5,8 @@
         <div class="col-md-12" id="search-input">
             <div class="col-md-1"></div>
             <p class="col-md-1 icon-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></p>
-            <input type="text" class="col-md-8 form-control search-input-text" id="" placeholder="Nhập nơi bạn muốn đến ...">
+            <input type="text" class="col-md-8 form-control search-input-text" id=""
+                placeholder="Nhập nơi bạn muốn đến ...">
             <button class="col-md-2 btn-search">Tìm kiếm</button>
         </div>
     </div>
@@ -73,7 +74,9 @@
                     <span class="post-review-date">{{dataPost.created_at}}</span>
                 </div>
                 <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
-                    <a class="link-manga" style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;" routerLink="/detail-post/{{dataPost.post_id}}">
+                    <a class="link-manga"
+                        style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;"
+                        routerLink="/detail-post/{{dataPost.post_id}}">
                         <span class="blink_me">＞＞</span>
                         <span>Xem Bài Viết</span>
                         <span class="blink_me">＜＜</span>
@@ -82,8 +85,10 @@
             </div>
         </div>
     </div>
-    <div id="post-review-footer">
-        <button type="button" routerLink="/post">Xem thêm</button>
+    <div id="post-review-footer" class="row col-md-12 text-center">
+        <div class="col-md-5"></div>
+        <button class="text-center col-md-2" style="width: 100px;" type="button" routerLink="/post">Xem thêm</button>
+        <div class="col-md-5"></div>
     </div>
 </div>
 <!-- end post review -->
@@ -98,7 +103,8 @@
         <div style="padding-bottom: 20px;" class="col-md-3" *ngFor="let dataProvince of dataListProvince">
             <div class="place-image" routerLink="/province/detail/{{dataProvince.province_id}}">
                 <a><img src="{{domain}}/{{dataProvince.image}}"></a>
-                <h5 style="color: black;padding-top: 150px;">{{dataProvince.province_name}}</h5>
+                <h5 style="color: #ffffff;;padding-top: 180px;font-size: 30px;">{{dataProvince.province_name}}
+                </h5>
             </div>
         </div>
     </div>

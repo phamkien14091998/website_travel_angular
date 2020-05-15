@@ -30,7 +30,7 @@
 
 #header-title p {
     margin-left: 370px;
-    font-size: 28px;
+    font-size: 35px;
     font-weight: 400;
     color: #1d9c73;
 }
@@ -179,4 +179,347 @@
 
 .item-tag a {
     text-decoration: none;
+}
+
+/* start search banner */
+
+#search-banner {
+    width: 100%;
+    height: 340px;
+    /* background-image: url('../../assets/img/search-banner.png'); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+#banner-title {
+    padding-top: 35px;
+    text-align: center;
+    color: darkgreen;
+    font-size: xx-large;
+}
+
+#search-form {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    margin-top: 90px;
+}
+
+.search-input-text {
+    padding-left: 20px;
+    margin-right: 30px;
+    width: 100%;
+    float: left;
+    margin-left: 10px;
+}
+
+#search-input {
+    padding-top: 30px;
+}
+
+.icon-marker {
+    margin-left: 20px;
+    width: 10px;
+    float: left;
+    padding-left: 30px;
+    padding-top: 6px;
+    padding-right: 7px;
+}
+
+.btn-search {
+    margin-right: 30px;
+    color: white;
+    background-color: #43ac49;
+    border: none;
+    width: 120px;
+    height: 38px;
+}
+
+/* end search banner */
+
+/* start slogan */
+
+#slogan {
+    width: 100%;
+    height: 280px;
+    text-align: center;
+}
+
+.slogan-icon {
+    font-size: 36px;
+    color: #43ac49;
+    margin-top: 30px;
+}
+
+.slogan-header {
+    margin-top: 20px;
+}
+
+.slogan-text {
+    margin-top: 15px;
+}
+
+/* end slogan */
+
+/* start location */
+
+/* #location {
+    width: 1150px;
+    height: 140px;
+    margin-left: 190px;
+    text-align: center;
+    border-top: 1px solid #43ac49;
+    border-bottom: 1px solid #43ac49;
+}
+
+.location-content {
+    margin-top: 15px;
+}
+
+.location-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.location-content a:hover {
+    color: #43ac49;
+} */
+
+/* end location */
+
+/* start post review */
+
+#post-review-header {
+    text-align: center;
+    margin-top: 55px;
+}
+
+#post-review-header h3 {
+    color: #43ac49;
+}
+
+#post-review-header h6 {
+    margin-bottom: 0px;
+}
+
+#post-review {
+    width: 100%;
+    height: 1330px;
+    word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    margin-left: 1px;
+    /* wrap content */
+}
+
+#post-review>.row {
+    margin-bottom: 35px;
+}
+
+.a-post-review:hover {
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+}
+
+.a-post-review {
+    background-color: #76e0e0;
+}
+
+.css-hover-menu:hover {
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+    background-color: rgb(128, 236, 222);
+}
+
+.slogan-header:hover {
+    color: rgb(25, 9, 247);
+}
+
+#post-review:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post-review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 10px;
+}
+
+.post-review-image {
+    width: 100%;
+    height: 165px;
+    padding-right: 15px;
+    margin-top: 10px;
+}
+
+.post-review-image:hover {
+    filter: grayscale(100%) sepia(100%);
+}
+
+.a-post-fullname {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.a-post-review {
+    padding-left: 15px;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.a-post-review a {
+    text-decoration: none;
+    color: black;
+}
+
+.a-post-detail {
+    font-size: 10px;
+}
+
+.post-review-date {
+    border: 1px solid black;
+    margin-left: 5px;
+}
+
+.a-post-calendar {
+    margin-left: 15px;
+}
+
+.text {
+    width: 350px;
+}
+
+.a-post-title {
+    margin-top: 7px;
+}
+
+.a-post-title:hover {
+    color: #43ac49;
+}
+
+.a-post-fullname:hover {
+    color: #43ac49;
+}
+
+#post-review-footer {
+    text-align: center;
+}
+
+#post-review-footer button {
+    color: white;
+    background-color: #43ac49;
+    width: 130px;
+    height: 40px;
+    border: none;
+    font-weight: 600;
+}
+
+#post-review-footer button:hover {
+    background-color: white;
+    color: #43ac49;
+    border: 1px solid #43ac49;
+}
+
+/* end post review */
+
+/* start place */
+
+#place {
+    width: 100%;
+    height: 900px;
+}
+
+#place:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.place-image {
+    overflow: hidden;
+    padding: 0;
+    width: 265px;
+    height: 300px;
+    float: left;
+    position: relative;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.place-image h5 {
+    position: absolute;
+    margin-top: -235px;
+    margin-left: 10px;
+    color: white;
+}
+
+#header-place {
+    text-align: center;
+    margin-top: 55px;
+}
+
+.place-image img {
+    width: 265px;
+    height: 300px;
+    transition-duration: 0.3s;
+    margin: 0 auto;
+    display: block;
+}
+
+.place-image img:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    z-index: 0;
+}
+
+#header-place h3 {
+    color: #43ac49;
+}
+
+#header-place h6 {
+    margin-bottom: 55px;
+}
+
+#place>.row {
+    margin-bottom: 25px;
+}
+
+#place-footer {
+    text-align: center;
+}
+
+#place-footer button {
+    margin-top: 30px;
+    color: white;
+    background-color: #43ac49;
+    width: 130px;
+    height: 40px;
+    border: none;
+    font-weight: 600;
+}
+
+#place-footer button:hover {
+    background-color: white;
+    color: #43ac49;
+    border: 1px solid #43ac49;
+}
+
+.css-a {
+    text-decoration: none;
+    color: black;
+}
+
+.css-border {
+    border-top: 3px solid #43ac49;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+    width: 30px;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

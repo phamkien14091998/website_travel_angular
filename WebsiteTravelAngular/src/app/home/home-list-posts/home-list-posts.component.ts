@@ -10,10 +10,10 @@ import { environment } from "../../../environments/environment";
 })
 export class HomeListPostsComponent implements OnInit {
 
-  dataListProvince: any = []; 
+  dataListProvince: any = [];
   dataList11Province: any = [];
   dataListPost: any = [];
-  domain = environment.API_URL; 
+  domain = environment.API_URL;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,7 +32,7 @@ export class HomeListPostsComponent implements OnInit {
       (data) => {
         this.dataListProvince = data
         console.log(this.dataListProvince);
-    }, err => { console.log(err) }
+      }, err => { console.log(err) }
     );
   }
 
@@ -42,7 +42,7 @@ export class HomeListPostsComponent implements OnInit {
       (data) => {
         this.dataList11Province = data
         console.log(this.dataList11Province);
-    }, err => { console.log(err) }
+      }, err => { console.log(err) }
     );
   }
 
@@ -50,9 +50,12 @@ export class HomeListPostsComponent implements OnInit {
     this.homeService.getAllPost(
     ).subscribe(
       (data) => {
-        this.dataListPost = data
+        this.dataListPost = data.map(p => {
+          p.images = p.images.split("|")
+          return p;
+        })
         console.log(this.dataListPost);
-    }, err => { console.log(err) }
+      }, err => { console.log(err) }
     );
   }
 

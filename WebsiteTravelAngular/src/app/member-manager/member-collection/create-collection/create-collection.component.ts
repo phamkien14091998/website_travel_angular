@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../../../authentication.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { FormBuilder, FormGroup, Validators,FormArray,FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
 import { MemberCollectionService } from "../../share/member_collection_service.service";
@@ -26,6 +26,7 @@ export class CreateCollectionComponent implements OnInit {
   domain = environment.API_URL;
   // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
+  data: any = [] // lưu các địa điểm đã được chọn và lấy lên
 
   constructor(
     private collectionService: MemberCollectionService,
@@ -108,10 +109,19 @@ export class CreateCollectionComponent implements OnInit {
     }
     this.dataArrayPlace = checkArray.value
     console.log(this.dataArrayPlace);
+    // truyền aray_place_id xuống để lấy lên các địa điểm đã chọn
+    this.collectionService.getPlaceById(
+      this.dataArrayPlace
+    ).subscribe(
+      (data) => {
+        console.log(data);
+        this.data = data
+      }
+    )
 
   }
   // submit form checkbox để lấy ra tập giá trị đã check
-  submitFormArray(){
+  submitFormArray() {
     // console.log(this.arrayForm.value)
   }
 

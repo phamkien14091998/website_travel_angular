@@ -23,7 +23,7 @@
             <div class="col-md-12 create-trip-detail-nav">
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-lg-3" style="line-height: 40px;">
-                        <span><strong>Bước 1: </strong>Chọn ngày</span>
+                        <span><strong>Bước 1: </strong>Xem ngày</span>
                     </div>
                     <div class="col-md-3 col-sm-6 col-lg-3" style="line-height: 40px;">
                         <span><strong>Bước 2: </strong>Chọn tỉnh - thành phố</span>
@@ -34,10 +34,10 @@
                                 <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2 col-sm-12 col-lg-1">
+                    </div>    
+                    <div class="col-md-2 col-sm-12 col-lg-2">
                         <div class="col-md-12">
-
+                            <span><strong>Bước 4</strong></span>
                         </div>
                         <div class="col-md-12" style="margin-top: 10px;">
                             <button type="button" (click)="create()" class="finish">Hoàn thành</button>
@@ -53,12 +53,12 @@
                     <div class="col-md-6 col-sm-6 col-lg-3" id="trip-left">
                         <div id="item-day-in">
                             <div class="top-data">
-                                <a href="#">Ngày bắt đầu</a>
-                                <input type="date" id="day_start" [value]="day_start">
+                                <a>Ngày bắt đầu</a>
+                                <input type="date" id="day_start" [value]="day_start" disabled>
                             </div>
                             <div class="top-data">
-                                <a href="#">Ngày kết thúc</a>
-                                <input type="date" id="day_end" [value]="day_end">
+                                <a>Ngày kết thúc</a>
+                                <input type="date" id="day_end" [value]="day_end" disabled>
                             </div>
                         </div>
                     </div>

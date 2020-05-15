@@ -55,5 +55,10 @@ export class MemberCollectionService {
 
         return this.http.delete(`/api/collection/delete-place/` + famous_place_id);
     }
+    // lấy ra địa điểm theo id
+    public getPlaceById(famous_place_id_arr: any): Observable<any> {
+        // console.log(famous_place_id);
+        return this.http.post(`/api/place/get-famous-id`, famous_place_id_arr);
+    }
 
 }

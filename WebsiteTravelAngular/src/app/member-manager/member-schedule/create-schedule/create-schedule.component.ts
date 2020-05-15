@@ -31,8 +31,10 @@ export class CreateScheduleComponent implements OnInit {
 
   initForm() {
     this.createScheduleForm = this.fb.group({
-      trip_name: ['', Validators.required],
-      description: ['', Validators.required],
+      trip_name: ['', [Validators.required]],
+      // , Validators.pattern('[a-zA-Z0-9]{5,}')
+      description: ['', [Validators.required]],
+      // , Validators.pattern('[a-zA-Z0-9]{5,}')
       day_start: ['', Validators.required],
       day_end: ['', Validators.required]
 

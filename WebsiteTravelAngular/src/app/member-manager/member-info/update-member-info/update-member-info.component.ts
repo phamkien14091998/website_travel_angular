@@ -41,10 +41,10 @@ export class UpdateMemberInfoComponent implements OnInit {
       user_id
     ).subscribe(
       (data) => {
-        //data.images = data.images.split('|')
+        console.log(data);
+
         this.dataDetailUser = data
         this.updateUserForm.patchValue(this.dataDetailUser)
-        //this.updateProductForm.controls['product_name'].setValue(this.data_detailProduct.product_name)
       }, err => { console.log(err) }
     );
 
@@ -56,7 +56,7 @@ export class UpdateMemberInfoComponent implements OnInit {
       user_name: ['', Validators.required],
       email: [''],
       date_of_birth: [''],
-      home_town: [''],
+      hometown: [''],
       gender: [''],
       hobbies: [''],
       profile: [''],
@@ -80,10 +80,11 @@ export class UpdateMemberInfoComponent implements OnInit {
     const body = {
       'full_name': this.updateUserForm.controls['full_name'].value,
       'user_name': this.updateUserForm.controls['user_name'].value,
-      'home_town': this.updateUserForm.controls['home_town'].value,
+      'hometown': this.updateUserForm.controls['hometown'].value,
       'hobbies': this.updateUserForm.controls['hobbies'].value,
       'address': this.updateUserForm.controls['address'].value,
       'phone_number': this.updateUserForm.controls['phone_number'].value,
+      'user_id': this.dataDetailUser?.user_id
     }
     console.log(body);
     console.log(this.dataDetailUser?.user_id);
@@ -94,7 +95,7 @@ export class UpdateMemberInfoComponent implements OnInit {
     ).subscribe(
       () => {
         this.toastr.success('Thành Công ', 'Cập nhật thông tin');
-        // this.router.navigateByUrl('/manager/product');
+        this.router.navigateByUrl('/member/info/detail/' + this.dataDetailUser?.user_id);
       },
       err => {
         this.toastr.error('Thất Bại ', 'Cập nhật thông tin');

@@ -90,8 +90,10 @@ export class UpdateScheduleDetailComponent implements OnInit {
       trip_id
     ).subscribe(
       (data) => {
+        console.log(data);
 
         data.vehicle = data.vehicle.split('|')
+
         this.dataVehicle = data.vehicle
         data.time_to = data.time_to.split('h')
         data.time_stay = data.time_stay.split('h')

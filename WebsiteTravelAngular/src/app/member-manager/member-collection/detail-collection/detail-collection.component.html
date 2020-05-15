@@ -7,15 +7,13 @@
                     <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
                 </a>
                 <br />
-                <a>
-                    <!-- routerLink="/detail-post/{{dataPost.post_id}}" -->
+                <a routerLink="/place/detail/{{data.famous_place_id}}">
                     <img class="post-review-image" src="{{domain}}/{{data.images[0]}}" />
                 </a>
                 <a>
-                    <!-- routerLink="/detail-post/{{dataPost.post_id}}" -->
                     <h6 class="a-post-title">
                         {{data.title}}
-                    </h6>
+                    </h6>  
                 </a>
                 <div class="a-post-detail">
                     <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
@@ -30,8 +28,7 @@
                     {{data.description}}
                 </div>
                 <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
-                    <!-- routerLink="/manager/places/detail/{{data.famous_place_id}}" -->
-                    <a class="link-manga"
+                    <a class="link-manga" routerLink="/place/detail/{{data.famous_place_id}}"
                         style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;">
                         <span class="blink_me">＞＞</span>
                         <span>Xem Chi Tiết</span>
