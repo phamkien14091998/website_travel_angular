@@ -8,11 +8,10 @@
 }
 
 .css-login {
-    background-image: url('../../assets/img/img_login.PNG');
+    background-image: url('/assets/img/img_login.PNG');
     background-size: 100%;
     width: none;
-    height: 750px;  
+    height: 750px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-

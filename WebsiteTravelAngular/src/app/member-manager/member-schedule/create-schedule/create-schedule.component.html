@@ -19,9 +19,13 @@
                         <div *ngIf="isRequired('trip_name')">
                             Yêu cầu nhập tên chuyến đi .
                         </div>
-                        <div *ngIf="createScheduleForm.controls['trip_name'].errors.pattern">
-                            Yêu cầu nhập tên chuyến đi ít nhất 5 ký tự .
+                        <div *ngIf="min('trip_name')" class="alert alert-danger col-md-12">
+                            Tên chuyến đi ít nhất 5 ký tự.
                         </div>
+                        <div *ngIf="max('trip_name')" class="alert alert-danger col-md-12">
+                            Tên chuyến đi nhiều nhất nhất 255 ký tự.
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -49,15 +53,15 @@
                 <div class="col-sm-12">
                     <label class="col-sm-12 control-label ">Mô tả</label>
                     <div class="col-sm-12 " style="padding-right: 0px; ">
-                        <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự " maxlength="1000"
-                            minlength="5" formControlName="description"></textarea>
+                        <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự "
+                            formControlName="description"></textarea>
                     </div>
                     <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">
                         <div *ngIf="isRequired('description')">
                             Yêu cầu nhập mô tả.
                         </div>
-                        <div *ngIf="createScheduleForm.controls['description'].errors.pattern">
-                            Yêu cầu nhập mô tả ít nhất 5 ký tự .
+                        <div *ngIf="min('description')" class="alert alert-danger col-md-12">
+                            Mô tả đi ít nhất 5 ký tự.
                         </div>
                     </div>
                 </div>

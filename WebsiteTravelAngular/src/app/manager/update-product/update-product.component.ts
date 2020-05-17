@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './update-product.component.html',
   styleUrls: ['./update-product.component.css']
 })
-export class UpdateProductComponent implements OnInit { 
+export class UpdateProductComponent implements OnInit {
   data_detailProduct: any = {};
   data_portfolio: any = [];
   domain = environment.API_URL;
@@ -140,7 +140,7 @@ export class UpdateProductComponent implements OnInit {
     ).subscribe(
       () => {
         this.toastr.success('Thành Công ', 'Sửa Sản Phẩm');
-        this.router.navigateByUrl('/manager/product');
+        this.router.navigateByUrl('/manager/product/detail/'+this.data_detailProduct?.product_id);
       },
       err => {
         this.toastr.error('Thất Bại ', 'Sửa Sản Phẩm');

@@ -39,10 +39,7 @@ export class DetailScheduleComponent implements OnInit {
   vehicle: any = ''
 
   ///////////////////
-  dataVehicle: any = []; // lưu danh sách xe lấy lên
-  arrayVehicleForm: FormGroup
-  dataArrayVehicle: any = []
-  dataVehicleArr: any = [] // lưu dữ liệu danh xe đã chọn
+  dataVehicle: any[] = []; // lưu danh sách xe lấy lên
   place_id_luu_arr: any = ''
   dataDetail_trip: any = []
 
@@ -51,6 +48,8 @@ export class DetailScheduleComponent implements OnInit {
   data_detail: any = ''
 
   //////////////////
+  form: FormGroup;
+  array: any = []
 
 
   // biến lưu vô localstore
@@ -71,6 +70,7 @@ export class DetailScheduleComponent implements OnInit {
 
   // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
+  arrayVehicleForm: FormGroup;
 
   constructor(
     private scheduleService: MemberScheduleService,
@@ -110,7 +110,8 @@ export class DetailScheduleComponent implements OnInit {
       time_stay_h: ['0h'],
       time_stay_p: ['0' + "'"],
       note: [''],
-      id_place: [this.place_id_luu_arr]
+      id_place: [this.place_id_luu_arr],
+      vehicle: new FormArray([])
     });
     this.arrayVehicleForm = this.fb.group({
       checkArray: this.fb.array([])
@@ -127,6 +128,7 @@ export class DetailScheduleComponent implements OnInit {
 
     if (e.target.checked) {
       checkArray.push(new FormControl(e.target.value));
+
     } else {
       let i: number = 0;
       checkArray.controls.forEach((item: FormControl) => {
@@ -136,6 +138,10 @@ export class DetailScheduleComponent implements OnInit {
         }
         i++;
       });
+      let detail = this.dataDetail_trip.findIndex(d => d.famous_place_id == e.target.value)
+      if (detail != -1) {
+        this.dataDetail_trip.splice(detail, 1);
+      }
     }
     this.dataArrayPlace = checkArray.value
     console.log(this.dataArrayPlace);
@@ -178,53 +184,39 @@ export class DetailScheduleComponent implements OnInit {
 
     this.time_to = this.createDetailTripForm.value.time_to_h + this.createDetailTripForm.value.time_to_p
     this.time_stay = this.createDetailTripForm.value.time_stay_h + this.createDetailTripForm.value.time_stay_p
+    let array = []
+    for (let i = 0; i < this.createDetailTripForm.value.vehicle.length; i++) {
+      if (this.createDetailTripForm.value.vehicle[i] == true) {
+        array.push(this.dataVehicle[i].title);
+      }
+    }
 
     // lấy được và lưu nó thành thành object
     this.data_detail = {
       'time_to': this.time_to,
       'time_stay': this.time_stay,
       'note': this.createDetailTripForm.value.note,
-      'vehicle': this.dataArrayVehicle.join('|'),
+      'vehicle': array.join('|'),
       'famous_place_id': this.place_id_luu_arr
     }
-    // nếu mà không nhập giá trị trong data_detail (chưa xong)
-    // if (empty(this.data_detail)) {
-    //   this.data_detail = {
-    //     'time_to': '',
-    //     'time_stay': '',
-    //     'note': '',
-    //     'vehicle': '',
-    //     'famous_place_id': this.place_id_luu_arr
-    //   }  
 
-    // }
+    let detail = this.dataDetail_trip.findIndex(d => d.famous_place_id == this.place_id_luu_arr)
+    if (detail != -1) {
+      this.dataDetail_trip.splice(detail, 1);
+    }
 
     this.dataDetail_trip.push(this.data_detail);
 
     // lưu xong sau đó set cho form nó rỗng
-    this.createDetailTripForm.patchValue({ 'time_to_h': '0h' })
-    this.createDetailTripForm.patchValue({ 'time_to_p': "0'" })
-    this.createDetailTripForm.patchValue({ 'time_stay_h': '0h' })
-    this.createDetailTripForm.patchValue({ 'time_stay_p': "0'" })
-    this.createDetailTripForm.patchValue({ 'note': '' })
+
 
     console.log(this.dataDetail_trip); // dữ liệu ở form detail và thêm vô mảng
-    // sau khi lấy đc vehicle thì set null cho nó
-    // this.arrayVehicleForm.reset();
-    // this.arrayVehicleForm.get('checkArray').patchValue([{}])
 
-    // for (let i = 0; i < this.dataArrayVehicle.length; i++) {
-    //   this.arrayVehicleForm.clearAsyncValidators;
-    //   console.log(this.dataArrayVehicle.removeAt(i));
-
-    // }
-    // this.arrayVehicleForm.setValue([false]);
-
-    // const dataArrayVehicle = (<FormArray>this.arrayVehicleForm.get('checkArray'));
-    // for (let i = 0; i < dataArrayVehicle.length; i++) {
-    //   dataArrayVehicle.removeAt(i);
-    // }
-    // // this.arrayVehicleForm.get('checkArray').setValue(this.dataArrayVehicle);
+    // set false 
+    //  this.dataVehicle.forEach(el => {
+    //   el.check = false;
+    // })
+    // console.log(this.dataVehicle);
 
 
   }
@@ -233,38 +225,75 @@ export class DetailScheduleComponent implements OnInit {
     this.scheduleService.getListVehicle().subscribe(
       (data) => {
         this.dataVehicle = data;
-      }
-    )
+
+        this.dataVehicle.forEach((vehice, i) => {
+
+          const control = new FormControl(false); // if first item set to true, else false
+          (this.createDetailTripForm.controls.vehicle as FormArray).push(control);
+        });
+
+
+      })
   }
-  onCheckboxChangeVehicle(e) {
-    const checkArray: FormArray = this.arrayVehicleForm.get('checkArray') as FormArray;
+  // onCheckboxChangeVehicle(e) {
+  //   const checkArray: FormArray = this.arrayVehicleForm.get('checkArray') as FormArray;
 
-    if (e.target.checked) {
+  //   if (e.target.checked) {
 
-      checkArray.push(new FormControl(e.target.name));
-    } else {
-      let i: number = 0;
-      checkArray.controls.forEach((item: FormControl) => {
-        if (item.value == e.target.name) {
-          checkArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-    }
-    this.dataArrayVehicle = checkArray.value
+  //     checkArray.push(new FormControl(e.target.name));
+  //   } else {
+  //     let i: number = 0;
+  //     checkArray.controls.forEach((item: FormControl) => {
+  //       if (item.value == e.target.name) {
+  //         checkArray.removeAt(i);
+  //         return;
+  //       }
+  //       i++;
+  //     });
+  //   }
 
-    console.log(this.dataArrayVehicle);
 
-  }
-  submitFormArrayVehicle() {
-
-  }
+  // }
 
   getIdModel(e) {
+    let formArr = this.createDetailTripForm.controls['vehicle'] as FormArray;
+    console.log(formArr);
 
-    this.place_id_luu_arr = e.target.value;
-    console.log(this.place_id_luu_arr);
+    this.place_id_luu_arr = e.target.value
+
+    let detail = this.dataDetail_trip.find(d => d.famous_place_id == e.target.value)
+    if (detail) {
+      let d_to = detail.time_to.split('h')
+      let d_stay = detail.time_stay.split('h')
+
+      this.createDetailTripForm.patchValue({ 'time_to_h': d_to[0] + 'h' })
+      this.createDetailTripForm.patchValue({ 'time_to_p': d_to[1] })
+      this.createDetailTripForm.patchValue({ 'time_stay_h': d_stay[0] + 'h' })
+      this.createDetailTripForm.patchValue({ 'time_stay_p': d_stay[1] })
+      this.createDetailTripForm.patchValue({ 'note': detail.note })
+    } else {
+      this.createDetailTripForm.patchValue({ 'time_to_h': '0h' })
+      this.createDetailTripForm.patchValue({ 'time_to_p': "0'" })
+      this.createDetailTripForm.patchValue({ 'time_stay_h': '0h' })
+      this.createDetailTripForm.patchValue({ 'time_stay_p': "0'" })
+      this.createDetailTripForm.patchValue({ 'note': '' })
+    }
+    for (let i = 0; i < formArr.length; ++i) {
+      if (detail) {
+        let vehicles = detail.vehicle.split('|')
+        console.log(this.dataVehicle[i]['title']);
+
+        if (vehicles.includes(this.dataVehicle[i]['title'])) {
+          formArr.controls[i].setValue(true)
+        } else {
+          formArr.controls[i].setValue(false)
+        }
+      } else {
+        formArr.controls[i].setValue(false)
+      }
+    }
+    console.log(this.data);
+
 
   }
 
@@ -293,8 +322,6 @@ export class DetailScheduleComponent implements OnInit {
         this.toastr.error('Thất Bại ', 'Thêm Lịch Trình');
       }
     )
-
-
   }
 
 

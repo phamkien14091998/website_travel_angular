@@ -4,7 +4,7 @@
             style="margin-top: 50px;">
             <div class="a-post-review">
                 <a href="">
-                    <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
+                    <img class="post-review-avatar" src="../../assets/img/img_place.PNG" />
                 </a>
                 <br />
                 <a routerLink="/place/detail/{{data.famous_place_id}}">
@@ -13,7 +13,7 @@
                 <a>
                     <h6 class="a-post-title">
                         {{data.title}}
-                    </h6>  
+                    </h6>
                 </a>
                 <div class="a-post-detail">
                     <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
@@ -25,7 +25,7 @@
                     </span>
                 </div>
                 <div>
-                    {{data.description}}
+                    {{data.description[0]}} ...
                 </div>
                 <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
                     <a class="link-manga" routerLink="/place/detail/{{data.famous_place_id}}"

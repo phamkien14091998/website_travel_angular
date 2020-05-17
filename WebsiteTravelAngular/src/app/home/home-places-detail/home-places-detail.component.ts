@@ -15,6 +15,7 @@ export class HomePlacesDetailComponent implements OnInit {
   dataPlaceName: any = '';
   dataDescription: any = '';
   domain = environment.API_URL;
+  dataDetailPlace: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -25,13 +26,14 @@ export class HomePlacesDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params) => {
         this.getListPostByPlaceId(params['famous_place_id']);
+        this.getDetailPlace(params['famous_place_id']);
       })
   }
 
   getListPostByPlaceId(famous_place_id: any) {
     this.homeService.getListPostByPlaceId(
       famous_place_id
-    ).subscribe( 
+    ).subscribe(
       (data) => {
         this.dataListPost = data.map(p => {
           this.dataProvinceName = p.province_name
@@ -44,4 +46,19 @@ export class HomePlacesDetailComponent implements OnInit {
       }, err => { console.log(err) }
     );
   }
+  // get chi tiết place
+  getDetailPlace(famous_place_id: any) {
+    this.homeService.getDetailPlaceHome(
+      famous_place_id
+    ).subscribe(
+      (data) => {
+
+        data.images = data.images.split('|')
+        this.dataDetailPlace = data
+      }, err => { console.log(err) }
+    );
+
+  }
+
+
 }

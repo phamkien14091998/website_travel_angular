@@ -62,16 +62,16 @@
             <div class="row vehicle">
                 <div class="group-all">
                     <ul style="list-style: none;">
-                        <form class="row" [formGroup]="arrayVehicleForm" (ngSubmit)="submitFormArrayVehicle()"
-                            novalidate>
-                            <li *ngFor="let v of dataVehicle" class="col-md-3">
+                        <div class="row" formArrayName="vehicle">
+                            <li *ngFor="let v of updateScheduleDetailForm.controls['vehicle']['controls']; let i = index"
+                                class="col-md-3">
                                 <label>
-                                    <input type="checkbox" [value]="v.vehicle_id" [name]="v.title"
-                                        (change)="onCheckboxChangeVehicle($event)">
-                                    <i style="margin-left: 4px;" [class]="v.description"></i>{{v.title}}
+                                    <input type="checkbox" [formControlName]="i">
+                                    <i style="margin-left: 4px;"
+                                        [class]="dataVehicle[i].description"></i>{{dataVehicle[i].title}}
                                 </label>
                             </li>
-                        </form>
+                        </div>
                     </ul>
                 </div>
             </div>

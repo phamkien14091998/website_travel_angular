@@ -17,11 +17,21 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Giá </span>
-                            <input class="css_inp col-md-9 " type="text" placeholder="nhập giá sản phẩm" id=""
+                            <input class="css_inp col-md-9 " type="number" placeholder="nhập giá sản phẩm" id=""
                                 name="price" formControlName="price" />
                             <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('price')">
                                     Yêu cầu nhập giá sản phẩm .
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-12 pd-t">
+                            <span class="col-md-3 text-center">Số Lượng</span>
+                            <input class="css_inp col-md-9 " type="number" placeholder="nhập số lượng sản phẩm" id=""
+                                name="quantity" formControlName="quantity" />
+                            <div *ngIf="isInvalidForm('quantity')" class="alert alert-danger col-md-12">
+                                <div *ngIf="isRequired('quantity')">
+                                    Yêu cầu nhập số lượng sản phẩm .
                                 </div>
                             </div>
                         </div>

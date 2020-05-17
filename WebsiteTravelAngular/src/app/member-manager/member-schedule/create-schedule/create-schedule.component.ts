@@ -31,10 +31,8 @@ export class CreateScheduleComponent implements OnInit {
 
   initForm() {
     this.createScheduleForm = this.fb.group({
-      trip_name: ['', [Validators.required]],
-      // , Validators.pattern('[a-zA-Z0-9]{5,}')
-      description: ['', [Validators.required]],
-      // , Validators.pattern('[a-zA-Z0-9]{5,}')
+      trip_name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(255)]],
+      description: ['', [Validators.required, Validators.minLength(5)]],
       day_start: ['', Validators.required],
       day_end: ['', Validators.required]
 
@@ -49,6 +47,14 @@ export class CreateScheduleComponent implements OnInit {
   //kiểm tra bắt buộc nhập
   isRequired(fieldName): boolean {
     return this.createScheduleForm.controls[fieldName].errors.required;
+  }
+  // kiểm tra min ký tự 
+  min(fieldName): boolean {
+    return this.createScheduleForm.controls[fieldName].errors.minlength;
+  }
+  // kiểm tra max ký tự 
+  max(fieldName): boolean {
+    return this.createScheduleForm.controls[fieldName].errors.maxlength;
   }
 
   createSchedule() {

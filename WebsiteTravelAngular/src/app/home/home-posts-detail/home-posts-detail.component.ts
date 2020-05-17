@@ -68,7 +68,7 @@ export class HomePostsDetailComponent implements OnInit {
       this.post_id
     ).subscribe(
       (data) => {
-        // console.log(data);
+        console.log(data);
         this.dataListComment = data
       }
     )
@@ -106,7 +106,7 @@ export class HomePostsDetailComponent implements OnInit {
       },
       err => {
       }
-    )
+    )    
   }
   //delete comment
   deleteComment(comment_id: string) {

@@ -34,13 +34,15 @@
                                 <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
                             </div>
                         </div>
-                    </div>    
-                    <div class="col-md-2 col-sm-12 col-lg-2">
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-lg-2">
                         <div class="col-md-12">
                             <span><strong>Bước 4</strong></span>
                         </div>
                         <div class="col-md-12" style="margin-top: 10px;">
-                            <button type="button" (click)="create()" class="finish">Hoàn thành</button>
+                            <button class="col-md-6" type="button" (click)="create()" class="finish">Hoàn thành</button>
+                            <button class="btn btn-secondary col-md-6" type="button" style="width: 100px;"
+                                routerLink="/member/schedule/list">Hủy</button>
                         </div>
                     </div>
                 </div>
@@ -213,16 +215,16 @@
                         <div class="row vehicle">
                             <div class="group-all">
                                 <ul>
-                                    <form class="row" [formGroup]="arrayVehicleForm"
-                                        (ngSubmit)="submitFormArrayVehicle()" novalidate>
-                                        <li *ngFor="let v of dataVehicle">
+                                    <div class="row" formArrayName="vehicle">
+                                        <li *ngFor="let v of createDetailTripForm.controls['vehicle']['controls']; let i = index"
+                                            class="col-md-3">
                                             <label>
-                                                <input type="checkbox" [value]="v.vehicle_id" [name]="v.title"
-                                                    (change)="onCheckboxChangeVehicle($event)">
-                                                <i [class]="v.description"></i>{{v.title}}
+                                                <input type="checkbox" [formControlName]="i">
+                                                <i style="margin-left: 4px;"
+                                                    [class]="dataVehicle[i].description"></i>{{dataVehicle[i].title}}
                                             </label>
                                         </li>
-                                    </form>
+                                    </div>
                                 </ul>
                             </div>
                         </div>

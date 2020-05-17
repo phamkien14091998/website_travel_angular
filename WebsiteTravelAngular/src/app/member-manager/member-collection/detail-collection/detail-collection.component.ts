@@ -34,6 +34,7 @@ export class DetailCollectionComponent implements OnInit {
       (data) => {
         this.dataDetailCollection = data.map(p => {
           p.images = p.images.split('|')
+          p.description = p.description.split('.')
           return p
         })
 
