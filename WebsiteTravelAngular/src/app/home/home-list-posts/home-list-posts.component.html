@@ -24,9 +24,9 @@
 
         <!-- end slogan -->
         <br><br>
-        <div id="post-review" class="row" style="height: 1200px;overflow: auto;">
+        <div id="post-review" class="row">
             <div class="row">
-                <div class="col-md-4" style="margin-bottom: 35px;" *ngFor="let dataPost of dataListPost">
+                <div class="col-md-4" *ngFor="let dataPost of dataListPost">
                     <div class="a-post-review">
                         <a href="">
                             <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
@@ -39,14 +39,24 @@
                             <img class="post-review-image" src="{{domain}}/{{dataPost.images[0]}}" />
                         </a>
                         <a routerLink="/detail-post/{{dataPost.post_id}}">
-                            <h6 class="a-post-title">{{dataPost.post_title}}</h6>
+                            <h6 class="a-post-title">{{dataPost.title}}</h6>
                         </a>
                         <div class="a-post-detail">
-                            <i class="fa fa-eye" aria-hidden="true"></i> 1234
-                            <i class="fa fa-commenting" aria-hidden="true"></i> 123
+                            <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
+                            <!-- <i class="fa fa-commenting" aria-hidden="true"></i> {{dataPost.countComment/2}} quan tâm -->
                             <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
                             <span class="post-review-date">{{dataPost.created_at}}</span>
+                            <i class="fa fa-check-square-o"
+                                style="margin-left: 10px; margin-right: 5px;"></i>{{dataPost.countRating}}
+                            đánh
+                            giá
+                            <span class="text-primary" style="font-size: 20px; margin-left: 10px; padding-top: 8px;">
+                                <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="dataPost.avgPoint"
+                                    [readonly]="false">
+                                </ngb-rating>
+                            </span>
                         </div>
+
                         <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
                             <a class="link-manga"
                                 style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;"
@@ -58,6 +68,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="post-review-footer" class="row col-md-12 text-center">
+                <div class="col-md-5"></div>
+                <button class="text-center col-md-2" style="width: 100px;" type="button" routerLink="/post">Xem
+                    thêm</button>
+                <div class="col-md-5"></div>
             </div>
         </div>
         <!-- end post review -->

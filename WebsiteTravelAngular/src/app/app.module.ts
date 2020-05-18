@@ -22,16 +22,19 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from "./product/product.module";
 import { MemberManagerModule } from "./member-manager/member-manager.module";
+import { RatingModule } from 'ng-starrating';
+
 import { HomePostsDetailComponent } from './home/home-posts-detail/home-posts-detail.component';
 import { HomePlacesDetailComponent } from './home/home-places-detail/home-places-detail.component';
 import { HomeListPlacesComponent } from './home/home-list-places/home-list-places.component';
 import { HomeListPostsComponent } from './home/home-list-posts/home-list-posts.component';
 import { HomeListProvincesComponent } from './home/home-list-provinces/home-list-provinces.component';
 import { HomeListPostProvinceComponent } from './home/home-list-post-province/home-list-post-province.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, 
+  { path: '', component: HomeComponent },
   { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
   { path: 'province/detail/:province_id', component: HomeListPlacesComponent }, //lấy các địa điểm trong tỉnh
   { path: 'province', component: HomeListProvincesComponent }, // lấy danh sách tất cả các tỉnh
@@ -42,10 +45,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
-  
+
 
 ]
- 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +80,9 @@ const routes: Routes = [
     }),
     BrowserAnimationsModule,
     MemberManagerModule,
-
+    RatingModule,
+    NgbModule,
+    
 
   ],
   providers: [

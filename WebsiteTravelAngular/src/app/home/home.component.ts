@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
 import { HomeService } from "./shared/home_service.service";
+import { StarRatingComponent } from 'ng-starrating';
+
 
 @Component({
     templateUrl: './home.component.html',
@@ -14,6 +16,7 @@ export class HomeComponent {
     dataListPost: any = [];
     dataListProvince: any = [];
     domain = environment.API_URL;
+    currentRate = 1;
 
     constructor(
         private homeService: HomeService,
@@ -27,7 +30,7 @@ export class HomeComponent {
         this.getAllPost();
         this.getAllProvince();
     }
-    // get 9 bài viết đã duyệt
+    // get 9 bài viết đã duyệt giamr dần theo số rating đánh giá
     getAllPost() {
         this.homeService.getAllPostDuyet().subscribe(
             (data) => {
@@ -51,6 +54,13 @@ export class HomeComponent {
             },
             err => { console.log(err) }
         );
+    }
+
+    onRate($event: { oldValue: number, newValue: number, starRating: StarRatingComponent }) {
+        alert(`Old Value:${$event.oldValue}, 
+          New Value: ${$event.newValue}, 
+          Checked Color: ${$event.starRating.checkedcolor}, 
+          Unchecked Color: ${$event.starRating.uncheckedcolor}`);
     }
 
 }

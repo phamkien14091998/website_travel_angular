@@ -70,6 +70,23 @@ export class HomeService {
     public getDetailPlaceHome(famous_place_id: any): Observable<any> {
         return this.http.get(`/api/place/detail-home/` + famous_place_id);
     }
+    // thêm đánh giá cho bài viết
+    public createRating(data: any): Observable<any> {
+        return this.http.post(`/api/rating/new`, data);
+    }
+    // kiểm tra xem bài viết đó user đang đăng nhập đã đánh giá hay chưa
+    public checkUserRatingPost(data: any): Observable<any> {
+        // console.log(data);
+        return this.http.post(`/api/rating/check`, data);
+    }
+    // sửa đánh giá cho bài viết
+    public updateRating(data: any): Observable<any> {
+        return this.http.post(`/api/rating/update`, data);
+    }
+    // lấy tất cả đánh giá của bài post theo post_id
+    public getAllRatingPost(post_id: any): Observable<any> {
+        return this.http.post(`/api/rating/list`, post_id);
+    }
 
 }
 

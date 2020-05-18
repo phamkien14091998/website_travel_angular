@@ -23,6 +23,13 @@ export class HomePostsDetailComponent implements OnInit {
   //delete
   commentDeleteIndex: number;
 
+  // số sao bài viết
+  currentRate = 0;
+  currentNew = 0  // số đánh giá mà user mới đánh giá
+  dataListrate: any = [] // danh sách tất cả đánh giá
+  // 
+
+
   constructor(
     private route: ActivatedRoute,
     private home_service: HomeService,
@@ -40,6 +47,7 @@ export class HomePostsDetailComponent implements OnInit {
 
       })
     this.initForm();
+
   }
 
   getPostId(post_id: string) {
@@ -50,8 +58,10 @@ export class HomePostsDetailComponent implements OnInit {
       (data) => {
         data.images = data.images.split('|')
         this.dataDetailPost = data
-        console.log(this.dataDetailPost);
+        // console.log(this.dataDetailPost);
         this.getAllCommentByPostId()
+        this.checkUserRatingPost(); // kiểm tra xem user đã đánh giá bài viết chưa và đưa ngược lên để hiển thị
+        this.getAllRatingPost();  // lấy ra tất cả đánh giá về bài post
 
       }, err => { console.log(err) }
     );
@@ -59,7 +69,7 @@ export class HomePostsDetailComponent implements OnInit {
   }
   // lấy tất cả comment by post id
   getAllCommentByPostId() {
-    console.log(this.dataDetailPost);
+    // console.log(this.dataDetailPost);
 
     this.post_id = this.dataDetailPost?.post_id
     //console.log(this.post_id);
@@ -68,7 +78,7 @@ export class HomePostsDetailComponent implements OnInit {
       this.post_id
     ).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this.dataListComment = data
       }
     )
@@ -99,14 +109,14 @@ export class HomePostsDetailComponent implements OnInit {
       body
     ).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this.dataListComment.unshift(data);
         this.createCommentForm.patchValue({ content: '' })
         // location.reload()
       },
       err => {
       }
-    )    
+    )
   }
   //delete comment
   deleteComment(comment_id: string) {
@@ -122,7 +132,100 @@ export class HomePostsDetailComponent implements OnInit {
     )
   }
 
+  onRate(e) {
+    console.log('aaaaaaaaaaa');
+  }
 
+  rate(e) {
+    console.log('ccccccccccc');
+  }
+  // gửi sao lên lưu
+  submitRating() {
+
+    var body = {
+      'point': this.currentRate,
+      'post_id': this.dataDetailPost?.post_id,
+      'user_id': this.user.user_id
+    }
+
+    // console.log(body);
+    this.home_service.createRating(
+      body
+    ).subscribe(
+      (data) => {
+        this.dataListrate.unshift(data);
+        this.toastr.success('thành công ', 'Đánh giá  bài viết');
+      }, () => {
+        this.toastr.success('', 'Chọn số sao trước khi đánh giá');
+      }
+    )
+  }
+  // sửa đánh giá của user cho bài viết 
+  updateRating() {
+    var body = {
+      'point': this.currentNew,
+      'post_id': this.dataDetailPost?.post_id,
+      'user_id': this.user.user_id
+    }
+
+    // console.log(body);
+    this.home_service.updateRating(
+      body
+    ).subscribe(
+      (data) => {
+        console.log(data);
+
+        this.dataListrate.splice(data, 1);
+        this.dataListrate.unshift(data);
+        this.toastr.success('thành công ', 'Sửa đánh giá  bài viết');
+      }, () => {
+
+      }
+    )
+  }
+
+  // kiểm ta xem user đang đăng nhập đã đánh giá bài viết đó hay chưa 
+  // (nếu đánh giá rồi thì hiển ra kết qua đánh giá và ẩn cái nút thêm đánh giá thôi)
+  checkUserRatingPost() {
+    // lấy đc id bài post và user_id đang đưng nhập để gửi xuống kiếm tra
+    var body = {
+      'post_id': this.dataDetailPost.post_id,
+      'user_id': this.user.user_id
+    }
+    console.log(body);
+
+    this.home_service.checkUserRatingPost(body).subscribe(
+      (data) => {
+        console.log(data);
+        if (data == 0) {
+          this.currentNew = 0
+        }
+        if (data.point) {
+          this.currentNew = data.point
+        }
+        // console.log(this.currentNew);
+      }
+    )
+  }
+
+  // lấy ra tất cả đánh giá
+  getAllRatingPost() {
+    var post_id = this.dataDetailPost?.post_id
+    var body = {
+      'post_id': post_id
+    }
+
+    this.home_service.getAllRatingPost(
+      body
+    ).subscribe(
+      (data) => {
+        this.dataListrate = data;
+        console.log(this.dataListrate);
+
+      }
+    )
+
+  }
 
 }
 
