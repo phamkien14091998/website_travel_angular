@@ -36,7 +36,7 @@
     $('.show').hide();
   }
 
-  // nút đóng ở trang list places by province_id - để hiển rút gọn từ 63 xuống còn 11 tỉnh thành 
+  // nút đóng ở trang list places by province_id - để hiển rút gọn từ 63 xuống còn 11 tỉnh thành
   function close_all_tag() {
     $('#list-province-hide').addClass("display");
     $('#list-province-show').addClass("show");
@@ -45,11 +45,119 @@
 
   //thay đổi số tiền của mỗi sản phẩm khi thay đổi số lượng
   $(document).ready(function () {
-    $("body").on("change", ".cart-so-luong", function () {
-      var tongTienAllSP = 0;
-      var giaTien1SP = $(this).closest('tr').find('.cart-price').text();
-      var amount = $(this).closest('tr').find('.cart-so-luong').val();
+    // $("body").on("change", ".cart-so-luong", function() {
+    //     var id = $(this).closest('tr').attr('data-id');
+    //     var tongTienAllSP = 0;
+    //     var giaTien1SP = $(this).closest('tr').find('.cart-price').attr('data-price');
+    //     var amount = $(this).closest('tr').find('.cart-so-luong').val();
 
+    //     var giaTien1SPInt = giaTien1SP.slice(0, 7);
+
+    //     var thanhTien1Sp = amount * parseInt(giaTien1SPInt);
+
+    //     var giaTienStr = parseFloat(thanhTien1Sp).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString();
+
+    //     var totalOfProduct = $(this).closest('tr').find('.total-of-product');
+    //     totalOfProduct.text(giaTienStr + " VND");
+
+    //     $('.total-of-product').each(function() {
+    //         var giaTien = $(this).text();
+    //         //alert(giaTien);
+    //         if (giaTien.length > 13) {
+    //             var giaTienInt = giaTien.slice(0, 11);
+    //             var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+    //             tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+    //         } else if (giaTien.length > 11) {
+    //             var giaTienInt = giaTien.slice(0, 9);
+    //             var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+    //             tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+    //         } else {
+    //             var giaTienInt = giaTien.slice(0, 7);
+    //             var giaTienRealInt = giaTienInt.replace(".", "");
+    //             tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+    //         }
+    //         $("#total-cart").text(parseFloat(tongTienAllSP).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
+    //     });
+    // });
+
+    $("body").on("click", ".delete-sp", function () {
+      (this).closest('.product-cart').remove();
+      var tongTienAllSP = 0;
+      $('.total-of-product').each(function () {
+        var giaTien = $(this).text();
+        if (giaTien.length > 13) {
+          var giaTienInt = giaTien.slice(0, 11);
+          var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+        } else if (giaTien.length > 11) {
+          var giaTienInt = giaTien.slice(0, 9);
+          var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+        } else {
+          var giaTienInt = giaTien.slice(0, 7);
+          var giaTienRealInt = giaTienInt.replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+        }
+        $("#total-cart").text(tongTienAllSP.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
+      });
+      $.ajax({
+        url: '/api/cart/get-all/',
+        type: 'GET',
+        data: {},
+        error: function () { },
+        success: function (data) {
+          var a = data.length;
+          $('.shop-cart-total').find('span').html(a);
+        }
+
+      });
+    });
+
+    $("body").on("click", "#down", function () {
+      var a = $(this).closest('.product-cart').find('.cart-so-luong').val();
+      if (parseInt(a) > 1) {
+        $(this).closest('.product-cart').find('.cart-so-luong').val(parseInt(a) - 1);
+        var id = $(this).closest('tr').attr('data-id');
+        var tongTienAllSP = 0;
+        var giaTien1SP = $(this).closest('tr').find('.cart-price').attr('data-price');
+        var amount = $(this).closest('tr').find('.cart-so-luong').val();
+        var giaTien1SPInt = giaTien1SP.slice(0, 7);
+
+        var thanhTien1Sp = amount * parseInt(giaTien1SPInt);
+
+        var giaTienStr = parseFloat(thanhTien1Sp).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString();
+
+        var totalOfProduct = $(this).closest('tr').find('.total-of-product');
+        totalOfProduct.text(giaTienStr + " VND");
+
+        $('.total-of-product').each(function () {
+          var giaTien = $(this).text();
+          //alert(giaTien);
+          if (giaTien.length > 13) {
+            var giaTienInt = giaTien.slice(0, 11);
+            var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+            tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+          } else if (giaTien.length > 11) {
+            var giaTienInt = giaTien.slice(0, 9);
+            var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+            tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+          } else {
+            var giaTienInt = giaTien.slice(0, 7);
+            var giaTienRealInt = giaTienInt.replace(".", "");
+            tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+          }
+          $("#total-cart").text(parseFloat(tongTienAllSP).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
+        });
+      }
+    });
+
+    $("body").on("click", "#up", function () {
+      var a = $(this).closest('.product-cart').find('.cart-so-luong').val();
+      $(this).closest('.product-cart').find('.cart-so-luong').val(parseInt(a) + 1);
+      var id = $(this).closest('tr').attr('data-id');
+      var tongTienAllSP = 0;
+      var giaTien1SP = $(this).closest('tr').find('.cart-price').attr('data-price');
+      var amount = $(this).closest('tr').find('.cart-so-luong').val();
       var giaTien1SPInt = giaTien1SP.slice(0, 7);
 
       var thanhTien1Sp = amount * parseInt(giaTien1SPInt);
@@ -61,38 +169,71 @@
 
       $('.total-of-product').each(function () {
         var giaTien = $(this).text();
-        if (giaTien.length > 11) {
+        //alert(giaTien);
+        if (giaTien.length > 13) {
+          var giaTienInt = giaTien.slice(0, 11);
+          var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
+          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+        } else if (giaTien.length > 11) {
           var giaTienInt = giaTien.slice(0, 9);
           var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
           tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
-
         } else {
           var giaTienInt = giaTien.slice(0, 7);
           var giaTienRealInt = giaTienInt.replace(".", "");
           tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
-
         }
-        $("#total-cart").text(tongTienAllSP.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
+        $("#total-cart").text(parseFloat(tongTienAllSP).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
       });
     });
 
-    $("body").on("click", ".delete-sp", function () {
-      (this).closest('.product-cart').remove();
-      var tongTienAllSP = 0;
-      $('.total-of-product').each(function () {
-        var giaTien = $(this).text();
-        if (giaTien.length > 11) {
-          var giaTienInt = giaTien.slice(0, 9);
-          var giaTienRealInt = giaTienInt.toString().replace(".", "").replace(".", "");
-          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
-        } else {
-          var giaTienInt = giaTien.slice(0, 7);
-          var giaTienRealInt = giaTienInt.replace(".", "");
-          tongTienAllSP = tongTienAllSP + parseInt(giaTienRealInt);
+    $("body").on("click", ".add-to-cart", function () {
+      $.ajax({
+        url: '/api/cart/get-all/',
+        type: 'GET',
+        data: {},
+        error: function () { },
+        success: function (data) {
+          var a = data.length;
+          $('.shop-cart-total').find('span').html(a);
         }
-        $("#total-cart").text(tongTienAllSP.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
       });
+    });
 
+    $("body").on("click", ".navbar-cart", function () {
+      $.ajax({
+        url: '/api/cart/get-all/',
+        type: 'GET',
+        data: {},
+        error: function () { },
+        success: function (data) {
+          var a = data.length;
+          $('.shop-cart-total').find('span').html(a);
+        }
+      });
+    });
+
+    $("body").on("click", ".btn-continue-shopping", function () {
+      $.ajax({
+        url: '/api/cart/get-all/',
+        type: 'GET',
+        data: {},
+        error: function () { },
+        success: function (data) {
+          var a = data.length;
+          $('.shop-cart-total').find('span').html(a);
+        }
+      });
+    });
+
+    $("body").on("click", ".formOfDelivery", function () {
+      var shipFee = $(this).val(); // loại vận chuyển được chọn.
+      var transportFeeClass = $('.transportFee'); // class cần được append chi phí vận chuyển sau khi được chọn.
+      transportFeeClass.text('₫' + parseFloat(shipFee).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,").toString()); // thay đổi chi phí tiền vận chuyển
+      var originalTotal = $('.price-summary').find('.value').attr('data-total'); //Tổng tiền khi chưa chọn chi hình thức vận chuyển.
+      var summaryTotalClass = $('.total').find('.value'); // class cần được append tổng tiền sau khi chọn chi phí vận chuyển.
+      var summaryTotal = parseInt(originalTotal) + parseInt(shipFee); // tổng tiền của tất cả
+      summaryTotalClass.text('₫' + parseFloat(summaryTotal).toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,").toString());
     });
   });
 </script>

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductDetailComponent implements OnInit {
 
   data_detailProduct: any = {};
+  totalOfCart: number = 0;
   domain = environment.API_URL;
 
   constructor(
@@ -46,10 +47,9 @@ export class ProductDetailComponent implements OnInit {
       product_id
     ).subscribe(
       (data) => {
-        this.data_detailProduct = data;
+        this.totalOfCart = data;
         this.router.navigateByUrl('/product');
-
-        console.log(this.data_detailProduct);
+        console.log(this.totalOfCart);
       },
       err => {
         this.toastr.error('Thất Bại ', 'Thêm giỏ hàng');

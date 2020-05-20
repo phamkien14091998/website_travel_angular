@@ -14,9 +14,9 @@ export class CreatePlacesComponent implements OnInit {
   options: { content: FormData };
 
   dataProvince: any = [];
-  createPlaceForm: FormGroup;
+  createPlaceForm: FormGroup; 
   myFiles: string[] = [];
-  file: string;
+  file: string;    
   // tạo giờ mở đóng cửa 
   date_array = [
     '0:00', '0:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00',
@@ -46,7 +46,12 @@ export class CreatePlacesComponent implements OnInit {
       date_end: ['', Validators.required],
       province_id: ['', Validators.required],
       description: [''],
-      profile: ['']
+      profile: [''],
+      cultural: [''],
+      weather: [''],
+      vehicle: [''],
+      cuisine: [''],
+      advice: ['']
     });
   }
   // kiểm tra dữ liệu nhập hợp lệ
@@ -63,7 +68,7 @@ export class CreatePlacesComponent implements OnInit {
   getListProvince() {
     this.placeService.getProvince().subscribe(
       (data) => {   
-        this.dataProvince = data;
+        this.dataProvince = data;   
       }
     );
 
@@ -87,6 +92,12 @@ export class CreatePlacesComponent implements OnInit {
     formData.append('date_end', this.createPlaceForm.controls['date_end'].value);
     formData.append('province_id', this.createPlaceForm.controls['province_id'].value);
     formData.append('description', this.createPlaceForm.controls['description'].value);
+
+    formData.append('cultural', this.createPlaceForm.controls['cultural'].value);
+    formData.append('weather', this.createPlaceForm.controls['weather'].value);
+    formData.append('vehicle', this.createPlaceForm.controls['vehicle'].value);
+    formData.append('cuisine', this.createPlaceForm.controls['cuisine'].value);
+    formData.append('advice', this.createPlaceForm.controls['advice'].value);
 
     this.options = { content: formData };
 

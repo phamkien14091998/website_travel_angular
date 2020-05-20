@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { CartService } from "./shared/cart.service";
 import { environment } from "../../environments/environment";
-
-
+import { AuthenticationService } from "../authentication.service";
 
 @Component({
   selector: 'app-card',
@@ -15,10 +14,13 @@ export class CardComponent implements OnInit {
   dataProduct: any = [];
   dataTotal: any = 0;
   domain = environment.API_URL;
+  user: any = '';
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private auth: AuthenticationService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -28,16 +30,20 @@ export class CardComponent implements OnInit {
         this.getTotalCart();
         //this.deleteProductCart(params['product_id']);
       })
+    this.auth.user$.subscribe(user => this.user = user)
   }
 
   getAllProductForCart() {
     this.cartService.getAllProductForCart(
     ).subscribe(
       (data) => {
-        //data.images = data.images.split('|');
-        this.dataProduct = data;
-        localStorage.setItem('a', this.dataProduct);
-        console.log(this.dataProduct);
+        if (data != null) {
+          this.dataProduct = data.map
+            (p => {
+              p.images = p.images.split("|")
+              return p;
+            })
+        }
       }, err => { console.log(err) }
     );
   }
@@ -47,7 +53,7 @@ export class CardComponent implements OnInit {
       product_id
     ).subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
       }, err => { console.log(err) }
     );
   }
@@ -57,10 +63,38 @@ export class CardComponent implements OnInit {
     ).subscribe(
       (data) => {
         this.dataTotal = data;
-        console.log(this.dataTotal);
+        //console.log(this.dataTotal);
       }, err => { console.log(err) }
     );
   }
 
+  tangSoLuongSP(product_id: any) {
+    this.cartService.tangSoLuongSP(
+      product_id
+    ).subscribe(
+      (data) => {
+        //console.log(data);
+      }, err => { console.log(err) }
+    );
+  }
 
-} 
+  giamSoLuongSP(product_id: any) {
+    this.cartService.giamSoLuongSP(
+      product_id
+    ).subscribe(
+      (data) => {
+        //console.log(data);
+      }, err => { console.log(err) }
+    );
+  }
+
+  checkLoginPayment() {
+    console.log(this.user?.user_name);
+
+    if (this.user == null) {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.router.navigateByUrl('/payment');
+    }
+  }
+}

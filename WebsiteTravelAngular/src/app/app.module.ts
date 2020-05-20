@@ -16,6 +16,7 @@ import { AuthenticationService } from "./authentication.service";
 import { AuthGuardService } from "./auth-guard.service";
 import { HomeService } from "./home/shared/home_service.service";
 import { CartService } from "./card/shared/cart.service";
+import { PaymentService } from "./payment/shared/payment.service";
 
 import { ManagerModule } from "./manager/manager.module";
 import { ToastrModule } from "ngx-toastr";
@@ -31,7 +32,8 @@ import { HomeListPostsComponent } from './home/home-list-posts/home-list-posts.c
 import { HomeListProvincesComponent } from './home/home-list-provinces/home-list-provinces.component';
 import { HomeListPostProvinceComponent } from './home/home-list-post-province/home-list-post-province.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { HomeTop10UsersComponent } from './home/home-top10-users/home-top10-users.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,6 +46,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'top-10-user', component: HomeTop10UsersComponent },
+  { path: 'payment', component: PaymentComponent },
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
 
 
@@ -64,6 +68,8 @@ const routes: Routes = [
     HomeListPostsComponent,
     HomeListProvincesComponent,
     HomeListPostProvinceComponent,
+    HomeTop10UsersComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,14 +88,15 @@ const routes: Routes = [
     MemberManagerModule,
     RatingModule,
     NgbModule,
-    
+
 
   ],
   providers: [
     AuthGuardService,
     AuthenticationService,
     HomeService,
-    CartService
+    CartService,
+    PaymentService,
 
   ],
   bootstrap: [AppComponent]

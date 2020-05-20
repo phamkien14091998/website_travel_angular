@@ -21,7 +21,7 @@
                 <div class="row col-md-12">
                     <p class="place-title col-md-12" routerLink="/place/detail/{{dataPlace.famous_place_id}}">
                         {{dataPlace.title}}
-                    </p>
+                    </p>  
                 </div>
                 <div class="row col-md-12" *ngIf="auth.haveLogin()">
                     <form class="row col-md-12" [formGroup]="addPlaceCollectionForm" (ngSubmit)="addPlaceCollection()">

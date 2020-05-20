@@ -76,7 +76,12 @@ export class UpdatePlacesComponent implements OnInit {
       date_end: ['', Validators.required],
       province_id: ['', Validators.required],
       description: [''],
-      profile: ['']
+      profile: [''],
+      cultural: [''],
+      weather: [''],
+      vehicle: [''],
+      cuisine: [''],
+      advice: ['']
     });
   }
   // kiểm tra dữ liệu nhập hợp lệ
@@ -118,6 +123,12 @@ export class UpdatePlacesComponent implements OnInit {
     formData.append('date_end', this.updatePlaceForm.controls['date_end'].value);
     formData.append('province_id', this.updatePlaceForm.controls['province_id'].value);
     formData.append('description', this.updatePlaceForm.controls['description'].value);
+
+    formData.append('cultural', this.updatePlaceForm.controls['cultural'].value);
+    formData.append('weather', this.updatePlaceForm.controls['weather'].value);
+    formData.append('vehicle', this.updatePlaceForm.controls['vehicle'].value);
+    formData.append('cuisine', this.updatePlaceForm.controls['cuisine'].value);
+    formData.append('advice', this.updatePlaceForm.controls['advice'].value);
 
     formData.append('famous_place_id', this.dataDetailPlace.famous_place_id);
 

@@ -7,7 +7,7 @@
                     <div class="shop-nav-left-title">
                         <h3>
                             <span>DANH MỤC SẢN PHẨM</span>
-                        </h3>
+                        </h3>  
                         <i class="fa fa-reorder"></i>
                     </div>
                 </div>
@@ -18,11 +18,11 @@
                         <!-- <li *ngFor="let data of data_portfolio">
                             <a style="width: 70px;" href="#">{{data.portfolio_name}}</a>
                         </li> -->
+                        <!-- <li><a href="#">a</a></li>
                         <li><a href="#">a</a></li>
                         <li><a href="#">a</a></li>
                         <li><a href="#">a</a></li>
-                        <li><a href="#">a</a></li>
-                        <li><a href="#">a</a></li>
+                        <li><a href="#">a</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                             [ngClass]="{'active': selectedItem == item}" (click)="listClick($event, item)"
                             routerLink="/product/search/{{item.portfolio_id}}">
 
-                            {{item.portfolio_name}}   
+                            {{item.portfolio_name}}
                         </li>
                     </ul>
                 </div>
@@ -126,13 +126,14 @@
         <div class="row">
             <div class="col-md-12">
                 <h2><b>TẤT CẢ SẢN PHẨM CỦA THỂ LOẠI :{{portfolio_name}}</b></h2>
-                <div id="clothesCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <div id="clothesCarousel" class="carousel slide" >
+                    <!-- data-ride="carousel" data-interval="0" -->
                     <!-- Carousel indicators -->
-                    <ol class="carousel-indicators">
+                    <!-- <ol class="carousel-indicators">
                         <li data-target="#clothesCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#clothesCarousel" data-slide-to="1"></li>
                         <li data-target="#clothesCarousel" data-slide-to="2"></li>
-                    </ol>
+                    </ol> -->
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
                         <div class="item carousel-item active">
@@ -153,17 +154,14 @@
 
                             </div>
                         </div>
-
-
-
                     </div>
                     <!-- Carousel controls -->
-                    <a class="carousel-control left carousel-control-prev" href="#clothesCarousel" data-slide="prev">
+                    <!-- <a class="carousel-control left carousel-control-prev" href="#clothesCarousel" data-slide="prev">
                         <i class="fa fa-angle-left"></i>
                     </a>
                     <a class="carousel-control right carousel-control-next" href="#clothesCarousel" data-slide="next">
                         <i class="fa fa-angle-right"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>

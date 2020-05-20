@@ -69,7 +69,7 @@ export class HomeListPlacesComponent implements OnInit {
 
   getListCollectionByUser() {
     this.collectionService.getListCollectionByUser(
-      this.user.user_id
+      this.user?.user_id
     ).subscribe(
       (data) => {
         // console.log(data);

@@ -6,87 +6,78 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Tên sản phẩm</th>
+                            <th style="width: 420px;">Tên sản phẩm</th>
+                            <th></th>
                             <th>Số lượng</th>
-                            <th class="text-center">Giá</th>
-                            <th class="text-center">Tổng</th>
-                            <th> </th>
+                            <th></th>
+                            <th>Đơn Giá</th>
+                            <th style="width: 160px;">Tổng</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody ng-app="myApp" ng-controller="myCtrl">
-                        <tr *ngFor="let product of dataProduct" class="product-cart">
-                            <ng-container *ngIf="product.product_id">
-                                <td class="col-sm-8 col-md-6">
+                        <tr *ngFor="let product of dataProduct" class="product-cart" [attr.data-id]="product.id">
+                            <ng-container *ngIf="product.id">
+                                <td>
                                     <div class="media">
                                         <a class="thumbnail pull-left" href="#"> <img class="media-object"
                                                 src="{{domain}}/{{product.images[0]}}"
                                                 style="width: 72px; height: 72px;"> </a>
                                         <div class="media-body">
-                                            <h4 class="media-heading"><a href="#">{{product.product_name}}</a></h4>
+                                            <h4 class="media-heading"><a href="#">{{product.name}}</a></h4>
                                             <!-- <h5 class="media-heading"> by <a href="#">Thể loại</a></h5> -->
                                             <span>Số lượng còn: </span><span
-                                                class="text-success"><strong>{{product.quantity}}</strong></span>
+                                                class="text-success"><strong>{{product.qty}}</strong></span>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="col-sm-1 col-md-1" style="text-align: center">
-                                    <input type="number" class="form-control cart-so-luong" value="1" min="1">
+                                <td><button type="button" class="btn btn-info .btn-xs up-down" id="down"
+                                        (click)="giamSoLuongSP(product.id)"><i class="fa fa-arrow-down"></i></button>
                                 </td>
-                                <td class="col-sm-1 col-md-1 text-center"><strong class="cart-price"
-                                        [attr.data-price]="product.price">{{product.price}}</strong></td>
-                                <td class="col-sm-1 col-md-1 text-center"><strong class="total-of-product"
-                                        [attr.data-pricee]="product.price">{{product.price}} VND</strong></td>
-                                <td class="col-sm-1 col-md-1">
+                                <td style="text-align: center">
+                                    <input type="text" class="form-control cart-so-luong" name='aaa'
+                                        value="{{product.qty}}">
+                                </td>
+                                <td><button type="button" class="btn btn-info .btn-xs up-down" id="up"
+                                        (click)="tangSoLuongSP(product.id)"><i class="fa fa-arrow-up"></i></button></td>
+                                <td><strong class="cart-price"
+                                        [attr.data-price]="product.price">{{product.price | currency:'VND'}}</strong>
+                                </td>
+                                <td><strong class="total-of-product"
+                                        [attr.data-pricee]="product.price">{{product.price * product.qty + ' VND'}}</strong>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-danger delete-sp"
-                                        (click)="deleteProductCart(product.product_id)">
+                                        (click)="deleteProductCart(product.id)">
                                         <span class="glyphicon glyphicon-remove"></span> Xóa
-                                    </button></td>
+                                    </button>
+                                </td>
                             </ng-container>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
-                            <td (click)="getTotalCart()">
+                            <td (click)="getTotalCart()" colspan="2">
                                 <h5 class="cart-title">Tổng tiền</h5>
                             </td>
-                            <td class="text-right">
-                                <h5><strong id="total-cart">{{dataTotal}} VND</strong></h5>
+                            <td colspan="2">
+                                <h5><strong id="total-cart">{{dataTotal | currency:'VND'}}</strong></h5>
                             </td>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
-                            <td>
-                                <h5 class="cart-title">Phí vận chuyển</h5>
-                            </td>
-                            <td class="text-right">
-                                <h5><strong>$6.94</strong></h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>
-                                <h3>Total</h3>
-                            </td>
-                            <td class="text-right">
-                                <h3><strong>$31.53</strong></h3>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>
-                                <button type="button" class="btn btn-default btn-continue-shopping">
+                            <td colspan="2">
+                                <button type="button" class="btn btn-default btn-continue-shopping"
+                                    routerLink="/product">
                                     <i class="fa fa-cart-arrow-down" style="font-size:24px"></i> Tiếp tục mua sắm
                                 </button>
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-checkout">
+                            <td colspan="2">
+                                <button type="button" class="btn btn-success btn-checkout"
+                                    (click)="checkLoginPayment()">
                                     Thanh toán <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                 </button></td>
                         </tr>

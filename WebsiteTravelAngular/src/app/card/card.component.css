@@ -15,18 +15,32 @@
 }
 
 .btn-continue-shopping {
-    width: 230px;
+    width: 200px;
     border: 1px solid grey;
 }
 
 .btn-checkout {
-    width: 115px;
+    width: 150px;
 }
 
 .cart-so-luong {
     width: 80px;
 }
 
+/* input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+} */
+
 .css-card {
     padding-top: 20px;
+}
+
+.up-down {
+    margin-top: 7.5px;
+    padding: .25rem .4rem;
+    font-size: .875rem;
+    line-height: .5;
+    border-radius: .2rem;
 }

@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     // this.auth.user$.subscribe(user => this.user_n = user?.user_name)
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
-    console.log(this.user);
 
 
   }

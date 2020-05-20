@@ -16,6 +16,8 @@ export class HomePlacesDetailComponent implements OnInit {
   dataDescription: any = '';
   domain = environment.API_URL;
   dataDetailPlace: any = {};
+  dataListPlacebyProvince: any = []
+  currenRating = 4 // số rating mặc định
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +30,7 @@ export class HomePlacesDetailComponent implements OnInit {
         this.getListPostByPlaceId(params['famous_place_id']);
         this.getDetailPlace(params['famous_place_id']);
       })
+
   }
 
   getListPostByPlaceId(famous_place_id: any) {
@@ -55,8 +58,30 @@ export class HomePlacesDetailComponent implements OnInit {
 
         data.images = data.images.split('|')
         this.dataDetailPlace = data
+        // lấy tất cả địa điểm của tỉnh thành đó 
+        this.getAllPlaceByProvince();
       }, err => { console.log(err) }
     );
+  }
+
+  getAllPlaceByProvince() {
+    var body = {
+      'province_id': this.dataDetailPlace?.province_id,
+      'famous_place_id': this.dataDetailPlace?.famous_place_id
+    }
+
+    this.homeService.getListPlaceByProvinceIdNew(
+      body
+    ).subscribe(
+      (data) => {
+        console.log(data);
+
+        this.dataListPlacebyProvince = data.map(p => {
+          p.images = p.images.split("|")
+          return p;
+        })
+      }
+    )
 
   }
 

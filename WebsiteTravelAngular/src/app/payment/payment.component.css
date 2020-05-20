@@ -1,0 +1,264 @@
+.hinhThucGiaoHang {
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+    margin-bottom: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+
+.title {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: rgb(95, 95, 95);
+    font-weight: 700;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.label-no-shippments__etaText {
+    color: rgb(38, 188, 78);
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: -10px;
+    margin-left: 25px;
+}
+
+.no-shipping-fee {
+    margin-right: 8px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: 300;
+    background: rgb(38, 188, 78);
+    border-radius: 17px;
+    padding: 4px 14px 3px;
+    margin-left: 10px;
+}
+
+.method-name {
+    display: inline-flex;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+}
+
+.input {
+    float: left;
+}
+
+.hinhthuc {
+    margin-top: 15px;
+}
+
+.form-delivery {
+    margin-bottom: 15px;
+}
+
+.shipping-3days {
+    background: rgb(38, 160, 188);
+    border-radius: 17px;
+    padding: 4px 14px 3px;
+    margin-left: 10px;
+    margin-right: 8px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: 300;
+}
+
+.shipping-1day {
+    background: rgb(188, 93, 38);
+    border-radius: 17px;
+    padding: 4px 14px 3px;
+    margin-left: 10px;
+    margin-right: 8px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: 300;
+}
+
+.label {
+    margin-left: 10px;
+}
+
+#payment-button button {
+    margin-left: 350px;
+    border: 0px solid;
+    height: 40px;
+    width: 175px;
+    background-color: rgb(38, 188, 78);
+}
+
+.payment-address {
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 51, 51);
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 3px;
+    margin-top: 60px;
+}
+
+.payment-address .title {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    font-size: 13px;
+    line-height: 31px;
+    border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.payment-address .title a {
+    font-size: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 31px;
+    outline-color: rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    background: linear-gradient(rgb(255, 255, 255), rgb(247, 247, 247));
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.payment-address .address .name {
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.payment-address .address .street,
+.fxjiAa .address .phone {
+    padding: 2px 0px;
+}
+
+.payment-address .address span {
+    display: block;
+    font-size: 13px;
+}
+
+.payment-detail {
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 51, 51);
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 3px;
+}
+
+.payment-detail .title {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    font-size: 13px;
+    line-height: 31px;
+    border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.payment-detail .title a {
+    font-size: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 31px;
+    outline-color: rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    background: linear-gradient(rgb(255, 255, 255), rgb(247, 247, 247));
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.payment-detail .cart {
+    font-size: 12px;
+}
+
+.payment-detail .cart .product {
+    margin-bottom: 15px;
+}
+
+.iylcMU {
+    font-size: 11px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 12px 0px;
+    border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.iylcMU .info {
+    flex: 2 1 0%;
+}
+
+.iylcMU .price {
+    text-align: right;
+    flex: 1 1 0%;
+}
+
+.jPiCqD {
+    margin-bottom: 13px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+}
+
+.jPiCqD {
+    margin-bottom: 13px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+}
+
+.payment-detail .cart .price-summary .total {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-top: 12px;
+    margin-bottom: 0px;
+    line-height: 19px;
+    font-weight: 700;
+    border-top: 2px solid rgb(201, 201, 201);
+}
+
+.payment-detail .cart .price-summary .total .value {
+    color: rgb(238, 35, 71);
+    font-size: 19px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.ghiChu textarea {
+    width: 100%;
+    height: 70px;
+}

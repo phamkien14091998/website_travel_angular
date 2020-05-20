@@ -18,6 +18,10 @@ export class HomeComponent {
     domain = environment.API_URL;
     currentRate = 1;
 
+    searchPlaceForm: FormGroup;
+    dataSearchPlace: any = []
+    title = ''
+
     constructor(
         private homeService: HomeService,
         private fb: FormBuilder,
@@ -29,6 +33,7 @@ export class HomeComponent {
 
         this.getAllPost();
         this.getAllProvince();
+        this.initForm();
     }
     // get 9 bài viết đã duyệt giamr dần theo số rating đánh giá
     getAllPost() {
@@ -62,5 +67,36 @@ export class HomeComponent {
           Checked Color: ${$event.starRating.checkedcolor}, 
           Unchecked Color: ${$event.starRating.uncheckedcolor}`);
     }
+
+    initForm() {
+        this.searchPlaceForm = this.fb.group({
+            title: [''],
+        });
+    }
+    searchPlace() {
+        var title = {
+            'title': this.searchPlaceForm.value.title
+        }
+
+        this.homeService.searchPlaceByTitle(
+            title
+        ).subscribe(
+            (data) => {
+                console.log(data);
+                this.title = this.searchPlaceForm.value.title
+                this.dataSearchPlace = data.map(p => {
+                    p.images = p.images.split("|")
+                    return p;
+                })
+                this.searchPlaceForm.patchValue({ 'title': '' });
+
+            },
+            (err) => {
+
+            }
+        )
+
+    }
+
 
 }

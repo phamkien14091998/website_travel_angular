@@ -24,9 +24,9 @@
 
         <!-- end slogan -->
         <br><br>
-        <div id="post-review" class="row">
-            <div class="row">
-                <div class="col-md-4" *ngFor="let dataPost of dataListPost">
+        <div id="post-review" class="row" style="height: 1200px; overflow-x: auto;">
+            <div class="row" style="margin-top: 150px;">
+                <div class="col-md-4" *ngFor="let dataPost of dataListPost" style="margin-bottom: 100px;">
                     <div class="a-post-review">
                         <a href="">
                             <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
@@ -69,12 +69,12 @@
                     </div>
                 </div>
             </div>
-            <div id="post-review-footer" class="row col-md-12 text-center">
+            <!-- <div id="post-review-footer" class="row col-md-12 text-center">
                 <div class="col-md-5"></div>
                 <button class="text-center col-md-2" style="width: 100px;" type="button" routerLink="/post">Xem
                     thêm</button>
                 <div class="col-md-5"></div>
-            </div>
+            </div> -->
         </div>
         <!-- end post review -->
     </div>

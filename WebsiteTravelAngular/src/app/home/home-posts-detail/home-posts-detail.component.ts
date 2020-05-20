@@ -190,7 +190,7 @@ export class HomePostsDetailComponent implements OnInit {
     // lấy đc id bài post và user_id đang đưng nhập để gửi xuống kiếm tra
     var body = {
       'post_id': this.dataDetailPost.post_id,
-      'user_id': this.user.user_id
+      'user_id': this.user?.user_id
     }
     console.log(body);
 

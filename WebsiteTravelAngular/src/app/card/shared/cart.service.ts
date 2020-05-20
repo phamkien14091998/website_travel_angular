@@ -14,14 +14,20 @@ export class CartService {
         return this.http.get(`/api/cart/get-all`);
     }
 
-    // lấy danh sách sản phẩm
     public deleteProductCart(product_id: any): Observable<any> {
         return this.http.get(`/api/cart/delete/` + product_id);
     }
 
-    // lấy danh sách sản phẩm
     public getTotalCart(): Observable<any> {
         return this.http.get(`/api/cart/total-money`);
+    }
+
+    public tangSoLuongSP(product_id: any): Observable<any> {
+        return this.http.get(`/api/cart/tangSoLuongSP/` + product_id);
+    }
+
+    public giamSoLuongSP(product_id: any): Observable<any> {
+        return this.http.get(`/api/cart/giamSoLuongSP/` + product_id);
     }
 
 }

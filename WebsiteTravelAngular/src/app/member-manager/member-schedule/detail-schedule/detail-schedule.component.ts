@@ -309,7 +309,7 @@ export class DetailScheduleComponent implements OnInit {
       'day_end': this.day_end,
       'user_id': this.user.user_id,
       'email': this.user.email
-    }
+    }    
 
     this.scheduleService.createSchedule(
       body

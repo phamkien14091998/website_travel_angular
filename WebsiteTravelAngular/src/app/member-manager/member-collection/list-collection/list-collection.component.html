@@ -14,9 +14,10 @@
                                 Sưu Tập</button>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 50px; margin-bottom: 30px;">
-                        <div class="col-md-4" *ngFor="let data of dataListCollection ; let i = index"
-                            [attr.data-index]="i">
+                    <div class="row" style="margin-top: 50px; margin-bottom: 30px;height: 1000px;
+                    overflow-y: scroll;">
+                        <div class="col-md-4" style="margin-bottom: 80px;"
+                            *ngFor="let data of dataListCollection ; let i = index" [attr.data-index]="i">
                             <div class="a-post-review css-div">
                                 <a>
                                     <h4 class="a-post-title text-center css-h4">
@@ -45,7 +46,6 @@
 
                                         <i class="fa fa-trash" aria-hidden="true"></i>xóa
                                     </a>
-
                                     <div *ngIf="postDeleteIndex === i">
                                         <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
                                         <button (click)="deleteCollection(data.collection_id)"

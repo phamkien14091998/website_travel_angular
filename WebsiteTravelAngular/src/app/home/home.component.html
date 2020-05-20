@@ -5,9 +5,12 @@
         <div class="col-md-12" id="search-input">
             <div class="col-md-1"></div>
             <p class="col-md-1 icon-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></p>
-            <input type="text" class="col-md-8 form-control search-input-text" id=""
-                placeholder="Nhập nơi bạn muốn đến ...">
-            <button class="col-md-2 btn-search">Tìm kiếm</button>
+            <form class="col-md-11" [formGroup]="searchPlaceForm" (ngSubmit)="searchPlace()">
+                <input type="text" class="col-md-9 form-control search-input-text" formControlName="title" id=""
+                    placeholder="Nhập nơi bạn muốn đến ...">
+                <button type="submit" class="col-md-3 btn-search">Tìm kiếm</button>
+            </form>
+
         </div>
     </div>
 </div>
@@ -42,14 +45,36 @@
         </div>
     </div>
 </div>
+
 <div class="css-border col-md-12 col-sm-12">
+    <div class="row col-md-12" style="margin-top: 50px;" *ngIf="title != ''">
+        <h4 class="text-center" style="margin-bottom: 10px;" *ngIf="title != ''">
+            Bạn đã tìm điểm đến: {{title}}
+        </h4>
+        <div class="row col-md-12">
+            <div class="col-md-3 place" style="margin-top: 30px;" *ngFor="let dataPlace of dataSearchPlace">
+                <div class="place-image" routerLink="/place/detail/{{dataPlace.famous_place_id}}">
+                    <img src="{{domain}}/{{dataPlace.images[0]}}" />
+                </div>
+                <div class="row col-md-12">
+                    <p class="place-title col-md-12 text-center"
+                        routerLink="/place/detail/{{dataPlace.famous_place_id}}">
+                        <b>{{dataPlace.title}}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
     <div id="post-review-header">
         <h3 class="col-md-12 col-sm-12">Bài viết gần đây</h3>
         <h6 class="col-md-12 col-sm-12">Một cái nhìn chân thật từ những người đã trải nghiệm</h6>
     </div>
 </div>
 <!-- end slogan -->
-<br><br>
+<br>
+<br>
 <div id="post-review" class="row">
     <div class="row">
         <div class="col-md-4" *ngFor="let dataPost of dataListPost">
@@ -71,7 +96,7 @@
                     <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
                     <!-- <i class="fa fa-commenting" aria-hidden="true"></i> {{dataPost.countComment/2}} quan tâm -->
                     <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
-                    <span class="post-review-date">{{dataPost.created_at}}</span>
+                    <span class="post-review-date">{{dataPost.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
                     <i class="fa fa-check-square-o"
                         style="margin-left: 35px; margin-right: 5px;"></i>{{dataPost.countRating}}
                     đánh

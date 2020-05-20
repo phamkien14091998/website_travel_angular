@@ -87,6 +87,19 @@ export class HomeService {
     public getAllRatingPost(post_id: any): Observable<any> {
         return this.http.post(`/api/rating/list`, post_id);
     }
+    // lấy ra top 10 usser có số điểm đánh giá cao nhất tháng vừa qua
+    public getTop10User(): Observable<any> {
+        return this.http.get(`/api/post/top-10-user`);
+    }
+    // lấy ra danh list place by province_id và loại ra địa điểm đang chọn
+    public getListPlaceByProvinceIdNew(body: any): Observable<any> {
+        return this.http.post(`/api/place/search-place-by-province-id-new`, body);
+    }
+    // tim kiếm địa điểm theo tên
+    public searchPlaceByTitle(title: any): Observable<any> {
+        return this.http.post(`/api/place/search-by-title`, title);
+    }
+
 
 }
 

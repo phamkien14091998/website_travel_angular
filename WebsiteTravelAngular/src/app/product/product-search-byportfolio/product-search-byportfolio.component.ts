@@ -25,7 +25,7 @@ export class ProductSearchByportfolioComponent implements OnInit {
       (params) => {
         this.searchProductByPortfolioId(params['portfolio_id']);
       })
-    this.getProductPortfolio();
+    this.getProductPortfolio();   
   }
   searchProductByPortfolioId(portfolio_id: string) {
     this.productService.searchByPortfolio_id(portfolio_id).subscribe(

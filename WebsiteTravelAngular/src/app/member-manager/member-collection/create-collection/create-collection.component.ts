@@ -141,11 +141,11 @@ export class CreateCollectionComponent implements OnInit {
       formData
     ).subscribe(
       () => {
-        this.toastr.success('Thành Công ', 'Thêm Bộ Sưu Tập');
+        this.toastr.success('thành công', 'Thêm Bộ Sưu Tập');
         this.router.navigateByUrl('/member/collection/list');
       },
       err => {
-        this.toastr.error('Thất Bại ', 'Thêm Bộ Sưu Tập');
+        this.toastr.error('đã tồn tại ', 'Tên Bộ Sưu tập');
       }
     )
   }

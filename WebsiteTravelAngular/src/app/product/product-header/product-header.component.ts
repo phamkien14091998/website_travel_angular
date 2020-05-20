@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from "../shared/product.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-product-header',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductHeaderComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
+
   }
+
+
+
 
 }

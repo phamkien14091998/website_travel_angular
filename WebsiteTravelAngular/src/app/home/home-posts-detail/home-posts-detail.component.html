@@ -10,7 +10,7 @@
                 </a>
             </div>
             <div class="col-md-8 title">
-                <span style="font-size: 40px; color: black;">{{dataDetailPost.post_title}}</span>
+                <span style="font-size: 40px; ">{{dataDetailPost.post_title}}</span>
             </div>
         </div>
     </div>
@@ -183,7 +183,7 @@
                 </div>
             </form>
         </div>
-        <div style="height: 300px; overflow: auto; background-color: white;">
+        <div style="height: 300px;overflow-y: scroll; background-color: white;">
             <div class="row col-md-12">
                 <b>Tất cả bình luận</b>
             </div>
@@ -201,7 +201,7 @@
 
                         <a type="button" style="text-decoration: none; color: red;" (click)="commentDeleteIndex = i"
                             *ngIf="commentDeleteIndex !== i">
-                            <i *ngIf="lc.user_id==user.user_id" class="fa fa-trash">
+                            <i *ngIf="lc.user_id==user?.user_id" class="fa fa-trash">
                             </i>
                         </a>
                         <div *ngIf="commentDeleteIndex === i">
@@ -217,7 +217,7 @@
             </div>
         </div>
         <br>
-        <div style="height: 300px; overflow: auto;background-color: white;">
+        <div style="height: 300px; overflow-y: scroll;background-color: white;">
             <div class="row col-md-12">
                 <b>Tất cả đánh giá</b>
             </div>
