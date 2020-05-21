@@ -39,6 +39,10 @@
                             (click)="listClick($event, 4)" class="btn btn-success css-b css-bu" type="button">
                             Quản Lý Lịch Trình
                         </button>
+                        <button routerLink="/member/order" [ngClass]="{'active': selectedItem == 5}"
+                            (click)="listClick($event, 5)" class="btn btn-success css-b css-bu" type="button">
+                            Lịch sử mua hàng
+                        </button>
                     </div>
                     <div>
                         <router-outlet></router-outlet>

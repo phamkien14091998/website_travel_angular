@@ -42,6 +42,11 @@ export class MemberService {
     //     return this.http.post(`/api/product/search-product`, product);
     // }
 
+    //get all product for order list
+    public getAllOrder(user_id: string): Observable<any> {
+        return this.http.get(`/api/order/list-order/` + user_id);
+    }
+
 
 
 }

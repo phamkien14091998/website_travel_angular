@@ -8,6 +8,7 @@ import { MemberScheduleService } from "../../share/member_schedule_service.servi
 import { environment } from "../../../../environments/environment";
 import { empty } from 'rxjs';
 import { count } from 'rxjs/operators';
+import * as moment from 'moment'
 
 
 
@@ -59,6 +60,8 @@ export class DetailScheduleComponent implements OnInit {
   day_start = localStorage.getItem('day_start');
   day_end = localStorage.getItem('day_end');
 
+  number_day
+
   day_number_new: any = [];
   dataTimeHour = [
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
@@ -82,6 +85,7 @@ export class DetailScheduleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.diffDay();
     this.getListProvince();
     this.getListVehicle();
     this.initForm();
@@ -89,6 +93,14 @@ export class DetailScheduleComponent implements OnInit {
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
   }
 
+  diffDay() {
+    var a = moment(this.day_start);
+    var b = moment(this.day_end);
+    this.number_day = b.diff(a, 'days') // 1 
+    console.log(this.number_day);
+    
+
+  }
   // get ra all tỉnh
   getListProvince() {
     this.scheduleService.getProvince().subscribe(
@@ -309,7 +321,7 @@ export class DetailScheduleComponent implements OnInit {
       'day_end': this.day_end,
       'user_id': this.user.user_id,
       'email': this.user.email
-    }    
+    }
 
     this.scheduleService.createSchedule(
       body

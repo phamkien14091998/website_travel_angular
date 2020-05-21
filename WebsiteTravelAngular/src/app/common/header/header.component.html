@@ -26,6 +26,7 @@
         <li><a *ngIf="auth.haveLogin()" routerLink="/member/post/list">Quản lý bài viết</a></li>
         <li><a *ngIf="auth.haveLogin()" routerLink="/member/collection/list">Quản lý bộ sưu tập</a></li>
         <li><a *ngIf="auth.haveLogin()" routerLink="/member/schedule/list">Quản lý lịch trình</a></li>
+        <li><a *ngIf="auth.haveLogin()" routerLink="/member/order">Lịch sử mua hàng</a></li>
         <li><a *ngIf="auth.haveLogin()" routerLink="/logout" (click)="auth.logout()" style="color: red;">Đăng Xuất</a>
         </li>
       </ul>

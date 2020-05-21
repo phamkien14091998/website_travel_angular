@@ -36,7 +36,7 @@ export class LoginComponent {
         })
 
         this.getLinkLogin();
-
+        this.handLogInGoogle()
 
     }
     // form
@@ -62,34 +62,41 @@ export class LoginComponent {
     }
 
 
-    logInGoogle() {
-        // this.auth.logInGoogle(
-        // ).subscribe(
-        //     (data) => {
-        //         console.log(data);
-        //         this.auth.handlerGoogle(
-        //         ).subscribe(
-        //             () => {
+    // logInGoogle() {
+    //     // this.auth.logInGoogle(
+    //     // ).subscribe(
+    //     //     (data) => {
+    //     //         console.log(data);
+    //     //         this.auth.handlerGoogle(
+    //     //         ).subscribe(
+    //     //             () => {
 
-        //             }
-        //         )
+    //     //             }
+    //     //         )
 
-        //     }
-        // )
-        window.location.href = this.urlLogin;
+    //     //     }
+    //     // )
+    //     window.location.href = this.urlLogin;
 
-    }
+    // }
     getLinkLogin() {
-        
+
         this.auth.logInGoogle(
-            ).subscribe(
-                (data) => {
-                    console.log(data)
-                    this.urlLogin = data.url;
-                })
+        ).subscribe(
+            (data) => {
+                console.log(data)
+                this.urlLogin = data.url;
+                this.auth.handlerGoogle()
+            })
     }
-
-
+    handLogInGoogle() {
+        this.auth.handlerGoogle().subscribe(
+            () => {
+                this.toastr.success('Thành Công', 'Đăng Nhập');
+                this.router.navigateByUrl('/');
+            }
+        )
+    }
 
 }
 

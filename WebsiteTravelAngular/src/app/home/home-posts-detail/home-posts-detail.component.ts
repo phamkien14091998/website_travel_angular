@@ -153,6 +153,9 @@ export class HomePostsDetailComponent implements OnInit {
       body
     ).subscribe(
       (data) => {
+        console.log(data);
+        this.currentNew = data.point // khi gửi sao lên thì sẽ lấy đc point và gán lại để button bên view nó ẩn
+
         this.dataListrate.unshift(data);
         this.toastr.success('thành công ', 'Đánh giá  bài viết');
       }, () => {

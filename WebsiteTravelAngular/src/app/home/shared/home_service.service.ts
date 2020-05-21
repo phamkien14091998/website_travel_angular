@@ -99,6 +99,22 @@ export class HomeService {
     public searchPlaceByTitle(title: any): Observable<any> {
         return this.http.post(`/api/place/search-by-title`, title);
     }
+    // thêm đánh giá cho địa điểm
+    public createRatingPlace(data: any): Observable<any> {
+        return this.http.post(`/api/rating/place/new`, data);
+    }
+    // kiểm tra xem địa điểm đó user đang đăng nhập , đã đánh giá hay chưa
+    public checkUserRatingPlace(data: any): Observable<any> {
+        return this.http.post(`/api/rating/place/check`, data);
+    }
+    // sửa đánh giá cho địa điểm
+    public updateRatingPlace(data: any): Observable<any> {
+        return this.http.post(`/api/rating/place/update`, data);
+    }
+    // lấy tất cả đánh giá của địa điểm theo famous_place_id
+    public getAllRatingPlace(famous_place_id: any): Observable<any> {
+        return this.http.post(`/api/rating/place/list`, famous_place_id);
+    }
 
 
 }

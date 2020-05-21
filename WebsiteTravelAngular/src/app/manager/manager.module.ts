@@ -11,6 +11,7 @@ import { AuthGuardService } from "./../auth-guard.service";
 import { ManagerProductService } from "./share/manager_product.service";
 import { ManagerPlaceService } from "./share/manager_place.service";
 import { ManagerPostService } from "./share/manager_post.service";
+import { ManagerstatisticalService } from "./share/manager_statistical.service";
 
 import { ManagerComponent } from './manager.component';
 import { CreateProductComponent } from './create-product/create-product.component';
@@ -23,6 +24,8 @@ import { ListPlacesComponent } from './manager-places/list-places/list-places.co
 import { CreatePlacesComponent } from './manager-places/create-places/create-places.component';
 import { DetailPlacesComponent } from './manager-places/detail-places/detail-places.component';
 import { UpdatePlacesComponent } from './manager-places/update-places/update-places.component';
+import { PlacesComponent } from './manager-statistical/places/places.component';
+import { ProductsComponent } from './manager-statistical/products/products.component';
 
 const routes: Routes = [
     {
@@ -60,6 +63,13 @@ const routes: Routes = [
             {
                 path: 'places/update/:famous_place_id', component: UpdatePlacesComponent
             },
+            // router statistical
+            {
+                path: 'statistical/place', component: PlacesComponent,
+            },
+            {
+                path: 'statistical/product', component: ProductsComponent,
+            },
 
 
         ]
@@ -81,6 +91,8 @@ const routes: Routes = [
         CreatePlacesComponent,
         DetailPlacesComponent,
         UpdatePlacesComponent,
+        PlacesComponent,
+        ProductsComponent,
 
 
     ],
@@ -98,7 +110,8 @@ const routes: Routes = [
         AuthenticationService,
         ManagerProductService,
         ManagerPlaceService,
-        ManagerPostService
+        ManagerPostService,
+        ManagerstatisticalService
 
     ]
 })

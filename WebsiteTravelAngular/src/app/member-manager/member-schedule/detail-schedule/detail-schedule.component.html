@@ -34,10 +34,10 @@
                                 <span><strong>Bước 3 : </strong>Chọn địa điểm</span>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                     <div class="col-md-4 col-sm-12 col-lg-3">
                         <div class="col-md-12">
-                            <span><strong>Bước 4</strong></span>
+                            <span><strong>Bước 5</strong></span>
                         </div>
                         <div class="col-md-12" style="margin-top: 10px;">
                             <button class="col-md-6" type="button" (click)="create()" class="finish">Hoàn thành</button>
@@ -54,6 +54,10 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-lg-3" id="trip-left">
                         <div id="item-day-in">
+                            <div style="padding-top: 10px;">
+                                Số ngày trải nghiệm : <b>{{number_day}}</b>
+                            </div>
+                            <br>
                             <div class="top-data">
                                 <a>Ngày bắt đầu</a>
                                 <input type="date" id="day_start" [value]="day_start" disabled>
@@ -94,13 +98,16 @@
                             <div class="list-places">
                                 <div class="list-places-day">
                                     <div class="item-place">
+                                        <div *ngIf="data[0]">
+                                            <b>Bước 4</b>: <p style="color: blue;">Thêm chi tiết địa điểm</p>
+                                        </div>
                                         <div class="item" *ngFor="let pla of data">
                                             <span class="icon"></span>
                                             <span class="name">{{pla.title}}</span>
                                             <span class="add-detail" data-toggle="modal" title="---thêm chi tiết---"
                                                 data-target="#add-detail-place">
-                                                <button class="fa fa-bars" (click)="getIdModel($event)"
-                                                    value="{{pla.famous_place_id}}">
+                                                <button style="color: blue;" class="fa fa-bars"
+                                                    (click)="getIdModel($event)" value="{{pla.famous_place_id}}">
                                                 </button></span>
                                             <!-- <span class="delete"><i class="fa fa-trash-o"></i></span> -->
                                         </div>
@@ -123,8 +130,9 @@
                                                 <img src="{{domain}}/{{place.images[0]}}" class="image">
                                                 <div class="middle">
                                                     <i aria-hidden="true">
-                                                        <input type="checkbox" [value]="place.famous_place_id"
-                                                            style="width: 20px;height: 20px;"
+                                                        <input class="fa fa-hand-o-left" type="checkbox"
+                                                            [value]="place.famous_place_id"
+                                                            style="width: 25px;height: 25px;"
                                                             (change)="onCheckboxChange($event)">
 
                                                     </i>

@@ -148,7 +148,7 @@
                                         <div class="thumb-content">
                                             <h6 routerLink="detail/{{data.product_id}}" style="cursor: pointer;">
                                                 {{data.product_name}}</h6>
-                                            <p class="item-price"><span>{{data.price}}</span></p>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
                                             <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
                                                 tiết</a>
                                         </div>
@@ -168,7 +168,7 @@
                                         </div>
                                         <div class="thumb-content">
                                             <h6>{{data.product_name}}</h6>
-                                            <p class="item-price"><span>{{data.price}}</span></p>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
                                             <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@
                                         </div>
                                         <div class="thumb-content">
                                             <h6>{{data.product_name}}</h6>
-                                            <p class="item-price"><span>{{data.price}}</span></p>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
                                             <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@
                                         </div>
                                         <div class="thumb-content">
                                             <h6>{{data.product_name}}</h6>
-                                            <p class="item-price"><span>{{data.price}}</span></p>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
                                             <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
                                         </div>
                                     </div>
@@ -290,7 +290,7 @@
                                 <div class="col-sm-3">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="/assets/img/logo.png" class="img-responsive img-fluid" alt="">
+                                            <img src="../../../assets/img/logo.png" class="img-responsive img-fluid" alt="">
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Nikon DSLR</h4>
@@ -319,7 +319,7 @@
                                 <div class="col-sm-3">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="/assets/img/logo.png" class="img-responsive img-fluid" alt="">
+                                            <img src="../../../assets/img/logo.png" class="img-responsive img-fluid" alt="">
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Macbook Pro</h4>
@@ -344,7 +344,7 @@
                                 <div class="col-sm-3">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="/assets/img/logo.png" class="img-responsive img-fluid" alt="">
+                                            <img src="../../../assets/img/logo.png" class="img-responsive img-fluid" alt="">
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Samsung Galaxy S8</h4>

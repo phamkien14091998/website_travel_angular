@@ -1,0 +1,75 @@
+.glOjBk .heading {
+    font-size: 19px;
+    line-height: 21px;
+    font-weight: 300;
+    margin: 20px 0px 15px;
+}
+
+.glOjBk .inner {
+    background-color: rgb(255, 255, 255);
+    min-height: 400px;
+    border-radius: 4px;
+    padding: 1px;
+}
+
+.glOjBk table {
+    border-collapse: collapse;
+    width: 100%;
+    word-break: break-word;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.glOjBk table {
+    border-collapse: collapse;
+    width: 100%;
+    word-break: break-word;
+}
+
+.glOjBk tr {
+    border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.glOjBk th,
+.glOjBk td {
+    min-width: 130px;
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    padding: 20px 15px;
+}
+
+.glOjBk tr {
+    border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+.glOjBk tr:hover {
+    background-color: rgb(239, 239, 239);
+}
+
+.glOjBk td {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(51, 51, 51);
+}
+
+.glOjBk th,
+.glOjBk td {
+    min-width: 130px;
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    padding: 20px 15px;
+}

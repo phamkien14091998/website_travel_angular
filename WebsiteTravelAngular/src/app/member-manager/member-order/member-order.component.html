@@ -1,0 +1,27 @@
+<div class="styles__StyledAccountListOrder-sc-6t66uv-0 glOjBk">
+    <div class="heading">Đơn hàng của tôi</div>
+    <div class="inner">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Ngày mua</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of dataListProduct">
+                    <td>{{product.bill_id}}</td>
+                    <td>{{product.created_at}}</td>
+                    <td>{{product.product_name}}</td>
+                    <td>{{product.price }}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

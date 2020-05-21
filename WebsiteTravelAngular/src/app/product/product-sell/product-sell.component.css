@@ -473,3 +473,12 @@ nav {
 }
 
 /* end list product glass */
+
+.shop-nav-left-category li {
+    cursor: pointer;
+}
+
+.shop-nav-left-category li:hover {
+    color: #037008;
+    background-color: gainsboro;
+}

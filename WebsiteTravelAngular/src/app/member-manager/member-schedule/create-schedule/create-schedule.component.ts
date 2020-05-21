@@ -3,6 +3,8 @@ import { AuthenticationService } from "../../../authentication.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment'
+import { formatDate } from '@angular/common';
 
 import { MemberScheduleService } from "../../share/member_schedule_service.service";
 
@@ -14,6 +16,8 @@ import { MemberScheduleService } from "../../share/member_schedule_service.servi
 export class CreateScheduleComponent implements OnInit {
   dataCollection: any = [];
   createScheduleForm: FormGroup;
+  today = new Date();
+  jstoday = '';
 
   constructor(
     private scheduleService: MemberScheduleService,
@@ -21,8 +25,10 @@ export class CreateScheduleComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private auth: AuthenticationService
-  ) { }
+    private auth: AuthenticationService,
+  ) {
+    this.jstoday = formatDate(this.today, 'yyyy-MM-dd', 'en-US');
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -65,8 +71,29 @@ export class CreateScheduleComponent implements OnInit {
     localStorage.setItem('day_start', this.createScheduleForm.value.day_start);
     localStorage.setItem('day_end', this.createScheduleForm.value.day_end);
 
-    // chuyển tới trang trip-detail
-    this.router.navigateByUrl('/member/schedule/detail');
+    var a = moment(localStorage.getItem('day_start'));
+    var b = moment(localStorage.getItem('day_end'));
+    var today = moment(this.jstoday);
+
+    var number_day = b.diff(a, 'days') // số ngày
+    var check_day_current = a.diff(today, 'days') // ngày bắt đầu trừ ngày hiện tại
+
+
+    if (check_day_current < 0) {
+      this.toastr.error(' ', 'Ngày bắt đầu phải lớn hơn ngày hiện tại');
+      return;
+    }
+
+    if (number_day <= 0) {
+      this.toastr.error(' ', 'Ngày kết thúc phải lớn hơn ngày bắt đầu');
+      return;
+    }
+
+    else if (number_day > 0 && check_day_current >= 0) {
+      // chuyển tới trang trip-detail
+      this.router.navigateByUrl('/member/schedule/detail');
+    }
+
   }
 
 }

@@ -102,6 +102,65 @@
         </div>
         <br>
 
+        <!-- rating place-->
+        <div class="row col-md-12" style=" margin-top: 30px;">
+            <div class="row col-md-12">
+                <div class="col-md-2" style="margin-top: 12px;">
+                    <b *ngIf="currentNew ==0"> Đánh Giá Địa Điểm </b>
+                    <b *ngIf="currentNew != 0"> Bạn Đã Đánh Giá </b>
+                </div>
+                <div class="col-md-2" *ngIf="auth.haveLogin()">
+                    <span class="text-primary" style="font-size: 30px; margin-left: 15px; margin-top: 4px;"
+                        *ngIf=" currentNew == 0">
+                        <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="currentRate"
+                            (rate)="onRate($event)" (change)="rate($event)" [readonly]="false">
+                        </ngb-rating>
+                    </span>
+                    <span class="text-primary" style="font-size: 30px; margin-left: 15px; margin-top: 4px;"
+                        *ngIf="currentNew != 0">
+                        <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="currentNew"
+                            (rate)="onRate($event)" (change)="rate($event)" [readonly]="false">
+                        </ngb-rating>
+                    </span>
+                </div>
+                <div class="col-md-2" *ngIf="auth.haveLogin()">
+                    <span *ngIf="currentNew ==0">
+                        <button class="btn btn-success" type="button" (click)="submitRating()">Gửi</button>
+                    </span>
+                    <span *ngIf="currentNew !=0">
+                        <button class="btn btn-success" type="button" (click)="updateRating()">Sửa</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- end rating -->
+        <!-- list rating  -->
+        <div style="height: 300px; overflow-y: scroll;background-color: white;">
+            <div class="row col-md-12">
+                <b>Tất cả đánh giá</b>
+            </div>
+            <div class="row" id="list-comment" *ngFor="let ra of dataListrate">
+                <div class="col-md-1 comment-avatar">
+                    <img src="../../../assets/img/img_user.PNG">
+                </div>
+                <div class="col-md-11 list-comment-content">
+                    <div>
+                        <span class="comment-user">{{ra.user_name}}</span>
+                        <span class="comment-date">{{ra.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
+                    </div>
+                    <div class="comment-user-content">
+                        <span class="text-primary" style="font-size: 30px; margin-left: 15px; margin-top: 4px;">
+                            <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="ra.point"
+                                (rate)="onRate($event)" (change)="rate($event)" [readonly]="false">
+                            </ngb-rating>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end list rating  -->
+        <br>
         <div class="row col-md-12" style="margin-top: 50px;">
             <h4 class="text-center" style="margin-bottom: 10px;">CÁC ĐỊA ĐIỂM LIÊN QUAN </h4>
             <div class="row col-md-12">
@@ -139,7 +198,7 @@
                             <img class="post-review-image" src="{{domain}}/{{dataPost.images[0]}}" />
                         </a>
                         <a routerLink="/detail-post/{{dataPost.post_id}}">
-                            <h6 class="a-post-title">{{dataPost.title}}</h6>
+                            <h6 class="a-post-title">{{dataPost.post_title}}</h6>
                         </a>
                         <div class="a-post-detail">
                             <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
