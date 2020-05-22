@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { PaymentService } from "./shared/payment.service";
 import { environment } from "../../environments/environment";
 import { AuthenticationService } from "../authentication.service";
@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class PaymentComponent implements OnInit {
 
-  dataUser:any = {};
+  dataUser: any = {};
   dataTotal: any = 0;
   user: any = '';
   dataPayment: any = [];
@@ -69,7 +69,7 @@ export class PaymentComponent implements OnInit {
     );
   }
 
-  getAllProductForPayment(){
+  getAllProductForPayment() {
     this.paymentService.getAllProductForPayment(
     ).subscribe(
       (data) => {
@@ -88,14 +88,14 @@ export class PaymentComponent implements OnInit {
     );
   }
 
-  thanhToan(){
+  thanhToan() {
     const body = {
       'shipfee': this.paymentForm.controls['formOfDelivery'].value,
       'methods': this.paymentForm.controls['methods'].value,
       'note': this.paymentForm.controls['note'].value,
     }
 
-    if(body.methods == "" || body.shipfee == ""){
+    if (body.methods == "" || body.shipfee == "") {
       this.toastr.error('Mời nhập đầy đủ thông tin', 'Thanh toán');
     } else {
       this.paymentService.payment(

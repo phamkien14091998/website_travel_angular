@@ -27,6 +27,8 @@ import { UpdatePlacesComponent } from './manager-places/update-places/update-pla
 import { PlacesComponent } from './manager-statistical/places/places.component';
 import { ProductsComponent } from './manager-statistical/products/products.component';
 
+import { ChartsModule } from 'ng2-charts';
+
 const routes: Routes = [
     {
         path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService],
@@ -104,6 +106,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         BrowserAnimationsModule,
         ToastrModule,
+        ChartsModule
     ],
     providers: [
         AuthGuardService,

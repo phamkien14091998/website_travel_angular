@@ -35,6 +35,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeTop10UsersComponent } from './home/home-top10-users/home-top10-users.component';
 import { PaymentComponent } from './payment/payment.component';
 
+import { ChartsModule } from 'ng2-charts';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
@@ -88,7 +90,7 @@ const routes: Routes = [
     MemberManagerModule,
     RatingModule,
     NgbModule,
-
+    ChartsModule
 
   ],
   providers: [
