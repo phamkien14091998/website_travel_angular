@@ -13,7 +13,10 @@ export class ManagerstatisticalService {
     public getTop10Place(): Observable<any> {
         return this.http.get(`/api/place/top-10`);
     }
-
+    // lấy ra doanh thu bán theo tháng
+    public getStatisticsRevenue(): Observable<any> {
+        return this.http.get(`/api/product/statistics-revenue`);
+    }
 
 
 }

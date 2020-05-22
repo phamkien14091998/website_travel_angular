@@ -10,7 +10,7 @@ import { ManagerProductService } from "../../share/manager_product.service";
 export class ProductsComponent implements OnInit {
 
   dataSum: any = []; //  sum product
-  dataName: any = []  // name
+  dataName: any = []  // name 
   data1: any = []
 
   public barChartOptions = {

@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from "./product/product.module";
 import { MemberManagerModule } from "./member-manager/member-manager.module";
 import { RatingModule } from 'ng-starrating';
+import { ChartsModule } from 'ng2-charts';
 
 import { HomePostsDetailComponent } from './home/home-posts-detail/home-posts-detail.component';
 import { HomePlacesDetailComponent } from './home/home-places-detail/home-places-detail.component';
@@ -34,8 +35,7 @@ import { HomeListPostProvinceComponent } from './home/home-list-post-province/ho
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeTop10UsersComponent } from './home/home-top10-users/home-top10-users.component';
 import { PaymentComponent } from './payment/payment.component';
-
-import { ChartsModule } from 'ng2-charts';
+import { HomeTop10PlacesComponent } from './home/home-top10-places/home-top10-places.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'top-10-user', component: HomeTop10UsersComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'top-10-place', component: HomeTop10PlacesComponent },
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
 
 
@@ -72,6 +73,7 @@ const routes: Routes = [
     HomeListPostProvinceComponent,
     HomeTop10UsersComponent,
     PaymentComponent,
+    HomeTop10PlacesComponent,
   ],
   imports: [
     BrowserModule,

@@ -115,6 +115,10 @@ export class HomeService {
     public getAllRatingPlace(famous_place_id: any): Observable<any> {
         return this.http.post(`/api/rating/place/list`, famous_place_id);
     }
+    // lấy ra top 10 địa điểm có số điểm đánh giá cao nhất tháng vừa qua
+    public getTop10Place(): Observable<any> {
+        return this.http.get(`/api/place/top-10`);
+    }
 
 
 }

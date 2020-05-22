@@ -28,6 +28,7 @@ import { PlacesComponent } from './manager-statistical/places/places.component';
 import { ProductsComponent } from './manager-statistical/products/products.component';
 
 import { ChartsModule } from 'ng2-charts';
+import { RevenueComponent } from './manager-statistical/revenue/revenue.component';
 
 const routes: Routes = [
     {
@@ -72,12 +73,12 @@ const routes: Routes = [
             {
                 path: 'statistical/product', component: ProductsComponent,
             },
-
+            {
+                path: 'statistical/revenue', component: RevenueComponent,
+            },
 
         ]
     }
-
-
 ]
 
 @NgModule({
@@ -95,7 +96,7 @@ const routes: Routes = [
         UpdatePlacesComponent,
         PlacesComponent,
         ProductsComponent,
-
+        RevenueComponent,
 
     ],
     imports: [
