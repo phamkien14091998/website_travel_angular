@@ -9,7 +9,7 @@
                 <div class="col-md-1">
                 </div>
                 <div *ngIf="dataTopPlace[1]" class="col-md-3 text-center" style="margin-top: 60px;">
-                    <a href="">
+                    <a routerLink="/place/detail/{{dataTopPlace[1].famous_place_id}}">
                         <img src="{{domain}}/{{dataTopPlace[1].images[0]}}" class="sty-i" alt="">
                     </a>
                     <br>
@@ -20,7 +20,7 @@
                     <img src="./assets/img/img-top2.PNG" width="100%" height="200px" alt="">
                 </div>
                 <div *ngIf="dataTopPlace[0]" class="col-md-4 text-center">
-                    <a href="">
+                    <a routerLink="/place/detail/{{dataTopPlace[0].famous_place_id}}">
                         <img src="{{domain}}/{{dataTopPlace[0].images[0]}}" class="sty-i" alt="">
                     </a>
                     <br>
@@ -31,7 +31,7 @@
                     <img src="./assets/img/img-top1.PNG" width="100%" height="260px" alt="">
                 </div>
                 <div *ngIf="dataTopPlace[2]" class="col-md-3 text-center" style="margin-top: 80px;">
-                    <a href="">
+                    <a routerLink="/place/detail/{{dataTopPlace[2].famous_place_id}}">
                         <img src="{{domain}}/{{dataTopPlace[2].images[0]}}" class="sty-i" alt="">
                     </a><br>
                     <b style="color: #26c281;">
@@ -46,7 +46,7 @@
                 <div class="row col-md-12" style="margin-top: 10px;">
                     <div *ngIf="dataTopPlace[3]" class="col-md-4 text-center">
                         <p class="sty-p text-center">Top 4</p>
-                        <a>
+                        <a routerLink="/place/detail/{{dataTopPlace[3].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[3].images[0]}}" class="sty-i2" alt="">
                         </a> <br>
                         <b style="color: #26c281;">
@@ -57,7 +57,7 @@
                     </div>
                     <div *ngIf="dataTopPlace[4]" class="col-md-4 text-center">
                         <p class="sty-p text-center">Top 5</p>
-                        <a href="">
+                        <a routerLink="/place/detail/{{dataTopPlace[4].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[4].images[0]}}" class="sty-i2" alt="">
                         </a><br>
                         <b style="color: #26c281;">
@@ -67,7 +67,7 @@
                     </div>
                     <div *ngIf="dataTopPlace[5]" class="col-md-4 text-center">
                         <p class="sty-p text-center">Top 6</p>
-                        <a href="">
+                        <a routerLink="/place/detail/{{dataTopPlace[5].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[5].images[0]}}" class="sty-i2" alt="">
                         </a>
                         <br>
@@ -80,7 +80,7 @@
                 <div class="row col-md-12" style="margin-top: 10px;">
                     <div *ngIf="dataTopPlace[6]" class="col-md-3 text-center">
                         <p class="sty-p2 text-center">Top 7</p>
-                        <a>
+                        <a routerLink="/place/detail/{{dataTopPlace[6].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[6].images[0]}}" class="sty-i2" alt="">
                         </a><br>
                         <b style="color: #26c281;">
@@ -90,7 +90,7 @@
                     </div>
                     <div *ngIf="dataTopPlace[7]" class="col-md-3 text-center">
                         <p class="sty-p2 text-center">Top 8</p>
-                        <a href="">
+                        <a routerLink="/place/detail/{{dataTopPlace[7].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[7].images[0]}}" class="sty-i2" alt="">
                         </a><br>
                         <b style="color: #26c281;">
@@ -100,7 +100,7 @@
                     </div>
                     <div *ngIf="dataTopPlace[8]" class="col-md-3 text-center">
                         <p class="sty-p2 text-center">Top 9</p>
-                        <a href="">
+                        <a routerLink="/place/detail/{{dataTopPlace[8].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[8].images[0]}}" class="sty-i2" alt="">
                         </a><br>
                         <b style="color: #26c281;">
@@ -110,9 +110,9 @@
                     </div>
                     <div *ngIf="dataTopPlace[9]" class="col-md-3 text-center">
                         <p class="sty-p2 text-center">Top 10</p>
-                        <a href="">
+                        <a routerLink="/place/detail/{{dataTopPlace[9].famous_place_id}}">
                             <img src="{{domain}}/{{dataTopPlace[9].images[0]}}" class="sty-i2" alt="">
-                        </a>
+                        </a><br>
                         <b style="color: #26c281;">
                             {{dataTopPlace[9].title}}
                             ({{dataTopPlace[9].sumPoint}}

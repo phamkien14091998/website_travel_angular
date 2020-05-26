@@ -142,11 +142,11 @@ export class AuthenticationService {
         return this.http.get(`/api/profile`, {
             headers: { Authorization: `Bearer ${this.getToken()}` }
         })
-    }
+    }  
     public logout(): void {
         this.token = ''
         window.localStorage.removeItem('usertoken')
-        location.reload();
+        // location.reload();
         this.router.navigateByUrl('/')
     }
 
@@ -162,7 +162,7 @@ export class AuthenticationService {
     // public handlerGoogle1(): Observable<any> {
     //     return this.http.get(`/api/auth/google/callback`)
     // }
-
+ 
     // login google
     public handlerGoogleNew() {
         const base = this.http.get<any>(

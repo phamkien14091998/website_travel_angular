@@ -1,3 +1,70 @@
+<header>
+    <div class="shop-header-container">
+        <div class="shop-header-inner">
+            <div class="container">
+                <div class="row">
+                    <!-- start logo -->
+                    <div class="col-sm-2 col-md-2 col-xs-12">
+                        <div class="shop-logo">
+                            <a href=""><img alt="" title="Travel" src="../../../assets/img/logo.png"></a>
+                        </div>
+                    </div>
+                    <!-- end logo -->
+                    <!-- start search -->
+                    <div class="col-xs-12 col-sm-6 col-md-7">
+                        <div class="shop-top-search">
+                            <div id="shop-search">
+                                <form class="row col-md-12" [formGroup]="searchProductForm"
+                                    (ngSubmit)="searchProduct()">
+                                    <div class="input-group">
+                                        <!-- <select name="cetegory" class="cate-dropdown">
+                                            <option>Danh mục sản phẩm</option>
+                                            <option>a</option>
+                                            <option>b</option>
+                                            <option>c</option>
+                                            <option>d</option>
+                                            <option>e</option>
+                                        </select> -->
+                                        <input type="text" class="form-control border-0"
+                                            style="background-color: #dde8dd;" placeholder="Bạn cần tìm gì... "
+                                            formControlName="product_name" name="search ">
+                                        <button type="submit" class="shop-search-button">
+                                            <i class="fa fa-search "></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end search -->
+                    <!-- start cart -->
+                    <div class="col-xs-12 col-sm-4 col-md-3 ">
+                        <div class="shop-cart ">
+                            <div>
+                                <a href="#">
+                                    <div class="cart-icon">
+                                        <i class="fa fa-cart-arrow-down"></i>
+                                    </div>
+                                    <div class="cart-total">
+                                        <div class="shop-cart-total">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <a routerLink="/product/card" id="btnGioHang">
+                                        <div class="shop-cart-inner ">
+                                            <span class="shop-cart-title "><b>Giỏ hàng</b></span>
+                                        </div>
+                                    </a>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end cart -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 <!-- start nav -->
 <nav>
     <div class="container">
@@ -7,7 +74,7 @@
                     <div class="shop-nav-left-title">
                         <h3>
                             <span>DANH MỤC SẢN PHẨM</span>
-                        </h3>  
+                        </h3>
                         <i class="fa fa-reorder"></i>
                     </div>
                 </div>
@@ -47,70 +114,41 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-9 col-sm-12 col-xs-12 col-lg-9">
-                <div class="shop-slider-banner">
-                    <p>Dễ dàng mua sắm</p>
-                    <p>Cung cấp mọi thứ cho chuyến đi của bạn</p>
-                    <p>Thanh toán đơn giản</p>
-                </div>
+            <div class="col-md-9" style="margin-top: 50px;">
+                <h2 *ngIf="search_product_name == '' "><b>TẤT CẢ SẢN PHẨM CỦA THỂ LOẠI :{{portfolio_name}}</b>
+                </h2>
+                <h2 *ngIf="search_product_name != '' "><b>BẠN VỪA TÌM KIẾM : {{search_product_name}}</b></h2>
             </div>
         </div>
     </div>
 </div>
 <!-- end slider -->
 
-<!-- start shop-service area -->
-<div class="shop-service-area">
+<!-- start search product -->
+<div class="shop-product-clothes" *ngIf="search_product_name != '' ">
     <div class="container">
         <div class="row">
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="shop-service-wrapper">
-                    <div class="shop-service-text">
-                        <div class="shop-icon-wrapper">
-                            <i class="fa fa-paper-plane shop-service-icon"></i>
-                        </div>
-                        <div class="shop-service-wrapper">
-                            <h3>Giao hàng nhanh</h3>
-                            <p>Miễn phí phạm vi 10km</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="shop-service-wrapper">
-                    <div class="shop-service-text">
-                        <div class="shop-icon-wrapper">
-                            <i class="fa fa-refresh shop-service-icon"></i>
-                        </div>
-                        <div class="shop-service-wrapper">
-                            <h3>Giao dịch an toàn</h3>
-                            <p>Credit/Banking/Debit Card</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="shop-service-wrapper">
-                    <div class="shop-service-text">
-                        <div class="shop-icon-wrapper">
-                            <i class="fa fa-umbrella shop-service-icon"></i>
-                        </div>
-                        <div class="shop-service-wrapper">
-                            <h3>Tổng đài tư vấn</h3>
-                            <p>(+123) 123456789</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="shop-service-wrapper">
-                    <div class="shop-service-text">
-                        <div class="shop-icon-wrapper">
-                            <i class="fa fa-thumbs-up shop-service-icon"></i>
-                        </div>
-                        <div class="shop-service-wrapper">
-                            <h3>Đảm bảo chất lượng</h3>
-                            <p>Cam kết hàng chính hãng</p>
+            <div class="col-md-12">
+                <div id="clothesCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="item carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-3" *ngFor="let data of dataSearch">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{{domain}}/{{data.images[0]}}"
+                                                class="img-responsive img-fluid css-i" alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>{{data.product_name}}</h4>
+                                            <p class="item-price"><span>{{data.price}} Đ</span></p>
+                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                                tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,15 +156,14 @@
         </div>
     </div>
 </div>
-<!-- start shop-service arae -->
+<!-- end search product -->
 
 <!-- start list product -->
-<div class="shop-product-clothes">
+<div class="shop-product-clothes" *ngIf="search_product_name == '' ">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2><b>TẤT CẢ SẢN PHẨM CỦA THỂ LOẠI :{{portfolio_name}}</b></h2>
-                <div id="clothesCarousel" class="carousel slide" >
+                <div id="clothesCarousel" class="carousel slide">
                     <!-- data-ride="carousel" data-interval="0" -->
                     <!-- Carousel indicators -->
                     <!-- <ol class="carousel-indicators">
@@ -141,13 +178,14 @@
                                 <div class="col-sm-3" *ngFor="let data of dataProduct">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="{{domain}}/{{data.images[0]}}" class="img-responsive img-fluid"
-                                                alt="">
+                                            <img src="{{domain}}/{{data.images[0]}}"
+                                                class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
                                             <h4>{{data.product_name}}</h4>
                                             <p class="item-price"><span>{{data.price}} Đ</span></p>
-                                            <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
+                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                                tiết</a>
                                         </div>
                                     </div>
                                 </div>

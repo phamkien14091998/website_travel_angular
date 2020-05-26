@@ -34,6 +34,10 @@ export class ManagerPlaceService {
     public deletePlace(famous_place_id: string): Observable<any> {
         return this.http.delete('/api/place/delete/' + famous_place_id);
     }
+    // tìm kiếm địa điểm theo title hoạc province_id
+    public searchPlaceByTitleAndProvinId(place: any): Observable<any> {
+        return this.http.post(`/api/place/search`, place);
+    }
 
 
 }

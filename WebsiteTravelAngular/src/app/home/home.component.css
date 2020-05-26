@@ -2,7 +2,7 @@
 
 #search-banner {
     width: 100%;
-    height: 340px;
+    height: 410px;
     background-image: url('/assets/img/search-banner.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -340,16 +340,20 @@
         opacity: 0;
     }
 }
+
 .star {
     font-size: 1.5rem;
     color: #b0c4de;
-  }
-  .filled {
+}
+
+.filled {
     color: #1e90ff;
-  }
-  .bad {
+}
+
+.bad {
     color: #deb0b0;
-  }
-  .filled.bad {
+}
+
+.filled.bad {
     color: #ff1e1e;
-  }
+}

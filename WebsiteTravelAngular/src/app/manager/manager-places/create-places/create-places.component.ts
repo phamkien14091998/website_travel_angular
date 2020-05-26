@@ -14,9 +14,9 @@ export class CreatePlacesComponent implements OnInit {
   options: { content: FormData };
 
   dataProvince: any = [];
-  createPlaceForm: FormGroup; 
+  createPlaceForm: FormGroup;
   myFiles: string[] = [];
-  file: string;    
+  file: string;
   // tạo giờ mở đóng cửa 
   date_array = [
     '0:00', '0:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00',
@@ -28,7 +28,7 @@ export class CreatePlacesComponent implements OnInit {
 
   constructor(
     private placeService: ManagerPlaceService,
-    private fb: FormBuilder,   
+    private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService
@@ -67,8 +67,8 @@ export class CreatePlacesComponent implements OnInit {
   // lấy ra danh sách các thể loại sản phẩm
   getListProvince() {
     this.placeService.getProvince().subscribe(
-      (data) => {   
-        this.dataProvince = data;   
+      (data) => {
+        this.dataProvince = data;
       }
     );
 

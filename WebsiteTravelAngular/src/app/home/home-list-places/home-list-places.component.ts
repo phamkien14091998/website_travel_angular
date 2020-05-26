@@ -62,7 +62,7 @@ export class HomeListPlacesComponent implements OnInit {
           p.images = p.images.split("|")
           return p;
         })
-        console.log(this.dataListPlace);
+        console.log(this.dataListPlace);  
       }, err => { console.log(err) }
     );
   }

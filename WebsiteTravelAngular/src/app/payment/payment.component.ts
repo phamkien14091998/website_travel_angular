@@ -1,4 +1,4 @@
-import { Component, OnInit, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaymentService } from "./shared/payment.service";
 import { environment } from "../../environments/environment";
 import { AuthenticationService } from "../authentication.service";
@@ -16,7 +16,8 @@ export class PaymentComponent implements OnInit {
   dataUser: any = {};
   dataTotal: any = 0;
   user: any = '';
-  dataPayment: any = [];
+  dataPaymentCash: any = [];
+  dataPaymentPaypal: any = [];
   domain = environment.API_URL;
 
   options: { content: FormData };
@@ -73,8 +74,8 @@ export class PaymentComponent implements OnInit {
     this.paymentService.getAllProductForPayment(
     ).subscribe(
       (data) => {
-        this.dataPayment = data
-        console.log(this.dataPayment);
+        this.dataPaymentCash = data
+        console.log(this.dataPaymentCash);
       }, err => { console.log(err) }
     );
   }
@@ -98,18 +99,36 @@ export class PaymentComponent implements OnInit {
     if (body.methods == "" || body.shipfee == "") {
       this.toastr.error('Mời nhập đầy đủ thông tin', 'Thanh toán');
     } else {
-      this.paymentService.payment(
-        this.user?.user_id,
-        body
-      ).subscribe(
-        () => {
-          this.toastr.success('Thành Công ', 'Thanh toán');
-          this.router.navigateByUrl('/product');
-        },
-        err => {
-          this.toastr.error('Thất bại', 'Thanh toán');
-        }
-      )
+      // thanh toán bằng tiền mặt
+      if (body.methods == "tienmat") {
+        this.paymentService.paymentCash(
+          this.user?.user_id,
+          body
+        ).subscribe(
+          () => {
+            this.toastr.success('Thành Công ', 'Thanh toán tiền mặt');
+            this.router.navigateByUrl('/product');
+          },
+          err => {
+            this.toastr.error('Thất bại', 'Thanh toán tiền mặt');
+          }
+        )
+      } else { //thanh toán bằng paypal
+        this.paymentService.paymentPaypal(
+          this.user?.user_id,
+          body
+        ).subscribe(
+          (data) => {
+            this.dataPaymentPaypal = data;
+            window.open(
+              this.dataPaymentPaypal.url,
+              '_blank' // <- This is what makes it open in a new window.
+            );
+            console.log(this.dataPaymentPaypal);
+          }
+        );
+      }
     }
   }
+
 }

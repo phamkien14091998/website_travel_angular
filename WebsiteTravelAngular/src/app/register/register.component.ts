@@ -42,12 +42,12 @@ export class RegisterComponent {
             Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
             password: ['', [Validators.required,
             Validators.pattern('[a-zA-Z0-9]{5,50}')]],
-            full_name: ['', Validators.required],   
+            // full_name: ['', Validators.required],
             avatar: ['assets/img/img_user.PNG', Validators.required],
             date_of_birth: ['', Validators.required],
             gender: ['', Validators.required],
-            hometown: ['', Validators.required],
-            hobbies: ['', Validators.required], 
+            // hometown: ['', Validators.required],
+            // hobbies: ['', Validators.required],
         });
     }
     // kiểm tra dữ liệu nhập hợp lệ
@@ -60,6 +60,8 @@ export class RegisterComponent {
         return this.registerForm.controls[fieldName].errors.required;
     }
     register() {
+        console.log(this.registerForm.value);
+
         this.auth.register(this.registerForm.value).subscribe(
             () => {
                 this.toastr.success('Thành Công - Mời Bạn Đăng Nhập', 'Đăng Ký');

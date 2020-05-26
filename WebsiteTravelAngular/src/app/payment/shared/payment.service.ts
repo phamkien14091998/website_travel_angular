@@ -5,9 +5,9 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class PaymentService {
-    constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
-    }
+  }
 
   // lấy ra user by user id
   public getUserByUserId(user_id: any): Observable<any> {
@@ -25,8 +25,12 @@ export class PaymentService {
   }
 
   //thanh toán
-  public payment(user_id: string, data: any): Observable<any> {
-    return this.http.post(`/api/bill/payment/` + user_id, data);
+  public paymentCash(user_id: string, data: any): Observable<any> {
+    return this.http.post(`/api/bill/paymentCash/` + user_id, data);
+  }
+
+  public paymentPaypal(user_id: string, data: any): Observable<any> {
+    return this.http.post(`/api/bill/paymentPaypal/` + user_id, data);
+  }
 }
 
-}

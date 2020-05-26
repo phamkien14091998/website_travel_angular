@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProductService } from './shared/product.service';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -7,11 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  dataInsert: any = [];
+
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
-    console.log('vo');
+    this.callFunctionPayment();
+  }
 
+  callFunctionPayment() {
+    this.productService.callFunctionPayment().subscribe(
+      (data) => {
+        this.dataInsert = data;
+        console.log(this.dataInsert);
+      }, err => { console.log(err) }
+    );
   }
 
 }

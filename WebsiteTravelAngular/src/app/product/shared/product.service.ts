@@ -10,10 +10,8 @@ export class ProductService {
     }
     // lấy ra 16 sản phẩm mới nhất 
     public getListProductNew(): Observable<any> {
-
         return this.http.get(`/api/product/list-product-new`);
     }
-
     // lấy ra danh sách thể loại
     public getProductPortfolio(): Observable<any> {
         return this.http.get(`/api/product/list-portfolio`);
@@ -27,25 +25,26 @@ export class ProductService {
 
         return this.http.get('/api/product/detail-product/' + product_id);
     }
-
     // chi tiết sản phẩm theo id
     public addToCart(product_id: string): Observable<any> {
         return this.http.get('/api/cart/add/' + product_id);
     }
 
+    // lấy ra user by user name
+    public callFunctionPayment(): Observable<any> {
+        return this.http.get(`/api/paypal/payment`);
+    }
+    // lấy ra 16 sản phẩm bán chạy nhất
+    public getListProductRevenue(): Observable<any> {
+        return this.http.get(`/api/product/list-revenue`);
+    }
+    // tim kiem san pham theo ten
+    public searchProductByName(product_name: any): Observable<any> {
+
+        return this.http.post('/api/product/search-name', product_name);
+    }
 
 
-
-    // // lấy ra tất cả danh sách sản phẩm
-    // public getListProduct(): Observable<any> {
-    //     // console.log(product_search);   
-
-    //     return this.http.get(`/api/product/list-product`);
-    // }
-    // // tìm kiếm sản phẩm theo tên sản phẩm
-    // public searchProductbyNameOrPortfolioId(product: any): Observable<any> {
-    //     return this.http.post(`/api/product/search-product`, product);
-    // }
 
 
 

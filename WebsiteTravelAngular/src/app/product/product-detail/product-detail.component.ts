@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductDetailComponent implements OnInit {
 
   data_detailProduct: any = {};
+  data_portfolio: any = [];
+  selectedItem: any;
   totalOfCart: number = 0;
   domain = environment.API_URL;
 
@@ -27,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
       (params) => {
         this.getDetailProduct(params['product_id']);
       })
+    this.getProductPortfolio();
   }
   getDetailProduct(product_id: string) {
 
@@ -55,5 +58,19 @@ export class ProductDetailComponent implements OnInit {
         this.toastr.error('Thất Bại ', 'Thêm giỏ hàng');
       }
     );
+  }
+
+  getProductPortfolio() {
+    this.productService.getProductPortfolio().subscribe(
+      (data) => {
+        this.data_portfolio = data;
+      }
+    );
+  }
+
+  listClick(event, newValue) {
+    console.log(newValue);
+    this.selectedItem = newValue;  // don't forget to update the model here
+    // ... do other stuff here ...
   }
 }

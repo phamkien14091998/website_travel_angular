@@ -15,7 +15,7 @@ export class UpdateMemberInfoComponent implements OnInit {
   dataDetailUser: any = {};
   domain = environment.API_URL;
   options: { content: FormData };
-  updateUserForm: FormGroup;
+  updateUserForm: FormGroup; 
   myFiles: string[] = [];
   file: string;
 

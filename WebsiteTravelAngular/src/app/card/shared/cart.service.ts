@@ -30,4 +30,7 @@ export class CartService {
         return this.http.get(`/api/cart/giamSoLuongSP/` + product_id);
     }
 
+    public getSoLuongTonKho(): Observable<any> {
+        return this.http.get(`/api/cart/soLuongTon`);
+    }
 }

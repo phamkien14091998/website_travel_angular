@@ -8,25 +8,31 @@
                         <div class="form-delivery">
                             <!-- <div class="label-no-shippments__etaText">Giao vào Thứ hai, 25/05</div> -->
                             <div class="input">
-                                <label><input class="formOfDelivery" type="radio" value="0" name="formOfDelivery" formControlName="formOfDelivery" [checked]='true'></label>
+                                <label><input class="formOfDelivery" type="radio" value="0" name="formOfDelivery"
+                                        formControlName="formOfDelivery" [checked]='true'></label>
                             </div>
-                            <div class="hinhthuc"><span class="no-shipping-fee">Miễn phí</span><span class="method-name">Giao tiêu chuẩn (4-5) ngày</span></div>
+                            <div class="hinhthuc"><span class="no-shipping-fee">Miễn phí</span><span
+                                    class="method-name">Giao tiêu chuẩn (4-5) ngày</span></div>
                         </div>
 
                         <div class="form-delivery">
                             <!-- <div class="label-no-shippments__etaText">Giao vào Thứ hai, 25/05</div> -->
                             <div class="input">
-                                <label><input class="formOfDelivery" type="radio" value="22000" name="formOfDelivery" formControlName="formOfDelivery"></label>
+                                <label><input class="formOfDelivery" type="radio" value="22000" name="formOfDelivery"
+                                        formControlName="formOfDelivery"></label>
                             </div>
-                            <div class="hinhthuc"><span class="shipping-3days">22.000 VND</span><span class="method-name">Giao trong 3 ngày</span></div>
+                            <div class="hinhthuc"><span class="shipping-3days">22.000 VND</span><span
+                                    class="method-name">Giao trong 3 ngày</span></div>
                         </div>
 
                         <div class="form-delivery">
                             <!-- <div class="label-no-shippments__etaText">Giao vào Thứ hai, 25/05</div> -->
                             <div class="input">
-                                <label><input class="formOfDelivery" type="radio" value="39000" name="formOfDelivery" formControlName="formOfDelivery"></label>
+                                <label><input class="formOfDelivery" type="radio" value="39000" name="formOfDelivery"
+                                        formControlName="formOfDelivery"></label>
                             </div>
-                            <div class="hinhthuc"><span class="shipping-1day">39.000 VND</span><span class="method-name">Giao trong 1 ngày</span></div>
+                            <div class="hinhthuc"><span class="shipping-1day">39.000 VND</span><span
+                                    class="method-name">Giao trong 1 ngày</span></div>
                         </div>
                     </div>
 
@@ -37,8 +43,8 @@
                             <span class="label">Thanh toán tiền mặt khi nhận hàng</span>
                         </div>
                         <div>
-                            <input type="radio" name="methods" formControlName="methods" value="nganhang">
-                            <span class="label">Thanh toán bằng tài khoản ngân hàng</span>
+                            <input type="radio" name="methods" formControlName="methods" value="paypal">
+                            <span class="label">Thanh toán paypal</span>
                         </div>
                     </div>
 
@@ -54,9 +60,10 @@
             </div>
             <div class="col-md-3">
                 <div class="payment-address">
-                    <div class="title"><span>Địa chỉ giao hàng</span><a routerLink="/member/info/update/{{dataUser.user_id}}">Sửa</a></div>
+                    <div class="title"><span>Địa chỉ giao hàng</span><a
+                            routerLink="/member/info/update/{{dataUser.user_id}}">Sửa</a></div>
                     <div class="address">
-                        <span class="name">{{dataUser.user_name}}</span>
+                        <span class="name">{{dataUser.full_name}}</span>
                         <span class="street">{{dataUser.address}}</span>
                         <span class="phone">Điện thoại: {{dataUser.phone_number}}</span>
                     </div>
@@ -64,13 +71,15 @@
 
                 <div class="payment-detail">
                     <div class="title">
-                        <span>Đơn hàng ({{dataPayment.length}} sản phẩm)</span><a routerLink="/product/card" class="update-cart">Sửa</a>
+                        <span>Đơn hàng ({{dataPaymentCash.length}} sản phẩm)</span><a routerLink="/product/card"
+                            class="update-cart">Sửa</a>
                     </div>
                     <div class="cart">
-                        <div class="product" *ngFor="let product of dataPayment">
+                        <div class="product" *ngFor="let product of dataPaymentCash">
                             <div class="OrderSummary__StyledItem-ue7sy3-1 iylcMU">
                                 <div class="info"><strong class="qty">{{product.qty}} x </strong>
-                                    <a routerLink="/product/detail/{{product.id}}" target="_blank" class="product-name">{{product.name}}</a>
+                                    <a routerLink="/product/detail/{{product.id}}" target="_blank"
+                                        class="product-name">{{product.name}}</a>
                                 </div>
                                 <div class="price">{{product.qty * product.price | currency:'VND'}}</div>
                             </div>

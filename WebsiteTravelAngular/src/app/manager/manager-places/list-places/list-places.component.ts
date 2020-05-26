@@ -70,8 +70,20 @@ export class ListPlacesComponent implements OnInit {
     )
   }
 
-  searchPlace(){
-    
+  searchPlace() {
+    this.placeService.searchPlaceByTitleAndProvinId(
+      this.searchPlaceForm.value
+
+    ).subscribe(
+      (data) => {
+        this.dataListPlace = data
+        // .map(p => {
+        //   p.images = p.images.split("|")
+        //   return p;
+        // })
+      }, err => { console.log(err) }
+    );
+
   }
 
 }

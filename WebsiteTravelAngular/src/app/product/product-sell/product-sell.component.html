@@ -1,3 +1,70 @@
+<header>
+    <div class="shop-header-container">
+        <div class="shop-header-inner">
+            <div class="container">
+                <div class="row">
+                    <!-- start logo -->
+                    <div class="col-sm-2 col-md-2 col-xs-12">
+                        <div class="shop-logo">
+                            <a href=""><img alt="" title="Travel" src="../../../assets/img/logo.png"></a>
+                        </div>
+                    </div>
+                    <!-- end logo -->
+                    <!-- start search -->
+                    <div class="col-xs-12 col-sm-6 col-md-7">
+                        <div class="shop-top-search">
+                            <div id="shop-search">
+                                <form class="row col-md-12" [formGroup]="searchProductForm"
+                                    (ngSubmit)="searchProduct()">
+                                    <div class="input-group">
+                                        <!-- <select name="cetegory" class="cate-dropdown">
+                                            <option>Danh mục sản phẩm</option>
+                                            <option>a</option>
+                                            <option>b</option>
+                                            <option>c</option>
+                                            <option>d</option>
+                                            <option>e</option>
+                                        </select> -->
+                                        <input type="text" class="form-control border-0"
+                                            style="background-color: #dde8dd;" placeholder="Bạn cần tìm gì... "
+                                            formControlName="product_name" name="search ">
+                                        <button type="submit" class="shop-search-button">
+                                            <i class="fa fa-search "></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end search -->
+                    <!-- start cart -->
+                    <div class="col-xs-12 col-sm-4 col-md-3 ">
+                        <div class="shop-cart ">
+                            <div>
+                                <a href="#">
+                                    <div class="cart-icon">
+                                        <i class="fa fa-cart-arrow-down"></i>
+                                    </div>
+                                    <div class="cart-total">
+                                        <div class="shop-cart-total">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <a routerLink="/product/card" id="btnGioHang">
+                                        <div class="shop-cart-inner ">
+                                            <span class="shop-cart-title "><b>Giỏ hàng</b></span>
+                                        </div>
+                                    </a>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end cart -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 <!-- start nav -->
 <nav>
     <div class="container">
@@ -120,8 +187,48 @@
 </div>
 <!-- start shop-service arae -->
 
+<div class="row col-md-12" *ngIf="search_product_name != '' ">
+    <br>
+    <h2 style="margin-top: 100px;"><b>BẠN VỪA TÌM KIẾM : {{search_product_name}}</b></h2>
+    <br>
+    <!-- start search product -->
+    <div class="row col-md-12 shop-product-clothes">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="clothesCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item carousel-item active">
+                                <div class="row">
+                                    <div class="col-sm-3" *ngFor="let data of dataSearch">
+                                        <div class="thumb-wrapper">
+                                            <div class="img-box">
+                                                <img src="{{domain}}/{{data.images[0]}}"
+                                                    class="img-responsive img-fluid css-i" alt="">
+                                            </div>
+                                            <div class="thumb-content">
+                                                <h4>{{data.product_name}}</h4>
+                                                <p class="item-price"><span>{{data.price}} Đ</span></p>
+                                                <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem
+                                                    chi
+                                                    tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end search product -->
+</div>
+
 <!-- start list product -->
-<div class="shop-product-clothes">
+<div class="shop-product-clothes" *ngIf="search_product_name == '' ">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -143,10 +250,11 @@
                                         <div class="img-box">
                                             <img src="{{domain}}/{{data.images[0]}}"
                                                 routerLink="detail/{{data.product_id}}"
-                                                class="img-responsive img-fluid css-i" alt="">
+                                                class="img-responsive img-fluid css-i " alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h6 routerLink="detail/{{data.product_id}}" style="cursor: pointer;">
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
                                                 {{data.product_name}}</h6>
                                             <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
                                             <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
@@ -167,9 +275,12 @@
                                                 class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h6>{{data.product_name}}</h6>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
                                             <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
-                                            <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
+                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                                tiết</a>
                                         </div>
                                     </div>
                                 </div>
@@ -186,9 +297,12 @@
                                                 class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h6>{{data.product_name}}</h6>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
                                             <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
-                                            <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
+                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                                tiết</a>
                                         </div>
                                     </div>
                                 </div>
@@ -205,9 +319,12 @@
                                                 class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h6>{{data.product_name}}</h6>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
                                             <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
-                                            <a href="/product/card" class="btn btn-primary">Thêm giỏ hàng</a>
+                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                                tiết</a>
                                         </div>
                                     </div>
                                 </div>
@@ -233,7 +350,7 @@
     </div>
 </div>
 
-<div class="shop-product-glasses">
+<div class="shop-product-glasses" *ngIf="search_product_name == '' ">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -243,60 +360,28 @@
                     <ol class="carousel-indicators">
                         <li data-target="#glassesCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#glassesCarousel" data-slide-to="1"></li>
+                        <li data-target="#glassesCarousel" data-slide-to="2"></li>
+                        <li data-target="#glassesCarousel" data-slide-to="3"></li>
                     </ol>
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
                         <div class="item carousel-item active">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-3" *ngFor="let data of dataProductPage1Array_2">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="../../assets/img/img_login.PNG" class="img-responsive img-fluid"
-                                                alt="">
+                                            <img src="{{domain}}/{{data.images[0]}}"
+                                                routerLink="detail/{{data.product_id}}"
+                                                class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h4>Apple iPad</h4>
-                                            <p class="item-price"><span>$369.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="thumb-wrapper">
-                                        <div class="img-box">
-                                            <img src="../../assets/img/img_login.PNG" class="img-responsive img-fluid"
-                                                alt="">
-                                        </div>
-                                        <div class="thumb-content">
-                                            <h4>Sony Headphone</h4>
-                                            <p class="item-price"> <span>$23.99</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="thumb-wrapper">
-                                        <div class="img-box">
-                                            <img src="../../../assets/img/img_login.PNG"
-                                                class="img-responsive img-fluid" alt="">
-                                        </div>
-                                        <div class="thumb-content">
-                                            <h4>Macbook Air</h4>
-                                            <p class="item-price"> <span>$649.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="thumb-wrapper">
-                                        <div class="img-box">
-                                            <img src="../../../assets/img/logo.png" class="img-responsive img-fluid"
-                                                alt="">
-                                        </div>
-                                        <div class="thumb-content">
-                                            <h4>Nikon DSLR</h4>
-                                            <p class="item-price"><span>$250.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
+                                            <button routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem
+                                                chi
+                                                tiết</button>
                                         </div>
                                     </div>
                                 </div>
@@ -304,55 +389,66 @@
                         </div>
                         <div class="item carousel-item">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-3" *ngFor="let data of dataProductPage2Array_2">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="../../../assets/img/img_login.PNG"
-                                                class="img-responsive img-fluid" alt="">
+                                            <img src="{{domain}}/{{data.images[0]}}"
+                                                routerLink="detail/{{data.product_id}}"
+                                                class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h4>Sony Play Station</h4>
-                                            <p class="item-price"><span>$269.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
+                                            <button routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem
+                                                chi
+                                                tiết</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="item carousel-item">
+                            <div class="row">
+                                <div class="col-sm-3" *ngFor="let data of dataProductPage3Array_2">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="../../../assets/img/logo.png" class="img-responsive img-fluid"
-                                                alt="">
+                                            <img src="{{domain}}/{{data.images[0]}}"
+                                                routerLink="detail/{{data.product_id}}"
+                                                class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h4>Macbook Pro</h4>
-                                            <p class="item-price"><span>$869.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
+                                            <button routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem
+                                                chi
+                                                tiết</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="item carousel-item">
+                            <div class="row">
+                                <div class="col-sm-3" *ngFor="let data of dataProductPage4Array_2">
                                     <div class="thumb-wrapper">
                                         <div class="img-box">
-                                            <img src="../../assets/img/img_login.PNG" class="img-responsive img-fluid"
-                                                alt="">
+                                            <img src="{{domain}}/{{data.images[0]}}"
+                                                routerLink="detail/{{data.product_id}}"
+                                                class="img-responsive img-fluid css-i" alt="">
                                         </div>
                                         <div class="thumb-content">
-                                            <h4>Bose Speaker</h4>
-                                            <p class="item-price"><span>$99.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="thumb-wrapper">
-                                        <div class="img-box">
-                                            <img src="../../../assets/img/logo.png" class="img-responsive img-fluid"
-                                                alt="">
-                                        </div>
-                                        <div class="thumb-content">
-                                            <h4>Samsung Galaxy S8</h4>
-                                            <p class="item-price"><span>$569.00</span></p>
-                                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                                            <h6 routerLink="detail/{{data.product_id}}"
+                                                style="cursor: pointer;height: 35px;">
+                                                {{data.product_name}}</h6>
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
+                                            <button routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem
+                                                chi
+                                                tiết</button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -360,11 +456,17 @@
                         </div>
                     </div>
                     <!-- Carousel controls -->
-                    <a class="carousel-control left carousel-control-prev" href="#glassesCarousel" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
+                    <a class="carousel-control-prev" href="#glassesCarousel" role="button" data-slide="prev">
+                        <span
+                            style="color: black !important;height: 100px;min-width: 40px; background-color: #2b2a2a75; margin-right: 130px;"
+                            class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control right carousel-control-next" href="#glassesCarousel" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
+                    <a class="carousel-control-next" role="button" href="#glassesCarousel" data-slide="next">
+                        <span
+                            style="color: black !important;height: 100px;min-width: 40px; background-color: #2b2a2a75; margin-left: 130px;"
+                            class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
                     </a>
                 </div>
             </div>

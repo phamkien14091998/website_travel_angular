@@ -1,57 +1,82 @@
-<div class="container">
-    <div class="css-login row">
-        <div class="css-login-body col-md-6 mt-5 mx-auto">
-            <div *ngIf="notifyMessage" class="alert alert-success">
-                {{notifyMessage}}
-            </div>
-            <h1 class="h3 mb-3 fpnt-weight-normal">
-                Vui Lòng Đăng Nhập &nbsp; &nbsp; &nbsp; &nbsp;
-                <a routerLink="/" class="btn btn-secondary "> Trang Chủ</a>
-            </h1>
-            <form [formGroup]="loginForm" (ngSubmit)="login()">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" formControlName="email" placeholder="nhập email" />
-                    <div *ngIf="isInvalidForm('email')" class="alert alert-danger">
-                        <div *ngIf="isRequired('email')">
-                            Yêu cầu nhập Email .
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Login Website Travel</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords"
+        content="Classy Login form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!--Google Fonts-->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <!--header start here-->
+    <div class="header">
+        <div class="header-main">
+            <h1>Vui Lòng Đăng Nhập</h1>
+            <div class="header-bottom">
+                <div class="header-right w3agile">
+                    <div class="header-left-bottom agileinfo">
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <input type="email" formControlName="email" placeholder="nhập email" />
+                            <div *ngIf="isInvalidForm('email')" class="alert alert-danger">
+                                <div *ngIf="isRequired('email')">
+                                    Yêu cầu nhập Email .
+                                </div>
+                                <div *ngIf="loginForm.controls['email'].errors.pattern">
+                                    Yêu cầu nhập Email theo định dạng abc@gmail.com
+                                </div>
+                            </div>
+                            <input type="password" formControlName="password" placeholder="nhập mật khẩu" required />
+                            <div *ngIf="isInvalidForm('password')" class="alert alert-danger">
+                                <div *ngIf="isRequired('password')">
+                                    Yêu cầu nhập mật khẩu .
+                                </div>
+                                <div *ngIf="loginForm.controls['password'].errors.pattern">
+                                    Yêu cầu nhập mật khẩu ít nhất 5 ký tự
+                                </div>
+                            </div>
+                            <div class="remember">
+                                <span class="checkbox1">
+                                    <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Nhớ mật
+                                        khẩu</label>
+                                </span>
+                                <div class="clear"> </div>
+                            </div>
+                            <button [disabled]="!loginForm.valid" value="Login" type="submit">
+                                Đăng Nhập
+                            </button>
+                        </form>
+                        <div class="header-left-top">
+                            <div class="sign-up">
+                                <h2>or</h2>
+                            </div>
                         </div>
-                        <div *ngIf="loginForm.controls['email'].errors.pattern">
-                            Yêu cầu nhập Email theo định dạng abc@gmail.com
+                        <div class="header-social wthree">
+                            <a href="{{urlLogin}}" class="face">
+                                <h5>
+                                    <img style="float: left;margin-right: 3px;" src="../../assets/img/g3.PNG"
+                                        width="25px" height="25px" alt="">
+                                    Google
+                                </h5>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" class="form-control" formControlName="password" placeholder="nhập mật khẩu"
-                        required />
-                    <div *ngIf="isInvalidForm('password')" class="alert alert-danger">
-                        <div *ngIf="isRequired('password')">
-                            Yêu cầu nhập mật khẩu .
-                        </div>
-                        <div *ngIf="loginForm.controls['password'].errors.pattern">
-                            Yêu cầu nhập mật khẩu ít nhất 5 ký tự
-                        </div>
-                    </div>
-                </div>
-                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success">
-                    Đăng Nhập
-                </button>
-                <br><br>
-                <!-- {{ URL::to('auth/google') }} -->
-                <a class="btn btn-link" href="{{urlLogin}}">
-                    <i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng Google
-                </a>
-                <br><br>
-                <div class="form-group">
-                    <H5 style="color: teal;">KHÁM PHÁ CÁC ĐỊA ĐIỂM DU LỊCH TRONG TẦM TAY BẠN</H5>
-                </div>
-            </form>
-            <div *ngIf="errors.length > 0" class="alert alert-danger">
-                <p *ngFor="let error of errors">
-                    {{error.detail}}
-                </p>
+
             </div>
         </div>
     </div>
-</div>
+    <!--header end here-->
+    <div class="copyright">
+        <p> Hãy trải nghiệm những chuyến đi trên website du lịch của chúng tôi <a href="http://w3layouts.com/"
+                target="_blank"> Website travel </a></p>
+    </div>
+    <!--footer end here-->
+</body>
+
+</html>

@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
 
   dataProduct: any = [];
   dataTotal: any = 0;
+  dataSoLuongTon: any = [];
   domain = environment.API_URL;
   user: any = '';
 
@@ -31,6 +32,7 @@ export class CardComponent implements OnInit {
         //this.deleteProductCart(params['product_id']);
       })
     this.auth.user$.subscribe(user => this.user = user)
+    this.getSoLuongTonKho();
   }
 
   getAllProductForCart() {
@@ -43,6 +45,9 @@ export class CardComponent implements OnInit {
               p.images = p.images.split("|")
               return p;
             })
+        }
+        else {
+          this.dataProduct = null;
         }
       }, err => { console.log(err) }
     );
@@ -73,7 +78,7 @@ export class CardComponent implements OnInit {
       product_id
     ).subscribe(
       (data) => {
-        //console.log(data);
+
       }, err => { console.log(err) }
     );
   }
@@ -97,4 +102,16 @@ export class CardComponent implements OnInit {
       this.router.navigateByUrl('/payment');
     }
   }
+
+  getSoLuongTonKho() {
+    this.cartService.getSoLuongTonKho(
+    ).subscribe(
+      (data) => {
+        this.dataSoLuongTon = data;
+        //console.log(this.dataSoLuongTon);
+      }, err => { console.log(err) }
+    );
+  }
+
 }
+

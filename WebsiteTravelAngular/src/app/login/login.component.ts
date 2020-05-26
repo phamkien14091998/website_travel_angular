@@ -18,7 +18,7 @@ export class LoginComponent {
     urlLogin = "";
 
     url = "/api/auth/google/callback${this.props.location.search}"
-
+  
     constructor(
         private auth: AuthenticationService,
         private fb: FormBuilder,
