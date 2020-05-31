@@ -36,6 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeTop10UsersComponent } from './home/home-top10-users/home-top10-users.component';
 import { PaymentComponent } from './payment/payment.component';
 import { HomeTop10PlacesComponent } from './home/home-top10-places/home-top10-places.component';
+import { MemberOrderComponent } from './member-orders/member-order/member-order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -74,6 +75,7 @@ const routes: Routes = [
     HomeTop10UsersComponent,
     PaymentComponent,
     HomeTop10PlacesComponent,
+    MemberOrderComponent,
   ],
   imports: [
     BrowserModule,

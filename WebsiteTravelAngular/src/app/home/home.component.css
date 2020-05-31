@@ -53,6 +53,16 @@
     height: 38px;
 }
 
+.btn-search:hover {
+    margin-right: 30px;
+    color: #43ac49;
+    background-color: white;
+    border: none;
+    width: 120px;
+    height: 38px;
+    border: 1px solid #43ac49;
+}
+
 /* end search banner */
 
 /* start slogan */
@@ -219,11 +229,27 @@
     color: #43ac49;
 }
 
-#post-review-footer {
+/* #post-review-footer {
     text-align: center;
+} */
+
+#b1 {
+    color: #43ac49;
+    background-color: white;
+    width: 130px;
+    height: 40px;
+    border: none;
+    font-weight: 600;
+    border: 1px solid #43ac49;
 }
 
-#post-review-footer button {
+#b1:hover {
+    background-color: #43ac49;
+    color: white;
+    border: 1px solid #43ac49;
+}
+
+#b2 {
     color: white;
     background-color: #43ac49;
     width: 130px;
@@ -232,7 +258,7 @@
     font-weight: 600;
 }
 
-#post-review-footer button:hover {
+#b2:hover {
     background-color: white;
     color: #43ac49;
     border: 1px solid #43ac49;
@@ -271,7 +297,7 @@
 
 #header-place {
     text-align: center;
-    margin-top: 55px;
+    padding-top: 10px;
 }
 
 .place-image img {

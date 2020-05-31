@@ -21,11 +21,14 @@
     </button>
   </div>
   <nav class="my-2 my-md-0 mr-md-3 link">
-    <a *ngIf="!auth.haveLogin()" routerLink="/login">Đăng Nhập</a>
+    <a *ngIf="!auth.haveLogin()" routerLink="/login"> <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      Đăng Nhập</a>
     <a style="margin-left: 15px;" *ngIf="!auth.haveLogin()" routerLink="/register">Đăng ký </a>
     <!-- <a> <img style="width: 40px;height: 40px;border-radius: 40px;" src="../../../assets/img/img_user.PNG"></a> -->
     <a *ngIf="auth.haveLogin()" id="menu">
-      {{user?.user_name}} <i class="fa fa-angle-down"></i>
+      <img src="{{domain}}/{{user?.avatar}}" width="25px" height="25px" style="border-radius: 20px;">
+      {{user?.user_name}}
+      <i class="fa fa-angle-down"></i>
       <ul class="sub-menu" *ngIf="user?.role == 0">
         <li><a *ngIf="auth.haveLogin()" routerLink="/member/info/detail/{{user?.user_id}}">Hồ sơ cá nhân</a></li>
         <li><a *ngIf="auth.haveLogin()" routerLink="/member/post/list">Quản lý bài viết</a></li>

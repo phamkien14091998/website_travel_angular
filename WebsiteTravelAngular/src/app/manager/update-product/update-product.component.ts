@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UpdateProductComponent implements OnInit {
   data_detailProduct: any = {};
-  data_portfolio: any = [];
+  data_portfolio: any = []; 
   domain = environment.API_URL;
 
   options: { content: FormData };

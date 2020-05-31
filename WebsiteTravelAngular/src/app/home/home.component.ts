@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { HomeService } from "./shared/home_service.service";
 import { StarRatingComponent } from 'ng-starrating';
+import { AuthenticationService } from "../authentication.service";
 
 
 @Component({
@@ -27,6 +28,7 @@ export class HomeComponent {
         private fb: FormBuilder,
         private router: Router,
         private toastr: ToastrService,
+        public auth: AuthenticationService
     ) { }
 
     ngOnInit(): void {

@@ -7,8 +7,8 @@
                     <form [formGroup]="createCollectionForm" (ngSubmit)="createCollection()">
                         <div class="row col-md-12 pd-t ">
                             <span class="col-md-4 text-center"><b>Bước 1: </b>Nhập Tên Bộ Sưu Tập</span>
-                            <input class="css_inp col-md-8 " type="text" placeholder="nhập tên bộ sưu tập" id=""
-                                formControlName="collection_name" />
+                            <input class="css_inp col-md-8 form-control" type="text" placeholder="nhập tên bộ sưu tập"
+                                id="" formControlName="collection_name" />
                             <div *ngIf="isInvalidForm('collection_name')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('collection_name')">
                                     Yêu cầu nhập tên bộ sưu tập .

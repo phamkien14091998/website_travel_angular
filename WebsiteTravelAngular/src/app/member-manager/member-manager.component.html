@@ -7,7 +7,7 @@
                 </div>
                 <div class="left-info">
                     <div id="user-avatar">
-                        <img src="../../assets/img/img_user.PNG">
+                        <img src="{{domain}}/{{userLogIn?.avatar}}">
                     </div>
                     <div id="user-name-name">
                         <span id="user-name">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10" id="personal-page-right">
+            <div class=" col-md-10" id="personal-page-right">
                 <div class="navbar-expand-lg nav-right" id="navbar-right">
                     <!-- *ngIf="user?.role==1 && auth.haveLogin()" -->
                     <!-- [ngClass]="{'active': selectedItem == 1}"

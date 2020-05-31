@@ -5,27 +5,27 @@
         style="height: 1000px; width: 100%; margin-top: 50px; padding-top: 10px; background-color: #ffff;">
         <div class="col-md-1">
         </div>
-        <div class="col-md-3 text-center" style="margin-top: 60px;">
-            <b *ngIf="dataTopUser[1]" style="color: #26c281;">{{dataTopUser[1].user_name}} ({{dataTopUser[1].sumPoint}}
+        <div *ngIf="dataTopUser[1]" class="col-md-3 text-center" style="margin-top: 60px;">
+            <b style="color: #26c281;">{{dataTopUser[1].user_name}} ({{dataTopUser[1].sumPoint}}
                 điểm)</b> <br>
             <div>
-                <img src="../../../assets/img/img_user.PNG" class="sty-i" alt="">
+                <img src="{{domain}}/{{dataTopUser[1].avatar}}" class="sty-i" alt="">
             </div>
             <img src="./assets/img/img-top2.PNG" width="100%" height="200px" alt="">
         </div>
-        <div class="col-md-4 text-center">
-            <b *ngIf="dataTopUser[0]" style="color: #26c281;">{{dataTopUser[0].user_name}} ({{dataTopUser[0].sumPoint}}
+        <div *ngIf="dataTopUser[0]" class="col-md-4 text-center">
+            <b style="color: #26c281;">{{dataTopUser[0].user_name}} ({{dataTopUser[0].sumPoint}}
                 điểm)</b> <br>
             <div>
-                <img src="../../../assets/img/img_user.PNG" class="sty-i" alt="">
+                <img src="{{domain}}/{{dataTopUser[0].avatar}}" class="sty-i" alt="">
             </div>
             <img src="./assets/img/img-top1.PNG" width="100%" height="260px" alt="">
         </div>
-        <div class="col-md-3 text-center" style="margin-top: 80px;">
-            <b *ngIf="dataTopUser[2]" style="color: #26c281;">{{dataTopUser[2].user_name}} ({{dataTopUser[2].sumPoint}}
+        <div *ngIf="dataTopUser[2]" class="col-md-3 text-center" style="margin-top: 80px;">
+            <b style="color: #26c281;">{{dataTopUser[2].user_name}} ({{dataTopUser[2].sumPoint}}
                 điểm)</b> <br>
             <div>
-                <img src="../../../assets/img/img_user.PNG" class="sty-i" alt="">
+                <img src="{{domain}}/{{dataTopUser[2].avatar}}" class="sty-i" alt="">
             </div>
             <img src="./assets/img/img-top3.PNG" width="100%" height="180px" alt="">
         </div>
@@ -33,69 +33,69 @@
         </div>
 
         <div class="row col-md-12" style="margin-top: 20px;">
-            <div class="col-md-4 text-center">
-                <b *ngIf="dataTopUser[3]" style="color: #26c281;">{{dataTopUser[3].user_name}}
+            <div *ngIf="dataTopUser[3]" class="col-md-4 text-center">
+                <b style="color: #26c281;">{{dataTopUser[3].user_name}}
                     ({{dataTopUser[3].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p text-center">Top 4</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[3].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <b *ngIf="dataTopUser[4]" style="color: #26c281;">{{dataTopUser[4].user_name}}
+            <div *ngIf="dataTopUser[4]" class="col-md-4 text-center">
+                <b style="color: #26c281;">{{dataTopUser[4].user_name}}
                     ({{dataTopUser[4].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p text-center">Top 5</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[4].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <b *ngIf="dataTopUser[5]" style="color: #26c281;">{{dataTopUser[5].user_name}}
+            <div *ngIf="dataTopUser[5]" class="col-md-4 text-center">
+                <b style="color: #26c281;">{{dataTopUser[5].user_name}}
                     ({{dataTopUser[5].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p text-center">Top 6</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[5].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
         </div>
         <div class="row col-md-12" style="margin-top: 20px;">
-            <div class="col-md-3 text-center">
-                <b *ngIf="dataTopUser[6]" style="color: #26c281;">{{dataTopUser[6].user_name}}
+            <div *ngIf="dataTopUser[6]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[6].user_name}}
                     ({{dataTopUser[6].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p2 text-center">Top 7</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[6].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
-            <div class="col-md-3 text-center">
-                <b *ngIf="dataTopUser[7]" style="color: #26c281;">{{dataTopUser[7].user_name}}
+            <div *ngIf="dataTopUser[7]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[7].user_name}}
                     ({{dataTopUser[7].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p2 text-center">Top 8</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[7].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
-            <div class="col-md-3 text-center">
-                <b *ngIf="dataTopUser[8]" style="color: #26c281;">{{dataTopUser[8].user_name}}
+            <div *ngIf="dataTopUser[8]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[8].user_name}}
                     ({{dataTopUser[8].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p2 text-center">Top 9</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[8].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
-            <div class="col-md-3 text-center">
-                <b *ngIf="dataTopUser[9]" style="color: #26c281;">{{dataTopUser[9].user_name}}
+            <div *ngIf="dataTopUser[9]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[9].user_name}}
                     ({{dataTopUser[9].sumPoint}}
                     điểm)</b> <br>
                 <p class="sty-p2 text-center">Top 10</p>
                 <div>
-                    <img src="../../../assets/img/img_user.PNG" class="sty-i2" alt="">
+                    <img src="{{domain}}/{{dataTopUser[9].avatar}}" class="sty-i2" alt="">
                 </div>
             </div>
         </div>

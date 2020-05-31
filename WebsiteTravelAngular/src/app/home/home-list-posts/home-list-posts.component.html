@@ -29,7 +29,7 @@
                 <div class="col-md-4" *ngFor="let dataPost of dataListPost" style="margin-bottom: 100px;">
                     <div class="a-post-review">
                         <a href="">
-                            <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
+                            <img class="post-review-avatar" src="{{domain}}/{{dataPost.avatar}}" />
                         </a>
                         <a href="">
                             <span class="a-post-fullname">{{dataPost.user_name}}</span>

@@ -8,14 +8,13 @@
             <form class="col-md-11" [formGroup]="searchPlaceForm" (ngSubmit)="searchPlace()">
                 <input type="text" class="col-md-9 form-control search-input-text" formControlName="title" id=""
                     placeholder="Nhập nơi bạn muốn đến ...">
-                <button type="submit" class="col-md-3 btn-search">Tìm kiếm</button>
+                <button type="submit" class="col-md-3 btn-search form-control">Tìm kiếm</button>
             </form>
 
         </div>
     </div>
 </div>
 <!-- end search banner -->
-
 <!-- start slogan -->
 <div id="slogan">
     <div class="row">
@@ -45,7 +44,6 @@
         </div>
     </div>
 </div>
-
 <div class="css-border col-md-12 col-sm-12">
     <div class="row col-md-12" style="margin-top: 50px;" *ngIf="title != ''">
         <h4 class="text-center" style="margin-bottom: 10px;" *ngIf="title != ''">
@@ -80,7 +78,7 @@
         <div class="col-md-4" *ngFor="let dataPost of dataListPost">
             <div class="a-post-review">
                 <a href="">
-                    <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
+                    <img class="post-review-avatar" src="{{domain}}/{{dataPost.avatar}}" />
                 </a>
                 <a href="">
                     <span class="a-post-fullname">{{dataPost.user_name}}</span>
@@ -100,7 +98,7 @@
                     <i class="fa fa-check-square-o"
                         style="margin-left: 35px; margin-right: 5px;"></i>{{dataPost.countRating}}
                     đánh
-                    giá 
+                    giá
                     <span class="text-primary" style="font-size: 25px; margin-left: 10px; padding-top: 8px;">
                         <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="dataPost.avgPoint"
                             [readonly]="false">
@@ -120,14 +118,19 @@
             </div>
         </div>
     </div>
-    <div id="post-review-footer" class="row col-md-12 text-center">
-        <div class="col-md-5"></div>
-        <button class="text-center col-md-2" style="width: 100px;" type="button" routerLink="/post">Xem thêm</button>
-        <div class="col-md-5"></div>
+    <div class="row col-md-12 text-center">
+        <div class="col-md-4"></div>
+        <button class="text-center b1 col-md-2" id="b1" style="width: 100px; margin-right: 5px;" type="button"
+            routerLink="/post">Xem thêm</button>
+        <button *ngIf="auth.haveLogin()" class="text-center b2 col-md-2" id="b2" style="width: 100px; margin-left: 5px;"
+            type="button" routerLink="/member/post/new">
+            <i class="fa fa-plus-circle fs-18" aria-hidden="true"></i>
+            Đăng bài
+        </button>
+        <div class="col-md-4"></div>
     </div>
 </div>
 <!-- end post review -->
-
 <!-- start place -->
 <div id="place">
     <div id="header-place">
