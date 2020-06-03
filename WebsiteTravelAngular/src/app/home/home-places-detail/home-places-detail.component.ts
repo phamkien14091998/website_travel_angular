@@ -93,7 +93,7 @@ export class HomePlacesDetailComponent implements OnInit {
     this.homeService.getListPlaceByProvinceIdNew(
       body
     ).subscribe(
-      (data) => { 
+      (data) => {
         console.log(data);
 
         this.dataListPlacebyProvince = data.map(p => {

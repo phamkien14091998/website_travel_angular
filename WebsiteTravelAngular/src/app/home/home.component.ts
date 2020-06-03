@@ -23,6 +23,9 @@ export class HomeComponent {
     dataSearchPlace: any = []
     title = ''
 
+    dataStatistical = []
+
+
     constructor(
         private homeService: HomeService,
         private fb: FormBuilder,
@@ -36,11 +39,14 @@ export class HomeComponent {
         this.getAllPost();
         this.getAllProvince();
         this.initForm();
+        this.getStatistical();
     }
     // get 9 bài viết đã duyệt giamr dần theo số rating đánh giá
     getAllPost() {
         this.homeService.getAllPostDuyet().subscribe(
             (data) => {
+                console.log(data);
+
                 this.dataListPost = data.map(p => {
                     p.images = p.images.split("|")
                     return p;
@@ -84,7 +90,6 @@ export class HomeComponent {
             title
         ).subscribe(
             (data) => {
-                console.log(data);
                 this.title = this.searchPlaceForm.value.title
                 this.dataSearchPlace = data.map(p => {
                     p.images = p.images.split("|")
@@ -97,7 +102,14 @@ export class HomeComponent {
 
             }
         )
-
+    }
+    // thống kê tất cả 
+    getStatistical() {
+        this.homeService.getStatistical().subscribe(
+            (data) => {
+                this.dataStatistical = data
+            }
+        )
     }
 
 

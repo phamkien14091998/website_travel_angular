@@ -119,6 +119,7 @@ const routes: Routes = [
         UpdateScheduleComponent,
         UpdateScheduleDetailComponent,
         UpdateCollectionComponent,
+        MemberOrderComponent
 
     ],
     imports: [

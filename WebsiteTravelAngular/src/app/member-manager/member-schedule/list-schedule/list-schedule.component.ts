@@ -32,24 +32,21 @@ export class ListScheduleComponent implements OnInit {
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
     this.getListScheduleByUser();
   }
-
-   
   // get all collection
   getListScheduleByUser() {
-    // console.log(this.user.user_id);
+    const user_id = {
+      'user_id': this.user.user_id
+    }
 
     this.scheduleService.getListScheduleByUser(
-      this.user.user_id
+      user_id
     ).subscribe(
       (data) => {
-        console.log(data);
-
 
         this.dataListSchedule = data
       }, err => { console.log(err) }
     );
   }
-
   //delete schedule
   deleteSchedule(trip_id: string) {
     this.scheduleService.deleteSchedule(trip_id).subscribe(

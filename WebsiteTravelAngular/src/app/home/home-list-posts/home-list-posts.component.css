@@ -379,11 +379,11 @@
 
 .post-review-date {
     border: 1px solid black;
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
 .a-post-calendar {
-    margin-left: 15px;
+    margin-left: 0px;
 }
 
 .text {

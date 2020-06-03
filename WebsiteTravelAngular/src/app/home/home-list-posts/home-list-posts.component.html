@@ -25,33 +25,37 @@
         <!-- end slogan -->
         <br><br>
         <div id="post-review" class="row" style="height: 1200px; overflow-x: auto;">
-            <div class="row" style="margin-top: 150px;">
-                <div class="col-md-4" *ngFor="let dataPost of dataListPost" style="margin-bottom: 100px;">
+            <div class="row" style="margin-top: 20px;">
+                <!-- <ng-container *ngFor="let ca of dataCountComment"> -->
+                <div class="col-md-4" *ngFor="let data of dataListPost" style="margin-bottom: 100px;">
                     <div class="a-post-review">
                         <a href="">
-                            <img class="post-review-avatar" src="{{domain}}/{{dataPost.avatar}}" />
+                            <img class="post-review-avatar" src="{{domain}}/{{data.avatar}}" />
                         </a>
                         <a href="">
-                            <span class="a-post-fullname">{{dataPost.user_name}}</span>
+                            <span class="a-post-fullname">{{data.user_name}}</span>
                         </a>
                         <br />
-                        <a routerLink="/detail-post/{{dataPost.post_id}}">
-                            <img class="post-review-image" src="{{domain}}/{{dataPost.images[0]}}" />
+                        <a routerLink="/detail-post/{{data.post_id}}">
+                            <img class="post-review-image" src="{{domain}}/{{data.images[0]}}" />
                         </a>
-                        <a routerLink="/detail-post/{{dataPost.post_id}}">
-                            <h6 class="a-post-title">{{dataPost.title}}</h6>
+                        <a routerLink="/detail-post/{{data.post_id}}">
+                            <h6 class="a-post-title">{{data.title}}</h6>
                         </a>
                         <div class="a-post-detail">
-                            <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
-                            <!-- <i class="fa fa-commenting" aria-hidden="true"></i> {{dataPost.countComment/2}} quan tâm -->
                             <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
-                            <span class="post-review-date">{{dataPost.created_at}}</span>
+                            <span class="post-review-date">{{data.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
+                            <i class="fa fa-eye" aria-hidden="true" style="margin-left: 2px;"></i> {{data.viewer}}
+                            <span>
+                                <i class="fa fa-commenting" aria-hidden="true" style="margin-left: 2px;"></i>
+                                {{data.countComment}}
+                            </span>
                             <i class="fa fa-check-square-o"
-                                style="margin-left: 10px; margin-right: 5px;"></i>{{dataPost.countRating}}
+                                style="margin-left: 2px; margin-right: 2px;"></i>{{data.countRating}}
                             đánh
                             giá
-                            <span class="text-primary" style="font-size: 20px; margin-left: 10px; padding-top: 8px;">
-                                <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="dataPost.avgPoint"
+                            <span class="text-primary" style="font-size: 20px; margin-left: 5px; padding-top: 8px;">
+                                <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="data.avgPoint"
                                     [readonly]="false">
                                 </ngb-rating>
                             </span>
@@ -60,7 +64,7 @@
                         <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
                             <a class="link-manga"
                                 style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;"
-                                routerLink="/detail-post/{{dataPost.post_id}}">
+                                routerLink="/detail-post/{{data.post_id}}">
                                 <span class="blink_me">＞＞</span>
                                 <span>Xem Bài Viết</span>
                                 <span class="blink_me">＜＜</span>
@@ -68,6 +72,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- </ng-container> -->
             </div>
             <!-- <div id="post-review-footer" class="row col-md-12 text-center">
                 <div class="col-md-5"></div>

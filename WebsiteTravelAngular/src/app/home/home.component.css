@@ -383,3 +383,16 @@
 .filled.bad {
     color: #ff1e1e;
 }
+
+.css-h5:hover {
+    color: aqua;
+}
+
+.css-div-f {
+    padding-top: 20px;
+    padding-right: 30px;
+    height: 100px;
+    background-color: #ffff;
+    margin-left: 0px;
+    padding-left: 30px;
+}

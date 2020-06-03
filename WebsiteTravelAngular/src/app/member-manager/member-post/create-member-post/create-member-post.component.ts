@@ -35,7 +35,6 @@ export class CreateMemberPostComponent implements OnInit {
     '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '24:00',
   ];
 
-
   constructor(
     private postService: MemberPostService,
     private fb: FormBuilder,
@@ -49,7 +48,6 @@ export class CreateMemberPostComponent implements OnInit {
     this.initForm();
     this.getProvince();
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
-
   }
 
   initForm() {
@@ -87,19 +85,17 @@ export class CreateMemberPostComponent implements OnInit {
   getProvince() {
     this.postService.getProvince().subscribe(
       (data) => {
-        // console.log(data);
+
         this.dataProvince = data;
       }
     )
   }
 
   createProvince() {
-    // console.log(this.createProvinceForm.value.province_id)
     this.postService.getPlaceByProvinceId(
       this.createProvinceForm.value
     ).subscribe(
       (data) => {
-        console.log(data);
 
         this.dataPlace = data;
       },
@@ -113,8 +109,6 @@ export class CreateMemberPostComponent implements OnInit {
       formData.append('fileUpload[]', this.myFiles[i]);
 
     }
-    // console.log(formData);
-
     formData.append('title', this.createPostForm.controls['title'].value);
     formData.append('famous_place_id', this.createPostForm.controls['famous_place_id'].value);
     formData.append('duration', this.createPostForm.controls['duration'].value);
@@ -149,14 +143,12 @@ export class CreateMemberPostComponent implements OnInit {
     )
   }
 
-
   // imageUpload
   onFileSelect(event) {
     for (let i = 0; i < (event.target.files.length); i++) {
       this.file = event.target.files[i];
       this.myFiles.push(event.target.files[i]);
       this.createPostForm.get('profile').setValue(this.myFiles);
-
     }
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from "../share/member_service.service";
 import { AuthenticationService } from "../../authentication.service";
-import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-member-order',
@@ -25,11 +24,11 @@ export class MemberOrderComponent implements OnInit {
 
   getAllOrder() {
     this.memberService.getAllOrder(
-      this.user.user_id
+      this.user?.user_id
     ).subscribe(
       (data) => {
         //data.images = data.images.split('|')
-        this.dataListProduct = data
+        this.dataListProduct = data 
         console.log(this.dataListProduct);
       }, err => { console.log(err) }
     );

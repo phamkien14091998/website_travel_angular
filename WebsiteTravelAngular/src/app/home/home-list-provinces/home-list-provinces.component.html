@@ -9,12 +9,16 @@
                     <div style="padding-bottom: 20px;" class="col-md-3" *ngFor="let dataProvince of dataListProvince">
                         <div class="place-image" routerLink="/province/detail/{{dataProvince.province_id}}">
                             <a><img src="{{domain}}/{{dataProvince.image}}"></a>
-                            <h5 style="color: #ffffff;;padding-top: 180px;font-size: 30px;">
-                                {{dataProvince.province_name}}</h5>
+                            <h5 class="css-h5"
+                                style="color: #ffffff;padding-top: 160px;font-size: 30px;padding-left: 5px;">
+                                {{dataProvince.province_name}}
+                                <p style="font-size: 15px; padding-left: 5px;">({{dataProvince.countPlace}} điểm tham
+                                    quan)</p>
+                            </h5>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

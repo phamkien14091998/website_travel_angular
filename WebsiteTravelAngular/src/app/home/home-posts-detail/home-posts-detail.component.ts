@@ -58,10 +58,14 @@ export class HomePostsDetailComponent implements OnInit {
       (data) => {
         data.images = data.images.split('|')
         this.dataDetailPost = data
-        // console.log(this.dataDetailPost);
+
         this.getAllCommentByPostId()
         this.checkUserRatingPost(); // kiểm tra xem user đã đánh giá bài viết chưa và đưa ngược lên để hiển thị
         this.getAllRatingPost();  // lấy ra tất cả đánh giá về bài post
+        console.log(this.dataDetailPost);
+
+        // update viewer xem bài viết
+        this.updateViewer();
 
       }, err => { console.log(err) }
     );
@@ -69,16 +73,12 @@ export class HomePostsDetailComponent implements OnInit {
   }
   // lấy tất cả comment by post id
   getAllCommentByPostId() {
-    // console.log(this.dataDetailPost);
-
     this.post_id = this.dataDetailPost?.post_id
-    //console.log(this.post_id);
 
     this.home_service.getAllCommentByPostId(
       this.post_id
     ).subscribe(
       (data) => {
-        // console.log(data);
         this.dataListComment = data
       }
     )
@@ -109,7 +109,7 @@ export class HomePostsDetailComponent implements OnInit {
       body
     ).subscribe(
       (data) => {
-        // console.log(data);
+
         this.dataListComment.unshift(data);
         this.createCommentForm.patchValue({ content: '' })
         // location.reload()
@@ -133,11 +133,10 @@ export class HomePostsDetailComponent implements OnInit {
   }
 
   onRate(e) {
-    console.log('aaaaaaaaaaa');
-  }
 
+  }
   rate(e) {
-    console.log('ccccccccccc');
+
   }
   // gửi sao lên lưu
   submitRating() {
@@ -148,12 +147,11 @@ export class HomePostsDetailComponent implements OnInit {
       'user_id': this.user.user_id
     }
 
-    // console.log(body);
     this.home_service.createRating(
       body
     ).subscribe(
       (data) => {
-        console.log(data);
+
         this.currentNew = data.point // khi gửi sao lên thì sẽ lấy đc point và gán lại để button bên view nó ẩn
 
         this.dataListrate.unshift(data);
@@ -171,12 +169,10 @@ export class HomePostsDetailComponent implements OnInit {
       'user_id': this.user.user_id
     }
 
-    // console.log(body);
     this.home_service.updateRating(
       body
     ).subscribe(
       (data) => {
-        console.log(data);
 
         this.dataListrate.splice(data, 1);
         this.dataListrate.unshift(data);
@@ -195,18 +191,15 @@ export class HomePostsDetailComponent implements OnInit {
       'post_id': this.dataDetailPost.post_id,
       'user_id': this.user?.user_id
     }
-    console.log(body);
 
     this.home_service.checkUserRatingPost(body).subscribe(
       (data) => {
-        console.log(data);
         if (data == 0) {
           this.currentNew = 0
         }
         if (data.point) {
           this.currentNew = data.point
         }
-        // console.log(this.currentNew);
       }
     )
   }
@@ -223,11 +216,26 @@ export class HomePostsDetailComponent implements OnInit {
     ).subscribe(
       (data) => {
         this.dataListrate = data;
-        console.log(this.dataListrate);
 
       }
     )
+  }
+  // update viewer xem baif vieets
+  updateViewer() {
+    var viewer_new = this.dataDetailPost?.viewer + 1;
+    console.log(viewer_new);
 
+    var body = {
+      'post_id': this.dataDetailPost?.post_id,
+      'viewer': viewer_new
+    }
+    this.home_service.updateViewer(
+      body
+    ).subscribe(
+      () => {
+
+      }
+    )
   }
 
 }

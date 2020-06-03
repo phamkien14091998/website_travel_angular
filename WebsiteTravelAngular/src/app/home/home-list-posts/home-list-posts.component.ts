@@ -13,6 +13,7 @@ export class HomeListPostsComponent implements OnInit {
   dataListProvince: any = [];
   dataList11Province: any = [];
   dataListPost: any = [];
+  data = []
   domain = environment.API_URL;
 
   constructor(
@@ -41,7 +42,7 @@ export class HomeListPostsComponent implements OnInit {
     ).subscribe(
       (data) => {
         this.dataList11Province = data
-        console.log(this.dataList11Province);
+        // console.log(this.dataList11Province);
       }, err => { console.log(err) }
     );
   }
@@ -55,6 +56,7 @@ export class HomeListPostsComponent implements OnInit {
           return p;
         })
         console.log(this.dataListPost);
+
       }, err => { console.log(err) }
     );
   }

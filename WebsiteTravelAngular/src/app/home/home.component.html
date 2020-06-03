@@ -91,12 +91,16 @@
                     <h6 class="a-post-title">{{dataPost.title}}</h6>
                 </a>
                 <div class="a-post-detail">
-                    <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
-                    <!-- <i class="fa fa-commenting" aria-hidden="true"></i> {{dataPost.countComment/2}} quan tâm -->
                     <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
                     <span class="post-review-date">{{dataPost.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
+                    <span><i class="fa fa-eye" aria-hidden="true" style="margin-left: 3px;"></i>
+                        {{dataPost.viewer}}</span>
+                    <span>
+                        <i class="fa fa-commenting" aria-hidden="true" style="margin-left: 5px;"></i>
+                        {{dataPost.countComment}}
+                    </span>
                     <i class="fa fa-check-square-o"
-                        style="margin-left: 35px; margin-right: 5px;"></i>{{dataPost.countRating}}
+                        style="margin-left: 10px; margin-right: 5px;"></i>{{dataPost.countRating}}
                     đánh
                     giá
                     <span class="text-primary" style="font-size: 25px; margin-left: 10px; padding-top: 8px;">
@@ -141,8 +145,11 @@
         <div style="padding-bottom: 20px;" class="col-md-3" *ngFor="let dataProvince of dataListProvince">
             <div class="place-image" routerLink="/province/detail/{{dataProvince.province_id}}">
                 <a><img src="{{domain}}/{{dataProvince.image}}"></a>
-                <h5 style="color: #ffffff;;padding-top: 180px;font-size: 30px;">{{dataProvince.province_name}}
+                <h5 class="css-h5" style="color: #ffffff;padding-top: 160px;font-size: 30px;">
+                    {{dataProvince.province_name}}
+                    <p style="font-size: 15px; padding-left: 5px;">({{dataProvince.countPlace}} điểm tham quan)</p>
                 </h5>
+
             </div>
         </div>
     </div>
@@ -151,3 +158,30 @@
     </div>
 </div>
 <!-- end place -->
+<!-- start tong hop  -->
+<div class="row col-md-12 col-sm-12 css-div-f">
+    <div class="col-md-2" style="color: #5d5d58;">
+        <b>Thống kê từ <br> Website Travel</b>
+    </div>
+    <div *ngIf="dataStatistical[3]" class="col-md-2">
+        <img src="../../assets/img/img_member.PNG" alt="">
+        <b>{{dataStatistical[3][0].countUser}}</b> <span style="color: #5d5d58;"> thành viên</span>
+    </div>
+    <div *ngIf="dataStatistical[0]" class="col-md-2">
+        <img src="../../assets/img/img_province.PNG" alt="">
+        <b>{{dataStatistical[0][0].countProvince}}</b> <span style="color: #5d5d58;"> tỉnh thành</span>
+    </div>
+    <div *ngIf="dataStatistical[1]" class="col-md-2">
+        <img src="../../assets/img/img_places.PNG" alt="">
+        <b>{{dataStatistical[1][0].countPlace}}</b> <span style="color: #5d5d58;"> địa điểm</span>
+    </div>
+    <div *ngIf="dataStatistical[2]" class="col-md-2">
+        <img src="../../assets/img/img_post.PNG" alt="">
+        <b>{{dataStatistical[2][0].countPost}}</b> <span style="color: #5d5d58;"> bài đăng</span>
+    </div>
+    <div *ngIf="dataStatistical[4]" class="col-md-2">
+        <img src="../../assets/img/img-search.PNG" alt="">
+        <b>{{dataStatistical[4][0].countRating}}</b> <span style="color: #5d5d58;"> đánh giá bài post</span>
+    </div>
+</div>
+<!-- end tong hop  -->

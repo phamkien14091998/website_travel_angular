@@ -76,7 +76,6 @@ export class HomeService {
     }
     // kiểm tra xem bài viết đó user đang đăng nhập đã đánh giá hay chưa
     public checkUserRatingPost(data: any): Observable<any> {
-        // console.log(data);
         return this.http.post(`/api/rating/check`, data);
     }
     // sửa đánh giá cho bài viết
@@ -119,7 +118,14 @@ export class HomeService {
     public getTop10Place(): Observable<any> {
         return this.http.get(`/api/place/top-10`);
     }
-
+    // thống kê tất cả 
+    public getStatistical(): Observable<any> {
+        return this.http.get(`/api/product/statistical`);
+    }
+    // update viewer 
+    public updateViewer(post_id: any): Observable<any> {
+        return this.http.post(`/api/post/updateViewer`, post_id);
+    }
 
 }
 

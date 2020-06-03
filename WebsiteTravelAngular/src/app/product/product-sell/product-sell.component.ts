@@ -60,8 +60,8 @@ export class ProductSellComponent implements OnInit {
   }
 
 
-  getListProductNew() {
-    this.productService.getListProductNew().subscribe(
+  async getListProductNew() {
+    await this.productService.getListProductNew().subscribe(
       (data) => {
         this.dataProduct = data.map(p => {
           p.images = p.images.split("|")
@@ -91,8 +91,8 @@ export class ProductSellComponent implements OnInit {
     );
   }
   // lấy ra  16 sản phẩm bán chạy nhất
-  getListProductRevenue() {
-    this.productService.getListProductRevenue().subscribe(
+  async getListProductRevenue() {
+    await this.productService.getListProductRevenue().subscribe(
       (data) => {
         this.dataProductRevenue = data.map(p => {
           p.images = p.images.split("|")
@@ -121,8 +121,8 @@ export class ProductSellComponent implements OnInit {
     );
   }
   // lấy ra list thể loại
-  getProductPortfolio() {
-    this.productService.getProductPortfolio().subscribe(
+  async getProductPortfolio() {
+    await this.productService.getProductPortfolio().subscribe(
       (data) => {
         this.data_portfolio = data;
       }
