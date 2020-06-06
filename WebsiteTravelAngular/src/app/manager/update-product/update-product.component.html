@@ -1,13 +1,13 @@
 <div class="body-product">
     <div class="row">
         <div class=" col-md-12">
-            <fieldset class="css-fieldset">
-                <legend class="col-md-12">Sửa SẢN PHẨM</legend>
+            <fieldset class="css-fieldset" style="background-color: #ffff;">
+                <legend class="col-md-12" style="background-color: #ffff;">Sửa SẢN PHẨM</legend>
                 <div class="css-h row col-md-12">
                     <form [formGroup]="updateProductForm" (ngSubmit)="updateProduct()">
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Sản Phẩm </span>
-                            <input class="css_inp col-md-9 " type="text" placeholder="nhập tên sản phẩm" id=""
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập tên sản phẩm" id=""
                                 name="product_name" formControlName="product_name" />
                             <!-- <div *ngIf="isInvalidForm('product_name')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('product_name')">
@@ -18,7 +18,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Giá </span>
-                            <input class="css_inp col-md-9 " type="text" placeholder="nhập giá sản phẩm" id=""
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập giá sản phẩm" id=""
                                 name="price" formControlName="price" />
                             <!-- <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('price')">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Số Lượng </span>
-                            <input class="css_inp col-md-9" type="text" placeholder="nhập số lượng " id=""
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập số lượng " id=""
                                 name="quantity" formControlName="quantity" />
                             <!-- <div *ngIf="isInvalidForm('quantity')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('quantity')">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Hình Ảnh </span>
-                            <input class="css_inp col-md-9 " type="file" placeholder="" id=""
+                            <input class="css_inp col-md-9 form-control" type="file" placeholder="" id=""
                                 (change)="onFileSelect($event)" name="profile" multiple />
 
                             <span style="margin-top: 5px; margin-left: 290px; color: red;" class="col-md-12 ">
@@ -47,7 +47,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thể Loại </span>
-                            <select class="css_inp col-md-9 " id="portfolio_id" title="--chọn thể loại--"
+                            <select class="css_inp col-md-9 form-control" id="portfolio_id" title="--chọn thể loại--"
                                 formControlName="portfolio_id">
 
                                 <!-- <ng-container *ngFor="let data of data_portfolio"> -->
@@ -60,7 +60,7 @@
 
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Mô Tả </span>
-                            <textarea class=" col-md-9 " type="text" rows="8" placeholder="nhập mô tả" id=""
+                            <textarea class=" col-md-9 form-control" type="text" rows="8" placeholder="nhập mô tả" id=""
                                 formControlName="description">
 
                             </textarea>

@@ -1,8 +1,8 @@
 <div class="body-product">
     <div class="row">
         <div class="col-md-12">
-            <fieldset class="css-fieldset">
-                <legend class="col-md-12">QUẢN LÝ SẢN PHẨM</legend>
+            <fieldset class="css-fieldset" style="background-color: #ffff;">
+                <legend class="col-md-12" style="background-color: #ffff;">QUẢN LÝ SẢN PHẨM</legend>
                 <div class="css-h row col-md-12">
                     <div class="col-md-1">
 
@@ -19,7 +19,7 @@
                                 <option name=""></option>
                                 <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
                                     {{data.portfolio_name}}
-                                </option> 
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -75,7 +75,7 @@
                                     <button type="button" class="css-b btn btn-danger" (click)="productDeleteIndex = i"
                                         *ngIf="productDeleteIndex !== i">Xóa
                                     </button>
-                                    <br><br> 
+                                    <br><br>
                                     <div *ngIf="productDeleteIndex === i">
                                         <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
                                         <button (click)="deleteProduct(data.product_id)"

@@ -148,10 +148,10 @@
         </div>
         <div class="col-md-2" *ngIf="auth.haveLogin()">
             <span *ngIf="currentNew ==0">
-                <button class="btn btn-success" type="button" (click)="submitRating()">Gửi</button>
+                <button class="btn btn-success hoverSubmit" type="button" (click)="submitRating()">Gửi</button>
             </span>
             <span *ngIf="currentNew !=0">
-                <button class="btn btn-success" type="button" (click)="updateRating()">Sửa</button>
+                <button class="btn btn-success hoverUpdate" type="button" (click)="updateRating()">Sửa</button>
             </span>
         </div>
     </div>
@@ -178,7 +178,7 @@
                     </ng-template>
                 </div>
                 <div class="col-md-2">
-                    <button class="col-md-12" type="submit" class="btn btn-success" *ngIf="auth.haveLogin()">
+                    <button class="col-md-12" type="submit" class="btn btn-success hoverCmt" *ngIf="auth.haveLogin()">
                         Bình luận
                     </button>
                 </div>
@@ -189,6 +189,18 @@
                 <b>Tất cả bình luận</b>
             </div>
             <div class="row" id="list-comment" *ngFor="let lc of dataListComment ; let i = index" [attr.data-index]="i">
+                <div class="row col-md-12" id="updateConment" *ngIf="lc.user_id==user?.user_id " style="display: none;">
+                    <input type="text" class="col-md-4 form-control" id="content"
+                        style="padding-left: 20px;width: 50%; margin-right: 10px; float: left; margin-left: 20px;"
+                        *ngIf="auth.haveLogin()" [value]="content">
+                    <button type="submit" class="btn btn-success hoverUpdateCmt" *ngIf="auth.haveLogin()" (click)="updateCMT()">
+                        Cập nhật
+                    </button>
+                    <button type="submit" class="btn btn-danger hoverCancelCmt" *ngIf="auth.haveLogin()" (click)="cancel()"
+                        style="margin-left: 10px;">
+                        Hủy
+                    </button>
+                </div>
                 <div class="col-md-1 comment-avatar">
                     <img src="../../../assets/img/img_user.PNG">
                 </div>
@@ -199,10 +211,14 @@
                     </div>
                     <div class="comment-user-content">
                         {{lc.content}}
-
                         <a type="button" style="text-decoration: none; color: red;" (click)="commentDeleteIndex = i"
-                            *ngIf="commentDeleteIndex !== i">
+                            *ngIf="commentDeleteIndex !== i && auth.haveLogin()">
                             <i *ngIf="lc.user_id==user?.user_id" class="fa fa-trash">
+                            </i>
+                        </a>
+                        <a (click)="openUpdateComment(lc.comment_id,lc.content)" type="button" *ngIf="auth.haveLogin()"
+                            style="text-decoration: none; color: rgb(38, 218, 98); margin-left: 5px;">
+                            <i *ngIf="lc.user_id==user?.user_id" aria-hidden="true" class="fa fa-pencil-square-o">
                             </i>
                         </a>
                         <div *ngIf="commentDeleteIndex === i">
@@ -213,6 +229,7 @@
                             <button style="width: 80px; " (click)="commentDeleteIndex = undefined"
                                 class="btn btn-danger">Không</button>
                         </div>
+
                     </div>
                 </div>
             </div>

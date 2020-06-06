@@ -16,3 +16,9 @@
     height: 900px;
     overflow: auto;
 }
+
+.hover1:hover {
+    background-color: #ffff;
+    color: #43ac49;
+    font-size: 18px;
+}

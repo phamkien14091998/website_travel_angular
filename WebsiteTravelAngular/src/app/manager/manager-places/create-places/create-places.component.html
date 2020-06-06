@@ -1,14 +1,14 @@
 <div class="body-product">
     <div class="row">
         <div class=" col-md-12">
-            <fieldset class="css-fieldset">
-                <legend class="col-md-12">THÊM ĐỊA ĐIỂM</legend>
+            <fieldset class="css-fieldset" style="background-color: #ffff;">
+                <legend class="col-md-12" style="background-color: #ffff;">THÊM ĐỊA ĐIỂM</legend>
                 <div class="css-h row col-md-12">
                     <form [formGroup]="createPlaceForm" (ngSubmit)="createPlace()">
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Địa Điểm </span>
-                            <input class="css_inp col-md-9 " type="text" placeholder="nhập tên địa điểm" id=""
-                                name="title" formControlName="title" />
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập tên địa điểm"
+                                id="" name="title" formControlName="title" />
                             <div *ngIf="isInvalidForm('title')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('title')">
                                     Yêu cầu nhập tên địa điểm .
@@ -17,7 +17,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Thời Gian Mở </span>
-                            <select class="css_inp col-md-9 " id="date_start" title="--- Chọn giờ mở ---"
+                            <select class="css_inp col-md-9 form-control" id="date_start" title="--- Chọn giờ mở ---"
                                 formControlName="date_start">
                                 <option *ngFor="let date_st of date_array" value="{{date_st}}">
                                     {{date_st}}
@@ -31,7 +31,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thời Gian Đóng</span>
-                            <select class="css_inp col-md-9 " id="date_end" title="--- Chọn giờ đóng ---"
+                            <select class="css_inp col-md-9 form-control" id="date_end" title="--- Chọn giờ đóng ---"
                                 formControlName="date_end">
                                 <option *ngFor="let date_st of date_array" value="{{date_st}}">
                                     {{date_st}}
@@ -45,40 +45,40 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Văn Hóa</span>
-                            <textarea class=" col-md-9 " type="text" rows="5" placeholder="nhập văn hóa" id=""
-                                name="cultural" formControlName="cultural">
+                            <textarea class=" col-md-9 form-control" type="text" rows="5" placeholder="nhập văn hóa"
+                                id="" name="cultural" formControlName="cultural">
                             </textarea>
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thời Tiết</span>
-                            <textarea class=" col-md-9 " type="text" rows="5" placeholder="nhập thời tiết" id=""
-                                name="weather" formControlName="weather">
+                            <textarea class=" col-md-9 form-control" type="text" rows="5" placeholder="nhập thời tiết"
+                                id="" name="weather" formControlName="weather">
                             </textarea>
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Phương Tiện Đi Lại</span>
-                            <textarea class=" col-md-9 " type="text" rows="5"
+                            <textarea class=" col-md-9 form-control" type="text" rows="5"
                                 placeholder="nhập phương tiện có thể đi lại trong đó" id="" name="vehicle"
                                 formControlName="vehicle">
                             </textarea>
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Ẩm Thực</span>
-                            <textarea class=" col-md-9 " type="text" rows="5" placeholder="nhập ẩm thực nơi đó" id=""
-                                name="cuisine" formControlName="cuisine">
+                            <textarea class=" col-md-9 form-control" type="text" rows="5"
+                                placeholder="nhập ẩm thực nơi đó" id="" name="cuisine" formControlName="cuisine">
                             </textarea>
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Lời Khuyên</span>
-                            <textarea class=" col-md-9 " type="text" rows="5"
+                            <textarea class=" col-md-9 form-control " type="text" rows="5"
                                 placeholder="nhập lời khuyên khi đến địa điểm" id="" name="advice"
                                 formControlName="advice">
                             </textarea>
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Hình Ảnh Địa Điểm</span>
-                            <input class="css_inp col-md-9 " type="file" placeholder="" id="" name="profile" multiple
-                                (change)="onFileSelect($event)" />
+                            <input class="css_inp col-md-9 form-control" type="file" placeholder="" id="" name="profile"
+                                multiple (change)="onFileSelect($event)" />
                             <span style="margin-top: 5px; margin-left: 290px; color: red;" class="col-md-12 ">
                                 Chọn 3 hình ảnh cho địa điểm
                             </span>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Tỉnh </span>
-                            <select class="css_inp col-md-9 " id="province_id" title="--- Chọn Tỉnh ---"
+                            <select class="css_inp col-md-9 form-control" id="province_id" title="--- Chọn Tỉnh ---"
                                 formControlName="province_id">
                                 <option *ngFor="let data of dataProvince" value="{{data.province_id}}">
                                     {{data.province_name}}
@@ -105,7 +105,7 @@
 
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Mô Tả </span>
-                            <textarea class=" col-md-9 " type="text" rows="5" placeholder="nhập mô tả" id=""
+                            <textarea class=" col-md-9 form-control" type="text" rows="5" placeholder="nhập mô tả" id=""
                                 name="description" formControlName="description">
                             </textarea>
                             <!-- <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">

@@ -28,6 +28,8 @@ export class HomePostsDetailComponent implements OnInit {
   currentNew = 0  // số đánh giá mà user mới đánh giá
   dataListrate: any = [] // danh sách tất cả đánh giá
   // 
+  comment_id
+  content
 
 
   constructor(
@@ -79,6 +81,8 @@ export class HomePostsDetailComponent implements OnInit {
       this.post_id
     ).subscribe(
       (data) => {
+        console.log(data);
+
         this.dataListComment = data
       }
     )
@@ -237,6 +241,40 @@ export class HomePostsDetailComponent implements OnInit {
       }
     )
   }
+  // update comment 1
+  openUpdateComment(id, ct) {
+    document.getElementById('updateConment').style.display = "block";
+    this.comment_id = id
+    this.content = ct
+  }
+  // hủy cmt
+  cancel() {
+    document.getElementById('updateConment').style.display = "none";
+  }
+  // update comment 2
+  updateCMT() {
+    var content = (<HTMLInputElement>document.getElementById("content")).value;
+    this.comment_id
+    document.getElementById('updateConment').style.display = "none";
+    var body = {
+      'comment_id': this.comment_id,
+      'content': content,
+      'post_id': this.dataDetailPost?.post_id,
+    }
+
+    this.home_service.updateCommentByid(
+      body
+    ).subscribe(
+      (data) => {
+        console.log(data)
+        this.dataListComment = data;
+
+        // location.reload()
+      }
+    )
+
+  }
+
 
 }
 

@@ -146,4 +146,29 @@
     margin-left: -50px;
 }
 
+.hoverCmt:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverSubmit:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverUpdate:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverUpdateCmt:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverCancelCmt:hover {
+    background-color: #ffff;
+    color: red;
+}
+
 /* end comment */

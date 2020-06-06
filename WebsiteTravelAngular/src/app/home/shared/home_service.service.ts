@@ -126,6 +126,10 @@ export class HomeService {
     public updateViewer(post_id: any): Observable<any> {
         return this.http.post(`/api/post/updateViewer`, post_id);
     }
+    //  update comment by id
+    public updateCommentByid(body: any): Observable<any> {
+        return this.http.post(`/api/comment/updateCommentByid`, body);
+    }
 
 }
 

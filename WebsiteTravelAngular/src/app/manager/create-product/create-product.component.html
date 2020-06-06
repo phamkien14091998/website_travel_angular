@@ -1,14 +1,14 @@
 <div class="body-product">
     <div class="row">
         <div class=" col-md-12">
-            <fieldset class="css-fieldset">
-                <legend class="col-md-12">THÊM SẢN PHẨM</legend>
+            <fieldset class="css-fieldset" style="background-color: #ffff;">
+                <legend class="col-md-12" style="background-color: #ffff;">THÊM SẢN PHẨM</legend>
                 <div class="css-h row col-md-12">
                     <form [formGroup]="createProductForm" (ngSubmit)="createProduct()">
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Sản Phẩm </span>
-                            <input class="css_inp col-md-9 " type="text" placeholder="nhập tên sản phẩm" id=""
-                                name="product_name" formControlName="product_name" />
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập tên sản phẩm"
+                                id="" name="product_name" formControlName="product_name" />
                             <div *ngIf="isInvalidForm('product_name')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('product_name')">
                                     Yêu cầu nhập tên sản phẩm .
@@ -17,8 +17,8 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Giá </span>
-                            <input class="css_inp col-md-9 " type="number" placeholder="nhập giá sản phẩm" id=""
-                                name="price" formControlName="price" />
+                            <input class="css_inp col-md-9 form-control" type="number" placeholder="nhập giá sản phẩm"
+                                id="" name="price" formControlName="price" />
                             <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('price')">
                                     Yêu cầu nhập giá sản phẩm .
@@ -27,8 +27,8 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Số Lượng</span>
-                            <input class="css_inp col-md-9 " type="number" placeholder="nhập số lượng sản phẩm" id=""
-                                name="quantity" formControlName="quantity" />
+                            <input class="css_inp col-md-9 form-control" type="number"
+                                placeholder="nhập số lượng sản phẩm" id="" name="quantity" formControlName="quantity" />
                             <div *ngIf="isInvalidForm('quantity')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('quantity')">
                                     Yêu cầu nhập số lượng sản phẩm .
@@ -37,8 +37,8 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Hình Ảnh </span>
-                            <input class="css_inp col-md-9 " type="file" placeholder="" id="" name="profile" multiple
-                                (change)="onFileSelect($event)" />
+                            <input class="css_inp col-md-9 form-control" type="file" placeholder="" id="" name="profile"
+                                multiple (change)="onFileSelect($event)" />
                             <span style="margin-top: 5px; margin-left: 290px; color: red;" class="col-md-12 ">
                                 Chọn ít nhất 1 hình và nhiều nhất 3 hình ảnh
                             </span>
@@ -46,8 +46,8 @@
 
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Thể Loại </span>
-                            <select class="css_inp col-md-9 " id="portfolio_id" title="--- Chọn Thể Loại Sản Phẩm ---"
-                                formControlName="portfolio_id">
+                            <select class="css_inp col-md-9 form-control" id="portfolio_id"
+                                title="--- Chọn Thể Loại Sản Phẩm ---" formControlName="portfolio_id">
                                 <option *ngFor="let data of data_portfolio" value="{{data.portfolio_id}}">
                                     {{data.portfolio_name}}
                                 </option>
@@ -61,7 +61,7 @@
 
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3  text-center">Mô Tả </span>
-                            <textarea class=" col-md-9 " type="text" rows="8" placeholder="nhập mô tả" id=""
+                            <textarea class=" col-md-9 form-control" type="text" rows="8" placeholder="nhập mô tả" id=""
                                 name="description" formControlName="description">
                             </textarea>
                             <!-- <div *ngIf="isInvalidForm('description')" class="alert alert-danger col-md-12">
