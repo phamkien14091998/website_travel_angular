@@ -34,7 +34,9 @@ export class DetailCollectionComponent implements OnInit {
       (data) => {
         this.dataDetailCollection = data.map(p => {
           p.images = p.images.split('|')
-          p.description = p.description.split('.')
+          // p.description = p.description.split('.')
+          p.description = p.description.slice(0, 45)
+
           return p
         })
 
@@ -47,9 +49,15 @@ export class DetailCollectionComponent implements OnInit {
 
   //delete place trong collection
   deletePlaceCollection(famous_place_id: string) {
-    console.log(famous_place_id);
 
-    this.collectionService.deletePlaceCollection(famous_place_id).subscribe(
+    var data = {
+      "collection_id": this.dataDetailCollection[0]?.collection_id,
+      "famous_place_id": famous_place_id
+    };
+
+    this.collectionService.deletePlaceCollection(
+      data
+    ).subscribe(
       () => {
         this.dataDetailCollection.splice(this.collectionPlaceIndex, 1);
         this.collectionPlaceIndex = undefined;

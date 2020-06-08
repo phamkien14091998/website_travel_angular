@@ -1,20 +1,11 @@
 <form [formGroup]="createForm">
     <div class="create-trip-detail">
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color: #ffff;">
             <!-- start header -->
             <div class="col-md-12 create-trip-detail-header">
                 <div class="row">
-                    <div class="col-md-5 col-sm-4 col-4 header-logo">
-                        <a href="">Travel</a>
-                    </div>
-                    <div class="col-md-7 col-sm-8 col-8">
-                        <div class="row">
-                            <div class="header-avatar">
-                            </div>
-                            <div class="header-info">
-                                <span>Phan Công Nhật Vũ</span>
-                            </div>
-                        </div>
+                    <div class="col-md-12 col-sm-12 col-12 header-logo">
+                        <a>Thêm chi tiết cho chuyến đi của bạn</a>
                     </div>
                 </div>
             </div>
@@ -37,11 +28,11 @@
                     </div>
                     <div class="col-md-4 col-sm-12 col-lg-3">
                         <div class="col-md-12">
-                            <span><strong>Bước 5</strong></span>
+                            <span><strong>Bước 5 : </strong>Chọn</span>
                         </div>
                         <div class="col-md-12" style="margin-top: 10px;">
                             <button class="col-md-6" type="button" (click)="create()" class="finish">Hoàn thành</button>
-                            <button class="btn btn-secondary" type="button" style="width: 100px;"
+                            <button class="btn btn-secondary hoverCancel" type="button" style="width: 100px;"
                                 routerLink="/member/schedule/list">Hủy</button>
                         </div>
                     </div>
@@ -89,8 +80,8 @@
                                                     {{pro.province_name}}
                                                 </option>
                                             </select>
-                                            <button style="margin-left: 5px;" class="btn btn-success col-md-3"
-                                                type="submit">tìm</button>
+                                            <button style="margin-left: 5px;"
+                                                class="btn btn-success col-md-3 hoverSearch" type="submit">tìm</button>
                                         </form>
                                     </span>
                                 </div>

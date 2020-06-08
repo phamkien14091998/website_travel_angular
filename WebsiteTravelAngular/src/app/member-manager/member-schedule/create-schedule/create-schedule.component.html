@@ -1,5 +1,5 @@
 <div class="create-trip">
-    <div class="container">
+    <div class="container" style="background-color: #ffff;">
         <div class="create-trip-header">
             <p>HÃY TẠO LỊCH TRÌNH CHO CHUYẾN ĐI CỦA BẠN</p>
             <span>(Nhập đầy đủ thông tin)</span>
@@ -7,7 +7,7 @@
         </div>
         <div class="row">
         </div>
-        <form [formGroup]="createScheduleForm" (ngSubmit)="createSchedule()" style="background-color: #ffff;">
+        <form [formGroup]="createScheduleForm" (ngSubmit)="createSchedule()">
             <div class="row form-group" id="create-trip-body">
                 <div class="col-md-9 col-sm-12">
                     <label class=" col-sm-12 control-label ">Tên hành trình</label>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="create-trip-button ">
-                <button type="submit" [disabled]="!createScheduleForm.valid">Tiếp tục</button>
+                <button type="submit" id="hoverContinute" class="btn btn-success hoverContinute" [disabled]="!createScheduleForm.valid">Tiếp tục</button>
             </div>
         </form>
     </div>

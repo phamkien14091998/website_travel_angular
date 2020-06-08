@@ -41,3 +41,14 @@
         width: 100%;
     }
 }
+
+.hoverContinute:hover {
+    background-color: #ffff;
+    color: #28a745;
+}
+
+#hoverContinute:hover {
+    background-color: #ffff;
+    color: #28a745;
+    border: 1px solid #28a745;
+}

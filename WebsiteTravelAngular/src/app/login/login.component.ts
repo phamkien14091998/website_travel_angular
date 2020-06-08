@@ -5,6 +5,10 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { windowCount } from 'rxjs/operators';
 
+import { AuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { HttpClient } from "@angular/common/http";
+
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
@@ -18,13 +22,18 @@ export class LoginComponent {
     urlLogin = "";
 
     url = "/api/auth/google/callback${this.props.location.search}"
-  
+
+    /////////////////
+    private user
+    private loggedIn: boolean;
+
     constructor(
         private auth: AuthenticationService,
         private fb: FormBuilder,
         private router: Router,
         private route: ActivatedRoute,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private http: HttpClient,
     ) { }
     ngOnInit() {
         this.initForm();
@@ -37,6 +46,7 @@ export class LoginComponent {
 
         this.getLinkLogin();
         this.handLogInGoogle()
+
 
     }
     // form
@@ -97,6 +107,33 @@ export class LoginComponent {
             }
         )
     }
+
+    /////////////
+    // public signinWithGoogle() {
+    //     let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+
+    //     this.auth.signIn(socialPlatformProvider)
+    //         .then((userData) => {
+    //             //on success
+    //             //this will return user data from google. What you need is a user token which you will send it to the server
+    //             this.sendToRestApiMethod(userData.idToken);
+    //         });
+    // }
+    // sendToRestApiMethod(token: string) : void {
+    //     this.http.post("url to google login in your rest api",
+    //        {
+    //           token: token
+    //        }
+    //     }).subscribe(
+    //        onSuccess => {
+    //           //login was successful
+    //           //save the token that you got from your REST API in your preferred location i.e. as a Cookie or LocalStorage as you do with normal login
+    //        }, onFail => {
+    //           //login was unsuccessful
+    //           //show an error message
+    //        }
+    //     );
+    //  }
 
 }
 

@@ -1,8 +1,9 @@
 <div class="member-create-new-post">
-    <div class="container">
+    <div class="container" style="background-color: #ffff;">
         <form [formGroup]="createPostForm" (ngSubmit)="createPost()">
             <div class="row">
                 <div class="form-group col-md-12">
+                    <h3 class="text-center" style="margin-top: 15px; margin-bottom: 10px;">Thêm bài viết</h3>
                     <label><i class="fa fa-tags"></i> Nhập tiêu đề bài viết</label>
                     <input type="text" formControlName="title" class="form-control" placeholder="Nhập tiêu đề">
                     <div *ngIf="isInvalidForm('title')" class="alert alert-danger col-md-12">
@@ -25,7 +26,8 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label></label>
-                            <button type="submit" class="btn btn-success" style="margin-top: 30px;">Tìm kiếm</button>
+                            <button type="submit" class="btn btn-success hoverSearch" style="margin-top: 30px;">Tìm
+                                kiếm</button>
                         </div>
                     </div>
                 </form>
@@ -140,9 +142,9 @@
                 </div>
             </div>
             <!-- [disabled]="!createPostForm.valid" -->
-            <button type="submit" class="btn btn-success">Tạo bài viết</button>
-            <button style="margin-left: 10px; width: 100px;" routerLink="/member/post/list" type="button"
-                class="btn btn-secondary">Hủy</button>
+            <button type="submit" class="btn btn-success hoverCreate">Tạo bài viết</button>
+            <button style="margin-left: 10px; width: 100px; " routerLink="/member/post/list" type="button"
+                class="btn btn-secondary hoverCancel">Hủy</button>
         </form>
     </div>
 </div>

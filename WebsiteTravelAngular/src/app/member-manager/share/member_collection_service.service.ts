@@ -13,7 +13,7 @@ export class MemberCollectionService {
     public getProvince(): Observable<any> {
         return this.http.get(`/api/place/province`);
     }
-    // lấy ra danh list place by province_id
+    // lấy ra danh list place by province_id 
     public getPlaceByProvinceId(province_id: any): Observable<any> {
         console.log(province_id);
         return this.http.post(`/api/place/search-place-by-province-id`, province_id);
@@ -51,9 +51,9 @@ export class MemberCollectionService {
         return this.http.post(`/api/collection/add-place`, placeData);
     }
     // Xóa place trong collection 
-    public deletePlaceCollection(famous_place_id: string): Observable<any> {
+    public deletePlaceCollection(data: any): Observable<any> {
 
-        return this.http.delete(`/api/collection/delete-place/` + famous_place_id);
+        return this.http.post(`/api/collection/delete-place`, data);
     }
     // lấy ra địa điểm theo id
     public getPlaceById(famous_place_id_arr: any): Observable<any> {

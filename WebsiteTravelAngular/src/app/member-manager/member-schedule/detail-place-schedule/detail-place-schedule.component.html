@@ -1,4 +1,4 @@
-<div class=" css-body" id="body" style="margin-top: 30px; margin-bottom: 100px;">
+<div class=" css-body" id="body" style="margin-top: 30px; margin-bottom: 100px; background-color: #ffff;">
   <div class="row " *ngFor="let data of dataDetailSchedule let i = index" [attr.data-index]="i"
     style="padding-left: 20px;">
     <div class="col-md-12" style="height: 70px; width: 100%;">
@@ -6,8 +6,7 @@
       </h4>
     </div>
     <div class="col-md-4">
-      <a>
-        <!-- routerLink="/member/schedule/detail/{{data.trip_id}}" -->
+      <a routerLink="/place/detail/{{data.famous_place_id}}">
         <img width="250px" height="200px" src="{{domain}}/{{data.images[0]}}" alt="">
       </a>
     </div>

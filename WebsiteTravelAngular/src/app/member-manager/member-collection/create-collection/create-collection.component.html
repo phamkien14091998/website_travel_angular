@@ -1,8 +1,8 @@
 <div class="body-product">
     <div class="row" style="margin-top: 42px;">
         <div class=" col-md-12">
-            <fieldset class="css-fieldset">
-                <legend class="col-md-12">THÊM BỘ SƯU TẬP</legend>
+            <fieldset class="css-fieldset" style="background-color: #ffff;">
+                <legend class="col-md-12" style="background-color: #ffff;">THÊM BỘ SƯU TẬP</legend>
                 <div class="css-h row col-md-12">
                     <form [formGroup]="createCollectionForm" (ngSubmit)="createCollection()">
                         <div class="row col-md-12 pd-t ">
@@ -89,7 +89,7 @@
                                                                 <div class="middle">
                                                                     <!-- fa fa-plus-circle -->
                                                                     <i class=" " aria-hidden="true">
-                                                                        <input type="checkbox"
+                                                                        <input type="checkbox" class="fa fa-hand-o-left"
                                                                             [value]="place.famous_place_id"
                                                                             style="width: 25px;height: 25px;"
                                                                             (change)="onCheckboxChange($event)">

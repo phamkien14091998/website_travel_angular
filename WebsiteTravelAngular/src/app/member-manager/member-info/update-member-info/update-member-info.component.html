@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <fieldset class="css-fieldset">
-                    <legend class="col-md-12"> CẬP NHẬT THÔNG TIN CÁ NHÂN</legend>
+                <fieldset class="css-fieldset" style="background-color: #ffff;">
+                    <legend class="col-md-12" style="background-color: #ffff;"> CẬP NHẬT THÔNG TIN CÁ NHÂN</legend>
                     <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
                         <div class="col-md-12">
                             <div class="row per-info">
@@ -110,6 +110,9 @@
                                 <button class="btn btn-success" type="submit"
                                     routerLink="/member/info/update/{{dataDetailUser.user_id}}"
                                     style="width: 120px;">Cập nhật</button>
+                                <button class="btn btn-secondary" type="submit"
+                                    routerLink="/member/info/detail/{{dataDetailUser.user_id}}"
+                                    style="width: 120px; margin-left: 10px;">Hủy</button>
                             </div>
                         </div>
                     </form>

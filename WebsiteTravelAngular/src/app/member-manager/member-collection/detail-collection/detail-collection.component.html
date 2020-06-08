@@ -10,22 +10,23 @@
                 <a routerLink="/place/detail/{{data.famous_place_id}}">
                     <img class="post-review-image" src="{{domain}}/{{data.images[0]}}" />
                 </a>
-                <a>
-                    <h6 class="a-post-title">
+                <a class="row col-md-12">
+                    <h6 class="a-post-title col-md-5">
                         {{data.title}}
                     </h6>
+                    <div class="a-post-detail col-md-7" style="margin-top: 10px;">
+                        <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
+                        <span class="post-review-date">
+                            {{data.date_start}}
+                        </span>
+                        <span class="post-review-date">
+                            {{data.date_end}}
+                        </span>
+                    </div>
                 </a>
-                <div class="a-post-detail">
-                    <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
-                    <span class="post-review-date">
-                        {{data.date_start}}
-                    </span>
-                    <span class="post-review-date">
-                        {{data.date_end}}
-                    </span>
-                </div>
+
                 <div>
-                    {{data.description[0]}} ...
+                    {{data.description}} ...
                 </div>
                 <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
                     <a class="link-manga" routerLink="/place/detail/{{data.famous_place_id}}"

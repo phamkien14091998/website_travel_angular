@@ -47,7 +47,7 @@ fieldset.css-fieldset {
 #btnUpdateUser button {
     border: none;
     height: 40px;
-    background-color: #1e7e34;
+    /* background-color: #1e7e34; */
     color: white;
 }
 

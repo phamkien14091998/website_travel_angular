@@ -161,7 +161,7 @@
         </div>
         <!-- end list rating  -->
         <br>
-        <div class="row col-md-12" style="margin-top: 50px;">
+        <div class="row col-md-12" style="margin-top: 50px; background-color: #ffff;">
             <h4 class="text-center" style="margin-bottom: 10px;">CÁC ĐỊA ĐIỂM LIÊN QUAN </h4>
             <div class="row col-md-12">
                 <div class="col-md-3 place" style="margin-top: 30px;" *ngFor="let dataPlace of dataListPlacebyProvince">
@@ -190,62 +190,64 @@
         </div>
 
         <br>
-        <div class="row col-md-12" style=" margin-top: 50px;">
+        <div class="row col-md-12" style=" margin-top: 50px; background-color: #ffff;">
             <h4 class="text-center">CÁC BÀI VIẾT VỀ LIÊN QUAN </h4>
-        </div>
-        <!-- end slogan -->
-        <br><br>
-        <div id="post-review" class="row">
-            <div class="row">
-                <div class="col-md-4" style="width: 1184px;" *ngFor="let dataPost of dataListPost">
-                    <div class="a-post-review">
-                        <a href="">
-                            <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
-                        </a>
-                        <a href="">
-                            <span class="a-post-fullname">{{dataPost.user_name}}</span>
-                        </a>
-                        <br />
-                        <a routerLink="/detail-post/{{dataPost.post_id}}">
-                            <img class="post-review-image" src="{{domain}}/{{dataPost.images[0]}}" />
-                        </a>
-                        <a routerLink="/detail-post/{{dataPost.post_id}}">
-                            <h6 class="a-post-title">{{dataPost.post_title}}</h6>
-                        </a>
-                        <div class="a-post-detail">
-                            <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
-                            <!-- <i class="fa fa-commenting" aria-hidden="true"></i> {{dataPost.countComment/2}} quan tâm -->
-                            <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
-                            <span class="post-review-date">{{dataPost.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
-                            <span><i class="fa fa-eye" aria-hidden="true" style="margin-left: 3px;"></i>
-                                {{dataPost.viewer}}</span>
-                            <span>
-                                <i class="fa fa-commenting" aria-hidden="true" style="margin-left: 5px;"></i>
-                                {{dataPost.countComment}}
-                            </span>
-                            <i class="fa fa-check-square-o" style="margin-left: 2px;"></i>
-                            {{dataPost.countRating}} đánh giá
-                            <span class="text-primary" style="font-size: 25px; margin-left: 5px; padding-top: 8px;">
-                                <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="dataPost.avgPoint"
-                                    [readonly]="false">
-                                </ngb-rating>
-                            </span>
-                        </div>
-
-                        <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
-                            <a class="link-manga"
-                                style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;"
-                                routerLink="/detail-post/{{dataPost.post_id}}">
-                                <span class="blink_me">＞＞</span>
-                                <span>Xem Bài Viết</span>
-                                <span class="blink_me">＜＜</span>
+            <br><br>
+            <div id="post-review" class="row">
+                <div class="row">
+                    <div class="col-md-4" style="width: 1184px;" *ngFor="let dataPost of dataListPost">
+                        <div class="a-post-review">
+                            <a href="">
+                                <img class="post-review-avatar" src="../../assets/img/img_user.PNG" />
                             </a>
+                            <a href="">
+                                <span class="a-post-fullname">{{dataPost.user_name}}</span>
+                            </a>
+                            <br />
+                            <a routerLink="/detail-post/{{dataPost.post_id}}">
+                                <img class="post-review-image" src="{{domain}}/{{dataPost.images[0]}}" />
+                            </a>
+                            <a routerLink="/detail-post/{{dataPost.post_id}}">
+                                <h6 class="a-post-title">{{dataPost.post_title}}</h6>
+                            </a>
+                            <div class="a-post-detail">
+                                <!-- <i class="fa fa-eye" aria-hidden="true"></i> 1234 -->
+                                <!-- <i class="fa fa-commenting" aria-hidden="true"></i> {{dataPost.countComment/2}} quan tâm -->
+                                <i class="fa fa-calendar-check-o a-post-calendar" aria-hidden="true"></i>
+                                <span
+                                    class="post-review-date">{{dataPost.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
+                                <span><i class="fa fa-eye" aria-hidden="true" style="margin-left: 3px;"></i>
+                                    {{dataPost.viewer}}</span>
+                                <span>
+                                    <i class="fa fa-commenting" aria-hidden="true" style="margin-left: 5px;"></i>
+                                    {{dataPost.countComment}}
+                                </span>
+                                <i class="fa fa-check-square-o" style="margin-left: 2px;"></i>
+                                {{dataPost.countRating}} đánh giá
+                                <span class="text-primary" style="font-size: 25px; margin-left: 5px; padding-top: 8px;">
+                                    <ngb-rating [max]="5" style="color: rgb(255, 0, 0);" [(rate)]="dataPost.avgPoint"
+                                        [readonly]="false">
+                                    </ngb-rating>
+                                </span>
+                            </div>
+
+                            <div style="padding: 10px 0 10px 0;" class="text-center css-detail">
+                                <a class="link-manga"
+                                    style="background: linear-gradient(#ffe10d, #b4ff00); border-radius: 20px;font-size: 18px;padding: 3px 25px;"
+                                    routerLink="/detail-post/{{dataPost.post_id}}">
+                                    <span class="blink_me">＞＞</span>
+                                    <span>Xem Bài Viết</span>
+                                    <span class="blink_me">＜＜</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <!-- end post review -->
         </div>
-        <!-- end post review -->
+        <!-- end slogan -->
+
     </div>
 </div>

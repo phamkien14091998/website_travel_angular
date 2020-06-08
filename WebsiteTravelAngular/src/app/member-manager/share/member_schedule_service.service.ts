@@ -36,7 +36,6 @@ export class MemberScheduleService {
     }
     // lấy ra tất cả lịch trình của user đang dăng nhập    
     public getListScheduleByUser(user_id: any): Observable<any> {
-        console.log(user_id);
         return this.http.post(`/api/schedule/list`, user_id);
     }
     // get chi tiết lịch trình theo id

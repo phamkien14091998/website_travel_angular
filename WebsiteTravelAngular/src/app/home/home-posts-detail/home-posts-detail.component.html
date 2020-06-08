@@ -178,7 +178,8 @@
                     </ng-template>
                 </div>
                 <div class="col-md-2">
-                    <button class="col-md-12" type="submit" class="btn btn-success hoverCmt" *ngIf="auth.haveLogin()">
+                    <button [disabled]="!createCommentForm.valid" class="col-md-12" type="submit"
+                        class="btn btn-success hoverCmt" *ngIf="auth.haveLogin()">
                         Bình luận
                     </button>
                 </div>
@@ -193,11 +194,12 @@
                     <input type="text" class="col-md-4 form-control" id="content"
                         style="padding-left: 20px;width: 50%; margin-right: 10px; float: left; margin-left: 20px;"
                         *ngIf="auth.haveLogin()" [value]="content">
-                    <button type="submit" class="btn btn-success hoverUpdateCmt" *ngIf="auth.haveLogin()" (click)="updateCMT()">
+                    <button type="submit" class="btn btn-success hoverUpdateCmt" *ngIf="auth.haveLogin()"
+                        (click)="updateCMT()">
                         Cập nhật
                     </button>
-                    <button type="submit" class="btn btn-danger hoverCancelCmt" *ngIf="auth.haveLogin()" (click)="cancel()"
-                        style="margin-left: 10px;">
+                    <button type="submit" class="btn btn-danger hoverCancelCmt" *ngIf="auth.haveLogin()"
+                        (click)="cancel()" style="margin-left: 10px;">
                         Hủy
                     </button>
                 </div>

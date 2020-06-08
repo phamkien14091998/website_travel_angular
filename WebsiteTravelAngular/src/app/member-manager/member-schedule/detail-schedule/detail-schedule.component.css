@@ -12,7 +12,7 @@
 
     .header-logo>a {
         font-weight: 700;
-        font-size: 40px;
+        font-size: 30px;
         color: #28a745;
         text-decoration: none;
     }
@@ -322,4 +322,14 @@
         .btnLuu {
             margin-left: 280px;
         }
+    }
+
+    .hoverCancel:hover {
+        background-color: #ffff;
+        color: #6c757d;
+    }
+
+    .hoverSearch:hover {
+        background-color: #ffff;
+        color: #28a745;
     }

@@ -19,3 +19,31 @@
     text-align: center;
     margin-top: 5px;
 }
+
+.hover1:hover {
+    background-color: #ffff;
+    border: 1px solid #28a745;
+    color: #28a745;
+    font-size: 20px;
+}
+
+.hover2:hover {
+    background-color: #ffff;
+    border: 1px solid #28a745;
+    color: #28a745;
+    font-size: 20px;
+}
+
+.hover3:hover {
+    background-color: #ffff;
+    border: 1px solid #28a745;
+    color: #28a745;
+    font-size: 20px;
+}
+
+.hover4:hover {
+    background-color: #ffff;
+    border: 1px solid #28a745;
+    color: #28a745;
+    font-size: 20px;
+}
