@@ -1,5 +1,5 @@
 <div class="create-trip">
-    <div class="container">
+    <div class="container" style="background-color: #ffff;">
         <div class="create-trip-header">
             <p>CẬP NHẬT LỊCH TRÌNH CỦA BẠN</p>
 
@@ -17,6 +17,12 @@
                     <div *ngIf="isInvalidForm('trip_name')" class="alert alert-danger col-md-12">
                         <div *ngIf="isRequired('trip_name')">
                             Yêu cầu nhập tên chuyến đi .
+                        </div>
+                        <div *ngIf="min('trip_name')" class="alert alert-danger col-md-12">
+                            Tên chuyến đi ít nhất 5 ký tự.
+                        </div>
+                        <div *ngIf="max('trip_name')" class="alert alert-danger col-md-12">
+                            Tên chuyến đi nhiều nhất nhất 255 ký tự.
                         </div>
                     </div>
                 </div>
@@ -52,11 +58,17 @@
                         <div *ngIf="isRequired('description')">
                             Yêu cầu nhập mô tả.
                         </div>
+                        <div *ngIf="min('description')" class="alert alert-danger col-md-12">
+                            Mô tả đi ít nhất 5 ký tự.
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="create-trip-button ">
-                <button [disabled]="!updateScheduleForm.valid" type="submit">Cập Nhật</button>
+                <button [disabled]="!updateScheduleForm.valid" class="btn btn-success hoverUpdate" type="submit">Cập
+                    Nhật</button>
+                <button routerLink="/member/schedule/list" class="btn btn-secondary hoverCancel"
+                    style="margin-left: 10px;" type="button">Hủy</button>
             </div>
         </form>
     </div>

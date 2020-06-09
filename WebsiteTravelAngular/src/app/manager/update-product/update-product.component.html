@@ -7,8 +7,8 @@
                     <form [formGroup]="updateProductForm" (ngSubmit)="updateProduct()">
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Tên Sản Phẩm </span>
-                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập tên sản phẩm" id=""
-                                name="product_name" formControlName="product_name" />
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập tên sản phẩm"
+                                id="" name="product_name" formControlName="product_name" />
                             <!-- <div *ngIf="isInvalidForm('product_name')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('product_name')">
                                     Yêu cầu nhập tên sản phẩm .
@@ -18,8 +18,8 @@
                         </div>
                         <div class="row col-md-12 pd-t">
                             <span class="col-md-3 text-center">Giá </span>
-                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập giá sản phẩm" id=""
-                                name="price" formControlName="price" />
+                            <input class="css_inp col-md-9 form-control" type="text" placeholder="nhập giá sản phẩm"
+                                id="" name="price" formControlName="price" />
                             <!-- <div *ngIf="isInvalidForm('price')" class="alert alert-danger col-md-12">
                                 <div *ngIf="isRequired('price')">
                                     Yêu cầu nhập giá sản phẩm .
@@ -68,10 +68,12 @@
                         <!-- [(ngModel)]="data_detailProduct.description" -->
 
                         <div class="row col-md-12 css-bu">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                             </div>
-                            <button type="submit" class="btn btn-success col-md-2">Cập Nhật</button>
-                            <div class="col-md-5">
+                            <button type="submit" class="btn btn-success col-md-2 hoverUpdate">Cập Nhật</button>
+                            <button routerLink="/manager/product" type="button" style="margin-left: 10px;"
+                                class="btn btn-secondary col-md-2 hoverCancel">Hủy</button>
+                            <div class="col-md-4">
                             </div>
                         </div>
                     </form>

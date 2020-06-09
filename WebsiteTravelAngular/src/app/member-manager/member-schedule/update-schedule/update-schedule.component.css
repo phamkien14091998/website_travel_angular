@@ -27,17 +27,35 @@
     margin-top: 25px;
 }
 
-.create-trip-button button {
+/* .create-trip-button button {
     width: 180px;
     background-color: #28a745;
     color: white;
     border: 0px;
     height: 40px;
     border-radius: 5px;
-}
+} */
 
 @media (max-width: 768px) {
     #create-trip-body {
         width: 100%;
     }
+}
+
+.hoverUpdate {
+    width: 100px;
+}
+
+.hoverCancel {
+    width: 100px;
+}
+
+.hoverUpdate:hover {
+    background-color: #ffff;
+    color: #28a745;
+}
+
+.hoverCancel:hover {
+    background-color: #ffff;
+    color: rgb(75, 73, 73);
 }

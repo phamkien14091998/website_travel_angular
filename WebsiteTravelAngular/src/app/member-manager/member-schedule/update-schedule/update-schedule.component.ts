@@ -4,6 +4,8 @@ import { MemberScheduleService } from "../../share/member_schedule_service.servi
 import { environment } from "../../../../environments/environment";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment'
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-update-schedule',
@@ -16,6 +18,9 @@ export class UpdateScheduleComponent implements OnInit {
   domain = environment.API_URL;
   updateScheduleForm: FormGroup;
 
+  today = new Date();
+  jstoday = '';
+
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +28,9 @@ export class UpdateScheduleComponent implements OnInit {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private router: Router
-  ) { }
+  ) {
+    this.jstoday = formatDate(this.today, 'yyyy-MM-dd', 'en-US');
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -35,10 +42,10 @@ export class UpdateScheduleComponent implements OnInit {
   }
   initForm() {
     this.updateScheduleForm = this.fb.group({
-      trip_name: ['', Validators.required],
+      trip_name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(255)]],
       day_start: ['', Validators.required],
       day_end: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
   // kiểm tra dữ liệu nhập hợp lệ
@@ -49,6 +56,14 @@ export class UpdateScheduleComponent implements OnInit {
   //kiểm tra bắt buộc nhập
   isRequired(fieldName): boolean {
     return this.updateScheduleForm.controls[fieldName].errors.required;
+  }
+  // kiểm tra min ký tự 
+  min(fieldName): boolean {
+    return this.updateScheduleForm.controls[fieldName].errors.minlength;
+  }
+  // kiểm tra max ký tự 
+  max(fieldName): boolean {
+    return this.updateScheduleForm.controls[fieldName].errors.maxlength;
   }
   // chi tiết lich trình
   getDetailSchedule(trip_id: string) {
@@ -66,6 +81,25 @@ export class UpdateScheduleComponent implements OnInit {
 
   }
   updateSchedule() {
+
+    var a = moment(this.updateScheduleForm.value.day_start);
+    var b = moment(this.updateScheduleForm.value.day_end);
+    var today = moment(this.jstoday);  // ngày hiện tại
+
+
+    var number_day = b.diff(a, 'days') // số ngày
+    var check_day_current = a.diff(today, 'days') // ngày bắt đầu trừ ngày hiện tại
+
+
+    if (check_day_current < 0) {
+      this.toastr.error(' ', 'Ngày bắt đầu phải lớn hơn ngày hiện tại');
+      return;
+    }
+
+    if (number_day <= 0) {
+      this.toastr.error(' ', 'Ngày kết thúc phải lớn hơn ngày bắt đầu');
+      return;
+    }
 
     this.scheduleService.updateSchdule(
       this.data_detailSchedule?.trip_id,

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { CartService } from "./shared/cart.service";
 import { environment } from "../../environments/environment";
 import { AuthenticationService } from "../authentication.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-card',
@@ -22,6 +23,7 @@ export class CardComponent implements OnInit {
     private cartService: CartService,
     private auth: AuthenticationService,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -94,7 +96,12 @@ export class CardComponent implements OnInit {
   }
 
   checkLoginPayment() {
-    console.log(this.user?.user_name);
+    // console.log(this.user?.user_name);
+
+    if (this.dataProduct == null) {
+      this.toastr.error(' ', 'Bạn chưa có sản phẩm nào trong giỏ hàng !');
+      return;
+    }
 
     if (this.user == null) {
       this.router.navigateByUrl('/login');

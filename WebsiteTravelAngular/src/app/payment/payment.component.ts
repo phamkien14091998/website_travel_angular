@@ -94,6 +94,7 @@ export class PaymentComponent implements OnInit {
       'shipfee': this.paymentForm.controls['formOfDelivery'].value,
       'methods': this.paymentForm.controls['methods'].value,
       'note': this.paymentForm.controls['note'].value,
+      'email': this.user?.email
     }
 
     if (body.methods == "" || body.shipfee == "") {

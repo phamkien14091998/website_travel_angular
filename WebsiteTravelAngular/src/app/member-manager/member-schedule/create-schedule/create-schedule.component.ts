@@ -88,7 +88,7 @@ export class CreateScheduleComponent implements OnInit {
       this.toastr.error(' ', 'Ngày kết thúc phải lớn hơn ngày bắt đầu');
       return;
     }
-
+ 
     else if (number_day > 0 && check_day_current >= 0) {
       // chuyển tới trang trip-detail
       this.router.navigateByUrl('/member/schedule/detail');

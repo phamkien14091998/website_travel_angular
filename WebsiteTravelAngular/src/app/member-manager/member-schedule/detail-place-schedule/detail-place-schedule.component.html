@@ -39,22 +39,24 @@
       <ul style="margin-top: 17px; margin-left: 271px;list-style: none;">
         <li>
           <a style="text-decoration: none;" routerLink="/member/schedule-detail/update/{{data.trip_detail_id}}">
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> sửa
           </a>
         </li>
         <li>
-          <a style="text-decoration: none; color: red;" (click)="postDeleteIndex = i" *ngIf="postDeleteIndex !== i">
-            <i class="fa fa-trash" aria-hidden="true"></i>delete
+          <a type="button" style="text-decoration: none; color: red;" (click)="postDeleteIndex = i"
+            *ngIf="postDeleteIndex !== i">
+            <i class="fa fa-trash" aria-hidden="true"></i> xóa
           </a>
-          <br><br>
-          <div *ngIf="postDeleteIndex === i">
-            <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
-            <button (click)="deleteScheduleDetail(data.trip_detail_id)" style="width: 80px; margin-right: 5px;"
-              class="btn btn-success">CÓ
-            </button>
-            <button style="width: 80px; " (click)="postDeleteIndex = undefined" class="btn btn-danger">Không</button>
-          </div>
+
         </li>
+        <br><br>
+        <div *ngIf="postDeleteIndex === i">
+          <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+          <button (click)="deleteScheduleDetail(data.trip_detail_id)" style="width: 80px; margin-right: 5px;"
+            class="btn btn-success">CÓ
+          </button>
+          <button style="width: 80px; " (click)="postDeleteIndex = undefined" class="btn btn-danger">Không</button>
+        </div>
       </ul>
     </div>
   </div>

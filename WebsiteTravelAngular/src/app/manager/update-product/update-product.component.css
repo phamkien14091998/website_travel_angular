@@ -56,3 +56,13 @@ fieldset.css-fieldset {
 .css-t {
     margin-left: 8px;
 }
+
+.hoverUpdate:hover {
+    background-color: #ffff;
+    color: #28a745;
+}
+
+.hoverCancel:hover {
+    background-color: #ffff;
+    color: rgb(75, 73, 73);
+}
