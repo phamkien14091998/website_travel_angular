@@ -1,6 +1,28 @@
+<div class="row col-md-12" style="height: 100px;background-color: #ffff; margin-left: 0px;padding-top: 5px;">
+  <h6 class="col-md-2">Thành viên tham gia</h6>
+  <div class="col-md-5 ">
+    <span *ngFor="let u of dataUser">
+      <div class="col-md-3 hover-img" style="float: left;" id="hover-img">
+        <img class="" style="width: 40px;height: 40px;border-radius: 40px;margin-right: 15px;" id="image"
+          src="{{domain}}/{{u.avatar}}" alt="">
+        <div id="middle">
+          <div id="text">{{u.user_name}}</div>
+        </div>
+      </div>
+    </span>
+  </div>
+  <h6 class="col-md-2">Người tạo</h6>
+  <div id="hover-img1" *ngIf="dataUserCreate">
+    <img class="" style="width: 40px;height: 40px;border-radius: 40px;margin-right: 15px;" id="image1"
+      src="{{domain}}/{{dataUserCreate.avatar}}" alt="">
+    <div id="middle1">
+      <div id="text1">{{dataUserCreate.user_name}}</div>
+    </div>
+  </div>
+</div>
 <div class=" css-body" id="body" style="margin-top: 30px; margin-bottom: 100px; background-color: #ffff;">
   <div class="row " *ngFor="let data of dataDetailSchedule let i = index" [attr.data-index]="i"
-    style="padding-left: 20px;">
+    style="padding-left: 20px;padding-bottom: 15px;">
     <div class="col-md-12" style="height: 70px; width: 100%;">
       <h4 class="css-h4">Địa điểm số {{i+1}}: {{data.title}} ({{data.province_name}})
       </h4>
@@ -36,7 +58,8 @@
         Ghi chú: {{data.note}}
       </span><br>
 
-      <ul style="margin-top: 17px; margin-left: 271px;list-style: none;">
+      <ul style="margin-top: 17px; margin-left: 271px;list-style: none;"
+        *ngIf="dataUserCreate && user.user_id == dataUserCreate.user_id">
         <li>
           <a style="text-decoration: none;" routerLink="/member/schedule-detail/update/{{data.trip_detail_id}}">
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i> sửa
@@ -58,6 +81,77 @@
           <button style="width: 80px; " (click)="postDeleteIndex = undefined" class="btn btn-danger">Không</button>
         </div>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <form class="row col-md-12" [formGroup]="createCommentForm" (ngSubmit)="createConment()">
+    <div class="col-md-1 col-sm-1 comment-avatar">
+      <img src="../../../assets/img/img_user.PNG">
+    </div>
+    <div class="col-md-8 col-sm-8 comment-content" style="margin-left: 20px;">
+      <input type="text" class="form-control" style="padding-left: 20px;" formControlName="content"
+        placeholder="    Viết một bình luận ..." *ngIf="auth.haveLogin(); else elseBlock">
+      <ng-template #elseBlock>
+        <input type="text" class="form-control" style="padding-left: 20px;" formControlName="content"
+          placeholder="    Bạn phải đăng nhập để bình luận ..." disabled>
+      </ng-template>
+    </div>
+    <div class="col-md-2 col-sm-2">
+      <button class="col-md-12" [disabled]="!createCommentForm.valid" type="submit" class="btn btn-success hoverCmt"
+        *ngIf="auth.haveLogin()">
+        Bình luận
+      </button>
+    </div>
+  </form>
+</div>
+<div style="height: 300px;overflow-y: scroll; background-color: white;">
+  <div class="row col-md-12">
+    <b>Bình luận góp ý</b>
+  </div>
+  <div class="row" id="list-comment" *ngFor="let lc of dataListComment ; let i = index" [attr.data-index]="i">
+    <div class="row col-md-12" id="updateConment" *ngIf="lc.user_id==user?.user_id " style="display: none;">
+      <input type="text" class="col-md-4 form-control" id="content"
+        style="padding-left: 20px;width: 50%; margin-right: 10px; float: left; margin-left: 20px;"
+        *ngIf="auth.haveLogin()" [value]="content">
+      <button type="submit" class="btn btn-success hoverUpdateCmt" *ngIf="auth.haveLogin()" (click)="updateCMT()">
+        Cập nhật
+      </button>
+      <button type="submit" class="btn btn-danger hoverCancelCmt" *ngIf="auth.haveLogin()" (click)="cancel()"
+        style="margin-left: 10px;">
+        Hủy
+      </button>
+    </div>
+    <div class="col-md-1 comment-avatar">
+      <img src="../../../assets/img/img_user.PNG">
+    </div>
+    <div class="col-md-10 list-comment-content" style="margin-left: 20px;">
+      <div>
+        <span class="comment-user">{{lc.user_name}}</span>
+        <span class="comment-date">{{lc.created_at | date : "hh:mm:ss dd/MM/yyyy"}}</span>
+      </div>
+      <div class="comment-user-content">
+        {{lc.content}}
+        <a type="button" style="text-decoration: none; color: red;" (click)="commentDeleteIndex = i"
+          *ngIf="commentDeleteIndex !== i && auth.haveLogin()">
+          <i *ngIf="lc.user_id==user?.user_id" class="fa fa-trash">
+          </i>
+        </a>
+        <a (click)="openUpdateComment(lc.comment_id,lc.content)" type="button" *ngIf="auth.haveLogin()"
+          style="text-decoration: none; color: rgb(38, 218, 98); margin-left: 5px;">
+          <i *ngIf="lc.user_id==user?.user_id" aria-hidden="true" class="fa fa-pencil-square-o">
+          </i>
+        </a>
+        <div *ngIf="commentDeleteIndex === i">
+          <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
+          <button (click)="deleteComment(lc.comment_id)" style="width: 80px; margin-right: 5px;"
+            class="btn btn-success">CÓ
+          </button>
+          <button style="width: 80px; " (click)="commentDeleteIndex = undefined" class="btn btn-danger">Không</button>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

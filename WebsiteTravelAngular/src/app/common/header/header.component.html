@@ -27,17 +27,20 @@
     <!-- <a> <img style="width: 40px;height: 40px;border-radius: 40px;" src="../../../assets/img/img_user.PNG"></a> -->
     <a *ngIf="auth.haveLogin()" id="menu">
       <img src="{{domain}}/{{user?.avatar}}" width="25px" height="25px" style="border-radius: 20px;">
-      {{user?.user_name}}
-      <i class="fa fa-angle-down"></i>
-      <ul class="sub-menu" *ngIf="user?.role == 0">
-        <li><a *ngIf="auth.haveLogin()" routerLink="/member/info/detail/{{user?.user_id}}">Hồ sơ cá nhân</a></li>
-        <li><a *ngIf="auth.haveLogin()" routerLink="/member/post/list">Quản lý bài viết</a></li>
-        <li><a *ngIf="auth.haveLogin()" routerLink="/member/collection/list">Quản lý bộ sưu tập</a></li>
-        <li><a *ngIf="auth.haveLogin()" routerLink="/member/schedule/list">Quản lý lịch trình</a></li>
-        <li><a *ngIf="auth.haveLogin()" routerLink="/member/order">Lịch sử mua hàng</a></li>
-        <li><a *ngIf="auth.haveLogin()" routerLink="/logout" (click)="auth.logout()" style="color: red;">Đăng Xuất</a>
-        </li>
-      </ul>
+      <span>{{user?.user_name}}</span>
+      <i class="fa fa-angle-down">
+        <ul class="sub-menu" *ngIf="user?.role == 0" style="padding-top: 5px;
+        padding-left: 110px;">
+          <li><a *ngIf="auth.haveLogin()" routerLink="/member/info/detail/{{user?.user_id}}">Hồ sơ cá nhân</a></li>
+          <li><a *ngIf="auth.haveLogin()" routerLink="/member/post/list">Quản lý bài viết</a></li>
+          <li><a *ngIf="auth.haveLogin()" routerLink="/member/collection/list">Quản lý bộ sưu tập</a></li>
+          <li><a *ngIf="auth.haveLogin()" routerLink="/member/schedule/list">Quản lý lịch trình</a></li>
+          <li><a *ngIf="auth.haveLogin()" routerLink="/member/order">Lịch sử mua hàng</a></li>
+          <li><a *ngIf="auth.haveLogin()" routerLink="/logout" (click)="auth.logout()" style="color: red;">Đăng Xuất</a>
+          </li>
+        </ul>
+      </i>
+
       <ul class="sub-menu" *ngIf="user?.role == 1">
         <li><a *ngIf="auth.haveLogin()" routerLink="/logout" (click)="auth.logout()">Đăng Xuất</a></li>
       </ul>

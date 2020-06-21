@@ -142,7 +142,7 @@ export class AuthenticationService {
         return this.http.get(`/api/profile`, {
             headers: { Authorization: `Bearer ${this.getToken()}` }
         })
-    }  
+    }
     public logout(): void {
         this.token = ''
         window.localStorage.removeItem('usertoken')
@@ -159,10 +159,6 @@ export class AuthenticationService {
         return this.http.get(`/api/auth/google/callback?client_id=536215063801-cs5sgqi4pufhn8678h32atls9bvj6g8t.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2F&scope=openid+profile+email&response_type=code`);
     }
 
-    // public handlerGoogle1(): Observable<any> {
-    //     return this.http.get(`/api/auth/google/callback`)
-    // }
- 
     // login google
     public handlerGoogleNew() {
         const base = this.http.get<any>(
@@ -192,6 +188,22 @@ export class AuthenticationService {
         )
     }
 
+    //////////////////
+    public googlelogin(tokenNew) {
+        let token = tokenNew;
+        // luwu token laij
+        this.saveToken(token)
+        let user = this.jwt.decodeToken(token); // jwt.decode (lấy ra những giá trị như user_name  role đã gửi lên kèm token)
+        this.user$.next(user)  // đưa user này tới component khác
+        if (user.role == 0) {
+            this.toastr.success('Thành Công', 'Đăng Nhập');
+            this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg 
+        } else {
+            this.toastr.success('Thành Công', 'Đăng Nhập');
+            this.router.navigateByUrl('/manager/product');
+        }
+
+    }
 
 }
 

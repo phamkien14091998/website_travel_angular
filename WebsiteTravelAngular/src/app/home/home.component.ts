@@ -45,8 +45,6 @@ export class HomeComponent {
     getAllPost() {
         this.homeService.getAllPostDuyet().subscribe(
             (data) => {
-                console.log(data);
-
                 this.dataListPost = data.map(p => {
                     p.images = p.images.split("|")
                     return p;

@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   // user_n: any = "";
   user: any = '';
 
-  domain = environment.API_URL
+  domain = environment.API_URL 
 
   constructor(
     public auth: AuthenticationService,

@@ -51,6 +51,42 @@
             </div>
             <div class="row form-group" id="create-trip-body">
                 <div class="col-sm-12">
+                    <div class="row col-md-12" style="margin-bottom: 5px;">
+                        <label class="col-md-4 control-label">Thêm bạn bè</label>
+                        <!-- <input class="col-md-5 form-control" type="text">
+                        <div class="col-md-1"></div>
+                        <button class="col-md-2 btn btn-success">Chọn</button> -->
+                    </div>
+                    <div class="row col-sm-12 form-control"
+                        style="padding-right: 0px; height: 250px; margin-left: 15px;overflow: scroll;">
+                        <div class="row">
+                            <!-- [formGroup]="arrayForm" (ngSubmit)="submitFormArray()" novalidate -->
+                            <form class="row col-md-12" style="margin-bottom: 10px;">
+                                <div class="col-md-4 col-sm-4 col-4 "
+                                    style="margin-bottom: 15px;border-bottom: 1px solid #cab3b3;padding-bottom: 5px;"
+                                    *ngFor="let user of dataUser ">
+                                    <div class="recommend-image ">
+                                        <div class="middle">
+                                            <i aria-hidden="true">
+                                                <input class="" type="checkbox" style="width: 25px;height: 25px;"
+                                                    [value]="user.user_id" (change)="onCheckboxChange($event)">
+                                            </i>
+                                        </div>
+                                    </div>
+                                    <div class="recommend-title">
+                                        <img width="25px" height="25px" style="border-radius: 20px;"
+                                            src="{{domain}}/{{user.avatar}}" class="">
+                                        {{user.user_name}}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group" id="create-trip-body">
+                <div class="col-sm-12">
                     <label class="col-sm-12 control-label ">Mô tả</label>
                     <div class="col-sm-12 " style="padding-right: 0px; ">
                         <textarea rows="3 " class="form-control " placeholder="Ít nhất 5 ký tự "

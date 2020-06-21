@@ -31,7 +31,6 @@ export class MemberScheduleService {
 
     // create lịch trình
     public createSchedule(schedule_data: any): Observable<any> {
-
         return this.http.post(`/api/schedule/new`, schedule_data);
     }
     // lấy ra tất cả lịch trình của user đang dăng nhập    
@@ -63,15 +62,47 @@ export class MemberScheduleService {
     }
     // get chi tiết bảng trip-detail
     public getTripDetail(trip_detail_id: any): Observable<any> {
-
         return this.http.get(`/api/schedule/trip-detail/` + trip_detail_id);
     }
     // cập nhật schedule-detail by id
     public updateScheduleDetail(trip_detail_id: string, body: any): Observable<any> {
-        console.log(body);
-
         return this.http.post(`/api/schedule/update-trip-detail/` + trip_detail_id, body);
     }
-
+    // get all user_id
+    public getAllUser(user_id: any): Observable<any> {
+        return this.http.post(`/api/schedule/get-all-user`, user_id);
+    }
+    // truyền xuống aray user_id -> lấy lại aray user_name
+    public getUserNameById(arr_user_id: any): Observable<any> {
+        return this.http.post(`/api/schedule/get-username`, arr_user_id);
+    }
+    // truyền xuống user_id dang dang nhap -> lấy len danh sach lich trinh duoc moi
+    public getInvateSchedule(user_id: any): Observable<any> {
+        return this.http.post(`/api/schedule/get-invate-schedule`, user_id);
+    }
+    // get user by trip_id
+    public getUserByTripId(trip_id: any): Observable<any> {
+        return this.http.post(`/api/schedule/get-user-by-trip_id`, trip_id);
+    }
+    // get user taoj baif theo trip_id
+    public getUserCreateByTripId(trip_id: any): Observable<any> {
+        return this.http.post(`/api/schedule/get-user-create-by-trip_id`, trip_id);
+    }
+    // thêm bình luận của user vào bài viết
+    public createCommentTrip(data: any): Observable<any> {
+        return this.http.post(`/api/comment/new-trip`, data);
+    }
+    // lấy ra tất cả comment của lichj trinh đã chọn
+    public getAllCommentByTripId(trip_id: any): Observable<any> {
+        return this.http.get(`/api/comment/list-trip/` + trip_id);
+    }
+    //  update comment by id
+    public updateCommentTripByid(body: any): Observable<any> {
+        return this.http.post(`/api/comment/updateCommentByidTrip`, body);
+    }
+    //delete comment
+    public deleteComment(comment_id: string): Observable<any> {
+        return this.http.delete(`/api/comment/delete/` + comment_id);
+    }
 
 }

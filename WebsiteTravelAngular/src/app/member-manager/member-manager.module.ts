@@ -33,6 +33,8 @@ import { UpdateScheduleComponent } from './member-schedule/update-schedule/updat
 import { UpdateScheduleDetailComponent } from './member-schedule/update-schedule-detail/update-schedule-detail.component';
 import { UpdateCollectionComponent } from './member-collection/update-collection/update-collection.component';
 import { MemberOrderComponent } from './member-order/member-order.component';
+import { ListInviteScheduleComponent } from "./member-schedule/list-invite-schedule/list-invite-schedule.component";
+
 
 const routes: Routes = [
     {
@@ -73,6 +75,9 @@ const routes: Routes = [
             },
             {
                 path: 'schedule-detail/update/:trip_detail_id', component: UpdateScheduleDetailComponent
+            },
+            {
+                path: 'schedule/list/invate', component: ListInviteScheduleComponent
             },
             {
                 //path: 'info/update', component: UpdateMemberInfoComponent
@@ -119,7 +124,8 @@ const routes: Routes = [
         UpdateScheduleComponent,
         UpdateScheduleDetailComponent,
         UpdateCollectionComponent,
-        MemberOrderComponent
+        MemberOrderComponent,
+        ListInviteScheduleComponent
 
     ],
     imports: [

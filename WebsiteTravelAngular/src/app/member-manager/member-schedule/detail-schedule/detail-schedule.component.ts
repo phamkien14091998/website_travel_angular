@@ -51,6 +51,7 @@ export class DetailScheduleComponent implements OnInit {
   //////////////////
   form: FormGroup;
   array: any = []
+  friends_arr = []
 
 
   // biến lưu vô localstore
@@ -59,6 +60,8 @@ export class DetailScheduleComponent implements OnInit {
   description = localStorage.getItem('description');
   day_start = localStorage.getItem('day_start');
   day_end = localStorage.getItem('day_end');
+  friends = localStorage.getItem('friends');
+
 
   number_day
 
@@ -98,7 +101,7 @@ export class DetailScheduleComponent implements OnInit {
     var b = moment(this.day_end);
     this.number_day = b.diff(a, 'days') // 1 
     console.log(this.number_day);
-    
+
 
   }
   // get ra all tỉnh
@@ -312,6 +315,7 @@ export class DetailScheduleComponent implements OnInit {
   //////////////////////
   // lưu toàn bộ giá trị xuống
   create() {
+    this.friends_arr = localStorage.getItem('friends').split("|");
 
     const body = {
       'dataDetail_trip': this.dataDetail_trip,
@@ -320,7 +324,9 @@ export class DetailScheduleComponent implements OnInit {
       'day_start': this.day_start,
       'day_end': this.day_end,
       'user_id': this.user.user_id,
-      'email': this.user.email
+      'email': this.user.email,
+      'friends': this.friends,
+      'friends_arr': this.friends_arr
     }
 
     this.scheduleService.createSchedule(

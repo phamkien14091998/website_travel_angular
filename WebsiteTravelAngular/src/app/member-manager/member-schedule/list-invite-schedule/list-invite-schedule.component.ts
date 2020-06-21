@@ -8,11 +8,11 @@ import { AuthenticationService } from "../../../authentication.service";
 import { MemberScheduleService } from "../../share/member_schedule_service.service";
 
 @Component({
-  selector: 'app-list-schedule',
-  templateUrl: './list-schedule.component.html',
-  styleUrls: ['./list-schedule.component.css']
+  selector: 'app-list-invite-schedule',
+  templateUrl: './list-invite-schedule.component.html',
+  styleUrls: ['./list-invite-schedule.component.css']
 })
-export class ListScheduleComponent implements OnInit {
+export class ListInviteScheduleComponent implements OnInit {
   dataListSchedule: any = [];
   domain = environment.API_URL;
   // khai báo để lưu giá trị user đang đăng nhập
@@ -33,33 +33,17 @@ export class ListScheduleComponent implements OnInit {
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
     this.getListScheduleByUser();
   }
-  // get all collection
+
   getListScheduleByUser() {
     const user_id = {
       'user_id': this.user.user_id
     }
 
-    this.scheduleService.getListScheduleByUser(
+    this.scheduleService.getInvateSchedule(
       user_id
     ).subscribe(
       (data) => {
-        this.dataListSchedule = data.map(p => {
-          if (p.friends == null) {
-            p.friends = ''
-          } else {
-            p.friends = p.friends.split("|") // trả về array user_id
-            var arr_user_id = {
-              'arr_user_id': p.friends
-            }
-            // hàm truyền aray xuống và lấy lên user_name theo id đó
-            this.scheduleService.getUserNameById(arr_user_id).subscribe(
-              (data) => {
-                p.friends = data
-              }
-            )
-          }
-          return p;
-        })
+        this.dataListSchedule = data
         console.log(this.dataListSchedule);
 
 
@@ -79,6 +63,5 @@ export class ListScheduleComponent implements OnInit {
       }
     )
   }
-
 
 }

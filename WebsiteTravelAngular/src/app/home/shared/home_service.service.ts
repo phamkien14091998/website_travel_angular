@@ -65,7 +65,7 @@ export class HomeService {
     //delete comment
     public deleteComment(comment_id: string): Observable<any> {
         return this.http.delete(`/api/comment/delete/` + comment_id);
-    }
+    } 
     // lấy chi tiết địa điểm 
     public getDetailPlaceHome(famous_place_id: any): Observable<any> {
         return this.http.get(`/api/place/detail-home/` + famous_place_id);

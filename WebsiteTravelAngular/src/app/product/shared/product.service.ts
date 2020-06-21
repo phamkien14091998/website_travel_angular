@@ -31,8 +31,8 @@ export class ProductService {
     }
 
     // lấy ra user by user name
-    public callFunctionPayment(): Observable<any> {
-        return this.http.get(`/api/paypal/payment`);
+    public callFunctionPayment(data: any): Observable<any> {
+        return this.http.post(`/api/paypal/payment`, data);
     }
     // lấy ra 16 sản phẩm bán chạy nhất
     public getListProductRevenue(): Observable<any> {

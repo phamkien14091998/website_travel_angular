@@ -37,6 +37,22 @@ import { HomeTop10UsersComponent } from './home/home-top10-users/home-top10-user
 import { PaymentComponent } from './payment/payment.component';
 import { HomeTop10PlacesComponent } from './home/home-top10-places/home-top10-places.component';
 
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { GoogleLoginComponent } from './google-login/google-login.component';
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+  },
+
+]);
+export function provideConfig() {
+  return config;
+}
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'detail-post/:post_id', component: HomePostsDetailComponent },
@@ -51,8 +67,8 @@ const routes: Routes = [
   { path: 'top-10-user', component: HomeTop10UsersComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'top-10-place', component: HomeTop10PlacesComponent },
+  { path: 'google-login', component: GoogleLoginComponent },
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
-
 
 ]
 
@@ -74,6 +90,8 @@ const routes: Routes = [
     HomeTop10UsersComponent,
     PaymentComponent,
     HomeTop10PlacesComponent,
+    GoogleLoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -92,7 +110,9 @@ const routes: Routes = [
     MemberManagerModule,
     RatingModule,
     NgbModule,
-    ChartsModule
+    ChartsModule,
+
+    SocialLoginModule
 
   ],
   providers: [
@@ -101,6 +121,11 @@ const routes: Routes = [
     HomeService,
     CartService,
     PaymentService,
+
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
 
   ],
   bootstrap: [AppComponent]

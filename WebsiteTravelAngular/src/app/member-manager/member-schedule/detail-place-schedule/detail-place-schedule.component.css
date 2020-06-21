@@ -19,3 +19,290 @@
     padding-left: 10px;
     margin-right: 27px;
 }
+
+.comment-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+/*  */
+
+#hover-img {
+    position: relative;
+}
+
+#middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */
+    text-align: center;
+}
+
+#middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */
+    text-align: center;
+}
+
+#hover-img:hover #image {
+    opacity: 0.2;
+}
+
+#hover-img:hover #middle {
+    opacity: 1;
+}
+
+#text {
+    /* background-color: #ffff; */
+    color: #057e0b;
+    font-size: 12px;
+    /* padding: 5px 5px; */
+    width: 120px;
+    padding-right: 100px;
+}
+
+#image {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+/*  */
+
+#hover-img1 {
+    position: relative;
+}
+
+#middle1 {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */
+    text-align: center;
+}
+
+#middle1 {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */
+    text-align: center;
+}
+
+#hover-img1:hover #image1 {
+    opacity: 0.2;
+}
+
+#hover-img1:hover #middle1 {
+    opacity: 1;
+}
+
+#text1 {
+    /* background-color: #ffff; */
+    color: #057e0b;
+    font-size: 12px;
+    /* padding: 5px 5px; */
+    width: 120px;
+    padding-right: 100px;
+}
+
+#image1 {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+/*  */
+
+/* start header */
+
+.header-img {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 400px;
+}
+
+#post-detail-header {
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header-info {
+    height: 70px;
+    line-height: 70px;
+}
+
+.avatar {
+    position: absolute;
+    margin-top: -125px;
+    margin-left: 180px;
+    border-radius: 50%;
+}
+
+.title {
+    position: absolute;
+    margin-left: 350px;
+    /* margin-bottom: 32px; */
+    margin-top: -70px;
+}
+
+.title span {
+    font-weight: 500;
+    color: white;
+}
+
+.avatar img {
+    width: 142px;
+    height: 142px;
+    border-radius: 142px;
+}
+
+.person-name {
+    text-align: center;
+}
+
+.person-name span {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.create_date i {
+    margin-left: 700px;
+    margin-right: 15px;
+}
+
+/* end header */
+
+/* start body */
+
+#post-detail-body {
+    margin-top: 30px;
+}
+
+#description {
+    border-left: 4px solid #28a745;
+    background-color: #fafafa;
+}
+
+#information {
+    margin-top: 40px;
+    border-style: dashed !important;
+    border: 1px solid #28a745;
+    padding: 15px;
+}
+
+#information i {
+    color: #28a745;
+    font-size: 24px;
+}
+
+#information label {
+    margin-left: 65px;
+}
+
+#images {
+    margin-top: 30px;
+}
+
+#gaits {
+    margin-top: 30px;
+}
+
+.title-detail {
+    font-weight: 500;
+}
+
+/* end body */
+
+/* start comment */
+
+#post-detail-comment {
+    margin-top: 30px;
+}
+
+.comment-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+#list-comment {
+    margin-top: 10px;
+}
+
+.comment-content input {
+    width: 100%;
+    margin-left: -50px;
+    border-radius: 15px;
+    border: none;
+    height: 35px;
+    outline: none;
+}
+
+.comment-user {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: -50px;
+}
+
+.comment-date {
+    font-size: 13px;
+    margin-left: 5px;
+    color: #a8a8a8;
+}
+
+.comment-user-content {
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    white-space: pre-line;
+    word-wrap: break-word;
+    margin-left: -50px;
+}
+
+.hoverCmt:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverSubmit:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverUpdate:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverUpdateCmt:hover {
+    background-color: #ffff;
+    color: #1e7e34;
+}
+
+.hoverCancelCmt:hover {
+    background-color: #ffff;
+    color: red;
+}
+
+/* end comment */
