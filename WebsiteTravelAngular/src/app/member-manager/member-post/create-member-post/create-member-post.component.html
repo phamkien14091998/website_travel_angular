@@ -71,8 +71,9 @@
                 </div>
 
                 <div class="form-group col-md-3">
-                    <label><i class="fa fa-ticket"></i> Giá vé vào cổng</label>
+                    <label><i class="fa fa-ticket"></i> Giá vé vào cổng (VND)</label>
                     <input type="number" class="form-control" formControlName="fare">
+
                 </div>
             </div>
             <div *ngIf="isInvalidForm('duration')" class="alert alert-danger col-md-12">
@@ -94,7 +95,11 @@
                 <div *ngIf="isRequired('fare')">
                     Yêu cầu nhập giá vé .
                 </div>
+                <div *ngIf="min('fare')">
+                    Giá vé không được âm .
+                </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-md-12">
                     <label>Chọn hình</label>

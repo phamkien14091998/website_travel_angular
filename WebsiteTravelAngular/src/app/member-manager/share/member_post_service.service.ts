@@ -22,15 +22,11 @@ export class MemberPostService {
 
     // // thêm post mới
     public createPost(post_data: any): Observable<any> {
-        console.log(post_data);
-
         return this.http.post(`/api/post/new`, post_data);
     }
 
     // // tìm post
     public searchPost(post: any): Observable<any> {
-        console.log(post);
-
         return this.http.post(`/api/post/search-post`, post);
     }
 

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class=" col-md-12">
-                <fieldset class="css-fieldset" style="background-color: #ffff;"> 
+                <fieldset class="css-fieldset" style="background-color: #ffff;">
                     <legend class="col-md-12" style="background-color: #ffff;">QUẢN LÝ BÀI VIẾT</legend>
                     <div style="margin-top: 30px; margin-bottom: 30px;" class="row col-md-12">
                         <form class="col-md-9" [formGroup]="searchPostForm" (ngSubmit)="searchPost()">
@@ -36,23 +36,30 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <div class="row col-md-12" style="width: 250px;" *ngIf="!dataListPost[0]">
+                                    Không tìm thấy bài viết nào !
+                                </div>
                                 <tr *ngFor="let post of dataListPost  ; let i = index" [attr.data-index]="i">
                                     <td>{{ i+1 }}</td>
                                     <td>{{post.title}}</td>
                                     <td>
-                                        <button style="margin-right: 5px;" type="button " routerLink="/member/post/detail/{{post.post_id}}" class="btn btn-info ">Xem
+                                        <button style="margin-right: 5px;" type="button "
+                                            routerLink="/member/post/detail/{{post.post_id}}" class="btn btn-info ">Xem
                                             chi
                                             tiết
                                         </button>
 
-                                        <button type="button" class="css-b btn btn-danger" (click)="postDeleteIndex = i" *ngIf="postDeleteIndex !== i">Xóa
+                                        <button type="button" class="css-b btn btn-danger" (click)="postDeleteIndex = i"
+                                            *ngIf="postDeleteIndex !== i">Xóa
                                         </button>
                                         <br><br>
                                         <div *ngIf="postDeleteIndex === i">
                                             <p class="confirm-mesage">BẠN CÓ MUỐN XÓA KHÔNG ?</p>
-                                            <button (click)="deletePost(post.post_id)" style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
+                                            <button (click)="deletePost(post.post_id)"
+                                                style="width: 80px; margin-right: 5px;" class="btn btn-success">CÓ
                                             </button>
-                                            <button style="width: 80px; " (click)="postDeleteIndex = undefined" class="btn btn-danger">Không</button>
+                                            <button style="width: 80px; " (click)="postDeleteIndex = undefined"
+                                                class="btn btn-danger">Không</button>
                                         </div>
                                     </td>
                                 </tr>

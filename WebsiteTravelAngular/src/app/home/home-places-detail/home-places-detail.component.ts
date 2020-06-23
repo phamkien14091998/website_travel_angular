@@ -116,6 +116,10 @@ export class HomePlacesDetailComponent implements OnInit {
   }
   // gửi sao lên lưu
   submitRating() {
+    if (this.currentRate == 0) {
+      this.toastr.error(' ', 'Bạn hãy đánh giá từ 1-5 sao !');
+      return;
+    }
     var body = {
       'point': this.currentRate,
       'famous_place_id': this.dataDetailPlace?.famous_place_id,

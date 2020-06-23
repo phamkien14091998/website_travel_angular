@@ -25,7 +25,7 @@ export class CreateMemberPostComponent implements OnInit {
 
   // khai báo để lưu giá trị user đang đăng nhập
   user: any = '';
- 
+
   // tạo giờ mở đóng cửa 
   date_array = [
     '0:00', '0:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00',
@@ -57,7 +57,7 @@ export class CreateMemberPostComponent implements OnInit {
       date_start: ['', Validators.required],
       date_end: ['', Validators.required],
       duration: ['', Validators.required],
-      fare: ['', Validators.required],
+      fare: ['', [Validators.required, Validators.min(0)]],
       profile: [''],
       famous_place_id: ['', Validators.required],
       gaits: [''],
@@ -81,6 +81,10 @@ export class CreateMemberPostComponent implements OnInit {
   //kiểm tra bắt buộc nhập
   isRequired(fieldName): boolean {
     return this.createPostForm.controls[fieldName].errors.required;
+  }
+  // kiểm tra min ký tự 
+  min(fieldName): boolean {
+    return this.createPostForm.controls[fieldName].errors.min;
   }
   getProvince() {
     this.postService.getProvince().subscribe(

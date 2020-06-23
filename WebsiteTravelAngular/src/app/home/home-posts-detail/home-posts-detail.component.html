@@ -132,6 +132,10 @@
             <b *ngIf="currentNew ==0"> Đánh Giá Bài Viết </b>
             <b *ngIf="currentNew != 0"> Bạn Đã Đánh Giá </b>
         </div>
+        <div class="col-md-8" style="padding-top: 12px;background-color: #ffff;" *ngIf="!auth.haveLogin()">
+            <span> Đăng nhập để đánh
+                giá !</span>
+        </div>
         <div class="col-md-2" *ngIf="auth.haveLogin()">
             <span class="text-primary" style="font-size: 30px; margin-left: 15px; margin-top: 4px;"
                 *ngIf=" currentNew == 0">

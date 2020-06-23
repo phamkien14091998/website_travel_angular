@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { HomeService } from "../shared/home_service.service";
 import { environment } from "../../../environments/environment";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthenticationService } from "../../authentication.service"; 
+import { AuthenticationService } from "../../authentication.service";
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -144,6 +144,10 @@ export class HomePostsDetailComponent implements OnInit {
   }
   // gửi sao lên lưu
   submitRating() {
+    if (this.currentRate == 0) {
+      this.toastr.error(' ', 'Bạn hãy đánh giá từ 1-5 sao !');
+      return;
+    }
 
     var body = {
       'point': this.currentRate,
