@@ -40,6 +40,7 @@ import { HomeTop10PlacesComponent } from './home/home-top10-places/home-top10-pl
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { GoogleLoginComponent } from './google-login/google-login.component';
+import { PresentComponent } from './home/present/present.component';
 
 let config = new AuthServiceConfig([
   {
@@ -68,6 +69,8 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'top-10-place', component: HomeTop10PlacesComponent },
   { path: 'google-login', component: GoogleLoginComponent },
+  { path: 'present', component: PresentComponent },
+
   // { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
 
 ]
@@ -91,6 +94,7 @@ const routes: Routes = [
     PaymentComponent,
     HomeTop10PlacesComponent,
     GoogleLoginComponent,
+    PresentComponent,
 
   ],
   imports: [

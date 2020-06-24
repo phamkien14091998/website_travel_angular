@@ -258,6 +258,10 @@ export class HomePostsDetailComponent implements OnInit {
   // update comment 2
   updateCMT() {
     var content = (<HTMLInputElement>document.getElementById("content")).value;
+    if (content == "") {
+      this.toastr.error('', 'Bình luận không được để trống');
+      return;
+    }
     this.comment_id
     document.getElementById('updateConment').style.display = "none";
     var body = {

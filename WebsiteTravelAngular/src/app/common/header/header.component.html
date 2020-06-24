@@ -6,7 +6,7 @@
     </a>
     <h4 *ngIf="user?.role == 1 && auth.haveLogin()"> Trang Admin Quản Lý</h4>
   </h5>
-  <div class="col-md-8" id="navbar-center" *ngIf="user?.role != 1 || !auth.haveLogin()">
+  <div class="col-md-9" id="navbar-center" *ngIf="user?.role != 1 || !auth.haveLogin()">
     <i class="fa fa-shopping-basket" style="font-size:24px;"></i>
     <button class="navbar-cart" routerLink="/product" type="button">
       Cửa hàng
@@ -19,6 +19,10 @@
     <button class="navbar-cart" routerLink="/top-10-place" type="button">
       Top địa điểm
     </button>
+    <i class="fa fa-gift" style="font-size:24px;  margin-left: 5px;"></i>
+    <button class="navbar-cart" routerLink="/present" type="button">
+      Quà tặng
+    </button>
   </div>
   <nav class="my-2 my-md-0 mr-md-3 link">
     <a *ngIf="!auth.haveLogin()" routerLink="/login"> <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -30,7 +34,7 @@
       <span>{{user?.user_name}}</span>
       <i class="fa fa-angle-down">
         <ul class="sub-menu" *ngIf="user?.role == 0" style="padding-top: 5px;
-        padding-left: 110px;">
+        padding-left: 120px;">
           <li><a *ngIf="auth.haveLogin()" routerLink="/member/info/detail/{{user?.user_id}}">Hồ sơ cá nhân</a></li>
           <li><a *ngIf="auth.haveLogin()" routerLink="/member/post/list">Quản lý bài viết</a></li>
           <li><a *ngIf="auth.haveLogin()" routerLink="/member/collection/list">Quản lý bộ sưu tập</a></li>

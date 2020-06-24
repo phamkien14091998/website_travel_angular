@@ -96,17 +96,16 @@ export class CardComponent implements OnInit {
   }
 
   checkLoginPayment() {
-    // console.log(this.user?.user_name);
 
     if (this.dataProduct == null) {
       this.toastr.error(' ', 'Bạn chưa có sản phẩm nào trong giỏ hàng !');
       return;
     }
 
-    if (this.user == null) {
-      this.router.navigateByUrl('/login');
-    } else {
+    if (this.user != null) {
       this.router.navigateByUrl('/payment');
+    } else {
+      this.router.navigateByUrl('/login');
     }
   }
 

@@ -13,6 +13,9 @@
                 </tr>
             </thead>
             <tbody>
+                <tr *ngIf="!dataListProduct[0]">
+                    Bạn chưa mua sản phẩm nào !
+                </tr>
                 <tr *ngFor="let product of dataListProduct">
                     <td>{{product.bill_id}}</td>
                     <td>{{product.created_at}}</td>

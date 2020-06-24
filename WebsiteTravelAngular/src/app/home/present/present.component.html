@@ -1,0 +1,117 @@
+<div class="row">
+    <h2 style="text-align: center; padding-left: 50px;">Quà tặng cho top 10 có tích điểm cao nhất tháng
+        {{dataTopUser[0]?.created_at | date : "MM-yyyy"}}</h2>
+
+    <br> <span style="margin-left: 45px;">(Các bạn vui lòng liên hệ nhận giải thông qua SĐT: 0968692487 hoạc Gmail :
+        webtravel@gmail.com )</span>
+    <div class="row col-md-12"
+        style="height: 1400px; width: 100%; margin-top: 50px; padding-top: 10px; background-color: #ffff;">
+        <div class="col-md-1">
+        </div>
+        <div *ngIf="dataTopUser[1]" class="col-md-3 text-center" style="margin-top: 60px;">
+            <b style="color: #26c281;">{{dataTopUser[1].user_name}} (TOP 2)</b> <br>
+            <div>
+                <img src="{{domain}}/{{dataTopUser[1].avatar}}" class="sty-i" alt="">
+            </div>
+            <h6>Máy ảnh sony</h6>
+            <img src="./assets/img/giai2.PNG" width="280" height="200px" alt="">
+        </div>
+        <div *ngIf="dataTopUser[0]" class="col-md-4 text-center">
+            <b style="color: #26c281;">{{dataTopUser[0].user_name}} (TOP 1)</b> <br>
+            <div>
+                <img src="{{domain}}/{{dataTopUser[0].avatar}}" class="sty-i" alt="">
+            </div>
+            <h6>Cặp vé du lịch đà nẵng</h6>
+            <img src="./assets/img/giai1.PNG" width="280px" height="200px" alt="">
+        </div>
+        <div *ngIf="dataTopUser[2]" class="col-md-3 text-center" style="margin-top: 80px;">
+            <b style="color: #26c281;">{{dataTopUser[2].user_name}} (TOP 3)</b> <br>
+            <div>
+                <img src="{{domain}}/{{dataTopUser[2].avatar}}" class="sty-i" alt="">
+            </div>
+            <h6>Quạt máy cao cấp</h6>
+            <img src="./assets/img/giai3.PNG" width="280px" height="200px" alt="">
+        </div>
+        <div class="col-md-1">
+        </div>
+
+        <div class="row col-md-12" style="margin-top: 20px;padding-top: 18px;border-top: 5px solid #afa3a3;
+        margin-left: 13px;">
+            <div *ngIf="dataTopUser[3]" class="col-md-4 text-center">
+                <b style="color: #26c281;">{{dataTopUser[3].user_name}}
+                </b> <br>
+                <p class="sty-p text-center">Top 4</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[3].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Ống nhom cao cấp song long</h6>
+                <img src="./assets/img/giai4.PNG" width="280px" height="200px" alt="">
+            </div>
+            <div *ngIf="dataTopUser[4]" class="col-md-4 text-center">
+                <b style="color: #26c281;">{{dataTopUser[4].user_name}}
+                </b> <br>
+                <p class="sty-p text-center">Top 5</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[4].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Nồi nấu cao cấp pana</h6>
+                <img src="./assets/img/giai5.PNG" width="280px" height="200px" alt="">
+            </div>
+            <div *ngIf="dataTopUser[5]" class="col-md-4 text-center">
+                <b style="color: #26c281;">{{dataTopUser[5].user_name}}
+                </b> <br>
+                <p class="sty-p text-center">Top 6</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[5].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Bao tay da cá mập cao cấp</h6>
+                <img src="./assets/img/giai6.PNG" width="280px" height="200px" alt="">
+            </div>
+        </div>
+        <div class="row col-md-12" style="margin-top: 20px;border-top: 5px solid #afa3a3;
+        margin-left: 13px;padding-top: 18px;">
+            <div *ngIf="dataTopUser[6]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[6].user_name}}
+                </b> <br>
+                <p class="sty-p2 text-center">Top 7</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[6].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Sạc dự phòng 2000kw</h6>
+                <img src="./assets/img/giai7.PNG" width="280px" height="200px" alt="">
+            </div>
+            <div *ngIf="dataTopUser[7]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[7].user_name}}
+                </b> <br>
+                <p class="sty-p2 text-center">Top 8</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[7].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Bếp điện nướng mọi loại thịt</h6>
+                <img src="./assets/img/giai8.PNG" width="280px" height="200px" alt="">
+            </div>
+            <div *ngIf="dataTopUser[8]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[8].user_name}}
+                </b> <br>
+                <p class="sty-p2 text-center">Top 9</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[8].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Suất ăn bắp giang bơ khi đi xem phim</h6>
+                <img src="./assets/img/giai9.PNG" width="280px" height="200px" alt="">
+            </div>
+            <div *ngIf="dataTopUser[9]" class="col-md-3 text-center">
+                <b style="color: #26c281;">{{dataTopUser[9].user_name}}
+                    ({{dataTopUser[9].sumPoint}}
+                    điểm)</b> <br>
+                <p class="sty-p2 text-center">Top 10</p>
+                <div>
+                    <img src="{{domain}}/{{dataTopUser[9].avatar}}" class="sty-i2" alt="">
+                </div>
+                <h6>Cặp vé xem phim CGV</h6>
+                <img src="./assets/img/giai10.PNG" width="280px" height="200px" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
