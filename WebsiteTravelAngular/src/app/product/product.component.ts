@@ -28,13 +28,12 @@ export class ProductComponent implements OnInit {
     const data = {
       'email': this.user?.email
     };
+
     this.productService.callFunctionPayment(data).subscribe(
       (data) => {
-        this.dataInsert = data; // thì chỗ này ông thông báo thôi , vậy để mai t làm, giờ coi data icoert đc chưa vs email
-        // để t thêm thống báo chỗ này cho coi mail đã
-        
+        this.dataInsert = data;
         console.log(this.dataInsert);
-      }, err => { console.log(err) } // trả về chỗ nào đâu
+      }, err => { console.log(err) }
     );
   }
 

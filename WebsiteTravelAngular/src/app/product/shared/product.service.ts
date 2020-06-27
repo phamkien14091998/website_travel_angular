@@ -8,7 +8,7 @@ export class ProductService {
     constructor(private http: HttpClient) {
 
     }
-    // lấy ra 16 sản phẩm mới nhất 
+    // lấy ra 16 sản phẩm mới nhất
     public getListProductNew(): Observable<any> {
         return this.http.get(`/api/product/list-product-new`);
     }
@@ -32,7 +32,7 @@ export class ProductService {
 
     // lấy ra user by user name
     public callFunctionPayment(data: any): Observable<any> {
-        return this.http.post(`/api/paypal/payment`, data);
+        return this.http.post(`/api/paypal/payment/`, data);
     }
     // lấy ra 16 sản phẩm bán chạy nhất
     public getListProductRevenue(): Observable<any> {
