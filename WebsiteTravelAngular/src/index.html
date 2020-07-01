@@ -102,7 +102,7 @@
         $("#total-cart").text(tongTienAllSP.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1.").toString() + " VND");
       });
       $.ajax({
-        url: '/api/cart/get-all/',
+        url: 'http://127.0.0.1:8000/api/cart/get-all/',
         type: 'GET',
         data: {},
         error: function () { },
@@ -190,7 +190,7 @@
 
     $("body").on("click", ".add-to-cart", function () {
       $.ajax({
-        url: '/api/cart/get-all/',
+        url: 'http://127.0.0.1:8000/api/cart/get-all/',
         type: 'GET',
         data: {},
         error: function () { },
@@ -203,7 +203,7 @@
 
     $("body").on("click", ".navbar-cart", function () {
       $.ajax({
-        url: '/api/cart/get-all/',
+        url: 'http://127.0.0.1:8000/api/cart/get-all/',
         type: 'GET',
         data: {},
         error: function () { },
@@ -216,7 +216,7 @@
 
     $("body").on("click", ".btn-continue-shopping", function () {
       $.ajax({
-        url: '/api/cart/get-all/',
+        url: 'http://127.0.0.1:8000/api/cart/get-all/',
         type: 'GET',
         data: {},
         error: function () { },

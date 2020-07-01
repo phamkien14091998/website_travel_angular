@@ -127,7 +127,7 @@
 <!-- start search product -->
 <div class="shop-product-clothes" *ngIf="search_product_name != '' ">
     <div class="container">
-        <div class="row">
+        <div class="row" style="height: 1000px; overflow: scroll; background-color: #ffff;">
             <div class="col-md-12">
                 <div id="clothesCarousel" class="carousel slide">
                     <div class="carousel-inner">
@@ -135,14 +135,21 @@
                             <div class="row">
                                 <div class="col-sm-3" *ngFor="let data of dataSearch">
                                     <div class="thumb-wrapper">
-                                        <div class="img-box">
+                                        <div class="img-box hover-img">
                                             <img src="{{domain}}/{{data.images[0]}}"
-                                                class="img-responsive img-fluid css-i" alt="">
+                                                class="img-responsive img-fluid css-i" id="image"
+                                                routerLink="/product/detail/{{data.product_id}}" alt="">
+                                            <div routerLink="/product/detail/{{data.product_id}}" id="middle">
+                                                <div id="text">Số lượng còn : {{data.quantity}}</div>
+                                                <div id="text">Mô tả : {{data.description}}</div>
+                                            </div>
                                         </div>
                                         <div class="thumb-content">
                                             <h4>{{data.product_name}}</h4>
-                                            <p class="item-price"><span>{{data.price}} Đ</span></p>
-                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                            <p class="item-price"><span>{{data.price | currency:'VND'}}</span></p>
+                                            <a routerLink="/product/detail/{{data.product_id}}"
+                                                class="btn btn-primary">Xem
+                                                chi
                                                 tiết</a>
                                         </div>
                                     </div>
@@ -161,7 +168,7 @@
 <!-- start list product -->
 <div class="shop-product-clothes" *ngIf="search_product_name == '' ">
     <div class="container">
-        <div class="row">
+        <div class="row" style="height: 1200px; overflow: scroll;background-color: #ffff;">
             <div class="col-md-12">
                 <div id="clothesCarousel" class="carousel slide">
                     <!-- data-ride="carousel" data-interval="0" -->
@@ -177,14 +184,20 @@
                             <div class="row">
                                 <div class="col-sm-3" *ngFor="let data of dataProduct">
                                     <div class="thumb-wrapper">
-                                        <div class="img-box">
+                                        <div class="img-box hover-img">
                                             <img src="{{domain}}/{{data.images[0]}}"
-                                                class="img-responsive img-fluid css-i" alt="">
+                                                class="img-responsive img-fluid css-i" id="image"
+                                                routerLink="/product/detail/{{data.product_id}}" alt="">
+                                            <div routerLink="/product/detail/{{data.product_id}}" id="middle">
+                                                <div id="text">Số lượng còn : {{data.quantity}}</div>
+                                                <div id="text">Mô tả : {{data.description}}</div>
+                                            </div>
                                         </div>
                                         <div class="thumb-content">
                                             <h4>{{data.product_name}}</h4>
                                             <p class="item-price"><span>{{data.price}} Đ</span></p>
-                                            <a routerLink="detail/{{data.product_id}}" class="btn btn-primary">Xem chi
+                                            <a routerLink="/product/detail/{{data.product_id}}"
+                                                class="btn btn-primary">Xem chi
                                                 tiết</a>
                                         </div>
                                     </div>

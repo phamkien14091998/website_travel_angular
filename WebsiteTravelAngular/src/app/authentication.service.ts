@@ -80,7 +80,7 @@ export class AuthenticationService {
     // this.user$.next(user)
     // return user;
 
-    // kiểm tra có đăng nhập hay chưa 
+    // kiểm tra có đăng nhập hay chưa
     public haveLogin() {
         let user = this.getUserDetails()
         if (user) {
@@ -127,7 +127,7 @@ export class AuthenticationService {
                 this.user$.next(user)  // đưa user này tới component khác
                 if (user.role == 0) {
                     this.toastr.success('Thành Công', 'Đăng Nhập');
-                    this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg 
+                    this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg
                 } else {
                     this.toastr.success('Thành Công', 'Đăng Nhập');
                     this.router.navigateByUrl('/manager/product');
@@ -147,16 +147,17 @@ export class AuthenticationService {
         this.token = ''
         window.localStorage.removeItem('usertoken')
         // location.reload();
+        // location.reload();
         this.router.navigateByUrl('/')
     }
 
-    //////////// đăng nhập bằng google   
+    //////////// đăng nhập bằng google
     public logInGoogle(): Observable<any> {
         return this.http.get(`/api/auth/google/url`);
     }
 
     public handlerGoogle(): Observable<any> {
-        return this.http.get(`/api/auth/google/callback?client_id=536215063801-cs5sgqi4pufhn8678h32atls9bvj6g8t.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2F&scope=openid+profile+email&response_type=code`);
+        return this.http.get(`/api/auth/google/callback?client_id=909426392952-9mv1bc9o1i9i1or8o3r4nsfrvrkeqb5t.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&scope=openid+profile+email&response_type=code`);
     }
 
     // login google
@@ -176,7 +177,7 @@ export class AuthenticationService {
                 this.user$.next(user)  // đưa user này tới component khác
                 if (user.role == 0) {
                     this.toastr.success('Thành Công', 'Đăng Nhập');
-                    this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg 
+                    this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg
                 } else {
                     this.toastr.success('Thành Công', 'Đăng Nhập');
                     this.router.navigateByUrl('/manager/product');
@@ -197,7 +198,7 @@ export class AuthenticationService {
         this.user$.next(user)  // đưa user này tới component khác
         if (user.role == 0) {
             this.toastr.success('Thành Công', 'Đăng Nhập');
-            this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg 
+            this.router.navigateByUrl('/'); // nó chuyển từ login về / t đamg
         } else {
             this.toastr.success('Thành Công', 'Đăng Nhập');
             this.router.navigateByUrl('/manager/product');
@@ -206,9 +207,3 @@ export class AuthenticationService {
     }
 
 }
-
-
-
-
-
-

@@ -34,6 +34,8 @@ export class UpdateScheduleDetailComponent implements OnInit {
   arrayV: any = []
   check
 
+  trip_id
+
   ////////////////////////////////////
   form: FormGroup;
   array: any = []
@@ -54,6 +56,7 @@ export class UpdateScheduleDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params) => {
         this.getScheduleDetail(params['trip_detail_id']);
+
       })
     this.getListVehicle(); // laays danh sachs xe leen
 
@@ -100,11 +103,12 @@ export class UpdateScheduleDetailComponent implements OnInit {
   }
   // chi tiết lich trình
   getScheduleDetail(trip_id: string) {
+
     this.scheduleService.getTripDetail(
       trip_id
     ).subscribe(
       (data) => {
-        console.log(data);
+        this.trip_id = data.trip_id
 
         data.time_to = data.time_to.split('h')
         data.time_stay = data.time_stay.split('h')
@@ -192,5 +196,6 @@ export class UpdateScheduleDetailComponent implements OnInit {
       }
     )
   }
+
 
 }

@@ -7,9 +7,8 @@ export const environment = {
   // server_port: 3000,
   // get API_URL() { return `http://${window.location.hostname}:${this.server_port}`; },
 
-  get API_URL() {
-    return `http://127.0.0.1:8000`;
-  },
+  // API_URL: `https://centos.email`,
+  API_URL: `http://127.0.0.1:8000`
 
 };
 

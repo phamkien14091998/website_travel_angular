@@ -317,6 +317,11 @@ export class DetailScheduleComponent implements OnInit {
   create() {
     this.friends_arr = localStorage.getItem('friends').split("|");
 
+    if (!this.dataDetail_trip[0]) {
+      this.toastr.error(' ', 'Bạn cần thêm chi tiết địa điểm');
+      return;
+    }
+
     const body = {
       'dataDetail_trip': this.dataDetail_trip,
       'trip_name': this.trip_name,
@@ -328,6 +333,7 @@ export class DetailScheduleComponent implements OnInit {
       'friends': this.friends,
       'friends_arr': this.friends_arr
     }
+
 
     this.scheduleService.createSchedule(
       body

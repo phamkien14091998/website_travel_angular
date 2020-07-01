@@ -77,7 +77,7 @@ export class HomePostsDetailComponent implements OnInit {
   getAllCommentByPostId() {
     this.post_id = this.dataDetailPost?.post_id
 
-    this.home_service.getAllCommentByPostId(
+    this.home_service.getAllCommentByPostId(  
       this.post_id
     ).subscribe(
       (data) => {

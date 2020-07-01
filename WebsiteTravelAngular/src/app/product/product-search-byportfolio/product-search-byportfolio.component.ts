@@ -26,6 +26,7 @@ export class ProductSearchByportfolioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.initForm()
     this.route.params.subscribe(
       (params) => {

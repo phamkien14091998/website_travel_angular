@@ -119,8 +119,13 @@
                             <div class="col-md-5">
                             </div>
 
-                            <button type="submit" [disabled]="!createPlaceForm.valid"
-                                class="btn btn-success col-md-2">Thêm</button>
+                            <button type="submit" [disabled]="!createPlaceForm.valid" class="btn btn-success col-md-1">
+                                Thêm
+                            </button>
+                            <button style="margin-left: 10px;" type="button" routerLink="/manager/places"
+                                class="btn btn-secondary col-md-1">
+                                Hủy
+                            </button>
                             <div class="col-md-5">
                             </div>
                         </div>

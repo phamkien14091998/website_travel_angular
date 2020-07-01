@@ -9,8 +9,8 @@
 
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" style="width: 145px; height: 70px;" routerLink="/member/collection/new"
-                                class="btn btn-success hoverCreate">Thêm Bộ
+                            <button type="submit" style="width: 145px; height: 70px;"
+                                routerLink="/member/collection/new" class="btn btn-success hoverCreate">Thêm Bộ
                                 Sưu Tập</button>
                         </div>
                     </div>
@@ -20,10 +20,10 @@
                             *ngFor="let data of dataListCollection ; let i = index" [attr.data-index]="i">
                             <div class="a-post-review css-div">
                                 <a>
-                                    <h4 class="a-post-title text-center css-h4">
+                                    <h5 class="a-post-title text-center css-h4">
                                         {{data.collection_name}}
 
-                                    </h4>
+                                    </h5>
                                     <p class="a-post-title text-center" style="padding-top: 20px; padding-left: 10px;">
                                         Ngày Tạo: {{data.created_at | date : "dd/MM/yyyy"}}</p>
                                 </a>
