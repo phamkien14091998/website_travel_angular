@@ -26,8 +26,8 @@ export class ProductService {
         return this.http.get('/api/product/detail-product/' + product_id);
     }
     // chi tiết sản phẩm theo id
-    public addToCart(product_id: string): Observable<any> {
-        return this.http.get('/api/cart/add/' + product_id);
+    public addToCart(data: any): Observable<any> {
+        return this.http.post('/api/cart/add', data);
     }
 
     // lấy ra user by user name
@@ -42,6 +42,11 @@ export class ProductService {
     public searchProductByName(product_name: any): Observable<any> {
 
         return this.http.post('/api/product/search-name', product_name);
+    }
+
+    // chi tiết sản phẩm theo id
+    public getAllProductForCart(product_id: string): Observable<any> {
+        return this.http.get('/api/cart/add/' + product_id);
     }
 
 

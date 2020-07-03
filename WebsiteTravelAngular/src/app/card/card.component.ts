@@ -34,7 +34,7 @@ export class CardComponent implements OnInit {
         //this.deleteProductCart(params['product_id']);
       })
     this.auth.user$.subscribe(user => this.user = user)
-    this.getSoLuongTonKho();
+    // this.getSoLuongTonKho();
   }
 
   getAllProductForCart() {
@@ -47,6 +47,7 @@ export class CardComponent implements OnInit {
               p.images = p.images.split("|")
               return p;
             })
+          console.log(this.dataProduct);
         }
         else {
           this.dataProduct = null;
@@ -109,15 +110,15 @@ export class CardComponent implements OnInit {
     }
   }
 
-  getSoLuongTonKho() {
-    this.cartService.getSoLuongTonKho(
-    ).subscribe(
-      (data) => {
-        this.dataSoLuongTon = data;
-        //console.log(this.dataSoLuongTon);
-      }, err => { console.log(err) }
-    );
-  }
+  // getSoLuongTonKho() {
+  //   this.cartService.getSoLuongTonKho(
+  //   ).subscribe(
+  //     (data) => {
+  //       this.dataSoLuongTon = data;
+  //       //console.log(this.dataSoLuongTon);
+  //     }, err => { console.log(err) }
+  //   );
+  // }
 
 }
 

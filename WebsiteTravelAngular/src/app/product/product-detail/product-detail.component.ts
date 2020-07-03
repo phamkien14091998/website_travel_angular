@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ProductService } from "../shared/product.service";
 import { environment } from "../../../environments/environment";
 import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from "../../authentication.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -16,15 +17,18 @@ export class ProductDetailComponent implements OnInit {
   selectedItem: any;
   totalOfCart: number = 0;
   domain = environment.API_URL;
+  user: any = '';
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private toastr: ToastrService,
     private router: Router,
+    private auth: AuthenticationService,
   ) { }
 
   ngOnInit(): void {
+    this.auth.user$.subscribe(user => this.user = user)
     this.route.params.subscribe(
       (params) => {
         this.getDetailProduct(params['product_id']);
@@ -46,8 +50,18 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(product_id) {
+
+    if (this.auth.haveLogin() == false) {
+      this.toastr.error(' ', 'Bạn cần đăng nhập trước khi thêm giỏ hàng');
+      return;
+    }
+
+    var body = {
+      'product_id': product_id,
+      'user_id': this.user.user_id
+    }
     this.productService.addToCart(
-      product_id
+      body
     ).subscribe(
       (data) => {
         this.totalOfCart = data;
