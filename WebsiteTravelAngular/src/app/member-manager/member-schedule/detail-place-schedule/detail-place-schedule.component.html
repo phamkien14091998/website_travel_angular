@@ -1,4 +1,4 @@
-<div class="row col-md-12" style="height: 100px;background-color: #ffff; margin-left: 0px;padding-top: 5px;">
+<div class="row col-md-12" style="height: 120px;background-color: #ffff; margin-left: 0px;padding-top: 5px;">
   <h6 class="col-md-2">Thành viên tham gia</h6>
   <div class="col-md-5 ">
     <span *ngFor="let u of dataUser">
@@ -7,6 +7,17 @@
           src="{{domain}}/{{u.avatar}}" alt="">
         <div id="middle">
           <div id="text">{{u.user_name}}</div>
+          <br>
+          <button (click)="cancelInvitation(u.user_id)" id="text" class=" btn" style="width: 72px;
+            border: 1px solid black;
+            max-width: 75px;
+            padding-right: 0px;
+            margin-right: 57px;
+            background-color: #43ac49;
+            color: #ffff;
+            font-size: 15px;">
+            Từ chối
+          </button>
         </div>
       </div>
     </span>

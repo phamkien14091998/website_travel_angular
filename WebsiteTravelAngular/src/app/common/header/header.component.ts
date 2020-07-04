@@ -10,7 +10,9 @@ export class HeaderComponent implements OnInit {
   // user_n: any = "";
   user: any = '';
 
-  domain = environment.API_URL 
+  domain = environment.API_URL
+  count_user_id
+  listNotify
 
   constructor(
     public auth: AuthenticationService,
@@ -18,13 +20,57 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     // this.auth.user$.subscribe(user => this.user_n = user?.user_name)
     this.auth.user$.subscribe(user => this.user = user)  // bán user = user đã được truyền lên kèm token
+    // lấy ra tất cả thông báo của user đang đăng nhập 
+    this.getNotify();
+    this.getCountNotify();
+  }
 
+  // lấy ra tổng số thông báo
+  getCountNotify() {
+    var data = {
+      'user_id': this.user?.user_id
+    }
+    this.auth.getCountNotify(
+      data
+    ).subscribe(
+      (data) => {
+        this.count_user_id = data[0].count_user_id
+      }
+    )
 
   }
 
+
+  getNotify() {
+    var data = {
+      'user_id': this.user?.user_id
+    }
+    this.auth.getNotify(
+      data
+    ).subscribe(
+      (data) => {
+        this.listNotify = data
+      }
+    )
+
+  }
+
+  closeNotity(trip_id) {
+    var data = {
+      'user_id': this.user?.user_id,
+      'trip_id': trip_id
+    }
+    this.auth.closeNotity(
+      data
+    ).subscribe(
+      (data) => {
+        this.count_user_id = data[0].count_user_id
+        this.listNotify = data
+      }
+    )
+  }
 
 
 

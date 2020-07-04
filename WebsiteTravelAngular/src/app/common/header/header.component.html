@@ -6,7 +6,7 @@
     </a>
     <h4 *ngIf="user?.role == 1 && auth.haveLogin()"> Trang Admin Quản Lý</h4>
   </h5>
-  <div class="col-md-9" id="navbar-center" *ngIf="user?.role != 1 || !auth.haveLogin()">
+  <div class="col-md-8" id="navbar-center" *ngIf="user?.role != 1 || !auth.haveLogin()">
     <i class="fa fa-shopping-basket" style="font-size:24px;"></i>
     <button class="navbar-cart" routerLink="/product" type="button">
       Cửa hàng
@@ -23,6 +23,58 @@
     <button class="navbar-cart" routerLink="/present" type="button">
       Quà tặng
     </button>
+  </div>
+  <div class="col-md-1" *ngIf="auth.haveLogin() && user?.role == 0" style="margin-right: 155px;">
+    <span style="
+      width: 39px;
+      height: 30px;
+      border-radius: 35px;
+      color: red;
+      background-color: #ffff;
+      border: 1px solid;
+      padding-left: 4px;
+      ">
+      {{count_user_id}}
+    </span>
+
+
+    <i class="fa fa-bell" data-toggle="modal" data-target="#myModal">
+    </i>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog" style="float: right;
+        width: 500px;
+        margin-top: 70px;
+        margin-right: 157px;">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="width: 652px;height: 350px;overflow: scroll;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="row col-md-12" *ngFor="let n of listNotify ; let i = index" [attr.data-index]="i">
+              <span class="col-md-1">{{i+1}} .</span>
+              <div class="col-md-8">
+                {{n.note}} : {{n.trip_name}} ( {{n.created_at  | date : "hh:mm:ss dd/MM/yyyy"}} )
+              </div>
+              <div class="col-md-3">
+                <button routerLink="/member/schedule/detail/{{n.trip_id}}" type="button" class="btn btn-success"
+                  style="margin-right: 10px;" onclick="$('.modal').modal('hide')">xem</button>
+                <button type="button" class="btn btn-secondary" (click)="closeNotity(n.trip_id)">tắt</button>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
   </div>
   <nav class="my-2 my-md-0 mr-md-3 link">
     <a *ngIf="!auth.haveLogin()" routerLink="/login"> <i class="fa fa-plus-circle" aria-hidden="true"></i>

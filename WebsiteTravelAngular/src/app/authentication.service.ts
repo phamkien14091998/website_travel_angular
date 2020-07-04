@@ -206,4 +206,19 @@ export class AuthenticationService {
 
     }
 
+    // get số lượng thông báo
+    public getCountNotify(data: any): Observable<any> {
+        return this.http.post(`/api/schedule/getCountNotify`, data);
+    }
+
+    // get thông báo
+    public getNotify(data: any): Observable<any> {
+        return this.http.post(`/api/schedule/getNotify`, data);
+    }
+    // tắt thông báo
+    public closeNotity(data: any): Observable<any> {
+        return this.http.post(`/api/schedule/closeNotity`, data);
+    }
+
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MemberScheduleService } from "../../share/member_schedule_service.service";
 import { environment } from "../../../../environments/environment";
 import { ToastrService } from 'ngx-toastr';
@@ -34,6 +34,7 @@ export class DetailPlaceScheduleComponent implements OnInit {
     private toastr: ToastrService,
     public auth: AuthenticationService,
     private fb: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -73,7 +74,7 @@ export class DetailPlaceScheduleComponent implements OnInit {
     this.scheduleService.getUserCreateByTripId(trip_id_1).subscribe(
       (data) => {
         this.dataUserCreate = data[0]
-        console.log(this.dataUserCreate);
+        // console.log(this.dataUserCreate);
 
       }
     )
@@ -136,7 +137,7 @@ export class DetailPlaceScheduleComponent implements OnInit {
       trip_id
     ).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
 
         this.dataListComment = data
       }
@@ -173,7 +174,7 @@ export class DetailPlaceScheduleComponent implements OnInit {
         // location.reload()
       }
     )
-  } 
+  }
   deleteComment(comment_id: string) {
     this.scheduleService.deleteComment(comment_id).subscribe(
       () => {
@@ -187,5 +188,21 @@ export class DetailPlaceScheduleComponent implements OnInit {
     )
   }
 
+  cancelInvitation(user_id) {
+    var data = {
+      'user_id': user_id,
+      'trip_id': this.trip_ID
+    }
+
+    this.scheduleService.cancelInvitation(
+      data
+    ).subscribe(
+      (data) => {
+        this.toastr.success('thành công', 'Bạn đã rời khỏi chuyến đi');
+        this.router.navigateByUrl('/member/schedule/list/invate');
+      }
+    )
+
+  }
 
 }

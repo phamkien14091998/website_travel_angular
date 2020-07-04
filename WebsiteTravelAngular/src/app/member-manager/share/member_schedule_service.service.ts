@@ -104,5 +104,10 @@ export class MemberScheduleService {
     public deleteComment(comment_id: string): Observable<any> {
         return this.http.delete(`/api/comment/delete/` + comment_id);
     }
+    // huy khong tham gia lich trinh
+    public cancelInvitation(data: any): Observable<any> {
+        return this.http.post(`/api/schedule/cancelInvitation`, data);
+    }
+
 
 }
