@@ -57,10 +57,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  closeNotity(trip_id) {
+  closeNotity(url) {
+
     var data = {
       'user_id': this.user?.user_id,
-      'trip_id': trip_id
+      'url': url
     }
     this.auth.closeNotity(
       data

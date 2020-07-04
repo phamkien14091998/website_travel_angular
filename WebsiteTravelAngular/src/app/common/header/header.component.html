@@ -56,12 +56,12 @@
             <div class="row col-md-12" *ngFor="let n of listNotify ; let i = index" [attr.data-index]="i">
               <span class="col-md-1">{{i+1}} .</span>
               <div class="col-md-8">
-                {{n.note}} : {{n.trip_name}} ( {{n.created_at  | date : "hh:mm:ss dd/MM/yyyy"}} )
+                {{n.note}} ( {{n.created_at  | date : "hh:mm:ss dd/MM/yyyy"}} )
               </div>
               <div class="col-md-3">
-                <button routerLink="/member/schedule/detail/{{n.trip_id}}" type="button" class="btn btn-success"
-                  style="margin-right: 10px;" onclick="$('.modal').modal('hide')">xem</button>
-                <button type="button" class="btn btn-secondary" (click)="closeNotity(n.trip_id)">tắt</button>
+                <button routerLink="{{n.url}}" type="button" class="btn btn-success" style="margin-right: 10px;"
+                  onclick="$('.modal').modal('hide')">xem</button>
+                <button type="button" class="btn btn-secondary" (click)="closeNotity(n.url)">tắt</button>
               </div>
 
             </div>

@@ -30,6 +30,7 @@ export class HomePostsDetailComponent implements OnInit {
   // 
   comment_id
   content
+  user_id_create: any = '';
 
 
   constructor(
@@ -68,6 +69,8 @@ export class HomePostsDetailComponent implements OnInit {
 
         // update viewer xem bài viết
         this.updateViewer();
+        // get usser by post_id
+        this.getUserByPostId();
 
       }, err => { console.log(err) }
     );
@@ -77,7 +80,7 @@ export class HomePostsDetailComponent implements OnInit {
   getAllCommentByPostId() {
     this.post_id = this.dataDetailPost?.post_id
 
-    this.home_service.getAllCommentByPostId(  
+    this.home_service.getAllCommentByPostId(
       this.post_id
     ).subscribe(
       (data) => {
@@ -101,12 +104,25 @@ export class HomePostsDetailComponent implements OnInit {
   isRequired(fieldName): boolean {
     return this.createCommentForm.controls[fieldName].errors.required;
   }
+  getUserByPostId() {
+    var d = {
+      'post_id': this.dataDetailPost.post_id
+    }
+    this.home_service.getUserByPostId(d).subscribe(
+      (data) => {
+        this.user_id_create = data[0]['user_id']
+
+      }
+    )
+
+  }
   createConment() {
 
     var body = {
       'content': this.createCommentForm.value.content,
       'user_id': this.user.user_id,
-      'post_id': this.dataDetailPost.post_id
+      'post_id': this.dataDetailPost.post_id,
+      'user_id_create': this.user_id_create
     }
 
     this.home_service.createComment(
