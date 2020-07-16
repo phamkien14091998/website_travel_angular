@@ -108,6 +108,9 @@ export class MemberScheduleService {
     public cancelInvitation(data: any): Observable<any> {
         return this.http.post(`/api/schedule/cancelInvitation`, data);
     }
-
+    // lấy tất cả các lịch trình đã đi rồi 
+    public getListScheduleByUserBefore(user_id: any): Observable<any> {
+        return this.http.post(`/api/schedule/list-before`, user_id);
+    }
 
 }

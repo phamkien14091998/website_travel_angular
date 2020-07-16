@@ -71,7 +71,10 @@ export class PaymentComponent implements OnInit {
   }
 
   getAllProductForPayment() {
-    this.paymentService.getAllProductForPayment(
+    var data = {
+      'user_id': this.user?.user_id
+    }
+    this.paymentService.getAllProductForPayment(data
     ).subscribe(
       (data) => {
         this.dataPaymentCash = data
@@ -81,7 +84,11 @@ export class PaymentComponent implements OnInit {
   }
 
   getTotalCart() {
-    this.paymentService.getTotalCart(
+    var data = {
+      'user_id': this.user?.user_id
+    }
+
+    this.paymentService.getTotalCart(data
     ).subscribe(
       (data) => {
         this.dataTotal = data;

@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { environment } from "../../../environments/environment";
 
-
 @Component({
   selector: 'app-product-header',
   templateUrl: './product-header.component.html',
@@ -14,14 +13,20 @@ export class ProductHeaderComponent implements OnInit {
   searchProductForm: FormGroup;
   dataSearch: any = []
 
+  count
+
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+
   ) { }
 
   ngOnInit(): void {
+
     this.initForm()
+    this.count = localStorage.getItem('count')
 
   }
   initForm() {
@@ -45,6 +50,7 @@ export class ProductHeaderComponent implements OnInit {
       }, err => { console.log(err) }
     );
   }
+
 
 
 

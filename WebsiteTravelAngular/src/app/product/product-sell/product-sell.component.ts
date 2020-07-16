@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../shared/product.service";
 import { environment } from "../../../environments/environment";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AuthenticationService } from '../../authentication.service';
 
 @Component({
   selector: 'app-product-sell',
@@ -40,17 +41,21 @@ export class ProductSellComponent implements OnInit {
   dataProductPage3Array_2: any = [];
   dataProductPage4Array_2: any = [];
 
+  user: any = '';
+
   constructor(
     private productService: ProductService,
     private fb: FormBuilder,
+    public auth: AuthenticationService,
   ) { }
 
   ngOnInit(): void {
+    this.auth.user$.subscribe(user => this.user = user)
     this.initForm();
     this.getListProductNew();
     this.getListProductRevenue();
     this.getProductPortfolio();
-
+    this.getCountGioHang();
 
   }
   initForm() {
@@ -145,6 +150,24 @@ export class ProductSellComponent implements OnInit {
           return p;
         })
         // console.log(this.dataSearch);
+      }, err => { console.log(err) }
+    );
+  }
+
+  getCountGioHang() {
+    var data = {
+      'user_id': this.user?.user_id
+    }
+    this.productService.getCountGioHang(
+      data
+
+    ).subscribe(
+      (data) => {
+
+        localStorage.setItem('count', data[0].count)
+        console.log(localStorage.getItem('count'));
+
+
       }, err => { console.log(err) }
     );
   }

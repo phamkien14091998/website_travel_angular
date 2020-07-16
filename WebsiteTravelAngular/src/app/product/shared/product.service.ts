@@ -49,6 +49,10 @@ export class ProductService {
         return this.http.get('/api/cart/add/' + product_id);
     }
 
+    // get soo lương san pham gio hang
+    public getCountGioHang(data: any): Observable<any> {
+        return this.http.post('/api/cart/getCount', data);
+    }
 
 
 

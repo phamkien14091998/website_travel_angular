@@ -10,16 +10,16 @@ export class CartService {
     }
 
     // lấy danh sách sản phẩm
-    public getAllProductForCart(): Observable<any> {
-        return this.http.get(`/api/cart/get-all`);
+    public getAllProductForCart(data: any): Observable<any> {
+        return this.http.post(`/api/cart/get-all/`, data);
     }
 
     public deleteProductCart(product_id: any): Observable<any> {
         return this.http.get(`/api/cart/delete/` + product_id);
     }
 
-    public getTotalCart(): Observable<any> {
-        return this.http.get(`/api/cart/total-money`);
+    public getTotalCart(data: any): Observable<any> {
+        return this.http.post(`/api/cart/total-money`, data);
     }
 
     public tangSoLuongSP(product_id: any): Observable<any> {

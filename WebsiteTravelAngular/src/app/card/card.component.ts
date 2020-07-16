@@ -27,18 +27,22 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.auth.user$.subscribe(user => this.user = user)
     this.route.params.subscribe(
       (params) => {
         this.getAllProductForCart();
         this.getTotalCart();
         //this.deleteProductCart(params['product_id']);
       })
-    this.auth.user$.subscribe(user => this.user = user)
     // this.getSoLuongTonKho();
   }
 
   getAllProductForCart() {
-    this.cartService.getAllProductForCart(
+    var data = {
+      'user_id': this.user?.user_id
+    }
+
+    this.cartService.getAllProductForCart(data
     ).subscribe(
       (data) => {
         if (data != null) {
@@ -67,7 +71,10 @@ export class CardComponent implements OnInit {
   }
 
   getTotalCart() {
-    this.cartService.getTotalCart(
+    var data = {
+      'user_id': this.user?.user_id
+    }
+    this.cartService.getTotalCart(data
     ).subscribe(
       (data) => {
         this.dataTotal = data;

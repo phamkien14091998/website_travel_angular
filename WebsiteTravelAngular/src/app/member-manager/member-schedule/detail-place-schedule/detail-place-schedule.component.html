@@ -8,7 +8,7 @@
         <div id="middle">
           <div id="text">{{u.user_name}}</div>
           <br>
-          <button (click)="cancelInvitation(u.user_id)" id="text" class=" btn" style="width: 72px;
+          <button *ngIf="user.user_id == u.user_id" (click)="cancelInvitation(u.user_id)" id="text" class=" btn" style="width: 72px;
             border: 1px solid black;
             max-width: 75px;
             padding-right: 0px;

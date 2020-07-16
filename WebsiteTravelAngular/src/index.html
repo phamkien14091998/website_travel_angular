@@ -103,8 +103,10 @@
       });
       $.ajax({
         url: 'http://127.0.0.1:8000/api/cart/get-all/',
-        type: 'GET',
-        data: {},
+        type: 'POST',
+        data: {
+          user_id: $('#user_id').val()
+        },
         error: function () { },
         success: function (data) {
           var a = data.length;
@@ -191,10 +193,14 @@
     $("body").on("click", ".add-to-cart", function () {
       $.ajax({
         url: 'http://127.0.0.1:8000/api/cart/get-all/',
-        type: 'GET',
-        data: {},
+        type: 'POST',
+        data: {
+          user_id: $('#user_id').val()
+        },
         error: function () { },
         success: function (data) {
+          console.log(data);
+
           var a = data.length;
           $('.shop-cart-total').find('span').html(a);
         }
@@ -204,8 +210,10 @@
     $("body").on("click", ".navbar-cart", function () {
       $.ajax({
         url: 'http://127.0.0.1:8000/api/cart/get-all/',
-        type: 'GET',
-        data: {},
+        type: 'POST',
+        data: {
+          user_id: $('#user_id').val()
+        },
         error: function () { },
         success: function (data) {
           var a = data.length;
@@ -217,8 +225,10 @@
     $("body").on("click", ".btn-continue-shopping", function () {
       $.ajax({
         url: 'http://127.0.0.1:8000/api/cart/get-all/',
-        type: 'GET',
-        data: {},
+        type: 'POST',
+        data: {
+          user_id: $('#user_id').val()
+        },
         error: function () { },
         success: function (data) {
           var a = data.length;

@@ -26,7 +26,8 @@ export class ProductComponent implements OnInit {
 
   callFunctionPayment() {
     const data = {
-      'email': this.user?.email
+      'email': this.user?.email,
+      'user_id': this.user?.user_id
     };
 
     this.productService.callFunctionPayment(data).subscribe(

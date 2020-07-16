@@ -74,10 +74,10 @@ export class ListMemberPostComponent implements OnInit {
       () => {
         this.dataListPost.splice(this.postDeleteIndex, 1);
         this.postDeleteIndex = undefined;
-        this.toastr.success('thành công', 'Xóa sản phẩm');
+        this.toastr.success('thành công', 'Xóa bài viết');
 
       }, () => {
-        this.toastr.error('thất bại', 'Xóa sản phẩm');
+        this.toastr.error('thất bại', 'Xóa bài viết');
       }
     )
   }

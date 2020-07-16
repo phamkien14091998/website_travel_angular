@@ -34,6 +34,7 @@ import { UpdateScheduleDetailComponent } from './member-schedule/update-schedule
 import { UpdateCollectionComponent } from './member-collection/update-collection/update-collection.component';
 import { MemberOrderComponent } from './member-order/member-order.component';
 import { ListInviteScheduleComponent } from "./member-schedule/list-invite-schedule/list-invite-schedule.component";
+import { ListScheduleBeforeComponent } from './member-schedule/list-schedule-before/list-schedule-before.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,9 @@ const routes: Routes = [
             },
             {
                 path: 'schedule/list/invate', component: ListInviteScheduleComponent
+            },
+            {
+                path: 'schedule/list/before', component: ListScheduleBeforeComponent
             },
             {
                 //path: 'info/update', component: UpdateMemberInfoComponent
@@ -125,7 +129,8 @@ const routes: Routes = [
         UpdateScheduleDetailComponent,
         UpdateCollectionComponent,
         MemberOrderComponent,
-        ListInviteScheduleComponent
+        ListInviteScheduleComponent,
+        ListScheduleBeforeComponent
 
     ],
     imports: [

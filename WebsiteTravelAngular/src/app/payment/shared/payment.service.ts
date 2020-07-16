@@ -15,13 +15,13 @@ export class PaymentService {
   }
 
   // lấy ra all sản phẩm cho trang payment
-  public getAllProductForPayment(): Observable<any> {
-    return this.http.get(`/api/cart/get-all`);
+  public getAllProductForPayment(data: any): Observable<any> {
+    return this.http.post(`/api/cart/get-all`, data);
   }
 
   //get tổng tiền cho trnag payment
-  public getTotalCart(): Observable<any> {
-    return this.http.get(`/api/cart/total-money`);
+  public getTotalCart(data: any): Observable<any> {
+    return this.http.post(`/api/cart/total-money`, data);
   }
 
   //thanh toán

@@ -1,0 +1,30 @@
+#schedule {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#body {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    /* border: 1px solid; */
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 900px;
+    overflow: auto;
+}
+
+.hover1:hover {
+    background-color: #ffff;
+    color: #43ac49;
+    font-size: 20px;
+}
+
+.hover2:hover {
+    background-color: #ffff;
+    color: #43ac49;
+    font-size: 20px;
+}
